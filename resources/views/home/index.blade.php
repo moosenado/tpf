@@ -12,7 +12,7 @@
 
 	<div class="row">
 
-		<body class="park-list">
+		<nav class="park-list">
 
 			<ul>
 				<li><p>All Parks</p></li>
@@ -54,7 +54,7 @@
 				<li><p>Washroom</p></li>
 			</ul>
 
-		</body>
+		</nav>
 
 	</div>
 
