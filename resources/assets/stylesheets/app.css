@@ -8801,7 +8801,7 @@ body {
 .park-list ul li {
   margin: 5px 0 5px 0;
   padding: 40px 40px 20px 40px;
-  border: 1px solid black;
+  border: 1px solid grey;
 }
 /* line 30, ../sass/app.scss */
 .park-list ul li p {
