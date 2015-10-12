@@ -8785,3 +8785,13 @@ button.close {
   margin: 0;
   padding: 0;
 }
+/* line 16, ../sass/app.scss */
+.park-list ul li {
+  margin: 5px 0 5px 0;
+  padding: 40px 40px 20px 40px;
+  border: 1px solid black;
+}
+/* line 20, ../sass/app.scss */
+.park-list ul li p {
+  margin-left: 0;
+}
