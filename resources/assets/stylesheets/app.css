@@ -8770,28 +8770,40 @@ button.close {
   }
 }
 /* line 3, ../sass/app.scss */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 0 0 1px rgba(128, 128, 128, 0.01);
+}
+
+/* line 9, ../sass/app.scss */
+body {
+  font-family: 'Archivo Narrow', serif;
+}
+
+/* line 13, ../sass/app.scss */
 .center {
   margin: 0 auto;
 }
 
-/* line 7, ../sass/app.scss */
+/* line 17, ../sass/app.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 12, ../sass/app.scss */
+/* line 22, ../sass/app.scss */
 .park-list ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 16, ../sass/app.scss */
+/* line 26, ../sass/app.scss */
 .park-list ul li {
   margin: 5px 0 5px 0;
   padding: 40px 40px 20px 40px;
   border: 1px solid black;
 }
-/* line 20, ../sass/app.scss */
+/* line 30, ../sass/app.scss */
 .park-list ul li p {
   margin-left: 0;
 }
