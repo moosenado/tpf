@@ -1,5 +1,17 @@
 @import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-h1 {
-  background-color: green;
+.center {
+	margin: 0 auto;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.park-list {
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
 }
