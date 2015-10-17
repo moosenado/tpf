@@ -66,9 +66,9 @@ body {
 
 .li-bg {
 	@include transitionStyle( all, .2s, ease-in-out );
-	opacity: 1;
+	opacity: .9;
 	&:hover {
-		opacity: .9;
+		opacity: 1;
 		cursor : pointer;
 	}
 }
