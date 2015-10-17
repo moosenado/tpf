@@ -7,7 +7,7 @@ use DB;
 
 class FacilityClass extends Model
 {
-    public static function get_facilities($facility, $yourlocation){
+    public static function getFacilities($facility, $yourlocation){
     	// $yourlocation will be an array with [0] being lat and [1] being lng
 
     	$facilities = DB::table('parksdata')->where('facility', $facility)->get();
@@ -34,6 +34,16 @@ class FacilityClass extends Model
 
 		return $facilities;
 
+    }
+
+    public static function getFacilityNames()
+    {
+    	$facility_names = DB::table('parksdata')
+    						->select('facility')
+    						->distinct()
+    						->get();
+
+    	return $facility_names;
     }
 
     // Next steps for final view. think it can all be done in js, but not sure... may need another method here.
