@@ -5,7 +5,7 @@
 	<div class="row">
 
 		<header>
-			<h1 class="text-center">Toronto Park Locator</h1>
+			<h1 class="text-center"> Toronto Park Locator </h1>
 		</header>
 
 	</div>
@@ -15,7 +15,10 @@
 		<nav class="park-nav">
 
 			<ul id="park-list">
-				<li id="park-0" class="li-bg" data-parkval="allparks"> <p> All Parks </p> </li>
+				<li id="park-0" class="li-bg" data-parkval="allparks"> <p> Find All Parks Near Me </p> </li>
+
+				<h2 class="text-center"> Custom Park Search </h2>
+				<h3 class="text-center"> Choose from the list of facilities below </h3> 
 
 				<?php
 

@@ -8799,10 +8799,33 @@ body {
 }
 /* line 26, ../sass/app.scss */
 .park-nav ul li {
+  position: relative;
+  height: 120px;
+  width: auto;
   margin: 5px 0 5px 0;
-  padding: 40px 40px 20px 40px;
 }
-/* line 29, ../sass/app.scss */
+/* line 31, ../sass/app.scss */
 .park-nav ul li p {
-  margin-left: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+}
+
+/* line 44, ../sass/app.scss */
+.li-bg {
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  opacity: 1;
+}
+/* line 51, ../sass/app.scss */
+.li-bg:hover {
+  opacity: .9;
+  cursor: pointer;
 }
