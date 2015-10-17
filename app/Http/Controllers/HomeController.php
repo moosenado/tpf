@@ -13,8 +13,8 @@ class HomeController extends Controller
 
     	$FacilityClass = new FacilityClass();
     	$facility_names = $FacilityClass->getFacilityNames();
-    	
-    	return view('home.index')
-    			->with('facility_names', $facility_names);
+
+    	return view( 'home.index' )
+				->with( 'facility_names', $facility_names );
     }
 }

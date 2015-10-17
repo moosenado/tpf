@@ -8792,18 +8792,17 @@ body {
 }
 
 /* line 22, ../sass/app.scss */
-.park-list ul {
+.park-nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 /* line 26, ../sass/app.scss */
-.park-list ul li {
+.park-nav ul li {
   margin: 5px 0 5px 0;
   padding: 40px 40px 20px 40px;
-  border: 1px solid grey;
 }
-/* line 30, ../sass/app.scss */
-.park-list ul li p {
+/* line 29, ../sass/app.scss */
+.park-nav ul li p {
   margin-left: 0;
 }
