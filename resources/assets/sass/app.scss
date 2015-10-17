@@ -58,7 +58,7 @@ body {
 				font-style        : normal;
 			}
 			&:hover {
-				@include translateStyle( 0px, -5px );
+				@include translateStyle( 0px, -2px );
 			}
 		}
 	}

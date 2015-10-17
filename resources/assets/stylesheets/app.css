@@ -8824,11 +8824,11 @@ body {
 }
 /* line 60, ../sass/app.scss */
 .park-nav ul li:hover {
-  -webkit-transform: translate(0px, -5px);
-  -moz-transform: translate(0px, -5px);
-  -ms-transform: translate(0px, -5px);
-  -o-transform: translate(0px, -5px);
-  transform: translate(0px, -5px);
+  -webkit-transform: translate(0px, -2px);
+  -moz-transform: translate(0px, -2px);
+  -ms-transform: translate(0px, -2px);
+  -o-transform: translate(0px, -2px);
+  transform: translate(0px, -2px);
 }
 
 /* line 67, ../sass/app.scss */
