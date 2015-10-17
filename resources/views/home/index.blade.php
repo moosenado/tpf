@@ -18,7 +18,7 @@
 				<li id="park-0" class="li-bg" data-parkval="allparks"> <p> Find All Parks Near Me </p> </li>
 
 				<h2 class="text-center"> Custom Park Search </h2>
-				<h3 class="text-center"> Choose from the list of facilities below </h3> 
+				<h3 class="text-center"> Choose from the list of facilities below </h3>
 
 				<?php
 
@@ -30,7 +30,9 @@
 
 					$park_val = preg_replace( '/[^a-z]/', "", strtolower( $park->facility ) ); ?>
 
-					<li id="park-<?php echo $counter++ ?>" class="li-bg" data-parkval="<?php echo $park_val ?>"> <p> <?php echo $park->facility ?> </p> </li>
+					<li id="park-<?php echo $counter++ ?>" class="li-bg" data-parkval="<?php echo $park_val ?>">
+						<p> <?php echo $park->facility ?> </p>
+					</li>
 
 				<?php endforeach; ?>
 			</ul>
