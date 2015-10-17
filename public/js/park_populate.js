@@ -8,8 +8,8 @@ $( document ).ready( function()
     	var park_name = park_li[ i ].getAttribute( 'data-parkval' );
 
     	$( '#' + park_id ).css( {
-			'background'         : 'url(../public/images/' + park_name + '.jpg) no-repeat left center',
-			'background-size'    : '100%',
+			'background'     : 'url(../public/images/' + park_name + '.jpg) no-repeat left center',
+			'background-size': '100%'
     	} );
     }
 });
