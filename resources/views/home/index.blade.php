@@ -15,9 +15,11 @@
 		<nav class="park-list">
 
 			<ul id="park-list">
-				<li data-parkval="allparks"> <p> All Parks </p> </li>
+				<li id="park-0" data-parkval="allparks"> <p> All Parks </p> </li>
 
 				<?php
+
+				$counter = 1;
 
 				asort( $facility_names );
 
@@ -25,7 +27,7 @@
 
 					$park_val = preg_replace( '/[^a-z]/', "", strtolower( $park->facility ) ); ?>
 
-					<li data-parkval="<?php echo $park_val ?>"> <p> <?php echo $park->facility ?> </p> </li>
+					<li id="park-<?php echo $counter++ ?>" data-parkval="<?php echo $park_val ?>"> <p> <?php echo $park->facility ?> </p> </li>
 
 				<?php endforeach; ?>
 			</ul>
