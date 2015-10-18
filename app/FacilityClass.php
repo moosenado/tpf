@@ -47,13 +47,14 @@ class FacilityClass extends Model
     						->distinct()
     						->get();
 
-    	for($i=0; $i<count($facility_names); $i++){
+    	for($i=0; $i<count($facility_names); $i++)
+    	{
     		$facility_names[$i]->park_id = ($i + 1);
     		$facility_names[$i]->park_val = preg_replace( '/[^a-z]/', "", strtolower( $facility_names[$i]->facility ));
     	}
 
+    	asort( $facility_names );
+
     	return $facility_names;
-
-
     }
 }
