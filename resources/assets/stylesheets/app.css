@@ -8830,7 +8830,7 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ffffff', GradientType=1 );
 }
 /* line 67, ../sass/app.scss */
-.park-nav ul li:hover {
+.park-nav ul li:active {
   -webkit-transform: translate(0px, -2px);
   -moz-transform: translate(0px, -2px);
   -ms-transform: translate(0px, -2px);
@@ -8849,6 +8849,9 @@ body {
 }
 /* line 77, ../sass/app.scss */
 .li-bg:hover {
-  opacity: 1;
   cursor: pointer;
+}
+/* line 80, ../sass/app.scss */
+.li-bg:active {
+  opacity: 1;
 }

@@ -64,7 +64,7 @@ body {
 				background: linear-gradient(to right, rgba(0,0,0,0.8) 41%, rgba(0,0,0,0.34) 75%, rgba(255,255,255,0) 100%);
 				filter    : progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ffffff', GradientType=1 );
 			}
-			&:hover {
+			&:active {
 				@include translateStyle( 0px, -2px );
 			}
 		}
@@ -75,7 +75,9 @@ body {
 	@include transitionStyle( all, .2s, ease-in-out );
 	opacity: .9;
 	&:hover {
-		opacity: 1;
 		cursor : pointer;
+	}
+	&:active {
+		opacity: 1;
 	}
 }

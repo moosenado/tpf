@@ -30,7 +30,7 @@
 
 					$park_val = preg_replace( '/[^a-z]/', "", strtolower( $park->facility ) ); ?>
 
-					<li id="park-<?php echo $counter++ ?>" class="li-bg" data-parkval="<?php echo $park_val ?>">
+					<li id="park-<?php echo $counter++ ?>" class="li-bg" data-parkval="<?php echo $park_val ?>" data-parkvaloffish="<?php echo $park->facility ?>" data-selected="0">
 						<p> <?php echo $park->facility ?> </p>
 					</li>
 
