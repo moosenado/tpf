@@ -47,8 +47,13 @@ class FacilityClass extends Model
     						->distinct()
     						->get();
 
-    	return $facility_names;
-    }
+    	for($i=0; $i<count($facility_names); $i++){
+    		$facility_names[$i]->park_id = ($i + 1);
+    		$facility_names[$i]->park_val = preg_replace( '/[^a-z]/', "", strtolower( $facility_names[$i]->facility ));
+    	}
 
-    // Next steps for final view. think it can all be done in js, but not sure... may need another method here.
+    	return $facility_names;
+
+
+    }
 }

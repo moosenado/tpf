@@ -20,21 +20,16 @@
 				<h2 class="text-center"> Custom Park Search </h2>
 				<h3 class="text-center"> Choose from the list of facilities below </h3>
 
-				<?php
 
-				$counter = 1;
+				@foreach($facilities as $park)
 
-				asort( $facility_names );
 
-				foreach ( $facility_names as $park ):
-
-					$park_val = preg_replace( '/[^a-z]/', "", strtolower( $park->facility ) ); ?>
-
-					<li id="park-<?php echo $counter++ ?>" class="li-bg" data-parkval="<?php echo $park_val ?>" data-parkvaloffish="<?php echo $park->facility ?>" data-selected="0">
-						<p> <?php echo $park->facility ?> </p>
+					<li id="{{ $park->park_id }}" class="li-bg" data-parkval="{{ $park->$park_val }}" data-parkvaloffish="{{ $park->facility }}" data-selected="0">
+						<p> {{ $park->facility }}</p>
 					</li>
+				
 
-				<?php endforeach; ?>
+				@endforeach
 			</ul>
 
 		</nav>

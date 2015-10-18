@@ -10,9 +10,9 @@ use App\FacilityClass;
 class HomeController extends Controller
 {
     public function index(){
-    	$facility_names = FacilityClass::getFacilityNames(); 
+    	$facilities = FacilityClass::getFacilityNames(); 
 
     	return view( 'home.index' )
-				->with( 'facility_names', $facility_names );
+				->with( 'facilities', $facilities );
     }
 }
