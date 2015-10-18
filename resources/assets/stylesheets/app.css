@@ -8894,3 +8894,98 @@ body {
   width: 40px;
   height: 40px;
 }
+
+/* line 121, ../sass/app.scss */
+.zoom-check {
+  -webkit-animation: zoomAni .5s forwards;
+  -moz-animation: zoomAni .5s forwards;
+  -ms-animation: zoomAni .5s forwards;
+  -o-animation: zoomAni .5s forwards;
+  animation: zoomAni .5s forwards;
+}
+
+@-webkit-keyframes zoomAni {
+  0% {
+    -webkit-transform: scale(0, 0) rotate(0deg);
+    transform: scale(0, 0) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: scale(1, 1) rotate(360deg);
+    transform: scale(1, 1) rotate(360deg);
+  }
+}
+@keyframes zoomAni {
+  0% {
+    transform: scale(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: scale(1, 1) rotate(360deg);
+  }
+}
+@-moz-keyframes zoomAni {
+  0% {
+    -moz-transform: scale(0, 0) rotate(0deg);
+    transform: scale(0, 0) rotate(0deg);
+  }
+  100% {
+    -moz-transform: scale(1, 1) rotate(360deg);
+    transform: scale(1, 1) rotate(360deg);
+  }
+}
+@-o-keyframes zoomAni {
+  0% {
+    -o-transform: scale(0, 0) rotate(0deg);
+    transform: scale(0, 0) rotate(0deg);
+  }
+  100% {
+    -o-transform: scale(1, 1) rotate(360deg);
+    transform: scale(1, 1) rotate(360deg);
+  }
+}
+/* line 171, ../sass/app.scss */
+.slide-center {
+  -webkit-animation: slideAni .5s forwards;
+  -moz-animation: slideAni .5s forwards;
+  -ms-animation: slideAni .5s forwards;
+  -o-animation: slideAni .5s forwards;
+  animation: slideAni .5s forwards;
+}
+
+@-webkit-keyframes slideAni {
+  0% {
+    -webkit-transform: translate(-5px, 0px);
+    transform: translate(-5px, 0px);
+  }
+  100% {
+    -webkit-transform: translate(-5px, 0px);
+    transform: translate(-5px, 0px);
+  }
+}
+@keyframes slideAni {
+  0% {
+    transform: translate(-5px, 0px);
+  }
+  100% {
+    transform: translate(-5px, 0px);
+  }
+}
+@-moz-keyframes slideAni {
+  0% {
+    -moz-transform: translate(-5px, 0px);
+    transform: translate(-5px, 0px);
+  }
+  100% {
+    -moz-transform: translate(-5px, 0px);
+    transform: translate(-5px, 0px);
+  }
+}
+@-o-keyframes slideAni {
+  0% {
+    -o-transform: translate(-5px, 0px);
+    transform: translate(-5px, 0px);
+  }
+  100% {
+    -o-transform: translate(-5px, 0px);
+    transform: translate(-5px, 0px);
+  }
+}

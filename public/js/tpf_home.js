@@ -44,24 +44,26 @@ $( document ).ready( function ()
 			if ( selected_attr == 0 )
 			{
 				$( '#' + clicked_id ).css( {
-					'background-size': '101%',
-					'opacity'        : '.5'
+					'opacity': '.5'
 		    	} ).attr( "data-selected", 1 );
 
 		    	$( '#' + clicked_id + ' > .svg-check' ).css( {
 					'display': 'block'
-		    	} );
+		    	} ).addClass( 'zoom-check' );
+
+		    	$( '#' + clicked_id + ' > p' ).addClass( 'slide-center' );
 		    }
 		    else
 		    {
 		    	$( '#' + clicked_id ).css( {
-					'background-size': '100%',
-					'opacity'        : '.9'
+					'opacity': '.9'
 		    	} ).attr( "data-selected", 0 );
 
 		    	$( '#' + clicked_id + ' > .svg-check' ).css( {
 					'display': 'none'
-		    	} );
+		    	} ).removeClass( 'zoom-check' );
+
+		    	$( '#' + clicked_id + ' > p' ).removeClass( 'slide-center' );
 		    }
 
 		};
