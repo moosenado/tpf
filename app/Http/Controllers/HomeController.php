@@ -9,7 +9,8 @@ use App\FacilityClass;
 
 class HomeController extends Controller
 {
-    public function index(){
+    public function index() {
+    	
     	$facility_names = FacilityClass::getFacilityNames(); 
 
     	return view( 'home.index' )
