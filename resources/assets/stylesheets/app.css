@@ -8777,39 +8777,61 @@ html {
 }
 
 /* line 9, ../sass/app.scss */
+*::selection {
+  background-color: transparent;
+}
+
+/* line 13, ../sass/app.scss */
+*::-moz-selection {
+  background-color: transparent;
+}
+
+/* line 17, ../sass/app.scss */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* line 25, ../sass/app.scss */
+input[type="text"], textarea, [contenteditable] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* line 32, ../sass/app.scss */
 body {
   font-family: 'Archivo Narrow', serif;
 }
 
-/* line 29, ../sass/app.scss */
+/* line 52, ../sass/app.scss */
 .center {
   margin: 0 auto;
 }
 
-/* line 33, ../sass/app.scss */
+/* line 56, ../sass/app.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 38, ../sass/app.scss */
+/* line 61, ../sass/app.scss */
 .park-nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 42, ../sass/app.scss */
+/* line 65, ../sass/app.scss */
 .park-nav ul li {
   position: relative;
   height: 150px;
   width: auto;
   margin: 5px 0 5px 0;
-  -webkit-transition: all 0.2s ease-out;
-  -moz-transition: all 0.2s ease-out;
-  -ms-transition: all 0.2s ease-out;
-  -o-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
 }
-/* line 48, ../sass/app.scss */
+/* line 70, ../sass/app.scss */
 .park-nav ul li p {
   position: absolute;
   bottom: 0;
@@ -8828,17 +8850,22 @@ body {
   background: -ms-linear-gradient(left, rgba(0, 0, 0, 0.8) 41%, rgba(0, 0, 0, 0.34) 75%, rgba(255, 255, 255, 0) 100%);
   background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 41%, rgba(0, 0, 0, 0.34) 75%, rgba(255, 255, 255, 0) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ffffff', GradientType=1 );
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
-/* line 67, ../sass/app.scss */
-.park-nav ul li:active {
-  -webkit-transform: translate(0px, -2px);
-  -moz-transform: translate(0px, -2px);
-  -ms-transform: translate(0px, -2px);
-  -o-transform: translate(0px, -2px);
-  transform: translate(0px, -2px);
+/* line 91, ../sass/app.scss */
+.park-nav ul li:hover p {
+  -webkit-transform: translate(-5px, 0px);
+  -moz-transform: translate(-5px, 0px);
+  -ms-transform: translate(-5px, 0px);
+  -o-transform: translate(-5px, 0px);
+  transform: translate(-5px, 0px);
 }
 
-/* line 74, ../sass/app.scss */
+/* line 99, ../sass/app.scss */
 .li-bg {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -8847,11 +8874,23 @@ body {
   transition: all 0.2s ease-in-out;
   opacity: .9;
 }
-/* line 77, ../sass/app.scss */
+/* line 102, ../sass/app.scss */
 .li-bg:hover {
   cursor: pointer;
 }
-/* line 80, ../sass/app.scss */
+/* line 105, ../sass/app.scss */
 .li-bg:active {
   opacity: 1;
+}
+
+/* line 110, ../sass/app.scss */
+.svg-check {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -20px;
+  margin-top: -20px;
+  width: 40px;
+  height: 40px;
 }

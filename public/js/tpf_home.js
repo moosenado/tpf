@@ -44,9 +44,13 @@ $( document ).ready( function ()
 			if ( selected_attr == 0 )
 			{
 				$( '#' + clicked_id ).css( {
-					'background-size': '105%',
+					'background-size': '101%',
 					'opacity'        : '.5'
 		    	} ).attr( "data-selected", 1 );
+
+		    	$( '#' + clicked_id + ' > .svg-check' ).css( {
+					'display': 'block'
+		    	} );
 		    }
 		    else
 		    {
@@ -54,6 +58,10 @@ $( document ).ready( function ()
 					'background-size': '100%',
 					'opacity'        : '.9'
 		    	} ).attr( "data-selected", 0 );
+
+		    	$( '#' + clicked_id + ' > .svg-check' ).css( {
+					'display': 'none'
+		    	} );
 		    }
 
 		};

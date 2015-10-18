@@ -24,8 +24,18 @@
 				@foreach($facilities as $park)
 
 
+<<<<<<< HEAD
 					<li id="{{ $park->park_id }}" class="li-bg" data-parkval="{{ $park->$park_val }}" data-parkvaloffish="{{ $park->facility }}" data-selected="0">
 						<p> {{ $park->facility }}</p>
+=======
+				foreach ( $facility_names as $park ):
+
+					$park_val = preg_replace( '/[^a-z]/', "", strtolower( $park->facility ) ); ?>
+
+					<li id="park-<?php echo $counter++ ?>" class="li-bg" data-parkval="<?php echo $park_val ?>" data-parkvaloffish="<?php echo $park->facility ?>" data-selected="0">
+						<p> <?php echo $park->facility ?> </p>
+						<object class="svg-check" type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/7/71/Ok_sign_font_awesome.svg"></object>
+>>>>>>> 6cb5dbc925203948b0795af923903a41d1d9cd09
 					</li>
 				
 
