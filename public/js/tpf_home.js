@@ -55,6 +55,7 @@ $( document ).ready( function ()
 		    }
 		    else
 		    {
+		    	alert('hi');
 		    	$( '#' + clicked_id ).css( {
 					'opacity': '.9'
 		    	} ).attr( "data-selected", 0 );

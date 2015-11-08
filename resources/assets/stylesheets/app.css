@@ -8831,7 +8831,15 @@ body {
   width: auto;
   margin: 5px 0 5px 0;
 }
-/* line 70, ../sass/app.scss */
+@media (min-width: 768px) {
+  /* line 65, ../sass/app.scss */
+  .park-nav ul li {
+    width: 50%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+}
+/* line 77, ../sass/app.scss */
 .park-nav ul li p {
   position: absolute;
   bottom: 0;
@@ -8856,7 +8864,7 @@ body {
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-/* line 91, ../sass/app.scss */
+/* line 98, ../sass/app.scss */
 .park-nav ul li:hover p {
   -webkit-transform: translate(-5px, 0px);
   -moz-transform: translate(-5px, 0px);
@@ -8865,7 +8873,7 @@ body {
   transform: translate(-5px, 0px);
 }
 
-/* line 99, ../sass/app.scss */
+/* line 106, ../sass/app.scss */
 .li-bg {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -8874,16 +8882,16 @@ body {
   transition: all 0.2s ease-in-out;
   opacity: .9;
 }
-/* line 102, ../sass/app.scss */
+/* line 109, ../sass/app.scss */
 .li-bg:hover {
   cursor: pointer;
 }
-/* line 105, ../sass/app.scss */
+/* line 112, ../sass/app.scss */
 .li-bg:active {
   opacity: 1;
 }
 
-/* line 110, ../sass/app.scss */
+/* line 117, ../sass/app.scss */
 .svg-check {
   display: none;
   position: absolute;
@@ -8895,7 +8903,7 @@ body {
   height: 40px;
 }
 
-/* line 121, ../sass/app.scss */
+/* line 128, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni .5s forwards;
   -moz-animation: zoomAni .5s forwards;
@@ -8942,7 +8950,7 @@ body {
     transform: scale(1, 1) rotate(360deg);
   }
 }
-/* line 171, ../sass/app.scss */
+/* line 178, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni .5s forwards;
   -moz-animation: slideAni .5s forwards;
