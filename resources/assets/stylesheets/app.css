@@ -8769,24 +8769,24 @@ button.close {
     display: none !important;
   }
 }
-/* line 3, ../sass/app.scss */
+/* line 27, ../sass/app.scss */
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-shadow: 0 0 1px rgba(128, 128, 128, 0.01);
 }
 
-/* line 9, ../sass/app.scss */
+/* line 33, ../sass/app.scss */
 *::selection {
   background-color: transparent;
 }
 
-/* line 13, ../sass/app.scss */
+/* line 37, ../sass/app.scss */
 *::-moz-selection {
   background-color: transparent;
 }
 
-/* line 17, ../sass/app.scss */
+/* line 41, ../sass/app.scss */
 * {
   -webkit-user-select: none;
   -moz-user-select: -moz-none;
@@ -8795,7 +8795,7 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* line 25, ../sass/app.scss */
+/* line 49, ../sass/app.scss */
 input[type="text"], textarea, [contenteditable] {
   -webkit-user-select: text;
   -moz-user-select: text;
@@ -8803,7 +8803,7 @@ input[type="text"], textarea, [contenteditable] {
   user-select: text;
 }
 
-/* line 32, ../sass/app.scss */
+/* line 56, ../sass/app.scss */
 body {
   font-family: 'Archivo Narrow', serif;
 }
@@ -8824,30 +8824,44 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 25px;
-  border: 2px solid #333;
+  border: 1px solid #666;
   background-color: #f7f7f7;
   text-align: center;
-  line-height: 48px;
+  line-height: 50px;
   color: #333;
+  z-index: 1;
+  cursor: pointer;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 8px 36px -9px black;
+  -moz-box-shadow: 0px 8px 36px -9px black;
+  box-shadow: 0px 8px 36px -9px black;
+}
+@media (min-width: 1200px) {
+  /* line 66, ../sass/app.scss */
+  .fire-btn {
+    left: 50%;
+    right: 0;
+    margin-left: -25px;
+  }
 }
 
-/* line 81, ../sass/app.scss */
+/* line 93, ../sass/app.scss */
 .center {
   margin: 0 auto;
 }
 
-/* line 85, ../sass/app.scss */
+/* line 97, ../sass/app.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 90, ../sass/app.scss */
+/* line 102, ../sass/app.scss */
 .park-nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 94, ../sass/app.scss */
+/* line 106, ../sass/app.scss */
 .park-nav ul li {
   position: relative;
   height: 150px;
@@ -8855,14 +8869,14 @@ body {
   margin: 5px 0 5px 0;
 }
 @media (min-width: 768px) {
-  /* line 94, ../sass/app.scss */
+  /* line 106, ../sass/app.scss */
   .park-nav ul li {
     width: 50%;
     margin: 0 auto;
     overflow: hidden;
   }
 }
-/* line 106, ../sass/app.scss */
+/* line 118, ../sass/app.scss */
 .park-nav ul li p {
   position: absolute;
   bottom: 0;
@@ -8887,7 +8901,7 @@ body {
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-/* line 127, ../sass/app.scss */
+/* line 139, ../sass/app.scss */
 .park-nav ul li:hover p {
   -webkit-transform: translate(-5px, 0px);
   -moz-transform: translate(-5px, 0px);
@@ -8896,7 +8910,7 @@ body {
   transform: translate(-5px, 0px);
 }
 
-/* line 135, ../sass/app.scss */
+/* line 147, ../sass/app.scss */
 .li-bg {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -8905,16 +8919,16 @@ body {
   transition: all 0.2s ease-in-out;
   opacity: .9;
 }
-/* line 138, ../sass/app.scss */
+/* line 150, ../sass/app.scss */
 .li-bg:hover {
   cursor: pointer;
 }
-/* line 141, ../sass/app.scss */
+/* line 153, ../sass/app.scss */
 .li-bg:active {
   opacity: 1;
 }
 
-/* line 146, ../sass/app.scss */
+/* line 158, ../sass/app.scss */
 .svg-check {
   display: none;
   position: absolute;
@@ -8926,7 +8940,7 @@ body {
   height: 40px;
 }
 
-/* line 157, ../sass/app.scss */
+/* line 169, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.5s forwards;
   -moz-animation: zoomAni 0.5s forwards;
@@ -8935,7 +8949,7 @@ body {
   animation: zoomAni 0.5s forwards;
 }
 
-/* line 161, ../sass/app.scss */
+/* line 173, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9020,7 +9034,7 @@ body {
     transform: scale(0, 0) rotate(360deg);
   }
 }
-/* line 249, ../sass/app.scss */
+/* line 261, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni .5s forwards;
   -moz-animation: slideAni .5s forwards;

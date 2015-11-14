@@ -1,5 +1,29 @@
 @import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+@mixin transitionStyle( $type, $time, $style ) {
+	-webkit-transition: $type $time $style;
+	-moz-transition   : $type $time $style;
+	-ms-transition    : $type $time $style;
+	-o-transition     : $type $time $style;
+	transition        : $type $time $style;
+}
+
+@mixin translateStyle( $x, $y ) {
+	-webkit-transform : translate( $x, $y );
+	-moz-transform    : translate( $x, $y );
+	-ms-transform     : translate( $x, $y );
+	-o-transform      : translate( $x, $y );
+	transform         : translate( $x, $y );
+}
+
+@mixin zoomAnimation( $ani, $s, $event ) {
+	-webkit-animation: $ani $s $event;
+	-moz-animation   : $ani $s $event;
+	-ms-animation    : $ani $s $event;
+	-o-animation     : $ani $s $event;
+	animation        : $ani $s $event;
+}
+
 html {
 	-webkit-font-smoothing : antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -33,30 +57,6 @@ body {
 	font-family: 'Archivo Narrow', serif;
 }
 
-@mixin transitionStyle( $type, $time, $style ) {
-	-webkit-transition: $type $time $style;
-	-moz-transition   : $type $time $style;
-	-ms-transition    : $type $time $style;
-	-o-transition     : $type $time $style;
-	transition        : $type $time $style;
-}
-
-@mixin translateStyle( $x, $y ) {
-	-webkit-transform : translate( $x, $y );
-	-moz-transform    : translate( $x, $y );
-	-ms-transform     : translate( $x, $y );
-	-o-transform      : translate( $x, $y );
-	transform         : translate( $x, $y );
-}
-
-@mixin zoomAnimation( $ani, $s, $event ) {
-	-webkit-animation: $ani $s $event;
-	-moz-animation   : $ani $s $event;
-	-ms-animation    : $ani $s $event;
-	-o-animation     : $ani $s $event;
-	animation        : $ani $s $event;
-}
-
 #find-all {
 	background         :  url(../../../public/images/allparks.jpg) no-repeat left center;
 	background-size    : 100%;
@@ -64,18 +64,30 @@ body {
 }
 
 .fire-btn {
-	position        : fixed;
-	bottom          : 2%;
-	right           : 2%;
-	display         : none;
-	width           : 50px;
-	height          : 50px;
-	border-radius   : 25px;
-	border          : 2px solid #333;
-	background-color: #f7f7f7;
-	text-align      : center;
-	line-height     : 48px;
-	color           : #333;
+	position          : fixed;
+	bottom            : 2%;
+	right             : 2%;
+	display           : none;
+	width             : 50px;
+	height            : 50px;
+	border-radius     : 25px;
+	border            : 1px solid #666;
+	background-color  : #f7f7f7;
+	text-align        : center;
+	line-height       : 50px;
+	color             : #333;
+	z-index           : 1;
+	cursor            : pointer;
+	font-weight       : bold;
+	-webkit-box-shadow: 0px 8px 36px -9px rgba(0,0,0,1);
+	-moz-box-shadow   : 0px 8px 36px -9px rgba(0,0,0,1);
+	box-shadow        : 0px 8px 36px -9px rgba(0,0,0,1);
+
+	@media ( min-width: $screen-lg ) {
+		left       : 50%;
+		right      : 0;
+		margin-left: -25px;
+	}
 }
 
 .center {
