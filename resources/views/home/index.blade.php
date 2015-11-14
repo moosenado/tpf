@@ -14,14 +14,16 @@
 
 		<nav class="park-nav">
 
-			<ul id="park-list">
-				<li id="park-0" class="li-bg" data-parkval="allparks">
+			<ul id="parks-find">
+				<li id="find-all" class="li-bg">
 					<p> Find All Parks Near Me </p>
-					<object class="svg-check" type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/7/71/Ok_sign_font_awesome.svg" data-selected="0"></object>
 				</li>
+			</ul>
 
-				<h2 class="text-center"> Custom Park Search </h2>
-				<h3 class="text-center"> Choose from the list of facilities below </h3>
+			<h2 class="text-center"> Custom Park Search </h2>
+			<h3 class="text-center"> Choose from the list of facilities below </h3>
+
+			<ul id="park-list">
 
 				@foreach( $facilities as $park )
 
@@ -31,8 +33,9 @@
 					</li>
 
 				@endforeach
-			</ul>
 
+			</ul>
+			
 		</nav>
 
 	</div>

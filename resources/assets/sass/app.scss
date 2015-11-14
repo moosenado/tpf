@@ -49,6 +49,12 @@ body {
 	transform         : translate( $x, $y );
 }
 
+#find-all {
+	background         :  url(../../../public/images/allparks.jpg) no-repeat left center;
+	background-size    : 100%;
+	background-position: center;
+}
+
 .center {
 	margin: 0 auto;
 }

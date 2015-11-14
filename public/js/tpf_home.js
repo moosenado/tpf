@@ -4,12 +4,13 @@ $( document ).ready( function ()
 	{
 		// Private Variables
 
-		var park_li = document.getElementById( 'park-list' ).getElementsByTagName( 'li' );
+		var park_li              = document.getElementById( 'park-list' ).getElementsByTagName( 'li' );
+		var park_selection_array = [];
 
 
 		// Public Methods
 
-		var parkImagePopulate = function ()
+		var parkFacilImagePopulate = function ()
 		{
 		    for ( i = 0; i < park_li.length; i++ )
 		    {
@@ -28,18 +29,23 @@ $( document ).ready( function ()
 		{
 			for ( var i = 0; i < park_li.length; i++ )
 			{
-    			park_li[ i ].addEventListener( 'click', _populateCustomSearch, false );
+    			park_li[ i ].addEventListener( 'click', function () {
+
+    				_setParkSelection( this );
+    				_setSelectionStyles( this );
+    				_displayFireBtn();
+
+    			}, false );
 			}
 		};
 
 
 		// Private Methods
 
-		var _populateCustomSearch = function ()
+		var _setSelectionStyles = function ( park_choice )
 		{
-			var selected_attr = this.getAttribute( 'data-selected' );
-			var clicked_attr  = this.getAttribute( 'data-parkvaloffish' );
-			var clicked_id    = this.id;
+			var selected_attr = park_choice.getAttribute( 'data-selected' );
+			var clicked_id    = park_choice.id;
 
 			if ( selected_attr == 0 )
 			{
@@ -55,7 +61,6 @@ $( document ).ready( function ()
 		    }
 		    else
 		    {
-		    	alert('hi');
 		    	$( '#' + clicked_id ).css( {
 					'opacity': '.9'
 		    	} ).attr( "data-selected", 0 );
@@ -69,14 +74,49 @@ $( document ).ready( function ()
 
 		};
 
+		var _setParkSelection = function ( park_choice )
+		{
+			var clicked_attr = park_choice.getAttribute( 'data-parkvaloffish' );
+
+			park_selection_array.push( clicked_attr );
+		};
+
+		var _displayFireBtn = function ()
+		{
+			var display_btn_counter = 1;
+			var display_button_vis  = false;
+
+			for ( i = 0; i < park_li.length; i++ )
+		    {
+		    	if ( park_li[ i ].getAttribute( 'data-selected' ) == 1 )
+		    	{
+		    		display_button_vis = true;
+		    	}
+
+		    	if ( display_btn_counter == park_li.length )
+			    {
+			    	if ( display_button_vis === false )
+			    	{
+			    		alert('hide button');
+			    	}
+			    	else
+			    	{
+			    		alert('display button');
+			    	}
+			    }
+
+			    display_btn_counter++;
+		    }
+		};
+
 		return {
-			parkImagePopulate   : parkImagePopulate,
-			attachEventListeners: attachEventListeners
+			parkFacilImagePopulate: parkFacilImagePopulate,
+			attachEventListeners  : attachEventListeners
 		}
 
     })();
 
-    TpfHome.parkImagePopulate();
+    TpfHome.parkFacilImagePopulate();
     TpfHome.attachEventListeners();
 
 });
