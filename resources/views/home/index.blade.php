@@ -43,5 +43,6 @@
 </div>
 
 <div id="park-find-btn" class="fire-btn"> GO </div>
+<div class="fire-btn-shadow"></div>
 
 @extends('layouts.footer')

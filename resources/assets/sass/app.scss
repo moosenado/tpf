@@ -79,6 +79,25 @@ body {
 	z-index           : 1;
 	cursor            : pointer;
 	font-weight       : bold;
+
+	@media ( min-width: $screen-lg ) {
+		left       : 50%;
+		right      : 0;
+		margin-left: -25px;
+	}
+}
+
+.fire-btn-shadow {
+	position          : fixed;
+	bottom            : 2%;
+	right             : 2%;
+	display           : none;
+	width             : 50px;
+	height            : 50px;
+	border-radius     : 25px;
+	border            : 1px solid #666;
+	background-color  : #f7f7f7;
+	z-index           : 0;
 	-webkit-box-shadow: 0px 8px 36px -9px rgba(0,0,0,1);
 	-moz-box-shadow   : 0px 8px 36px -9px rgba(0,0,0,1);
 	box-shadow        : 0px 8px 36px -9px rgba(0,0,0,1);
@@ -174,6 +193,14 @@ body {
 	@include zoomAnimation( zoomAniRev, .5s, forwards );
 }
 
+.zoom-check-shadow {
+	@include zoomAnimation( zoomAniRevShadow, .5s, forwards );
+}
+
+.zoom-check-shadow-reverse {
+	@include zoomAnimation( zoomAniRevShadowRev, .5s, forwards );
+}
+
 @-webkit-keyframes zoomAni {
     0% {
 		-webkit-transform: scale( 0, 0 ) rotate( 0deg );
@@ -255,6 +282,90 @@ body {
     100% {
 		-o-transform: scale( 0, 0 ) rotate( 360deg );
 		transform   : scale( 0, 0 ) rotate( 360deg );
+    }
+}
+
+@-webkit-keyframes zoomAniRevShadow {
+    0% {
+		-webkit-transform: scale( 0, 0 );
+		transform        : scale( 0, 0 );
+    }
+    100% {
+		-webkit-transform: scale( 1, 1 );
+		transform        : scale( 1, 1 );
+    }
+}
+
+@keyframes zoomAniRevShadow {
+   0% {
+		transform: scale( 0, 0 );
+    }
+    100% {
+		transform: scale( 1, 1 );
+    }
+}
+
+@-moz-keyframes zoomAniRevShadow {
+    0% {
+		-moz-transform: scale( 0, 0 );
+		transform     : scale( 0, 0 );
+    }
+    100% {
+		-moz-transform: scale( 1, 1 );
+		transform     : scale( 1, 1 );
+    }
+}
+
+@-o-keyframes zoomAniRevShadow {
+    0% {
+		-o-transform: scale( 0, 0 );
+		transform   : scale( 0, 0 );
+    }
+    100% {
+		-o-transform: scale( 1, 1 );
+		transform   : scale( 1, 1 );
+    }
+}
+
+@-webkit-keyframes zoomAniRevShadowRev {
+    0% {
+		-webkit-transform: scale( 1, 1 );
+		transform        : scale( 1, 1 );
+    }
+    100% {
+		-webkit-transform: scale( 0, 0 );
+		transform        : scale( 0, 0 );
+    }
+}
+
+@keyframes zoomAniRevShadowRev {
+   0% {
+		transform: scale( 1, 1 );
+    }
+    100% {
+		transform: scale( 0, 0 );
+    }
+}
+
+@-moz-keyframes zoomAniRevShadowRev {
+    0% {
+		-moz-transform: scale( 1, 1 );
+		transform     : scale( 1, 1 );
+    }
+    100% {
+		-moz-transform: scale( 0, 0 );
+		transform     : scale( 0, 0 );
+    }
+}
+
+@-o-keyframes zoomAniRevShadowRev {
+    0% {
+		-o-transform: scale( 1, 1 );
+		transform   : scale( 1, 1 );
+    }
+    100% {
+		-o-transform: scale( 0, 0 );
+		transform   : scale( 0, 0 );
     }
 }
 

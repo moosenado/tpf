@@ -112,9 +112,13 @@ $( document ).ready( function ()
 			    	{
 			    		global_go_btn = false;
 
+			    		$( '.fire-btn-shadow' ).addClass( 'zoom-check-shadow-reverse' );
 			    		$( '.fire-btn' ).addClass( 'zoom-check-reverse' );
 
 			    		setTimeout( function () {
+			    			$( '.fire-btn-shadow' ).css( { 'display': 'none' } );
+			    			$( '.fire-btn-shadow' ).removeClass( 'zoom-check-shadow-reverse' );
+
 			    			$( '.fire-btn' ).css( { 'display': 'none' } );
 			    			$( '.fire-btn' ).removeClass( 'zoom-check-reverse' );
 			    		}, 500 );
@@ -123,9 +127,13 @@ $( document ).ready( function ()
 			    	{
 			    		global_go_btn = true;
 
+			    		$( '.fire-btn-shadow' ).css( {
+							'display': 'block'
+		    			} ).addClass( 'zoom-check-shadow' );
+
 			    		$( '.fire-btn' ).css( {
 							'display': 'block'
-		    			} ).addClass( 'zoom-check' );;
+		    			} ).addClass( 'zoom-check' );
 			    	}
 			    }
 
