@@ -7,6 +7,7 @@ $( document ).ready( function ()
 		var park_li              = document.getElementById( 'park-list' ).getElementsByTagName( 'li' );
 		var park_li_length		 = park_li.length;
 		var park_selection_array = [];
+		var global_go_btn		 = false;
 
 
 		// Public Methods
@@ -38,6 +39,17 @@ $( document ).ready( function ()
 
     			}, false );
 			}
+		};
+
+		var attachGoClick = function ()
+		{
+			$( '#park-find-btn' ).click( function () {
+				if ( global_go_btn )
+				{
+					// this is where the created array is looped through and duplicates are removed - then the array is sent through ajax to php backend for querying 
+					alert('hi there');
+				}
+			});
 		};
 
 
@@ -98,6 +110,8 @@ $( document ).ready( function ()
 			    {
 			    	if ( display_button_vis === false )
 			    	{
+			    		global_go_btn = false;
+
 			    		$( '.fire-btn' ).addClass( 'zoom-check-reverse' );
 
 			    		setTimeout( function () {
@@ -107,6 +121,8 @@ $( document ).ready( function ()
 			    	}
 			    	else
 			    	{
+			    		global_go_btn = true;
+
 			    		$( '.fire-btn' ).css( {
 							'display': 'block'
 		    			} ).addClass( 'zoom-check' );;
@@ -119,12 +135,14 @@ $( document ).ready( function ()
 
 		return {
 			parkFacilImagePopulate: parkFacilImagePopulate,
-			attachEventListeners  : attachEventListeners
+			attachEventListeners  : attachEventListeners,
+			attachGoClick		  : attachGoClick
 		}
 
     })();
 
     TpfHome.parkFacilImagePopulate();
     TpfHome.attachEventListeners();
+    TpfHome.attachGoClick();
 
 });

@@ -42,6 +42,6 @@
 
 </div>
 
-<div class="fire-btn"> GO </div>
+<div id="park-find-btn" class="fire-btn"> GO </div>
 
 @extends('layouts.footer')
