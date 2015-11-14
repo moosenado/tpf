@@ -35,11 +35,13 @@
 				@endforeach
 
 			</ul>
-			
+
 		</nav>
 
 	</div>
 
 </div>
+
+<div class="fire-btn"> GO </div>
 
 @extends('layouts.footer')

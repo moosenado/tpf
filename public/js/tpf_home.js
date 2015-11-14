@@ -5,6 +5,7 @@ $( document ).ready( function ()
 		// Private Variables
 
 		var park_li              = document.getElementById( 'park-list' ).getElementsByTagName( 'li' );
+		var park_li_length		 = park_li.length;
 		var park_selection_array = [];
 
 
@@ -12,7 +13,7 @@ $( document ).ready( function ()
 
 		var parkFacilImagePopulate = function ()
 		{
-		    for ( i = 0; i < park_li.length; i++ )
+		    for ( i = 0; i < park_li_length; i++ )
 		    {
 		    	var park_id   = park_li[ i ].id;
 		    	var park_name = park_li[ i ].getAttribute( 'data-parkval' );
@@ -27,7 +28,7 @@ $( document ).ready( function ()
 
 		var attachEventListeners = function ()
 		{
-			for ( var i = 0; i < park_li.length; i++ )
+			for ( var i = 0; i < park_li_length; i++ )
 			{
     			park_li[ i ].addEventListener( 'click', function () {
 
@@ -86,22 +87,29 @@ $( document ).ready( function ()
 			var display_btn_counter = 1;
 			var display_button_vis  = false;
 
-			for ( i = 0; i < park_li.length; i++ )
+			for ( i = 0; i < park_li_length; i++ )
 		    {
 		    	if ( park_li[ i ].getAttribute( 'data-selected' ) == 1 )
 		    	{
 		    		display_button_vis = true;
 		    	}
 
-		    	if ( display_btn_counter == park_li.length )
+		    	if ( display_btn_counter == park_li_length )
 			    {
 			    	if ( display_button_vis === false )
 			    	{
-			    		alert('hide button');
+			    		$( '.fire-btn' ).addClass( 'zoom-check-reverse' );
+
+			    		setTimeout( function () {
+			    			$( '.fire-btn' ).css( { 'display': 'none' } );
+			    			$( '.fire-btn' ).removeClass( 'zoom-check-reverse' );
+			    		}, 500 );
 			    	}
 			    	else
 			    	{
-			    		alert('display button');
+			    		$( '.fire-btn' ).css( {
+							'display': 'block'
+		    			} ).addClass( 'zoom-check' );;
 			    	}
 			    }
 
