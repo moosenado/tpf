@@ -33,7 +33,6 @@ $( document ).ready( function ()
 			{
     			park_li[ i ].addEventListener( 'click', function () {
 
-    				_setParkSelection( this );
     				_setSelectionStyles( this );
     				_displayFireBtn();
 
@@ -46,8 +45,7 @@ $( document ).ready( function ()
 			$( '#park-find-btn' ).click( function () {
 				if ( global_go_btn )
 				{
-					// this is where the created array is looped through and duplicates are removed - then the array is sent through ajax to php backend for querying 
-					alert('hi there');
+					_getParkSelection(); // get selected parks and ship off to php for db query
 				}
 			});
 		};
@@ -87,11 +85,19 @@ $( document ).ready( function ()
 
 		};
 
-		var _setParkSelection = function ( park_choice )
+		var _getParkSelection = function ()
 		{
-			var clicked_attr = park_choice.getAttribute( 'data-parkvaloffish' );
+			for ( i = 0; i < park_li_length; i++ )
+		    {
+		    	if ( park_li[ i ].getAttribute( 'data-selected' ) == 1 )
+		    	{
+		    		park_selection_array.push( park_li[ i ].getAttribute( 'data-parkvaloffish' ) );
+		    	}
+		    }
 
-			park_selection_array.push( clicked_attr );
+		    console.log(park_selection_array);
+		    park_selection_array = [];
+
 		};
 
 		var _displayFireBtn = function ()
