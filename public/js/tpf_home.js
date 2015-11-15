@@ -12,7 +12,7 @@ $( document ).ready( function ()
 
 		// Public Methods
 
-		var parkFacilImagePopulate = function ()
+		var populateImages = function ()
 		{
 		    for ( i = 0; i < park_li_length; i++ )
 		    {
@@ -42,7 +42,8 @@ $( document ).ready( function ()
 
 		var attachGoClick = function ()
 		{
-			$( '#park-find-btn' ).click( function () {
+			$( '#park-find-btn' ).click( function ()
+			{
 				if ( global_go_btn )
 				{
 					_getParkSelection(); // get selected parks and ship off to php for db query
@@ -148,14 +149,14 @@ $( document ).ready( function ()
 		};
 
 		return {
-			parkFacilImagePopulate: parkFacilImagePopulate,
-			attachEventListeners  : attachEventListeners,
-			attachGoClick		  : attachGoClick
+			populateImages      : populateImages,
+			attachEventListeners: attachEventListeners,
+			attachGoClick       : attachGoClick
 		}
 
     })();
 
-    TpfHome.parkFacilImagePopulate();
+    TpfHome.populateImages();
     TpfHome.attachEventListeners();
     TpfHome.attachGoClick();
 
