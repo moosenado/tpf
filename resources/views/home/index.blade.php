@@ -42,6 +42,7 @@
 
 </div>
 
+<div id="park-reset-btn" class="reset-btn"> <i class="fa fa-refresh"></i> </div>
 <div id="park-find-btn" class="fire-btn"> GO </div>
 <div class="fire-btn-shadow"></div>
 

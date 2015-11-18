@@ -51,6 +51,17 @@ $( document ).ready( function ()
 			});
 		};
 
+		var attachResetClick = function ()
+		{
+			$( '#park-reset-btn' ).click( function ()
+			{
+				if ( global_go_btn )
+				{
+					_resetSelection(); // get selected parks and ship off to php for db query
+				}
+			});
+		};
+
 
 		// Private Methods
 
@@ -96,9 +107,43 @@ $( document ).ready( function ()
 		    	}
 		    }
 
-		    console.log(park_selection_array);
+		    alert(park_selection_array);
 		    park_selection_array = [];
+		};
 
+		var _resetSelection = function ()
+		{
+			for ( i = 0; i < park_li_length; i++ )
+		    {
+		    	park_li[ i ].setAttribute( 'data-selected', 0 );
+
+		    	$( '#' + i ).css( {
+					'opacity': '.9'
+		    	} ).attr( "data-selected", 0 );
+
+		    	$( '#' + i + ' > .svg-check' ).css( {
+					'display': 'none'
+		    	} ).removeClass( 'zoom-check' );
+
+		    	$( '#' + i + ' > p' ).removeClass( 'slide-center' );
+
+		    	$( '.fire-btn-shadow' ).addClass( 'zoom-check-shadow-reverse' );
+	    		$( '.fire-btn' ).addClass( 'zoom-check-reverse' );
+	    		$( '.reset-btn' ).addClass( 'zoom-check-reverse' );
+
+	    		setTimeout( function () {
+	    			$( '.fire-btn-shadow' ).css( { 'display': 'none' } );
+	    			$( '.fire-btn-shadow' ).removeClass( 'zoom-check-shadow-reverse' );
+
+	    			$( '.fire-btn' ).css( { 'display': 'none' } );
+	    			$( '.fire-btn' ).removeClass( 'zoom-check-reverse' );
+
+	    			$( '.reset-btn' ).css( { 'display': 'none' } );
+	    			$( '.reset-btn' ).removeClass( 'zoom-check-reverse' );
+	    		}, 250 );
+		    }
+
+		    park_selection_array = [];
 		};
 
 		var _displayFireBtn = function ()
@@ -121,6 +166,7 @@ $( document ).ready( function ()
 
 			    		$( '.fire-btn-shadow' ).addClass( 'zoom-check-shadow-reverse' );
 			    		$( '.fire-btn' ).addClass( 'zoom-check-reverse' );
+			    		$( '.reset-btn' ).addClass( 'zoom-check-reverse' );
 
 			    		setTimeout( function () {
 			    			$( '.fire-btn-shadow' ).css( { 'display': 'none' } );
@@ -128,7 +174,10 @@ $( document ).ready( function ()
 
 			    			$( '.fire-btn' ).css( { 'display': 'none' } );
 			    			$( '.fire-btn' ).removeClass( 'zoom-check-reverse' );
-			    		}, 500 );
+
+			    			$( '.reset-btn' ).css( { 'display': 'none' } );
+			    			$( '.reset-btn' ).removeClass( 'zoom-check-reverse' );
+			    		}, 250 );
 			    	}
 			    	else
 			    	{
@@ -141,6 +190,10 @@ $( document ).ready( function ()
 			    		$( '.fire-btn' ).css( {
 							'display': 'block'
 		    			} ).addClass( 'zoom-check' );
+
+		    			$( '.reset-btn' ).css( {
+							'display': 'block'
+		    			} ).addClass( 'zoom-check' );
 			    	}
 			    }
 
@@ -151,7 +204,8 @@ $( document ).ready( function ()
 		return {
 			populateImages      : populateImages,
 			attachEventListeners: attachEventListeners,
-			attachGoClick       : attachGoClick
+			attachGoClick       : attachGoClick,
+			attachResetClick    : attachResetClick
 		}
 
     })();
@@ -159,5 +213,6 @@ $( document ).ready( function ()
     TpfHome.populateImages();
     TpfHome.attachEventListeners();
     TpfHome.attachGoClick();
+    TpfHome.attachResetClick();
 
 });

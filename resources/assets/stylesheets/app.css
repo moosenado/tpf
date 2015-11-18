@@ -8816,6 +8816,38 @@ body {
 }
 
 /* line 66, ../sass/app.scss */
+.reset-btn {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  margin-right: 52px;
+  display: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  border: 2px solid #e3d8c9;
+  background-color: #aec1ae;
+  text-align: center;
+  color: #3c563c;
+  font-size: 20px;
+  z-index: 1;
+  cursor: pointer;
+  font-weight: bold;
+}
+/* line 84, ../sass/app.scss */
+.reset-btn i {
+  line-height: 28px;
+}
+@media (min-width: 1200px) {
+  /* line 66, ../sass/app.scss */
+  .reset-btn {
+    left: 50%;
+    right: 0;
+    margin-left: -68px;
+  }
+}
+
+/* line 95, ../sass/app.scss */
 .fire-btn {
   position: fixed;
   bottom: 2%;
@@ -8835,7 +8867,7 @@ body {
   font-weight: bold;
 }
 @media (min-width: 1200px) {
-  /* line 66, ../sass/app.scss */
+  /* line 95, ../sass/app.scss */
   .fire-btn {
     left: 50%;
     right: 0;
@@ -8843,7 +8875,7 @@ body {
   }
 }
 
-/* line 91, ../sass/app.scss */
+/* line 120, ../sass/app.scss */
 .fire-btn-shadow {
   position: fixed;
   bottom: 2%;
@@ -8860,7 +8892,7 @@ body {
   box-shadow: 0px 8px 36px -9px black;
 }
 @media (min-width: 1200px) {
-  /* line 91, ../sass/app.scss */
+  /* line 120, ../sass/app.scss */
   .fire-btn-shadow {
     left: 50%;
     right: 0;
@@ -8868,23 +8900,23 @@ body {
   }
 }
 
-/* line 113, ../sass/app.scss */
+/* line 142, ../sass/app.scss */
 .center {
   margin: 0 auto;
 }
 
-/* line 117, ../sass/app.scss */
+/* line 146, ../sass/app.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 122, ../sass/app.scss */
+/* line 151, ../sass/app.scss */
 .park-nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 126, ../sass/app.scss */
+/* line 155, ../sass/app.scss */
 .park-nav ul li {
   position: relative;
   height: 150px;
@@ -8892,14 +8924,14 @@ body {
   margin: 5px 0 5px 0;
 }
 @media (min-width: 768px) {
-  /* line 126, ../sass/app.scss */
+  /* line 155, ../sass/app.scss */
   .park-nav ul li {
     width: 50%;
     margin: 0 auto;
     overflow: hidden;
   }
 }
-/* line 138, ../sass/app.scss */
+/* line 167, ../sass/app.scss */
 .park-nav ul li p {
   position: absolute;
   bottom: 0;
@@ -8924,7 +8956,7 @@ body {
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-/* line 159, ../sass/app.scss */
+/* line 188, ../sass/app.scss */
 .park-nav ul li:hover p {
   -webkit-transform: translate(-5px, 0px);
   -moz-transform: translate(-5px, 0px);
@@ -8933,7 +8965,7 @@ body {
   transform: translate(-5px, 0px);
 }
 
-/* line 167, ../sass/app.scss */
+/* line 196, ../sass/app.scss */
 .li-bg {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -8942,16 +8974,16 @@ body {
   transition: all 0.2s ease-in-out;
   opacity: .9;
 }
-/* line 170, ../sass/app.scss */
+/* line 199, ../sass/app.scss */
 .li-bg:hover {
   cursor: pointer;
 }
-/* line 173, ../sass/app.scss */
+/* line 202, ../sass/app.scss */
 .li-bg:active {
   opacity: 1;
 }
 
-/* line 178, ../sass/app.scss */
+/* line 207, ../sass/app.scss */
 .svg-check {
   display: none;
   position: absolute;
@@ -8963,7 +8995,7 @@ body {
   height: 40px;
 }
 
-/* line 189, ../sass/app.scss */
+/* line 218, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.5s forwards;
   -moz-animation: zoomAni 0.5s forwards;
@@ -8972,7 +9004,7 @@ body {
   animation: zoomAni 0.5s forwards;
 }
 
-/* line 193, ../sass/app.scss */
+/* line 222, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -8981,7 +9013,7 @@ body {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 197, ../sass/app.scss */
+/* line 226, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -8990,7 +9022,7 @@ body {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 201, ../sass/app.scss */
+/* line 230, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9151,7 +9183,7 @@ body {
     transform: scale(0, 0);
   }
 }
-/* line 373, ../sass/app.scss */
+/* line 402, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni .5s forwards;
   -moz-animation: slideAni .5s forwards;
