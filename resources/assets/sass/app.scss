@@ -89,7 +89,11 @@ body {
 	@media ( min-width: $screen-lg ) {
 		left       : 50%;
 		right      : 0;
-		margin-left: -68px;
+		margin-left: -60px;
+
+		i {
+			margin-left: 1px;
+		}
 	}
 }
 
@@ -114,7 +118,7 @@ body {
 	@media ( min-width: $screen-lg ) {
 		left       : 50%;
 		right      : 0;
-		margin-left: -68px;
+		margin-left: -25px;
 	}
 }
 
@@ -159,7 +163,7 @@ body {
 	@media ( min-width: $screen-lg ) {
 		left       : 50%;
 		right      : 0;
-		margin-left: -25px;
+		margin-left: -60px;
 	}
 }
 
