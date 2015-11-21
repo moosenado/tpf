@@ -8806,40 +8806,41 @@ input[type="text"], textarea, [contenteditable] {
 /* line 56, ../sass/app.scss */
 body {
   font-family: 'Archivo Narrow', serif;
+  background-color: #eccfa8;
 }
 
-/* line 60, ../sass/app.scss */
+/* line 61, ../sass/app.scss */
 #find-all {
   background: url(../../../public/images/allparks.jpg) no-repeat left center;
   background-size: 100%;
   background-position: center;
 }
 
-/* line 66, ../sass/app.scss */
+/* line 67, ../sass/app.scss */
 .reset-btn {
   position: fixed;
   bottom: 2%;
   right: 2%;
   margin-right: 52px;
   display: none;
-  width: 32px;
-  height: 32px;
+  width: 33px;
+  height: 33px;
   border-radius: 16px;
-  border: 2px solid #e3d8c9;
-  background-color: #aec1ae;
+  border: 2px solid #32f38b;
+  background-color: #766854;
   text-align: center;
-  color: #3c563c;
-  font-size: 20px;
+  color: #f7f7f7;
+  font-size: 18px;
   z-index: 1;
   cursor: pointer;
   font-weight: bold;
 }
-/* line 84, ../sass/app.scss */
+/* line 85, ../sass/app.scss */
 .reset-btn i {
-  line-height: 28px;
+  line-height: 30px;
 }
 @media (min-width: 1200px) {
-  /* line 66, ../sass/app.scss */
+  /* line 67, ../sass/app.scss */
   .reset-btn {
     left: 50%;
     right: 0;
@@ -8847,7 +8848,7 @@ body {
   }
 }
 
-/* line 95, ../sass/app.scss */
+/* line 96, ../sass/app.scss */
 .fire-btn {
   position: fixed;
   bottom: 2%;
@@ -8856,26 +8857,26 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 25px;
-  border: 3px solid #e3d8c9;
-  background-color: #aec1ae;
+  border: 3px solid #32f38b;
+  background-color: #766854;
   text-align: center;
-  line-height: 43px;
-  color: #3c563c;
+  line-height: 44px;
+  color: #f7f7f7;
   font-size: 19px;
   z-index: 1;
   cursor: pointer;
   font-weight: bold;
 }
 @media (min-width: 1200px) {
-  /* line 95, ../sass/app.scss */
+  /* line 96, ../sass/app.scss */
   .fire-btn {
     left: 50%;
     right: 0;
-    margin-left: -25px;
+    margin-left: -68px;
   }
 }
 
-/* line 120, ../sass/app.scss */
+/* line 121, ../sass/app.scss */
 .fire-btn-shadow {
   position: fixed;
   bottom: 2%;
@@ -8892,7 +8893,7 @@ body {
   box-shadow: 0px 8px 36px -9px black;
 }
 @media (min-width: 1200px) {
-  /* line 120, ../sass/app.scss */
+  /* line 121, ../sass/app.scss */
   .fire-btn-shadow {
     left: 50%;
     right: 0;
@@ -8900,23 +8901,49 @@ body {
   }
 }
 
-/* line 142, ../sass/app.scss */
+/* line 143, ../sass/app.scss */
+.reset-btn-shadow {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  margin-right: 52px;
+  display: none;
+  width: 33px;
+  height: 33px;
+  border-radius: 16px;
+  border: 1px solid #666;
+  background-color: #f7f7f7;
+  z-index: 0;
+  -webkit-box-shadow: 0px 8px 36px -9px black;
+  -moz-box-shadow: 0px 8px 36px -9px black;
+  box-shadow: 0px 8px 36px -9px black;
+}
+@media (min-width: 1200px) {
+  /* line 143, ../sass/app.scss */
+  .reset-btn-shadow {
+    left: 50%;
+    right: 0;
+    margin-left: -25px;
+  }
+}
+
+/* line 166, ../sass/app.scss */
 .center {
   margin: 0 auto;
 }
 
-/* line 146, ../sass/app.scss */
+/* line 170, ../sass/app.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 151, ../sass/app.scss */
+/* line 175, ../sass/app.scss */
 .park-nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 155, ../sass/app.scss */
+/* line 179, ../sass/app.scss */
 .park-nav ul li {
   position: relative;
   height: 150px;
@@ -8924,14 +8951,14 @@ body {
   margin: 5px 0 5px 0;
 }
 @media (min-width: 768px) {
-  /* line 155, ../sass/app.scss */
+  /* line 179, ../sass/app.scss */
   .park-nav ul li {
     width: 50%;
     margin: 0 auto;
     overflow: hidden;
   }
 }
-/* line 167, ../sass/app.scss */
+/* line 191, ../sass/app.scss */
 .park-nav ul li p {
   position: absolute;
   bottom: 0;
@@ -8940,23 +8967,23 @@ body {
   padding: 5px 0 5px 10%;
   width: 100%;
   font-size: 18px;
-  color: #f5f5f5;
+  color: #f7f7f7;
   font-style: normal;
-  background: rgba(0, 0, 0, 0.8);
-  background: -moz-linear-gradient(left, rgba(0, 0, 0, 0.8) 41%, rgba(0, 0, 0, 0.34) 75%, rgba(255, 255, 255, 0) 100%);
-  background: -webkit-gradient(left top, right top, color-stop(41%, rgba(0, 0, 0, 0.8)), color-stop(75%, rgba(0, 0, 0, 0.34)), color-stop(100%, rgba(255, 255, 255, 0)));
-  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.8) 41%, rgba(0, 0, 0, 0.34) 75%, rgba(255, 255, 255, 0) 100%);
-  background: -o-linear-gradient(left, rgba(0, 0, 0, 0.8) 41%, rgba(0, 0, 0, 0.34) 75%, rgba(255, 255, 255, 0) 100%);
-  background: -ms-linear-gradient(left, rgba(0, 0, 0, 0.8) 41%, rgba(0, 0, 0, 0.34) 75%, rgba(255, 255, 255, 0) 100%);
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 41%, rgba(0, 0, 0, 0.34) 75%, rgba(255, 255, 255, 0) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ffffff', GradientType=1 );
+  background: rgba(50, 243, 139, 0.8);
+  background: -moz-linear-gradient(left, rgba(50, 243, 139, 0.8) 41%, rgba(50, 243, 139, 0.34) 75%, rgba(255, 255, 255, 0) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(41%, rgba(50, 243, 139, 0.8)), color-stop(75%, rgba(0, 0, 0, 0.34)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background: -webkit-linear-gradient(left, rgba(50, 243, 139, 0.8) 41%, rgba(50, 243, 139, 0.34) 75%, rgba(255, 255, 255, 0) 100%);
+  background: -o-linear-gradient(left, rgba(50, 243, 139, 0.8) 41%, rgba(50, 243, 139, 0.34) 75%, rgba(255, 255, 255, 0) 100%);
+  background: -ms-linear-gradient(left, rgba(50, 243, 139, 0.8) 41%, rgba(50, 243, 139, 0.34) 75%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(to right, rgba(50, 243, 139, 0.8) 41%, rgba(50, 243, 139, 0.34) 75%, rgba(255, 255, 255, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#32f38b', endColorstr='#ffffff', GradientType=1 );
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -ms-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-/* line 188, ../sass/app.scss */
+/* line 212, ../sass/app.scss */
 .park-nav ul li:hover p {
   -webkit-transform: translate(-5px, 0px);
   -moz-transform: translate(-5px, 0px);
@@ -8965,7 +8992,7 @@ body {
   transform: translate(-5px, 0px);
 }
 
-/* line 196, ../sass/app.scss */
+/* line 220, ../sass/app.scss */
 .li-bg {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -8974,16 +9001,16 @@ body {
   transition: all 0.2s ease-in-out;
   opacity: .9;
 }
-/* line 199, ../sass/app.scss */
+/* line 223, ../sass/app.scss */
 .li-bg:hover {
   cursor: pointer;
 }
-/* line 202, ../sass/app.scss */
+/* line 226, ../sass/app.scss */
 .li-bg:active {
   opacity: 1;
 }
 
-/* line 207, ../sass/app.scss */
+/* line 231, ../sass/app.scss */
 .svg-check {
   display: none;
   position: absolute;
@@ -8995,7 +9022,7 @@ body {
   height: 40px;
 }
 
-/* line 218, ../sass/app.scss */
+/* line 242, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.5s forwards;
   -moz-animation: zoomAni 0.5s forwards;
@@ -9004,7 +9031,7 @@ body {
   animation: zoomAni 0.5s forwards;
 }
 
-/* line 222, ../sass/app.scss */
+/* line 246, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9013,7 +9040,7 @@ body {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 226, ../sass/app.scss */
+/* line 250, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -9022,7 +9049,7 @@ body {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 230, ../sass/app.scss */
+/* line 254, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9183,7 +9210,7 @@ body {
     transform: scale(0, 0);
   }
 }
-/* line 402, ../sass/app.scss */
+/* line 426, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni .5s forwards;
   -moz-animation: slideAni .5s forwards;
