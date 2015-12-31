@@ -44,7 +44,7 @@
 
 <div id="park-reset-btn" class="reset-btn"> <i class="fa fa-refresh"></i> </div>
 <div class="reset-btn-shadow"></div>
-<div id="park-find-btn" class="fire-btn"> GO </div>
+<div id="park-find-btn" class="fire-btn background-wave-ani"> GO </div>
 <div class="fire-btn-shadow"></div>
 
 @extends('layouts.footer')

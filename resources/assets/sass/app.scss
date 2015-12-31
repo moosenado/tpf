@@ -1,5 +1,23 @@
 @import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+
+
+/* VARIABLES */
+
+
+
+$dark-main : #aec1ae;
+$white-main: #f7f7f7;
+$btn-text  : #524231;
+$light-main: #e3d8c9;
+$bg-color  : #ffffff;
+
+
+
+/* MIXINS */
+
+
+
 @mixin transitionStyle( $type, $time, $style ) {
 	-webkit-transition: $type $time $style;
 	-moz-transition   : $type $time $style;
@@ -16,13 +34,19 @@
 	transform         : translate( $x, $y );
 }
 
-@mixin zoomAnimation( $ani, $s, $event ) {
+@mixin animationFunc( $ani, $s, $event ) {
 	-webkit-animation: $ani $s $event;
 	-moz-animation   : $ani $s $event;
 	-ms-animation    : $ani $s $event;
 	-o-animation     : $ani $s $event;
 	animation        : $ani $s $event;
 }
+
+
+
+/* GENERAL SITE STYLING */
+
+
 
 html {
 	-webkit-font-smoothing : antialiased;
@@ -39,7 +63,7 @@ html {
 }
 
 * {
-    -webkit-user-select: none;
+    -webkit-user-select        : none;
 	-moz-user-select           : -moz-none;
 	-ms-user-select            : none;
 	user-select                : none;
@@ -55,14 +79,26 @@ input[type="text"], textarea, [contenteditable] {
 
 body {
 	font-family     : 'Archivo Narrow', serif;
-	background-color: #eccfa8;
+	background-color: $bg-color;
 }
+
+
+
+/* ID SPECIFIC */
+
+
 
 #find-all {
 	background         :  url(../../../public/images/allparks.jpg) no-repeat left center;
 	background-size    : 100%;
 	background-position: center;
 }
+
+
+
+/* GENERAL CLASSES */
+
+
 
 .reset-btn {
 	position          : fixed;
@@ -73,10 +109,10 @@ body {
 	width             : 33px;
 	height            : 33px;
 	border-radius     : 16px;
-	border            : 2px solid #32f38b;
-	background-color  : #766854;
+	border            : 2px solid $light-main;
+	background-color  : $dark-main;
 	text-align        : center;
-	color             : #f7f7f7;
+	color             : $btn-text;
 	font-size         : 18px;
 	z-index           : 1;
 	cursor            : pointer;
@@ -105,11 +141,11 @@ body {
 	width             : 50px;
 	height            : 50px;
 	border-radius     : 25px;
-	border            : 3px solid #32f38b;
-	background-color  : #766854;
+	border            : 3px solid $light-main;
+	background-color  : $dark-main;
 	text-align        : center;
 	line-height       : 44px;
-	color             : #f7f7f7;
+	color             : $btn-text;
 	font-size         : 19px;
 	z-index           : 1;
 	cursor            : pointer;
@@ -131,7 +167,7 @@ body {
 	height            : 50px;
 	border-radius     : 25px;
 	border            : 1px solid #666;
-	background-color  : #f7f7f7;
+	background-color  : $white-main;
 	z-index           : 0;
 	-webkit-box-shadow: 0px 8px 36px -9px rgba(0,0,0,1);
 	-moz-box-shadow   : 0px 8px 36px -9px rgba(0,0,0,1);
@@ -154,7 +190,7 @@ body {
 	height            : 33px;
 	border-radius     : 16px;
 	border            : 1px solid #666;
-	background-color  : #f7f7f7;
+	background-color  : $white-main;
 	z-index           : 0;
 	-webkit-box-shadow: 0px 8px 36px -9px rgba(0,0,0,1);
 	-moz-box-shadow   : 0px 8px 36px -9px rgba(0,0,0,1);
@@ -200,16 +236,16 @@ body {
 				padding   : 5px 0 5px 10%;
 				width     : 100%;
 				font-size : 18px;
-				color     : #f7f7f7;
+				color     : $white-main;
 				font-style: normal;
-				background: rgba(50,243,139,0.8);
-				background: -moz-linear-gradient(left, rgba(50,243,139,0.8) 41%, rgba(50,243,139,0.34) 75%, rgba(255,255,255,0) 100%);
-				background: -webkit-gradient(left top, right top, color-stop(41%, rgba(50,243,139,0.8)), color-stop(75%, rgba(0,0,0,0.34)), color-stop(100%, rgba(255,255,255,0)));
-				background: -webkit-linear-gradient(left, rgba(50,243,139,0.8) 41%, rgba(50,243,139,0.34) 75%, rgba(255,255,255,0) 100%);
-				background: -o-linear-gradient(left, rgba(50,243,139,0.8) 41%, rgba(50,243,139,0.34) 75%, rgba(255,255,255,0) 100%);
-				background: -ms-linear-gradient(left, rgba(50,243,139,0.8) 41%, rgba(50,243,139,0.34) 75%, rgba(255,255,255,0) 100%);
-				background: linear-gradient(to right, rgba(50,243,139,0.8) 41%, rgba(50,243,139,0.34) 75%, rgba(255,255,255,0) 100%);
-				filter    : progid:DXImageTransform.Microsoft.gradient( startColorstr='#32f38b', endColorstr='#ffffff', GradientType=1 );
+				background: rgba(82,66,49,0.8);
+				background: -moz-linear-gradient(left, rgba(82,66,49,0.8) 41%, rgba(82,66,49,0.34) 75%, rgba(255,255,255,0) 100%);
+				background: -webkit-gradient(left top, right top, color-stop(41%, rgba(82,66,49,0.8)), color-stop(75%, rgba(0,0,0,0.34)), color-stop(100%, rgba(255,255,255,0)));
+				background: -webkit-linear-gradient(left, rgba(82,66,49,0.8) 41%, rgba(82,66,49,0.34) 75%, rgba(255,255,255,0) 100%);
+				background: -o-linear-gradient(left, rgba(82,66,49,0.8) 41%, rgba(82,66,49,0.34) 75%, rgba(255,255,255,0) 100%);
+				background: -ms-linear-gradient(left, rgba(82,66,49,0.8) 41%, rgba(82,66,49,0.34) 75%, rgba(255,255,255,0) 100%);
+				background: linear-gradient(to right, rgba(82,66,49,0.8) 41%, rgba(82,66,49,0.34) 75%, rgba(255,255,255,0) 100%);
+				filter    : progid:DXImageTransform.Microsoft.gradient( startColorstr='#524231', endColorstr='#ffffff', GradientType=1 );
 				@include transitionStyle( all, .2s, ease-out );
 			}
 			&:hover {
@@ -243,21 +279,43 @@ body {
 	height     : 40px;
 }
 
+footer {
+	color    : $dark-main;
+	font-size: 10px;
+	margin   : 10px;
+}
+
+
+
+/* ANIMATION SPECIFIC */
+
+
+
 .zoom-check {
-	@include zoomAnimation( zoomAni, .5s, forwards );
+	@include animationFunc( zoomAni, .5s, forwards );
 }
 
 .zoom-check-reverse {
-	@include zoomAnimation( zoomAniRev, .5s, forwards );
+	@include animationFunc( zoomAniRev, .5s, forwards );
 }
 
 .zoom-check-shadow {
-	@include zoomAnimation( zoomAniRevShadow, .5s, forwards );
+	@include animationFunc( zoomAniRevShadow, .5s, forwards );
 }
 
 .zoom-check-shadow-reverse {
-	@include zoomAnimation( zoomAniRevShadowRev, .5s, forwards );
+	@include animationFunc( zoomAniRevShadowRev, .5s, forwards );
 }
+
+.slide-center {
+	@include animationFunc( slideAni, .5s, forwards );
+}
+
+
+
+/* KEY FRAMES */
+
+
 
 @-webkit-keyframes zoomAni {
     0% {
@@ -425,14 +483,6 @@ body {
 		-o-transform: scale( 0, 0 );
 		transform   : scale( 0, 0 );
     }
-}
-
-.slide-center {
-	-webkit-animation: slideAni .5s forwards;
-	-moz-animation   : slideAni .5s forwards;
-	-ms-animation    : slideAni .5s forwards;
-	-o-animation     : slideAni .5s forwards;
-	animation        : slideAni .5s forwards;
 }
 
 @-webkit-keyframes slideAni {
