@@ -6,6 +6,7 @@ var TpfHome = ( function ()
 	var park_li_length		 = park_li.length;
 	var park_selection_array = [];
 	var global_go_btn		 = false;
+	var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
 
 	// Public Methods
@@ -89,7 +90,8 @@ var TpfHome = ( function ()
 	    	}
 	    }
 
-	    alert(park_selection_array);
+	    _FIRE();
+
 	    park_selection_array = [];
 	};
 
@@ -137,6 +139,28 @@ var TpfHome = ( function ()
 
 		    display_btn_counter++;
 	    }
+	};
+
+	// AJAX
+
+	var _FIRE = function ()
+	{
+	    $.ajax({
+	        url:'http://localhost/t--p--f/public/getparks',
+	        type: 'GET',
+	        data: {
+	        	_token: CSRF_TOKEN,
+	            park_array: park_selection_array
+	        },
+	        dataType: 'JSON',
+	        success: function( data ){
+
+	            alert(data);
+	        },
+	        error: function (xhr, b, c) {
+	            console.log(xhr);
+	        }
+	    });
 	};
 
 	// Styling Functions

@@ -1,4 +1,4 @@
-@extends ('layouts.header')
+@include ('layouts.header')
 
 <div class="col-md-12">
 
@@ -47,4 +47,4 @@
 <div id="park-find-btn" class="fire-btn background-wave-ani"> GO </div>
 <div class="fire-btn-shadow"></div>
 
-@extends('layouts.footer')
+@include('layouts.footer')

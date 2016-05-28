@@ -11,4 +11,8 @@
 |
 */
 
+/* INDEX */
 Route::get('/', 'HomeController@index');
+
+/* AJAX */
+Route::get('getparks', 'AjaxController@getParks');
