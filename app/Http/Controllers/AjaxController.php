@@ -11,7 +11,11 @@ class AjaxController extends Controller
 {
     public function getParks(Request $request) {
     	
-    	$park_array = $request->input( 'park_array' );
+    	$facility_array = $request->input( 'facility_array' );
+    	$lnglat_array   = $request->input( 'lnglat_array' );
+
+    	// get array of parks - closest to furthest from user
+    	$park_array = FacilityClass::getParksFromSelectedFacilities( $facility_array );
 
     	return $park_array;
     }

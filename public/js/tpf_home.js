@@ -2,11 +2,13 @@ var TpfHome = ( function ()
 {
 	// Private Variables
 
-	var park_li              = document.getElementById( 'park-list' ).getElementsByTagName( 'li' );
-	var park_li_length		 = park_li.length;
-	var park_selection_array = [];
-	var global_go_btn		 = false;
-	var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+	var park_li                  = document.getElementById( 'park-list' ).getElementsByTagName( 'li' ),
+		park_li_length		     = park_li.length,
+		facility_selection_array = [],
+		global_go_btn		     = false,
+		CSRF_TOKEN               = $('meta[name="csrf-token"]').attr('content'),
+		user_location			 = false,
+		lnglat_array		     = [];
 
 
 	// Public Methods
@@ -15,8 +17,8 @@ var TpfHome = ( function ()
 	{
 	    for ( i = 0; i < park_li_length; i++ )
 	    {
-	    	var park_id   = park_li[ i ].id;
-	    	var park_name = park_li[ i ].getAttribute( 'data-parkval' );
+	    	var park_id   = park_li[ i ].id,
+	    		park_name = park_li[ i ].getAttribute( 'data-parkval' );
 
 	    	$( '#' + park_id ).css( {
 				'background'         : 'url(../public/images/' + park_name + '.jpg) no-repeat left center',
@@ -66,8 +68,8 @@ var TpfHome = ( function ()
 
 	var _setSelectionStyles = function ( park_choice )
 	{
-		var selected_attr = park_choice.getAttribute( 'data-selected' );
-		var clicked_id    = park_choice.id;
+		var selected_attr = park_choice.getAttribute( 'data-selected' ),
+			clicked_id    = park_choice.id;
 
 		if ( selected_attr == 0 )
 		{
@@ -86,13 +88,91 @@ var TpfHome = ( function ()
 	    {
 	    	if ( park_li[ i ].getAttribute( 'data-selected' ) == 1 )
 	    	{
-	    		park_selection_array.push( park_li[ i ].getAttribute( 'data-parkvaloffish' ) );
+	    		facility_selection_array.push( park_li[ i ].getAttribute( 'data-parkvaloffish' ) );
 	    	}
 	    }
 
-	    _FIRE();
+	    getUserLocation( _FIRE );
 
-	    park_selection_array = [];
+	    facility_selection_array = []; // reset selection array
+	};
+
+	var getUserLocation = function ( callback )
+	{
+		var yourLat,
+			yourLng;
+			//locationError = document.getElementById("locationErr");
+
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showPosition);
+		}else{
+			//locationError.innerHTML = "Your browser cannot get your location.";
+		}
+
+		function showPosition(position) {
+			lat = (position.coords.latitude);
+			lng = (position.coords.longitude);
+			console.log('Lat: ' + lat + ' ' + 'Lng: ' + lng);
+
+			lnglat_array.push(lat, lng)
+
+			//onPositionReady(yourLat, yourLng);
+		}
+
+		callback(lnglat_array);
+
+		//WHEN GPS POSITION IS READY
+
+		// function onPositionReady(yourLat, yourLng) {
+
+		// 	var latlng = new google.maps.LatLng(yourLat, yourLng);
+
+		// 	var geocoder = new google.maps.Geocoder();
+
+		// 	geocoder.geocode( {'latLng' : latlng}, function(results, status)  {
+
+		// 		if (status == google.maps.GeocoderStatus.OK){
+
+		// 			for(var i=0; i < results[0].address_components.length; i++)
+		// 			{
+		// 				var component = results[0].address_components[i];
+
+		// 				if(component.types[0] == "postal_code")
+		// 				{
+		// 						//console.log(component.long_name.charAt(0));
+		// 						//if (component.long_name.charAt(0) == 'm' || component.long_name.charAt(0) == 'M'){
+		// 							var postalcodeField = document.forms[0].postalcode;
+		// 							postalcodeField.value = component.long_name;
+		// 							locationError.innerHTML = "Success";
+
+		// 							console.log(component.long_name);
+		// 							console.log(component);
+
+	 //    							//if (component.long_name.charAt(0) != 'm' || !component.long_name.charAt(0) != 'M'){
+	 //    								//locationError.innerHTML = "Not in Toronto? You can still search by facility type.";
+	 //    							//}
+	 //    						//}else{
+	 //    							//locationError.innerHTML = "Not in Toronto? You can still search by facility type.";
+	 //    							//var postalcodeField = document.forms[0].postalcode;
+	 //    							//postalcodeField.focus();
+	 //    						//}
+	 //    					}
+	 //    				}
+	 //    			}else if(status === google.maps.GeocoderStatus.REQUEST_DENIED){
+	 //    				locationError.innerHTML = "Unsuccessful";
+
+	 //    			}else if(status === google.maps.GeocoderStatus.INVALID_REQUEST){
+	 //    				locationError.innerHTML = "Unsuccessful";
+
+	 //    			}else if(status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT){
+	 //    				locationError.innerHTML = "Please try again soon!";
+
+	 //    			}else{
+	 //    				locationError.innerHTML = "Could not get your location: " + status;
+	 //    			}
+	 //    		});
+
+		// }
 	};
 
 	var _resetSelection = function ()
@@ -106,13 +186,13 @@ var TpfHome = ( function ()
 	    	_resetButtons();
 	    }
 
-	    park_selection_array = [];
+	    facility_selection_array = []; // reset selection array
 	};
 
 	var _displayFireBtn = function ()
 	{
-		var display_btn_counter = 1;
-		var display_button_vis  = false;
+		var display_btn_counter = 1,
+			display_button_vis  = false;
 
 		for ( i = 0; i < park_li_length; i++ )
 	    {
@@ -143,21 +223,23 @@ var TpfHome = ( function ()
 
 	// AJAX
 
-	var _FIRE = function ()
+	var _FIRE = function (lnglat_array)
 	{
 	    $.ajax({
 	        url:'http://localhost/t--p--f/public/getparks',
 	        type: 'GET',
 	        data: {
-	        	_token: CSRF_TOKEN,
-	            park_array: park_selection_array
+	        	_token        : CSRF_TOKEN,
+	            facility_array: facility_selection_array,
+	            lnglat_array  : lnglat_array
 	        },
 	        dataType: 'JSON',
-	        success: function( data ){
-
+	        success: function( data )
+	        {
 	            alert(data);
 	        },
-	        error: function (xhr, b, c) {
+	        error: function (xhr)
+	        {
 	            console.log(xhr);
 	        }
 	    });

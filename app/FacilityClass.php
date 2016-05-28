@@ -58,8 +58,8 @@ class FacilityClass extends Model
     	return $facility_names;
     }
 
-    // public static getParksFromSelectedFacilities()
-    // {
-        
-    // }
+    public static function getParksFromSelectedFacilities( $facility_array = array() )
+    {
+        return $facility_array;
+    }
 }
