@@ -8,7 +8,7 @@ var TpfHome = ( function ()
 		global_go_btn		     = false,
 		CSRF_TOKEN               = $('meta[name="csrf-token"]').attr('content'),
 		user_location			 = false,
-		lnglat_array		     = [];
+		lnglat_array = [];
 
 
 	// Public Methods
@@ -92,12 +92,12 @@ var TpfHome = ( function ()
 	    	}
 	    }
 
-	    getUserLocation( _FIRE );
+	    getUserLocation( _FIRE, facility_selection_array );
 
 	    facility_selection_array = []; // reset selection array
 	};
 
-	var getUserLocation = function ( callback )
+	var getUserLocation = function ( callback, facility_selection_array )
 	{
 		var yourLat,
 			yourLng;
@@ -112,14 +112,13 @@ var TpfHome = ( function ()
 		function showPosition(position) {
 			lat = (position.coords.latitude);
 			lng = (position.coords.longitude);
-			console.log('Lat: ' + lat + ' ' + 'Lng: ' + lng);
 
-			lnglat_array.push(lat, lng)
+			lnglat_array.push(lat, lng);
+
+			callback(facility_selection_array, lnglat_array)
 
 			//onPositionReady(yourLat, yourLng);
 		}
-
-		callback(lnglat_array);
 
 		//WHEN GPS POSITION IS READY
 
@@ -223,15 +222,15 @@ var TpfHome = ( function ()
 
 	// AJAX
 
-	var _FIRE = function (lnglat_array)
+	var _FIRE = function ( _facility_selection_array, _lnglat_array )
 	{
 	    $.ajax({
 	        url:'http://localhost/t--p--f/public/getparks',
 	        type: 'GET',
 	        data: {
 	        	_token        : CSRF_TOKEN,
-	            facility_array: facility_selection_array,
-	            lnglat_array  : lnglat_array
+	            facility_array: _facility_selection_array,
+	            lnglat_array  : _lnglat_array
 	        },
 	        dataType: 'JSON',
 	        success: function( data )
