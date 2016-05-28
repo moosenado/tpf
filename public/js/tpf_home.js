@@ -110,10 +110,9 @@ var TpfHome = ( function ()
 
 		function showPosition(position) {
 
-			var lnglat_array = [];
-
-			lat = (position.coords.latitude);
-			lng = (position.coords.longitude);
+			var lnglat_array = [],
+				lat = (position.coords.latitude),
+				lng = (position.coords.longitude);
 
 			lnglat_array.push(lat, lng);
 
