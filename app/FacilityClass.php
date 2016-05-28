@@ -60,6 +60,6 @@ class FacilityClass extends Model
 
     public static function getParksFromSelectedFacilities( $facility_array = array(), $lnglat_array = array() )
     {
-        return $lnglat_array;
+        return $facility_array;
     }
 }
