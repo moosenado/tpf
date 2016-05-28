@@ -9,14 +9,21 @@ class FacilityClass extends Model
 {
     public static function getFacilities( $facilities_unsorted, $yourlocation ){
 
-    	$facilities = DB::table( 'parksdata' )->whereIn( 'facility', $facilities_unsorted )
+        if ( count( $facilities_unsorted ) > 1 )
+        {
+            $facilities = DB::table( 'parksdata' )->whereIn( 'facility', $facilities_unsorted )
                                               ->groupBy( 'parkname' )
                                               ->havingRaw( 'COUNT(parkname) > 1' )
                                               ->get();
+        }
+        else
+        {
+            $facilities = DB::table( 'parksdata' )->whereIn( 'facility', $facilities_unsorted )->get();
+        }
 
         //echo '<pre>'; print_r($facilities); echo '</pre>';
 
-    	$count = count ( $facilities );
+    	$count = count( $facilities );
 
     	for ( $i = 0; $i < $count; $i++ )
     	{
