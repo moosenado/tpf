@@ -15,8 +15,8 @@ class AjaxController extends Controller
     	$lnglat_array   = $request->input( 'lnglat_array' );
 
     	// get array of parks - closest to furthest from user
-    	$park_array = FacilityClass::getParksFromSelectedFacilities( $facility_array, $lnglat_array );
+    	$parks = FacilityClass::getParksFromSelectedFacilities( $facility_array, $lnglat_array );
 
-    	return $park_array;
+    	return $parks;
     }
 }

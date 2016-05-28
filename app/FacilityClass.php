@@ -7,34 +7,41 @@ use DB;
 
 class FacilityClass extends Model
 {
-    public static function getFacilities( $facility, $yourlocation ){
-    	// $yourlocation will be an array with [0] being lat and [1] being lng
+    public static function getFacilities( $facilities_unsorted, $yourlocation ){
 
-    	$facilities = DB::table( 'parksdata' )->where( 'facility', $facility )->get();
+    	$facilities = DB::table( 'parksdata' )->whereIn( 'facility', $facilities_unsorted )
+                                              ->groupBy( 'parkname' )
+                                              ->havingRaw( 'COUNT(parkname) > 1' )
+                                              ->get();
+
+        //echo '<pre>'; print_r($facilities); echo '</pre>';
 
     	$count = count ( $facilities );
 
     	for ( $i = 0; $i < $count; $i++ )
     	{
-			$theta = $yourlocation[ 1 ] - $facilities[ $i ][ 'lng' ];
-			$dist = sin( deg2rad( $yourlocation[ 0 ] ) ) * sin( deg2rad( $facilities[ $i ][ 'lat' ]) ) + cos( deg2rad( $yourlocation[ 0 ] ) ) * cos( deg2rad( $facilities[ $i ][ 'lat' ]) ) * cos( deg2rad( $theta ) );
-			$dist = acos( $dist );
-			$dist = rad2deg( $dist );
+            $mylat  = floatval( $yourlocation[ 0 ] );
+            $mylng  = floatval( $yourlocation[ 1 ] );
+            $yurlat = floatval( $facilities[ $i ]->lat );
+            $yurlng = floatval( $facilities[ $i ]->lng );
+
+			$theta = $mylng - $yurlng;
+			$dist  = sin( deg2rad( $mylat ) ) * sin( deg2rad( $yurlat ) ) + cos( deg2rad( $mylat ) ) * cos( deg2rad( $yurlat ) ) * cos( deg2rad( $theta ) );
+			$dist  = acos( $dist );
+			$dist  = rad2deg( $dist );
+
 			$kilometers = $dist * 60 * 1.1515 * 0.621371192;
-			$facilities[ $i ][ 'Distance' ] = $kilometers;
+			$facilities[ $i ]->distance = $kilometers;
 		}
 
 		$comparison = array();
 
 		foreach ( $facilities as $key => $row )
 		{
-			$comparison[ $key ] = $row[ 'Distance' ];
+			$comparison[ $key ] = $row->distance;
 		}
 
 		array_multisort( $comparison, SORT_ASC, $facilities );
-
-		//Here we can decide to either slice the array, ie return 10 closest or take ones within x distance??
-		//I'll wait to chat about it before adding either or.
 
 		return $facilities;
 
@@ -58,8 +65,10 @@ class FacilityClass extends Model
     	return $facility_names;
     }
 
-    public static function getParksFromSelectedFacilities( $facility_array = array(), $lnglat_array = array() )
+    public static function getParksFromSelectedFacilities( $facilities = array(), $lnglat = array() )
     {
-        return $lnglat_array;
+        $sorted_parks = self::getFacilities( $facilities, $lnglat );
+
+        return $sorted_parks;
     }
 }
