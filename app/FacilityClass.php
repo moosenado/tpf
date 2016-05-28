@@ -7,18 +7,32 @@ use DB;
 
 class FacilityClass extends Model
 {
-    public static function getFacilities( $facilities_unsorted, $yourlocation ){
+    public static function getFacilities( $facilities_unsorted, $yourlocation, $all_parks ){
 
-        if ( count( $facilities_unsorted ) > 1 )
+        $grab_all_parks = $all_parks === 'true' ? true : false;
+
+        if ( $grab_all_parks )
         {
-            $facilities = DB::table( 'parksdata' )->whereIn( 'facility', $facilities_unsorted )
-                                              ->groupBy( 'parkname' )
-                                              ->havingRaw( 'COUNT(parkname) > 1' )
-                                              ->get();
+            $facilities = DB::table( 'parksdata' )
+                    ->groupBy( 'parkname' )
+                    ->get();
         }
         else
         {
-            $facilities = DB::table( 'parksdata' )->whereIn( 'facility', $facilities_unsorted )->get();
+            if ( count( $facilities_unsorted ) > 1 )
+            {
+                $facilities = DB::table( 'parksdata' )
+                        ->whereIn( 'facility', $facilities_unsorted )
+                        ->groupBy( 'parkname' )
+                        ->havingRaw( 'COUNT(parkname) > 1' )
+                        ->get();
+            }
+            else
+            {
+                $facilities = DB::table( 'parksdata' )
+                        ->whereIn( 'facility', $facilities_unsorted )
+                        ->get();
+            }
         }
 
         //echo '<pre>'; print_r($facilities); echo '</pre>';
@@ -72,9 +86,9 @@ class FacilityClass extends Model
     	return $facility_names;
     }
 
-    public static function getParksFromSelectedFacilities( $facilities = array(), $lnglat = array() )
+    public static function getParksFromSelectedFacilities( $facilities = array(), $lnglat = array(), $all_parks = false )
     {
-        $sorted_parks = self::getFacilities( $facilities, $lnglat );
+        $sorted_parks = self::getFacilities( $facilities, $lnglat, $all_parks );
 
         return $sorted_parks;
     }

@@ -40,6 +40,17 @@ var TpfHome = ( function ()
 		}
 	};
 
+	var attachFindAll = function ()
+	{
+		var find_all = document.getElementById( 'find-all' );
+
+		find_all.addEventListener( 'click', function () {
+
+			getUserLocation( _FIRE, facility_selection_array, true );
+
+		}, false );
+	};
+
 	var attachGoClick = function ()
 	{
 		$( '#park-find-btn' ).click( function ()
@@ -96,7 +107,7 @@ var TpfHome = ( function ()
 	    facility_selection_array = []; // reset selection array
 	};
 
-	var getUserLocation = function ( callback, facility_selection_array )
+	var getUserLocation = function ( callback, facility_selection_array, all_parks )
 	{
 		var yourLat,
 			yourLng;
@@ -116,7 +127,7 @@ var TpfHome = ( function ()
 
 			lnglat_array.push(lat, lng);
 
-			callback(facility_selection_array, lnglat_array);
+			callback(facility_selection_array, lnglat_array, all_parks );
 		}
 
 		//WHEN GPS POSITION IS READY
@@ -221,20 +232,24 @@ var TpfHome = ( function ()
 
 	// AJAX
 
-	var _FIRE = function ( _facility_selection_array, lnglat_array )
+	var _FIRE = function ( _facility_selection_array, lnglat_array, all_parks )
 	{
+		var all_parks   = ( typeof all_parks == 'undefined' ) ? false : all_parks,
+			ajax_params = {
+				_token        : CSRF_TOKEN,
+	            facility_array: _facility_selection_array,
+	            lnglat_array  : lnglat_array,
+				all_parks     : all_parks
+			};
+
 	    $.ajax({
 	        url:'http://localhost/t--p--f/public/getparks',
 	        type: 'GET',
-	        data: {
-	        	_token        : CSRF_TOKEN,
-	            facility_array: _facility_selection_array,
-	            lnglat_array  : lnglat_array
-	        },
+	        data: ajax_params,
 	        dataType: 'JSON',
 	        success: function( data )
 	        {
-	            alert(data);
+	            console.log(data);
 	        },
 	        error: function (xhr)
 	        {
@@ -314,6 +329,7 @@ var TpfHome = ( function ()
 
 	return {
 		populateImages      : populateImages,
+		attachFindAll       : attachFindAll,
 		attachEventListeners: attachEventListeners,
 		attachGoClick       : attachGoClick,
 		attachResetClick    : attachResetClick
@@ -323,5 +339,6 @@ var TpfHome = ( function ()
 
 TpfHome.populateImages();
 TpfHome.attachEventListeners();
+TpfHome.attachFindAll();
 TpfHome.attachGoClick();
 TpfHome.attachResetClick();
