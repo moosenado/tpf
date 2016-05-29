@@ -28,6 +28,7 @@
 				@foreach( $facilities as $park )
 
 					<li id="{{ $park->park_id }}" class="li-bg" data-parkval="{{ $park->park_val }}" data-parkvaloffish="{{ $park->facility }}" data-selected="0">
+						<div class="li-overlay-white"></div>
 						<div class="li-overlay"></div>
 						<p> {{ $park->facility }} </p>
 						<object class="svg-check" type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/7/71/Ok_sign_font_awesome.svg"></object>

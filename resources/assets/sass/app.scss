@@ -295,6 +295,15 @@ body {
 	opacity         : .6;
 }
 
+.li-overlay-white {
+	position        : absolute;
+	top             : 69%;
+	left            : 0;
+	right           : 0;
+	bottom          : 0;
+	background-color: #fff;
+}
+
 .svg-check {
 	display    : none;
 	position   : absolute;

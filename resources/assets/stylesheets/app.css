@@ -9047,6 +9047,16 @@ body {
 }
 
 /* line 298, ../sass/app.scss */
+.li-overlay-white {
+  position: absolute;
+  top: 69%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+}
+
+/* line 307, ../sass/app.scss */
 .svg-check {
   display: none;
   position: absolute;
@@ -9058,7 +9068,7 @@ body {
   height: 40px;
 }
 
-/* line 309, ../sass/app.scss */
+/* line 318, ../sass/app.scss */
 footer {
   color: #aec1ae;
   font-size: 10px;
@@ -9066,7 +9076,7 @@ footer {
 }
 
 /* ANIMATION SPECIFIC */
-/* line 321, ../sass/app.scss */
+/* line 330, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.5s forwards;
   -moz-animation: zoomAni 0.5s forwards;
@@ -9075,7 +9085,7 @@ footer {
   animation: zoomAni 0.5s forwards;
 }
 
-/* line 325, ../sass/app.scss */
+/* line 334, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9084,7 +9094,7 @@ footer {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 329, ../sass/app.scss */
+/* line 338, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -9093,7 +9103,7 @@ footer {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 333, ../sass/app.scss */
+/* line 342, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9102,7 +9112,7 @@ footer {
   animation: zoomAniRevShadowRev 0.5s forwards;
 }
 
-/* line 337, ../sass/app.scss */
+/* line 346, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni 0.5s forwards;
   -moz-animation: slideAni 0.5s forwards;
