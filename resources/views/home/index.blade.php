@@ -5,7 +5,7 @@
 	<div class="row">
 
 		<header>
-			<h1 class="text-center"> Toronto Park Locator </h1>
+			<h1 class="text-center title"> TORONTO PARK LOCATOR </h1>
 		</header>
 
 	</div>
@@ -16,12 +16,13 @@
 
 			<ul id="parks-find">
 				<li id="find-all" class="li-bg">
+					<div class="li-overlay-white"></div>
 					<p> Find All Parks Near Me </p>
 				</li>
 			</ul>
 
-			<h2 class="text-center"> Custom Park Search </h2>
-			<h3 class="text-center"> Choose from the list of facilities below </h3>
+			<h2 class="text-center sub-title"> CUSTOM PARK SEARCH </h2>
+			<h3 class="text-center description"> Choose a combination of facilities you are looking for at a park near you. Then hit GO when you're ready. </h3>
 
 			<ul id="park-list">
 
