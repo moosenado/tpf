@@ -11,7 +11,7 @@ class FacilityClass extends Model
 
         $grab_all_parks = $all_parks === 'true' ? true : false; // make sure value is bool
         $init_count     = count($facilities_unsorted); // for query max count value (need to know number of facilities selected)
-        $init_count     = (string)'COUNT(parkname) = ' . $init_count;
+        $query_count    = (string)'COUNT(parkname) = ' . $init_count;
 
         if ( $grab_all_parks )
         {
@@ -21,12 +21,12 @@ class FacilityClass extends Model
         }
         else
         {
-            if ( count( $facilities_unsorted ) > 1 )
+            if ( $init_count > 1 )
             {
                 $facilities = DB::table( 'parksdata' )
                         ->whereIn( 'facility', $facilities_unsorted )
                         ->groupBy( 'parkname' )
-                        ->havingRaw( $init_count )
+                        ->havingRaw( $query_count )
                         ->get();
             }
             else
