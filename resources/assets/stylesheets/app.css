@@ -9056,11 +9056,15 @@ body {
   cursor: pointer;
 }
 /* line 301, ../sass/app.scss */
+.li-bg:hover .li-overlay {
+  background-color: #fff;
+}
+/* line 305, ../sass/app.scss */
 .li-bg:active {
   opacity: 1;
 }
 
-/* line 306, ../sass/app.scss */
+/* line 310, ../sass/app.scss */
 .li-overlay {
   position: absolute;
   top: 72.5%;
@@ -9069,9 +9073,14 @@ body {
   bottom: 0;
   background-color: #aec1ae;
   opacity: .6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
-/* line 316, ../sass/app.scss */
+/* line 321, ../sass/app.scss */
 .li-overlay-white {
   position: absolute;
   top: 69%;
@@ -9081,7 +9090,7 @@ body {
   background-color: #fff;
 }
 
-/* line 325, ../sass/app.scss */
+/* line 330, ../sass/app.scss */
 .svg-check {
   display: none;
   position: absolute;
@@ -9093,7 +9102,7 @@ body {
   height: 40px;
 }
 
-/* line 336, ../sass/app.scss */
+/* line 341, ../sass/app.scss */
 footer {
   color: #aec1ae;
   font-size: 10px;
@@ -9101,7 +9110,7 @@ footer {
 }
 
 /* ANIMATION SPECIFIC */
-/* line 348, ../sass/app.scss */
+/* line 353, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.5s forwards;
   -moz-animation: zoomAni 0.5s forwards;
@@ -9110,7 +9119,7 @@ footer {
   animation: zoomAni 0.5s forwards;
 }
 
-/* line 352, ../sass/app.scss */
+/* line 357, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9119,7 +9128,7 @@ footer {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 356, ../sass/app.scss */
+/* line 361, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -9128,7 +9137,7 @@ footer {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 360, ../sass/app.scss */
+/* line 365, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9137,7 +9146,7 @@ footer {
   animation: zoomAniRevShadowRev 0.5s forwards;
 }
 
-/* line 364, ../sass/app.scss */
+/* line 369, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni 0.5s forwards;
   -moz-animation: slideAni 0.5s forwards;

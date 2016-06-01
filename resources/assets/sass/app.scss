@@ -297,6 +297,10 @@ body {
 	opacity: .9;
 	&:hover {
 		cursor : pointer;
+
+		.li-overlay {
+			background-color: #fff;
+		}
 	}
 	&:active {
 		opacity: 1;
@@ -311,6 +315,7 @@ body {
 	bottom          : 0;
 	background-color: #aec1ae;
 	opacity         : .6;
+	@include transitionStyle( all, .5s, ease-in-out );
 }
 
 .li-overlay-white {

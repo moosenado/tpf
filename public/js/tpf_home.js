@@ -247,15 +247,18 @@ var TpfHome = ( function ()
 	        type: 'GET',
 	        data: ajax_params,
 	        dataType: 'JSON',
-	        success: function( data )
-	        {
-	            console.log(data);
-	        },
-	        error: function (xhr)
+	        success: function ( data ) { performPageTransition( data ) },
+	        error: function ( xhr )
 	        {
 	            console.log(xhr);
 	        }
 	    });
+	};
+
+	var performPageTransition = function ( data )
+	{
+		// do transistion here and launch new page with callback
+		alert(data);
 	};
 
 	// Styling Functions
