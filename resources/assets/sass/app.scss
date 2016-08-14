@@ -34,6 +34,14 @@ $bg-color  : #ffffff;
 	transform         : translate( $x, $y );
 }
 
+@mixin translateStyleThreeD( $x, $y, $z ) {
+	-webkit-transform : translate3d( $x, $y, $z );
+	-moz-transform    : translate3d( $x, $y, $z );
+	-ms-transform     : translate3d( $x, $y, $z );
+	-o-transform      : translate3d( $x, $y, $z );
+	transform         : translate3d( $x, $y, $z );
+}
+
 @mixin animationFunc( $ani, $s, $event ) {
 	-webkit-animation: $ani $s $event;
 	-moz-animation   : $ani $s $event;
@@ -342,6 +350,16 @@ footer {
 	color    : $dark-main;
 	font-size: 10px;
 	margin   : 10px;
+}
+
+
+
+/* TRANSITION SPECIFIC */
+
+
+
+.ani-left {
+	@include translateStyleThreeD( -2000px, 0, 0);
 }
 
 

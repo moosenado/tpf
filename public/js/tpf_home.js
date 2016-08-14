@@ -46,7 +46,7 @@ var TpfHome = ( function ()
 
 		find_all.addEventListener( 'click', function () {
 
-			getUserLocation( _FIRE, facility_selection_array, true );
+			getUserLocation( _getParksFromDB, facility_selection_array, true );
 
 		}, false );
 	};
@@ -102,7 +102,7 @@ var TpfHome = ( function ()
 	    	}
 	    }
 
-	    getUserLocation( _FIRE, facility_selection_array );
+	    getUserLocation( _getParksFromDB, facility_selection_array );
 
 	    facility_selection_array = []; // reset selection array
 	};
@@ -232,7 +232,7 @@ var TpfHome = ( function ()
 
 	// AJAX
 
-	var _FIRE = function ( _facility_selection_array, lnglat_array, all_parks )
+	var _getParksFromDB = function ( _facility_selection_array, lnglat_array, all_parks )
 	{
 		var all_parks   = ( typeof all_parks == 'undefined' ) ? false : all_parks,
 			ajax_params = {
@@ -248,17 +248,14 @@ var TpfHome = ( function ()
 	        data: ajax_params,
 	        dataType: 'JSON',
 	        success: function ( data ) { performPageTransition( data ) },
-	        error: function ( xhr )
-	        {
-	            console.log(xhr);
-	        }
+	        error: function ( xhr ) { console.log( xhr ); }
 	    });
 	};
 
 	var performPageTransition = function ( data )
 	{
 		// do transistion here and launch new page with callback
-		alert(data);
+		$(".li-bg").addClass("ani-left");
 	};
 
 	// Styling Functions
