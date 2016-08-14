@@ -55,6 +55,9 @@
 </div>
 
 <div id="find-parks-page">
+
+	<div id="google-map" style="width: 500px; height: 400px;">
+	</div>
 	
 </div>
 

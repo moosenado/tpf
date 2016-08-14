@@ -48,11 +48,8 @@ var TpfHome = ( function ()
   			{
 				window.addEventListener( "popstate", function ( e )
 				{
-					console.log(history.state);
-					if ( history.state === null )
-					{
-						performPageTransition();
-					}
+					performPageTransition();
+
 				}, false );
 			}, 0 ); // to stop older webkit browsers from adding pushstate event on page load
 		});
@@ -129,16 +126,15 @@ var TpfHome = ( function ()
 	{
 		var yourLat,
 			yourLng;
-			//locationError = document.getElementById("locationErr");
 
 		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(showPosition);
+			navigator.geolocation.getCurrentPosition(getPosition);
 		}else{
 			//locationError.innerHTML = "Your browser cannot get your location.";
 		}
 
-		function showPosition(position) {
-
+		function getPosition(position)
+		{
 			var lnglat_array = [],
 				lat = (position.coords.latitude),
 				lng = (position.coords.longitude);
@@ -147,59 +143,6 @@ var TpfHome = ( function ()
 
 			callback(facility_selection_array, lnglat_array, all_parks );
 		}
-
-		//WHEN GPS POSITION IS READY
-
-		// function onPositionReady(yourLat, yourLng) {
-
-		// 	var latlng = new google.maps.LatLng(yourLat, yourLng);
-
-		// 	var geocoder = new google.maps.Geocoder();
-
-		// 	geocoder.geocode( {'latLng' : latlng}, function(results, status)  {
-
-		// 		if (status == google.maps.GeocoderStatus.OK){
-
-		// 			for(var i=0; i < results[0].address_components.length; i++)
-		// 			{
-		// 				var component = results[0].address_components[i];
-
-		// 				if(component.types[0] == "postal_code")
-		// 				{
-		// 						//console.log(component.long_name.charAt(0));
-		// 						//if (component.long_name.charAt(0) == 'm' || component.long_name.charAt(0) == 'M'){
-		// 							var postalcodeField = document.forms[0].postalcode;
-		// 							postalcodeField.value = component.long_name;
-		// 							locationError.innerHTML = "Success";
-
-		// 							console.log(component.long_name);
-		// 							console.log(component);
-
-	 //    							//if (component.long_name.charAt(0) != 'm' || !component.long_name.charAt(0) != 'M'){
-	 //    								//locationError.innerHTML = "Not in Toronto? You can still search by facility type.";
-	 //    							//}
-	 //    						//}else{
-	 //    							//locationError.innerHTML = "Not in Toronto? You can still search by facility type.";
-	 //    							//var postalcodeField = document.forms[0].postalcode;
-	 //    							//postalcodeField.focus();
-	 //    						//}
-	 //    					}
-	 //    				}
-	 //    			}else if(status === google.maps.GeocoderStatus.REQUEST_DENIED){
-	 //    				locationError.innerHTML = "Unsuccessful";
-
-	 //    			}else if(status === google.maps.GeocoderStatus.INVALID_REQUEST){
-	 //    				locationError.innerHTML = "Unsuccessful";
-
-	 //    			}else if(status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT){
-	 //    				locationError.innerHTML = "Please try again soon!";
-
-	 //    			}else{
-	 //    				locationError.innerHTML = "Could not get your location: " + status;
-	 //    			}
-	 //    		});
-
-		// }
 	};
 
 	var _resetSelection = function ()
@@ -266,14 +209,14 @@ var TpfHome = ( function ()
 	        data: ajax_params,
 	        dataType: 'JSON',
 	        success: function ( data ) {
-	        	performPageTransition( data );
+	        	performPageTransition( data, lnglat_array );
 	        	_updateUrl( data );
 	        },
 	        error: function ( xhr ) { console.log( xhr ); }
 	    });
 	};
 
-	var performPageTransition = function ( data )
+	var performPageTransition = function ( data, lnglat_array )
 	{
 		if ( on_home_page )
 		{
@@ -287,7 +230,8 @@ var TpfHome = ( function ()
 			setTimeout(function(){
 				$("#home-page").css({"display":"none"}); //display none to homepage container after animations are done
 				$("#find-parks-page").css({"display":"block"}); //display block to find parks container after animations are done
-			}, 1200);
+				performPageInit( data, lnglat_array );
+			}, 1001);
 
 			on_home_page = false;
 		}
@@ -310,12 +254,43 @@ var TpfHome = ( function ()
 		}
 	};
 
+	var performPageInit = function ( data, lnglat_array )
+	{
+		_openGoogleMaps( data, lnglat_array );
+	};
+
 	var _updateUrl = function ( data )
   	{
   		if ( history.pushState )
   		{
 			history.pushState( { data }, null, document.location.href + 'findpark' );
 		}
+	};
+
+	var _openGoogleMaps = function ( data, lnglat_array )
+	{
+	    var map = new google.maps.Map(document.getElementById('google-map'), {
+	      zoom: 10,
+	      center: new google.maps.LatLng(lnglat_array[0], lnglat_array[1]),
+	      mapTypeId: google.maps.MapTypeId.ROADMAP
+	    });
+	    var infowindow = new google.maps.InfoWindow();
+
+	    var marker, i;
+
+	    for (i = 0; i < data.length; i++) {  
+	      marker = new google.maps.Marker({
+	        position: new google.maps.LatLng(data[i]["lat"], data[i]["lng"]),
+	        map: map
+	      });
+
+	      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+	        return function() {
+	          infowindow.setContent(data[i]["parkname"]);
+	          infowindow.open(map, marker);
+	        }
+	      })(marker, i));
+	    }
 	};
 
 	// Styling Functions
