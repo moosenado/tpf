@@ -13,6 +13,7 @@
 
 /* INDEX */
 Route::get('/', 'HomeController@index');
+Route::get('/findpark', 'HomeController@index'); //redirect to homepage
 
 /* AJAX */
 Route::get('getparks', 'AjaxController@getParks');

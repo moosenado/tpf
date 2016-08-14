@@ -7,7 +7,8 @@ var TpfHome = ( function ()
 		facility_selection_array = [],
 		global_go_btn		     = false,
 		CSRF_TOKEN               = $('meta[name="csrf-token"]').attr('content'),
-		user_location			 = false;
+		user_location			 = false,
+		on_home_page             = true; //handle correct page transitiion
 
 
 	// Public Methods
@@ -38,6 +39,23 @@ var TpfHome = ( function ()
 
 			}, false );
 		}
+
+		window.addEventListener( "load", function ()
+  		{
+  			//history.replaceState( {}, null, '/' );
+
+  			setTimeout( function ()
+  			{
+				window.addEventListener( "popstate", function ( e )
+				{
+					console.log(history.state);
+					if ( history.state === null )
+					{
+						// window.location = 'http://www.google.com';
+					}
+				}, false );
+			}, 0 ); // to stop older webkit browsers from adding pushstate event on page load
+		});
 	};
 
 	var attachFindAll = function ()
@@ -68,7 +86,7 @@ var TpfHome = ( function ()
 		{
 			if ( global_go_btn )
 			{
-				_resetSelection(); // get selected parks and ship off to php for db query
+				_resetSelection();
 			}
 		});
 	};
@@ -247,15 +265,44 @@ var TpfHome = ( function ()
 	        type: 'GET',
 	        data: ajax_params,
 	        dataType: 'JSON',
-	        success: function ( data ) { performPageTransition( data ) },
+	        success: function ( data ) {
+	        	performPageTransition( data );
+	        	_updateUrl( data );
+	        },
 	        error: function ( xhr ) { console.log( xhr ); }
 	    });
 	};
 
 	var performPageTransition = function ( data )
 	{
-		// do transistion here and launch new page with callback
-		$(".li-bg").addClass("ani-left");
+		if ( on_home_page )
+		{
+			// do transistion here and launch new page with callback
+			$(".li-bg").addClass("ani-left"); // remove all park images
+			$(".title").addClass("ani-fadeOut"); //fade out page title
+			$(".sub-title").addClass("ani-fadeOut"); //fade out sub title
+			$(".description").addClass("ani-fadeOut"); //fade out description
+			_resetButtons(); //remove buttons
+
+			setTimeout(function(){
+				$("#home-page").css({"display":"none"}); //display none to homepage container after animations are done
+				$("#find-parks-page").css({"display":"block"}); //display block to find parks container after animations are done
+			}, 1200);
+
+			on_home_page = false;
+		}
+		else
+		{
+			on_home_page = true;
+		}
+	};
+
+	var _updateUrl = function ( data )
+  	{
+  		if ( history.pushState )
+  		{
+			history.pushState( { data }, null, document.location.href + 'findpark' );
+		}
 	};
 
 	// Styling Functions

@@ -102,9 +102,22 @@ body {
 	background-position: center;
 
 	@media ( min-width: $screen-sm ) {
-		width: 640px;
+		width                : 640px;
 		background-position-y: -200px; /* to show trees in image */
 	}
+}
+
+#find-parks-page {
+	display          : none; //must be non existant on page load
+	height           : 100vh;
+	position         : relative;
+	padding          : 0;
+	margin           : 0 auto;
+	max-height       : 100%; /*firefox*/
+	overflow         : hidden;
+	width            : 768px;
+	max-width        : 100%;
+	background-color : grey;
 }
 
 
@@ -115,15 +128,18 @@ body {
 
 .title {
 	letter-spacing: 10px;
+	@include transitionStyle(all, 1s, ease-in-out);
 }
 
 .sub-title {
 	letter-spacing: 3px;
+	@include transitionStyle(all, 1s, ease-in-out);
 }
 
 .description {
 	font-size: 16px;
 	padding  : 0 10px;
+	@include transitionStyle(all, 1s, ease-in-out);
 }
 
 .reset-btn {
@@ -360,6 +376,16 @@ footer {
 
 .ani-left {
 	@include translateStyleThreeD( -2000px, 0, 0);
+	opacity: 0;
+}
+
+.ani-right {
+	@include translateStyleThreeD( 2000px, 0, 0);
+	opacity: 1;
+}
+
+.ani-fadeOut {
+	opacity: 0;
 }
 
 
