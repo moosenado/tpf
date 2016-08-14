@@ -275,6 +275,11 @@ var TpfHome = ( function ()
 	      mapTypeId: google.maps.MapTypeId.ROADMAP
 	    });
 	    var infowindow = new google.maps.InfoWindow();
+	    var directionsDisplay = new google.maps.DirectionsRenderer;
+      	var directionsService = new google.maps.DirectionsService;
+
+      	directionsDisplay.setMap(map);
+     	//directionsDisplay.setPanel(document.getElementById('directions'));
 
 	    var marker, i;
 
@@ -291,7 +296,27 @@ var TpfHome = ( function ()
 	        }
 	      })(marker, i));
 	    }
+
+	    calculateAndDisplayRout(directionsService, directionsDisplay, lnglat_array, data);
 	};
+
+	function calculateAndDisplayRout(directionsService, directionsDisplay, lnglat_array, data ){
+    	var start = new google.maps.LatLng(lnglat_array[0], lnglat_array[1]);
+        var end = new google.maps.LatLng(data[0]['lat'], data[0]['lng']);
+
+		directionsService.route({
+			origin: start,
+			destination: end,
+			travelMode: google.maps.TravelMode.DRIVING
+		}, function(response, status) {
+			if (status === google.maps.DirectionsStatus.OK) {
+				directionsDisplay.setDirections(response);
+			} else {
+				window.alert('Directions request failed due to ' + status);
+			}
+		});
+
+    };
 
 	// Styling Functions
 
