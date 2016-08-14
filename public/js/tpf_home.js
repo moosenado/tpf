@@ -209,8 +209,12 @@ var TpfHome = ( function ()
 	        data: ajax_params,
 	        dataType: 'JSON',
 	        success: function ( data ) {
-	        	performPageTransition( data, lnglat_array );
-	        	_updateUrl( data );
+
+	        	if(data.length >= 1)
+	        	{
+	        		performPageTransition( data, lnglat_array );
+	        		_updateUrl( data );
+	        	}
 	        },
 	        error: function ( xhr ) { console.log( xhr ); }
 	    });
