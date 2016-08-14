@@ -302,6 +302,7 @@ var TpfHome = ( function ()
 				$(".title").removeClass("ani-fadeOut").addClass("ani-fadeIn");
 				$(".sub-title").removeClass("ani-fadeOut").addClass("ani-fadeIn");
 				$(".description").removeClass("ani-fadeOut").addClass("ani-fadeIn");
+				_displayFireBtn();
 
 			}, 0); //wait for display corrections to be made before applying animations
 
