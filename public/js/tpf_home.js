@@ -231,7 +231,7 @@ var TpfHome = ( function ()
 				$("#home-page").css({"display":"none"}); //display none to homepage container after animations are done
 				$("#find-parks-page").css({"display":"block"}); //display block to find parks container after animations are done
 				performPageInit( data, lnglat_array );
-			}, 1001);
+			}, 101);
 
 			on_home_page = false;
 		}
@@ -274,7 +274,7 @@ var TpfHome = ( function ()
 	      center: new google.maps.LatLng(lnglat_array[0], lnglat_array[1]),
 	      mapTypeId: google.maps.MapTypeId.ROADMAP
 	    });
-	    var infowindow = new google.maps.InfoWindow();
+	    var infowindow        = new google.maps.InfoWindow();
 	    var directionsDisplay = new google.maps.DirectionsRenderer;
       	var directionsService = new google.maps.DirectionsService;
 
@@ -283,7 +283,7 @@ var TpfHome = ( function ()
 
 	    var marker, i;
 
-	    for (i = 0; i < data.length; i++) {  
+	    for (i = 0; i < data.length; i++) {
 	      marker = new google.maps.Marker({
 	        position: new google.maps.LatLng(data[i]["lat"], data[i]["lng"]),
 	        map: map

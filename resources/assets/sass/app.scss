@@ -128,18 +128,18 @@ body {
 
 .title {
 	letter-spacing: 10px;
-	@include transitionStyle(all, 1s, ease-in-out);
+	@include transitionStyle(all, .1s, ease-in-out);
 }
 
 .sub-title {
 	letter-spacing: 3px;
-	@include transitionStyle(all, 1s, ease-in-out);
+	@include transitionStyle(all, .1s, ease-in-out);
 }
 
 .description {
 	font-size: 16px;
 	padding  : 0 10px;
-	@include transitionStyle(all, 1s, ease-in-out);
+	@include transitionStyle(all, .1s, ease-in-out);
 }
 
 .reset-btn {
@@ -168,15 +168,20 @@ body {
 		line-height: 30px;
 	}
 
-	@media ( min-width: $screen-lg ) {
-		left       : 50%;
-		right      : 0;
-		margin-left: -60px;
+	// @media ( min-width: $screen-lg ) {
+	// 	left       : 50%;
+	// 	right      : 0;
+	// 	margin-left: -60px;
 
-		i {
-			margin-left: 1px;
-		}
-	}
+	// 	i {
+	// 		margin-left: 1px;
+	// 	}
+	// }
+}
+
+.gmap {
+	width: 100%;
+	height: 40%;
 }
 
 .fire-btn {
@@ -201,11 +206,11 @@ body {
 		opacity: .8;
 	}
 
-	@media ( min-width: $screen-lg ) {
-		left       : 50%;
-		right      : 0;
-		margin-left: -25px;
-	}
+	// @media ( min-width: $screen-lg ) {
+	// 	left       : 50%;
+	// 	right      : 0;
+	// 	margin-left: -25px;
+	// }
 }
 
 .fire-btn-shadow {
@@ -222,11 +227,11 @@ body {
 	-moz-box-shadow   : 0px 8px 36px -9px rgba(0,0,0,1);
 	box-shadow        : 0px 8px 36px -9px rgba(0,0,0,1);
 
-	@media ( min-width: $screen-lg ) {
-		left       : 50%;
-		right      : 0;
-		margin-left: -25px;
-	}
+	// @media ( min-width: $screen-lg ) {
+	// 	left       : 50%;
+	// 	right      : 0;
+	// 	margin-left: -25px;
+	// }
 }
 
 .reset-btn-shadow {
@@ -244,11 +249,11 @@ body {
 	-moz-box-shadow   : 0px 8px 36px -9px rgba(0,0,0,1);
 	box-shadow        : 0px 8px 36px -9px rgba(0,0,0,1);
 
-	@media ( min-width: $screen-lg ) {
-		left       : 50%;
-		right      : 0;
-		margin-left: -60px;
-	}
+	// @media ( min-width: $screen-lg ) {
+	// 	left       : 50%;
+	// 	right      : 0;
+	// 	margin-left: -60px;
+	// }
 }
 
 .center {
