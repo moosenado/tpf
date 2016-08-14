@@ -261,6 +261,8 @@ var TpfHome = ( function ()
 	var performPageInit = function ( data, lnglat_array )
 	{
 		_openGoogleMaps( data, lnglat_array );
+		_displayParkNav( data );
+		_displayInitParkData( data );
 	};
 
 	var _updateUrl = function ( data )
@@ -269,6 +271,32 @@ var TpfHome = ( function ()
   		{
 			history.pushState( { data }, null, document.location.href + 'findpark' );
 		}
+	};
+
+	var _displayParkNav = function ( data )
+	{
+		$(".park-distance-ul ul").empty();
+
+		console.log(data);
+
+		data.map(function( park, i ){
+			$(".park-distance-ul ul").append(
+				"<li data-parkname='" + park['parkname'] + "' data-address='" + park['address'] + "' data-phonenumber='" + park['phonenumber'] + "' data-postalcode='" + park['postalcode'] + "'><span>" + (i + 1) + "</span></li>"
+			);
+		});
+	};
+
+	var _displayInitParkData = function ( data )
+	{
+		$("#park-info-name").empty();
+		$("#park-info-address").empty();
+		$("#park-info-phonenumber").empty();
+		$("#park-info-postalcode").empty();
+
+		$("#park-info-name").html(data[0]['parkname']);
+		$("#park-info-address").html(data[0]['address']);
+		$("#park-info-phonenumber").html(data[0]['phonenumber']);
+		$("#park-info-postalcode").html(data[0]['postalcode']);
 	};
 
 	var _openGoogleMaps = function ( data, lnglat_array )
@@ -316,7 +344,7 @@ var TpfHome = ( function ()
 			if (status === google.maps.DirectionsStatus.OK) {
 				directionsDisplay.setDirections(response);
 			} else {
-				window.alert('Directions request failed due to ' + status);
+				console.debug('Directions request failed due to ' + status);
 			}
 		});
 
@@ -388,7 +416,7 @@ var TpfHome = ( function ()
 
 			$( '.reset-btn' ).css( { 'display': 'none' } );
 			$( '.reset-btn' ).removeClass( 'zoom-check-reverse' );
-		}, 250 );
+		}, 100 );
 	};
 
 	return {

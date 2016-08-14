@@ -56,7 +56,15 @@
 
 <div id="find-parks-page">
 
-	<div id="google-map" class="gmap">
+	<div id="google-map" class="gmap"></div>
+	<div class="park-distance-ul">
+		<ul></ul>
+	</div>
+	<div class="park-info-cont">
+		<div id="park-info-name"></div>
+		<div id="park-info-address"></div>
+		<div id="park-info-phonenumber"></div>
+		<div id="park-info-postalcode"></div>
 	</div>
 	
 </div>

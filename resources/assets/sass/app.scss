@@ -117,7 +117,6 @@ body {
 	overflow         : hidden;
 	width            : 768px;
 	max-width        : 100%;
-	background-color : grey;
 }
 
 
@@ -356,6 +355,41 @@ body {
 	background-color: #fff;
 }
 
+.park-distance-ul {
+	overflow: hidden;
+	width: 100%;
+	height: 76px;
+}
+
+.park-distance-ul ul {
+	margin: 0;
+	padding: 0;
+	overflow-x: scroll;
+	white-space: nowrap;
+	padding-bottom: 17px;
+}
+
+.park-distance-ul ul li {
+	list-style: none;
+	display: inline-block;
+	height: 75px;
+	width: 75px;
+	border: 1px solid gray;
+	margin: 0;
+	font-size: 0;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.park-distance-ul ul li span {
+	font-size: 20px;
+	display: inline-block;
+	position: relative;
+	top: 50%;
+	left: 0;
+	margin-top: -14px;
+}
+
 .svg-check {
 	display    : none;
 	position   : absolute;
@@ -371,6 +405,16 @@ footer {
 	color    : $dark-main;
 	font-size: 10px;
 	margin   : 10px;
+}
+
+@media all and (min-width: 768px) {
+	.park-distance-ul {
+		height: auto;
+	}
+
+	.park-distance-ul ul {
+		padding-bottom: 0;
+	}
 }
 
 
