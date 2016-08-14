@@ -380,12 +380,16 @@ footer {
 }
 
 .ani-right {
-	@include translateStyleThreeD( 2000px, 0, 0);
+	@include translateStyleThreeD( 0, 0, 0);
 	opacity: 1;
 }
 
 .ani-fadeOut {
 	opacity: 0;
+}
+
+.ani-fadeIn {
+	opacity: 1;
 }
 
 

@@ -51,7 +51,7 @@ var TpfHome = ( function ()
 					console.log(history.state);
 					if ( history.state === null )
 					{
-						// window.location = 'http://www.google.com';
+						performPageTransition();
 					}
 				}, false );
 			}, 0 ); // to stop older webkit browsers from adding pushstate event on page load
@@ -278,10 +278,10 @@ var TpfHome = ( function ()
 		if ( on_home_page )
 		{
 			// do transistion here and launch new page with callback
-			$(".li-bg").addClass("ani-left"); // remove all park images
-			$(".title").addClass("ani-fadeOut"); //fade out page title
-			$(".sub-title").addClass("ani-fadeOut"); //fade out sub title
-			$(".description").addClass("ani-fadeOut"); //fade out description
+			$(".li-bg").removeClass("ani-right").addClass("ani-left"); // remove all park images
+			$(".title").removeClass("ani-fadeIn").addClass("ani-fadeOut"); //fade out page title
+			$(".sub-title").removeClass("ani-fadeIn").addClass("ani-fadeOut"); //fade out sub title
+			$(".description").removeClass("ani-fadeIn").addClass("ani-fadeOut"); //fade out description
 			_resetButtons(); //remove buttons
 
 			setTimeout(function(){
@@ -293,6 +293,18 @@ var TpfHome = ( function ()
 		}
 		else
 		{
+			$("#find-parks-page").css({"display":"none"});
+			$("#home-page").css({"display":"block"});
+
+			setTimeout(function(){
+
+				$(".li-bg").removeClass("ani-left").addClass("ani-right");
+				$(".title").removeClass("ani-fadeOut").addClass("ani-fadeIn");
+				$(".sub-title").removeClass("ani-fadeOut").addClass("ani-fadeIn");
+				$(".description").removeClass("ani-fadeOut").addClass("ani-fadeIn");
+
+			}, 0); //wait for display corrections to be made before applying animations
+
 			on_home_page = true;
 		}
 	};

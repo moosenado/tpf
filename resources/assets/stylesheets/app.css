@@ -9152,11 +9152,11 @@ footer {
 
 /* line 382, ../sass/app.scss */
 .ani-right {
-  -webkit-transform: translate3d(2000px, 0, 0);
-  -moz-transform: translate3d(2000px, 0, 0);
-  -ms-transform: translate3d(2000px, 0, 0);
-  -o-transform: translate3d(2000px, 0, 0);
-  transform: translate3d(2000px, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   opacity: 1;
 }
 
@@ -9165,8 +9165,13 @@ footer {
   opacity: 0;
 }
 
+/* line 391, ../sass/app.scss */
+.ani-fadeIn {
+  opacity: 1;
+}
+
 /* ANIMATION SPECIFIC */
-/* line 397, ../sass/app.scss */
+/* line 401, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.5s forwards;
   -moz-animation: zoomAni 0.5s forwards;
@@ -9175,7 +9180,7 @@ footer {
   animation: zoomAni 0.5s forwards;
 }
 
-/* line 401, ../sass/app.scss */
+/* line 405, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9184,7 +9189,7 @@ footer {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 405, ../sass/app.scss */
+/* line 409, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -9193,7 +9198,7 @@ footer {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 409, ../sass/app.scss */
+/* line 413, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9202,7 +9207,7 @@ footer {
   animation: zoomAniRevShadowRev 0.5s forwards;
 }
 
-/* line 413, ../sass/app.scss */
+/* line 417, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni 0.5s forwards;
   -moz-animation: slideAni 0.5s forwards;
