@@ -9116,9 +9116,10 @@ body {
   font-size: 0;
   vertical-align: middle;
   text-align: center;
+  cursor: pointer;
 }
 
-/* line 384, ../sass/app.scss */
+/* line 385, ../sass/app.scss */
 .park-distance-ul ul li span {
   font-size: 20px;
   display: inline-block;
@@ -9128,7 +9129,7 @@ body {
   margin-top: -14px;
 }
 
-/* line 393, ../sass/app.scss */
+/* line 394, ../sass/app.scss */
 .svg-check {
   display: none;
   position: absolute;
@@ -9140,7 +9141,7 @@ body {
   height: 40px;
 }
 
-/* line 404, ../sass/app.scss */
+/* line 405, ../sass/app.scss */
 footer {
   color: #aec1ae;
   font-size: 10px;
@@ -9148,18 +9149,18 @@ footer {
 }
 
 @media all and (min-width: 768px) {
-  /* line 411, ../sass/app.scss */
+  /* line 412, ../sass/app.scss */
   .park-distance-ul {
     height: auto;
   }
 
-  /* line 415, ../sass/app.scss */
+  /* line 416, ../sass/app.scss */
   .park-distance-ul ul {
     padding-bottom: 0;
   }
 }
 /* TRANSITION SPECIFIC */
-/* line 426, ../sass/app.scss */
+/* line 427, ../sass/app.scss */
 .ani-left {
   -webkit-transform: translate3d(-2000px, 0, 0);
   -moz-transform: translate3d(-2000px, 0, 0);
@@ -9169,7 +9170,7 @@ footer {
   opacity: 0;
 }
 
-/* line 431, ../sass/app.scss */
+/* line 432, ../sass/app.scss */
 .ani-right {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -9179,18 +9180,18 @@ footer {
   opacity: 1;
 }
 
-/* line 436, ../sass/app.scss */
+/* line 437, ../sass/app.scss */
 .ani-fadeOut {
   opacity: 0;
 }
 
-/* line 440, ../sass/app.scss */
+/* line 441, ../sass/app.scss */
 .ani-fadeIn {
   opacity: 1;
 }
 
 /* ANIMATION SPECIFIC */
-/* line 450, ../sass/app.scss */
+/* line 451, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.5s forwards;
   -moz-animation: zoomAni 0.5s forwards;
@@ -9199,7 +9200,7 @@ footer {
   animation: zoomAni 0.5s forwards;
 }
 
-/* line 454, ../sass/app.scss */
+/* line 455, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9208,7 +9209,7 @@ footer {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 458, ../sass/app.scss */
+/* line 459, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -9217,7 +9218,7 @@ footer {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 462, ../sass/app.scss */
+/* line 463, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9226,7 +9227,7 @@ footer {
   animation: zoomAniRevShadowRev 0.5s forwards;
 }
 
-/* line 466, ../sass/app.scss */
+/* line 467, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni 0.5s forwards;
   -moz-animation: slideAni 0.5s forwards;

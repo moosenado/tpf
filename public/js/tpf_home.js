@@ -269,7 +269,7 @@ var TpfHome = ( function ()
   	{
   		if ( history.pushState )
   		{
-			history.pushState( { data }, null, document.location.href + 'findpark' );
+			history.pushState( { data }, null );
 		}
 	};
 
@@ -277,14 +277,23 @@ var TpfHome = ( function ()
 	{
 		$(".park-distance-ul ul").empty();
 
-		console.log(data);
-
 		data.map(function( park, i ){
 			$(".park-distance-ul ul").append(
-				"<li data-parkname='" + park['parkname'] + "' data-address='" + park['address'] + "' data-phonenumber='" + park['phonenumber'] + "' data-postalcode='" + park['postalcode'] + "'><span>" + (i + 1) + "</span></li>"
+				"<li class='distance-item' data-parkname='" + park['parkname'] + "' data-address='" + park['address'] + "' data-phonenumber='" + park['phonenumber'] + "' data-postalcode='" + park['postalcode'] + "'><span>" + (i + 1) + "</span></li>"
 			);
 		});
+
+		var distance_class  = document.getElementsByClassName("distance-item");
+		var distance_length = distance_class.length;
+
+		for (var i = 0; i < distance_length; i++) {
+		    distance_class[i].addEventListener('click', myFunction, false);
+		}
 	};
+
+	var myFunction = function(){
+		alert(this.getAttribute("data-parkname"));
+	}
 
 	var _displayInitParkData = function ( data )
 	{
@@ -302,13 +311,15 @@ var TpfHome = ( function ()
 	var _openGoogleMaps = function ( data, lnglat_array )
 	{
 	    var map = new google.maps.Map(document.getElementById('google-map'), {
-	      zoom: 10,
+	      zoom: 12,
 	      center: new google.maps.LatLng(lnglat_array[0], lnglat_array[1]),
 	      mapTypeId: google.maps.MapTypeId.ROADMAP
 	    });
-	    var infowindow        = new google.maps.InfoWindow();
-	    var directionsDisplay = new google.maps.DirectionsRenderer;
-      	var directionsService = new google.maps.DirectionsService;
+		var infowindow        = new google.maps.InfoWindow();
+		var directionsDisplay = new google.maps.DirectionsRenderer({
+      		preserveViewport: true
+      	});
+		var directionsService = new google.maps.DirectionsService;
 
       	directionsDisplay.setMap(map);
      	//directionsDisplay.setPanel(document.getElementById('directions'));
