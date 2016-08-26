@@ -271,7 +271,7 @@ var TpfHome = ( function ()
 	{
 		_openGoogleMaps();
 		_displayParkNav();
-		_displayInitParkData();
+		_displayParkData(0);
 	};
 
 	var _updateUrl = function ()
@@ -284,7 +284,6 @@ var TpfHome = ( function ()
 
 	var _displayParkNav = function ()
 	{
-		console.log(current_park_selection_data);
 		$(".park-distance-ul ul").empty(); // empty previous event handlers ( no memory leaks )
 
 		current_park_selection_data.map(function( park, i ){
@@ -303,20 +302,23 @@ var TpfHome = ( function ()
 
 	var _reRenderParkSelection = function()
 	{
-		calculateAndDisplayRout(parseInt(this.getAttribute("data-selection-number")));
+		var index = parseInt(this.getAttribute("data-selection-number"));
+
+		_calculateAndDisplayRout(index);
+		_displayParkData(index);
 	};
 
-	var _displayInitParkData = function ()
+	var _displayParkData = function ( park_selection_index )
 	{
 		$("#park-info-name").empty();
 		$("#park-info-address").empty();
 		$("#park-info-phonenumber").empty();
 		$("#park-info-postalcode").empty();
 
-		$("#park-info-name").html(current_park_selection_data[0]['parkname']);
-		$("#park-info-address").html(current_park_selection_data[0]['address']);
-		$("#park-info-phonenumber").html(current_park_selection_data[0]['phonenumber']);
-		$("#park-info-postalcode").html(current_park_selection_data[0]['postalcode']);
+		$("#park-info-name").html(current_park_selection_data[park_selection_index]['parkname']);
+		$("#park-info-address").html(current_park_selection_data[park_selection_index]['address']);
+		$("#park-info-phonenumber").html(current_park_selection_data[park_selection_index]['phonenumber']);
+		$("#park-info-postalcode").html(current_park_selection_data[park_selection_index]['postalcode']);
 	};
 
 	var _openGoogleMaps = function ()
@@ -351,10 +353,11 @@ var TpfHome = ( function ()
 	      })(marker, i));
 	    }
 
-	    calculateAndDisplayRout(0);
+	    _calculateAndDisplayRout(0);
 	};
 
-	function calculateAndDisplayRout(park_selection_index){
+	var _calculateAndDisplayRout = function ( park_selection_index )
+	{
     	var start = new google.maps.LatLng(lnglat_array[0], lnglat_array[1]);
         var end   = new google.maps.LatLng(current_park_selection_data[park_selection_index]['lat'], current_park_selection_data[park_selection_index]['lng']);
 
