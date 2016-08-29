@@ -1,6 +1,6 @@
 var TpfHome = ( function ()
 {
-	// Private Variables
+	// Globals
 
 	var park_li                  = document.getElementById( 'park-list' ).getElementsByTagName( 'li' ),
 		park_li_length		     = park_li.length,
@@ -15,7 +15,7 @@ var TpfHome = ( function ()
 		lnglat_array;
 
 
-	// Public Methods
+	// Launch On Load
 
 	var populateImages = function ()
 	{
@@ -91,7 +91,7 @@ var TpfHome = ( function ()
 	};
 
 
-	// Private Methods
+	// After load - handle user events
 
 	var _setSelectionStyles = function ( park_choice )
 	{
@@ -210,13 +210,13 @@ var TpfHome = ( function ()
 			};
 
 	    $.ajax({
-	        url:'http://localhost/t--p--f/public/getparks',
-	        type: 'GET',
-	        data: ajax_params,
+	        url     :'http://localhost/t--p--f/public/getparks',
+	        type    : 'GET',
+	        data    : ajax_params,
 	        dataType: 'JSON',
-	        success: function ( data ) {
-
-	        	if( data.length >= 1 )
+	        success : function ( data )
+	        {
+	        	if ( data.length >= 1 )
 	        	{
 	        		current_park_selection_data = data;
 	        		_performPageTransition();
@@ -242,7 +242,8 @@ var TpfHome = ( function ()
 			$(".description").removeClass("ani-fadeIn").addClass("ani-fadeOut"); //fade out description
 			_resetButtons(); //remove buttons
 
-			setTimeout(function(){
+			setTimeout( function ()
+			{
 				$("#home-page").css({"display":"none"}); //display none to homepage container after animations are done
 				$("#find-parks-page").css({"display":"block"}); //display block to find parks container after animations are done
 				_performPageInit();
@@ -255,14 +256,13 @@ var TpfHome = ( function ()
 			$("#find-parks-page").css({"display":"none"});
 			$("#home-page").css({"display":"block"});
 
-			setTimeout(function(){
-
+			setTimeout( function ()
+			{
 				$(".li-bg").removeClass("ani-left").addClass("ani-right");
 				$(".title").removeClass("ani-fadeOut").addClass("ani-fadeIn");
 				$(".sub-title").removeClass("ani-fadeOut").addClass("ani-fadeIn");
 				$(".description").removeClass("ani-fadeOut").addClass("ani-fadeIn");
 				_displayFireBtn();
-
 			}, 0); //wait for display corrections to be made before applying animations
 
 			on_home_page = true;
@@ -273,7 +273,7 @@ var TpfHome = ( function ()
 	{
 		_openGoogleMaps();
 		_displayParkNav();
-		_displayParkData(0);
+		_displayParkData(0); // 0 for first park in line
 	};
 
 	var _updateUrl = function ()
@@ -288,7 +288,8 @@ var TpfHome = ( function ()
 	{
 		$(".park-distance-ul ul").empty(); // empty previous event handlers ( no memory leaks )
 
-		current_park_selection_data.map(function( park, i ){
+		current_park_selection_data.map( function ( park, i )
+		{
 			$(".park-distance-ul ul").append(
 				"<li class='distance-item' data-selection-number='" + i + "' data-lat='" + park['lat'] + "' data-lng='" + park['lng'] + "' data-parkname='" + park['parkname'] + "' data-address='" + park['address'] + "' data-phonenumber='" + park['phonenumber'] + "' data-postalcode='" + park['postalcode'] + "'><span>" + (i + 1) + "</span></li>"
 			);
@@ -297,17 +298,17 @@ var TpfHome = ( function ()
 		var distance_class  = document.getElementsByClassName("distance-item");
 		var distance_length = distance_class.length;
 
-		for (var i = 0; i < distance_length; i++) {
+		for ( var i = 0; i < distance_length; i++ ) {
 		    distance_class[i].addEventListener('click', _reRenderParkSelection, false);
 		}
 	};
 
 	var _reRenderParkSelection = function()
 	{
-		var selection_index = parseInt(this.getAttribute("data-selection-number"));
+		var selection_index = parseInt( this.getAttribute("data-selection-number" ) );
 
-		_calculateAndDisplayRout(selection_index);
-		_displayParkData(selection_index);
+		_calculateAndDisplayRout( selection_index );
+		_displayParkData( selection_index );
 	};
 
 	var _displayParkData = function ( park_selection_index )
@@ -325,9 +326,10 @@ var TpfHome = ( function ()
 
 	var _openGoogleMaps = function ()
 	{
-	    var map = new google.maps.Map(document.getElementById('google-map'), {
-	      zoom: 12,
-	      center: new google.maps.LatLng(lnglat_array[0], lnglat_array[1]),
+		var marker, i;
+	    var map = new google.maps.Map( document.getElementById( 'google-map' ), {
+	      zoom     : 12,
+	      center   : new google.maps.LatLng(lnglat_array[0], lnglat_array[1]),
 	      mapTypeId: google.maps.MapTypeId.ROADMAP
 	    });
 		var infowindow    = new google.maps.InfoWindow();
@@ -339,20 +341,21 @@ var TpfHome = ( function ()
       	directionsDisplay.setMap(map);
      	//directionsDisplay.setPanel(document.getElementById('directions'));
 
-	    var marker, i;
+	    for (i = 0; i < current_park_selection_data.length; i++)
+	    {
+	     	marker = new google.maps.Marker({
+	        	position: new google.maps.LatLng(current_park_selection_data[i]["lat"], current_park_selection_data[i]["lng"]),
+	        	map     : map
+	      	});
 
-	    for (i = 0; i < current_park_selection_data.length; i++) {
-	      marker = new google.maps.Marker({
-	        position: new google.maps.LatLng(current_park_selection_data[i]["lat"], current_park_selection_data[i]["lng"]),
-	        map: map
-	      });
-
-	      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-	        return function() {
-	          infowindow.setContent(current_park_selection_data[i]["parkname"]);
-	          infowindow.open(map, marker);
-	        }
-	      })(marker, i));
+	      	google.maps.event.addListener( marker, 'click', ( function( marker, i )
+	      	{
+	       		return function()
+	       		{
+	        		infowindow.setContent( current_park_selection_data[i]["parkname"] );
+	        		infowindow.open( map, marker );
+	        	}
+	      	})( marker, i ) );
 	    }
 
 	    _calculateAndDisplayRout(0);
@@ -360,18 +363,22 @@ var TpfHome = ( function ()
 
 	var _calculateAndDisplayRout = function ( park_selection_index )
 	{
-    	var start = new google.maps.LatLng(lnglat_array[0], lnglat_array[1]);
-        var end   = new google.maps.LatLng(current_park_selection_data[park_selection_index]['lat'], current_park_selection_data[park_selection_index]['lng']);
+    	var start = new google.maps.LatLng( lnglat_array[0], lnglat_array[1] );
+        var end   = new google.maps.LatLng( current_park_selection_data[park_selection_index]['lat'], current_park_selection_data[park_selection_index]['lng'] );
 
 		directionsService.route({
-			origin: start,
+			origin     : start,
 			destination: end,
-			travelMode: google.maps.TravelMode.DRIVING
-		}, function(response, status) {
-			if (status === google.maps.DirectionsStatus.OK) {
-				directionsDisplay.setDirections(response);
-			} else {
-				console.debug('Directions request failed due to ' + status);
+			travelMode : google.maps.TravelMode.DRIVING
+		}, function( response, status )
+		{
+			if ( status === google.maps.DirectionsStatus.OK )
+			{
+				directionsDisplay.setDirections( response );
+			}
+			else
+			{
+				console.debug( 'Directions request failed due to ' + status );
 			}
 		});
 
@@ -431,7 +438,8 @@ var TpfHome = ( function ()
 		$( '.fire-btn' ).addClass( 'zoom-check-reverse' );
 		$( '.reset-btn' ).addClass( 'zoom-check-reverse' );
 
-		setTimeout( function () {
+		setTimeout( function ()
+		{
 			$( '.fire-btn-shadow' ).css( { 'display': 'none' } );
 			$( '.fire-btn-shadow' ).removeClass( 'zoom-check-shadow-reverse' );
 
