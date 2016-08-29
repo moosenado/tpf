@@ -46,13 +46,11 @@ var TpfHome = ( function ()
 
 		window.addEventListener( "load", function ()
   		{
-  			//history.replaceState( {}, null, '/' );
-
   			setTimeout( function ()
   			{
 				window.addEventListener( "popstate", function ( e )
 				{
-					performPageTransition();
+					_performPageTransition();
 
 				}, false );
 			}, 0 ); // to stop older webkit browsers from adding pushstate event on page load
@@ -65,7 +63,7 @@ var TpfHome = ( function ()
 
 		find_all.addEventListener( 'click', function () {
 
-			getUserLocation( _getParksFromDB, facility_selection_array, true );
+			_getUserLocation( _getParksFromDB, facility_selection_array, true );
 
 		}, false );
 	};
@@ -121,31 +119,35 @@ var TpfHome = ( function ()
 	    	}
 	    }
 
-	    getUserLocation( _getParksFromDB, facility_selection_array );
+	    _getUserLocation( _getParksFromDB, facility_selection_array );
 
 	    facility_selection_array = []; // reset selection array
 	};
 
-	var getUserLocation = function ( callback, facility_selection_array, all_parks )
+	var _getUserLocation = function ( callback, facility_selection_array, all_parks )
 	{
 		var yourLat,
 			yourLng;
 
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(getPosition);
-		}else{
-			alert("Your browser cannot get your location.");
+		if ( navigator.geolocation )
+		{
+			navigator.geolocation.getCurrentPosition( __getPosition );
+		}
+		else
+		{
+			alert( "Your browser cannot get your location." );
 		}
 
-		function getPosition(position)
+		function __getPosition( position )
 		{
-			lnglat_array = [],
-				lat = (position.coords.latitude),
-				lng = (position.coords.longitude);
+			lnglat_array = [];
 
-			lnglat_array.push(lat, lng);
+			var lat = ( position.coords.latitude ),
+				lng = ( position.coords.longitude );
 
-			callback(facility_selection_array, all_parks );
+			lnglat_array.push( lat, lng );
+
+			callback( facility_selection_array, all_parks );
 		}
 	};
 
@@ -214,22 +216,22 @@ var TpfHome = ( function ()
 	        dataType: 'JSON',
 	        success: function ( data ) {
 
-	        	if(data.length >= 1)
+	        	if( data.length >= 1 )
 	        	{
 	        		current_park_selection_data = data;
-	        		performPageTransition();
+	        		_performPageTransition();
 	        		_updateUrl();
 	        	}
 	        	else
 	        	{
-	        		alert("Your chosen facilities are not available at any parks.")
+	        		alert( "Your chosen facilities are not available at any parks." )
 	        	}
 	        },
 	        error: function ( xhr ) { console.log( xhr ); }
 	    });
 	};
 
-	var performPageTransition = function ()
+	var _performPageTransition = function ()
 	{
 		if ( on_home_page )
 		{
@@ -243,7 +245,7 @@ var TpfHome = ( function ()
 			setTimeout(function(){
 				$("#home-page").css({"display":"none"}); //display none to homepage container after animations are done
 				$("#find-parks-page").css({"display":"block"}); //display block to find parks container after animations are done
-				performPageInit();
+				_performPageInit();
 			}, 101);
 
 			on_home_page = false;
@@ -267,7 +269,7 @@ var TpfHome = ( function ()
 		}
 	};
 
-	var performPageInit = function ()
+	var _performPageInit = function ()
 	{
 		_openGoogleMaps();
 		_displayParkNav();
@@ -302,10 +304,10 @@ var TpfHome = ( function ()
 
 	var _reRenderParkSelection = function()
 	{
-		var index = parseInt(this.getAttribute("data-selection-number"));
+		var selection_index = parseInt(this.getAttribute("data-selection-number"));
 
-		_calculateAndDisplayRout(index);
-		_displayParkData(index);
+		_calculateAndDisplayRout(selection_index);
+		_displayParkData(selection_index);
 	};
 
 	var _displayParkData = function ( park_selection_index )
