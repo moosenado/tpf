@@ -273,7 +273,7 @@ var TpfHome = ( function ()
 	{
 		_openGoogleMaps();
 		_displayParkNav();
-		_displayParkData(0); // 0 for first park in line
+		_displayParkData( 0 ); // 0 for first park in line
 	};
 
 	var _updateUrl = function ()
@@ -286,7 +286,7 @@ var TpfHome = ( function ()
 
 	var _displayParkNav = function ()
 	{
-		$(".park-distance-ul ul").empty(); // empty previous event handlers ( no memory leaks )
+		$(".park-distance-ul ul").empty(); // empty previous event handlers/element data
 
 		current_park_selection_data.map( function ( park, i )
 		{
@@ -295,7 +295,7 @@ var TpfHome = ( function ()
 			);
 		});
 
-		var distance_class  = document.getElementsByClassName("distance-item");
+		var distance_class  = document.getElementsByClassName( "distance-item" );
 		var distance_length = distance_class.length;
 
 		for ( var i = 0; i < distance_length; i++ ) {
@@ -305,7 +305,7 @@ var TpfHome = ( function ()
 
 	var _reRenderParkSelection = function()
 	{
-		var selection_index = parseInt( this.getAttribute("data-selection-number" ) );
+		var selection_index = parseInt( this.getAttribute( "data-selection-number" ) );
 
 		_calculateAndDisplayRout( selection_index );
 		_displayParkData( selection_index );
@@ -313,23 +313,18 @@ var TpfHome = ( function ()
 
 	var _displayParkData = function ( park_selection_index )
 	{
-		$("#park-info-name").empty();
-		$("#park-info-address").empty();
-		$("#park-info-phonenumber").empty();
-		$("#park-info-postalcode").empty();
-
-		$("#park-info-name").html(current_park_selection_data[park_selection_index]['parkname']);
-		$("#park-info-address").html(current_park_selection_data[park_selection_index]['address']);
-		$("#park-info-phonenumber").html(current_park_selection_data[park_selection_index]['phonenumber']);
-		$("#park-info-postalcode").html(current_park_selection_data[park_selection_index]['postalcode']);
+		$("#park-info-name").empty().html( current_park_selection_data[park_selection_index]['parkname'] );
+		$("#park-info-address").empty().html( current_park_selection_data[park_selection_index]['address'] );
+		$("#park-info-phonenumber").empty().html( current_park_selection_data[park_selection_index]['phonenumber'] );
+		$("#park-info-postalcode").empty().html( current_park_selection_data[park_selection_index]['postalcode'] );
 	};
 
 	var _openGoogleMaps = function ()
 	{
 		var marker, i;
-	    var map = new google.maps.Map( document.getElementById( 'google-map' ), {
+	    var map = new google.maps.Map( document.getElementById( "google-map" ), {
 	      zoom     : 12,
-	      center   : new google.maps.LatLng(lnglat_array[0], lnglat_array[1]),
+	      center   : new google.maps.LatLng( lnglat_array[0], lnglat_array[1] ),
 	      mapTypeId: google.maps.MapTypeId.ROADMAP
 	    });
 		var infowindow    = new google.maps.InfoWindow();
@@ -338,17 +333,17 @@ var TpfHome = ( function ()
       	});
 		directionsService = new google.maps.DirectionsService;
 
-      	directionsDisplay.setMap(map);
+      	directionsDisplay.setMap( map );
      	//directionsDisplay.setPanel(document.getElementById('directions'));
 
 	    for (i = 0; i < current_park_selection_data.length; i++)
 	    {
 	     	marker = new google.maps.Marker({
-	        	position: new google.maps.LatLng(current_park_selection_data[i]["lat"], current_park_selection_data[i]["lng"]),
+	        	position: new google.maps.LatLng( current_park_selection_data[i]["lat"], current_park_selection_data[i]["lng"] ),
 	        	map     : map
 	      	});
 
-	      	google.maps.event.addListener( marker, 'click', ( function( marker, i )
+	      	google.maps.event.addListener( marker, "click", ( function( marker, i )
 	      	{
 	       		return function()
 	       		{
@@ -358,13 +353,13 @@ var TpfHome = ( function ()
 	      	})( marker, i ) );
 	    }
 
-	    _calculateAndDisplayRout(0);
+	    _calculateAndDisplayRout( 0 );
 	};
 
 	var _calculateAndDisplayRout = function ( park_selection_index )
 	{
     	var start = new google.maps.LatLng( lnglat_array[0], lnglat_array[1] );
-        var end   = new google.maps.LatLng( current_park_selection_data[park_selection_index]['lat'], current_park_selection_data[park_selection_index]['lng'] );
+        var end   = new google.maps.LatLng( current_park_selection_data[park_selection_index]["lat"], current_park_selection_data[park_selection_index]["lng"] );
 
 		directionsService.route({
 			origin     : start,
@@ -378,7 +373,7 @@ var TpfHome = ( function ()
 			}
 			else
 			{
-				console.debug( 'Directions request failed due to ' + status );
+				console.debug( "Directions request failed due to " + status );
 			}
 		});
 
