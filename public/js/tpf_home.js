@@ -9,6 +9,7 @@ var TpfHome = ( function ()
 		CSRF_TOKEN               = $('meta[name="csrf-token"]').attr('content'),
 		user_location			 = false,
 		on_home_page             = true, //handle correct page transition
+		bing_app_id              = 'd94b9ad51f0c422787649f57c7d68468',
 		directionsDisplay,
 		directionsServce,
 		current_park_selection_data,
@@ -300,13 +301,18 @@ var TpfHome = ( function ()
 
 		for ( var i = 0; i < distance_length; i++ )
 		{
+			distance_class[i].classList.remove( 'park-selected' );
 		    distance_class[i].addEventListener( 'click', _reRenderParkSelection, false );
 		}
 	};
 
-	var _reRenderParkSelection = function()
+	var _reRenderParkSelection = function ()
 	{
 		var selection_index = parseInt( this.getAttribute( "data-selection-number" ) );
+
+		$(".park-distance-ul>ul>li.park-selected").removeClass("park-selected");
+
+		this.classList.add( 'park-selected' );
 
 		_calculateAndDisplayRout( selection_index, true );
 		_displayParkData( selection_index );
