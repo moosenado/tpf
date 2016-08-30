@@ -374,12 +374,27 @@ body {
 	display: inline-block;
 	height: 75px;
 	width: 75px;
-	border: 1px solid gray;
+	border: 1px solid #e3d8c9;
 	margin: 0;
 	font-size: 0;
 	vertical-align: middle;
 	text-align: center;
 	cursor: pointer;
+	@include transitionStyle(all, 1s, ease-in-out);
+	background-color: rgba(174,193,174,1);
+	background: rgba(174,193,174,1);
+	background: -moz-linear-gradient(45deg, rgba(174,193,174,1) 0%, rgba(185,199,185,1) 100%);
+	background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(174,193,174,1)), color-stop(100%, rgba(185,199,185,1)));
+	background: -webkit-linear-gradient(45deg, rgba(174,193,174,1) 0%, rgba(185,199,185,1) 100%);
+	background: -o-linear-gradient(45deg, rgba(174,193,174,1) 0%, rgba(185,199,185,1) 100%);
+	background: -ms-linear-gradient(45deg, rgba(174,193,174,1) 0%, rgba(185,199,185,1) 100%);
+	background: linear-gradient(45deg, rgba(174,193,174,1) 0%, rgba(185,199,185,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aec1ae', endColorstr='#b9c7b9', GradientType=1 );
+}
+
+.park-distance-ul ul li:hover {
+	opacity: .5;
+	@include transitionStyle(all, .1s, ease-in-out);
 }
 
 .park-distance-ul ul li span {
@@ -389,6 +404,7 @@ body {
 	top: 50%;
 	left: 0;
 	margin-top: -14px;
+	color: #524231;
 }
 
 .svg-check {

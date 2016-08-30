@@ -298,8 +298,9 @@ var TpfHome = ( function ()
 		var distance_class  = document.getElementsByClassName( "distance-item" );
 		var distance_length = distance_class.length;
 
-		for ( var i = 0; i < distance_length; i++ ) {
-		    distance_class[i].addEventListener('click', _reRenderParkSelection, false);
+		for ( var i = 0; i < distance_length; i++ )
+		{
+		    distance_class[i].addEventListener( 'click', _reRenderParkSelection, false );
 		}
 	};
 
@@ -307,7 +308,7 @@ var TpfHome = ( function ()
 	{
 		var selection_index = parseInt( this.getAttribute( "data-selection-number" ) );
 
-		_calculateAndDisplayRout( selection_index );
+		_calculateAndDisplayRout( selection_index, true );
 		_displayParkData( selection_index );
 	};
 
@@ -356,10 +357,16 @@ var TpfHome = ( function ()
 	    _calculateAndDisplayRout( 0 );
 	};
 
-	var _calculateAndDisplayRout = function ( park_selection_index )
+	var _calculateAndDisplayRout = function ( park_selection_index, reset_viewport )
 	{
-    	var start = new google.maps.LatLng( lnglat_array[0], lnglat_array[1] );
-        var end   = new google.maps.LatLng( current_park_selection_data[park_selection_index]["lat"], current_park_selection_data[park_selection_index]["lng"] );
+		var reset_viewport = ( typeof reset_viewport === 'undefined' ) ?  false : true,
+    		start          = new google.maps.LatLng( lnglat_array[0], lnglat_array[1] ),
+        	end            = new google.maps.LatLng( current_park_selection_data[park_selection_index]["lat"], current_park_selection_data[park_selection_index]["lng"] );
+
+        if ( reset_viewport )
+		{
+			directionsDisplay.preserveViewport = false;
+		}
 
 		directionsService.route({
 			origin     : start,

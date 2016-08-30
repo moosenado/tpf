@@ -9111,15 +9111,39 @@ body {
   display: inline-block;
   height: 75px;
   width: 75px;
-  border: 1px solid gray;
+  border: 1px solid #e3d8c9;
   margin: 0;
   font-size: 0;
   vertical-align: middle;
   text-align: center;
   cursor: pointer;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  background-color: #aec1ae;
+  background: #aec1ae;
+  background: -moz-linear-gradient(45deg, #aec1ae 0%, #b9c7b9 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, #aec1ae), color-stop(100%, #b9c7b9));
+  background: -webkit-linear-gradient(45deg, #aec1ae 0%, #b9c7b9 100%);
+  background: -o-linear-gradient(45deg, #aec1ae 0%, #b9c7b9 100%);
+  background: -ms-linear-gradient(45deg, #aec1ae 0%, #b9c7b9 100%);
+  background: linear-gradient(45deg, #aec1ae 0%, #b9c7b9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aec1ae', endColorstr='#b9c7b9', GradientType=1 );
 }
 
-/* line 385, ../sass/app.scss */
+/* line 395, ../sass/app.scss */
+.park-distance-ul ul li:hover {
+  opacity: .5;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+/* line 400, ../sass/app.scss */
 .park-distance-ul ul li span {
   font-size: 20px;
   display: inline-block;
@@ -9127,9 +9151,10 @@ body {
   top: 50%;
   left: 0;
   margin-top: -14px;
+  color: #524231;
 }
 
-/* line 394, ../sass/app.scss */
+/* line 410, ../sass/app.scss */
 .svg-check {
   display: none;
   position: absolute;
@@ -9141,7 +9166,7 @@ body {
   height: 40px;
 }
 
-/* line 405, ../sass/app.scss */
+/* line 421, ../sass/app.scss */
 footer {
   color: #aec1ae;
   font-size: 10px;
@@ -9149,18 +9174,18 @@ footer {
 }
 
 @media all and (min-width: 768px) {
-  /* line 412, ../sass/app.scss */
+  /* line 428, ../sass/app.scss */
   .park-distance-ul {
     height: auto;
   }
 
-  /* line 416, ../sass/app.scss */
+  /* line 432, ../sass/app.scss */
   .park-distance-ul ul {
     padding-bottom: 0;
   }
 }
 /* TRANSITION SPECIFIC */
-/* line 427, ../sass/app.scss */
+/* line 443, ../sass/app.scss */
 .ani-left {
   -webkit-transform: translate3d(-2000px, 0, 0);
   -moz-transform: translate3d(-2000px, 0, 0);
@@ -9170,7 +9195,7 @@ footer {
   opacity: 0;
 }
 
-/* line 432, ../sass/app.scss */
+/* line 448, ../sass/app.scss */
 .ani-right {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -9180,18 +9205,18 @@ footer {
   opacity: 1;
 }
 
-/* line 437, ../sass/app.scss */
+/* line 453, ../sass/app.scss */
 .ani-fadeOut {
   opacity: 0;
 }
 
-/* line 441, ../sass/app.scss */
+/* line 457, ../sass/app.scss */
 .ani-fadeIn {
   opacity: 1;
 }
 
 /* ANIMATION SPECIFIC */
-/* line 451, ../sass/app.scss */
+/* line 467, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.5s forwards;
   -moz-animation: zoomAni 0.5s forwards;
@@ -9200,7 +9225,7 @@ footer {
   animation: zoomAni 0.5s forwards;
 }
 
-/* line 455, ../sass/app.scss */
+/* line 471, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9209,7 +9234,7 @@ footer {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 459, ../sass/app.scss */
+/* line 475, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -9218,7 +9243,7 @@ footer {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 463, ../sass/app.scss */
+/* line 479, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9227,7 +9252,7 @@ footer {
   animation: zoomAniRevShadowRev 0.5s forwards;
 }
 
-/* line 467, ../sass/app.scss */
+/* line 483, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni 0.5s forwards;
   -moz-animation: slideAni 0.5s forwards;
