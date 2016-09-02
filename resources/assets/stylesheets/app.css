@@ -9108,10 +9108,11 @@ body {
 /* line 372, ../sass/app.scss */
 .park-distance-ul ul li {
   list-style: none;
+  position: relative;
   display: inline-block;
   height: 75px;
   width: 75px;
-  border: 1px solid #e3d8c9;
+  border: 6px solid #aec1ae;
   margin: 0;
   font-size: 0;
   vertical-align: middle;
@@ -9122,20 +9123,11 @@ body {
   -ms-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
-  background-color: #aec1ae;
-  background: #aec1ae;
-  background: -moz-linear-gradient(45deg, #aec1ae 0%, #b9c7b9 100%);
-  background: -webkit-gradient(left bottom, right top, color-stop(0%, #aec1ae), color-stop(100%, #b9c7b9));
-  background: -webkit-linear-gradient(45deg, #aec1ae 0%, #b9c7b9 100%);
-  background: -o-linear-gradient(45deg, #aec1ae 0%, #b9c7b9 100%);
-  background: -ms-linear-gradient(45deg, #aec1ae 0%, #b9c7b9 100%);
-  background: linear-gradient(45deg, #aec1ae 0%, #b9c7b9 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aec1ae', endColorstr='#b9c7b9', GradientType=1 );
 }
 
-/* line 395, ../sass/app.scss */
+/* line 387, ../sass/app.scss */
 .park-distance-ul ul li:hover {
-  opacity: .6;
+  opacity: .7;
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
   -ms-transition: all 0.1s ease-in-out;
@@ -9143,13 +9135,13 @@ body {
   transition: all 0.1s ease-in-out;
 }
 
-/* line 400, ../sass/app.scss */
+/* line 392, ../sass/app.scss */
 .park-selected {
-  opacity: .4;
+  opacity: .5;
 }
 
-/* line 404, ../sass/app.scss */
-.park-distance-ul ul li span {
+/* line 396, ../sass/app.scss */
+.park-distance-ul ul li .number {
   font-size: 20px;
   display: inline-block;
   position: relative;
@@ -9159,7 +9151,22 @@ body {
   color: #524231;
 }
 
-/* line 414, ../sass/app.scss */
+/* line 406, ../sass/app.scss */
+.number-overlay {
+  font-size: 62px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: -44px;
+  color: #524231;
+  opacity: 0;
+  transform: scale(0.5, 0.5);
+}
+
+/* line 420, ../sass/app.scss */
 .svg-check {
   display: none;
   position: absolute;
@@ -9171,7 +9178,7 @@ body {
   height: 40px;
 }
 
-/* line 425, ../sass/app.scss */
+/* line 431, ../sass/app.scss */
 footer {
   color: #aec1ae;
   font-size: 10px;
@@ -9179,18 +9186,18 @@ footer {
 }
 
 @media all and (min-width: 768px) {
-  /* line 432, ../sass/app.scss */
+  /* line 438, ../sass/app.scss */
   .park-distance-ul {
     height: auto;
   }
 
-  /* line 436, ../sass/app.scss */
+  /* line 442, ../sass/app.scss */
   .park-distance-ul ul {
     padding-bottom: 0;
   }
 }
 /* TRANSITION SPECIFIC */
-/* line 447, ../sass/app.scss */
+/* line 453, ../sass/app.scss */
 .ani-left {
   -webkit-transform: translate3d(-2000px, 0, 0);
   -moz-transform: translate3d(-2000px, 0, 0);
@@ -9200,7 +9207,7 @@ footer {
   opacity: 0;
 }
 
-/* line 452, ../sass/app.scss */
+/* line 458, ../sass/app.scss */
 .ani-right {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -9210,18 +9217,18 @@ footer {
   opacity: 1;
 }
 
-/* line 457, ../sass/app.scss */
+/* line 463, ../sass/app.scss */
 .ani-fadeOut {
   opacity: 0;
 }
 
-/* line 461, ../sass/app.scss */
+/* line 467, ../sass/app.scss */
 .ani-fadeIn {
   opacity: 1;
 }
 
 /* ANIMATION SPECIFIC */
-/* line 471, ../sass/app.scss */
+/* line 477, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.5s forwards;
   -moz-animation: zoomAni 0.5s forwards;
@@ -9230,7 +9237,7 @@ footer {
   animation: zoomAni 0.5s forwards;
 }
 
-/* line 475, ../sass/app.scss */
+/* line 481, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9239,7 +9246,7 @@ footer {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 479, ../sass/app.scss */
+/* line 485, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -9248,7 +9255,7 @@ footer {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 483, ../sass/app.scss */
+/* line 489, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9257,13 +9264,23 @@ footer {
   animation: zoomAniRevShadowRev 0.5s forwards;
 }
 
-/* line 487, ../sass/app.scss */
+/* line 493, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni 0.5s forwards;
   -moz-animation: slideAni 0.5s forwards;
   -ms-animation: slideAni 0.5s forwards;
   -o-animation: slideAni 0.5s forwards;
   animation: slideAni 0.5s forwards;
+}
+
+/* line 497, ../sass/app.scss */
+.number-zoom {
+  -webkit-animation: numberZoomAni 1.5s forwards;
+  -moz-animation: numberZoomAni 1.5s forwards;
+  -ms-animation: numberZoomAni 1.5s forwards;
+  -o-animation: numberZoomAni 1.5s forwards;
+  animation: numberZoomAni 1.5s forwards;
+  animation-timing-function: linear;
 }
 
 /* KEY FRAMES */
@@ -9455,5 +9472,23 @@ footer {
   100% {
     -o-transform: translate(-5px, 0px);
     transform: translate(-5px, 0px);
+  }
+}
+@keyframes numberZoomAni {
+  0% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+  50% {
+    opacity: .5;
+    transform: scale(0.75, 0.75);
+  }
+  99% {
+    opacity: 0;
+    transform: scale(1, 1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
   }
 }

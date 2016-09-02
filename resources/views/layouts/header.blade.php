@@ -9,6 +9,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBI0STCHXt9khuQ4cm68bS-HxqBa_s9ec"
   type="text/javascript"></script>
+  <script id="searchCallback" type="text/javascript" src=""></script>
 	<meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 

@@ -371,37 +371,29 @@ body {
 
 .park-distance-ul ul li {
 	list-style: none;
+	position: relative;
 	display: inline-block;
 	height: 75px;
 	width: 75px;
-	border: 1px solid #e3d8c9;
+	border: 6px solid $dark-main;
 	margin: 0;
 	font-size: 0;
 	vertical-align: middle;
 	text-align: center;
 	cursor: pointer;
 	@include transitionStyle(all, 1s, ease-in-out);
-	background-color: rgba(174,193,174,1);
-	background: rgba(174,193,174,1);
-	background: -moz-linear-gradient(45deg, rgba(174,193,174,1) 0%, rgba(185,199,185,1) 100%);
-	background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(174,193,174,1)), color-stop(100%, rgba(185,199,185,1)));
-	background: -webkit-linear-gradient(45deg, rgba(174,193,174,1) 0%, rgba(185,199,185,1) 100%);
-	background: -o-linear-gradient(45deg, rgba(174,193,174,1) 0%, rgba(185,199,185,1) 100%);
-	background: -ms-linear-gradient(45deg, rgba(174,193,174,1) 0%, rgba(185,199,185,1) 100%);
-	background: linear-gradient(45deg, rgba(174,193,174,1) 0%, rgba(185,199,185,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aec1ae', endColorstr='#b9c7b9', GradientType=1 );
 }
 
 .park-distance-ul ul li:hover {
-	opacity: .6;
+	opacity: .7;
 	@include transitionStyle(all, .1s, ease-in-out);
 }
 
 .park-selected {
-	opacity: .4;
+	opacity: .5;
 }
 
-.park-distance-ul ul li span {
+.park-distance-ul ul li .number {
 	font-size: 20px;
 	display: inline-block;
 	position: relative;
@@ -409,6 +401,20 @@ body {
 	left: 0;
 	margin-top: -14px;
 	color: #524231;
+}
+
+.number-overlay {
+	font-size: 62px;
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin-top: -44px;
+	color: #524231;
+	opacity: 0;
+	transform: scale( .5, .5 );
 }
 
 .svg-check {
@@ -486,6 +492,11 @@ footer {
 
 .slide-center {
 	@include animationFunc( slideAni, .5s, forwards );
+}
+
+.number-zoom {
+	@include animationFunc( numberZoomAni, 1.5s, forwards );
+	animation-timing-function: linear;
 }
 
 
@@ -701,5 +712,24 @@ footer {
     100% {
 		-o-transform: translate( -5px, 0px );
 		transform   : translate( -5px, 0px );
+    }
+}
+
+@keyframes numberZoomAni {
+   0% {
+   		opacity: 0;
+		transform: scale( .5, .5 );
+    }
+    50% {
+    	opacity: .5;
+		transform: scale( .75, .75 );
+    }
+    99% {
+    	opacity: 0;
+		transform: scale( 1, 1 );
+    }
+    100% {
+    	opacity: 0;
+		transform: scale( .5, .5 );
     }
 }
