@@ -232,25 +232,29 @@ var TpfHome = ( function ()
 	    });
 	};
 
-	var _getBingImages = function ()
+	var _getBingImages = function ( park_selection_index )
 	{
-		$(function() {
-	      
+		var park_name = current_park_selection_data[park_selection_index]['parkname'];
+
+		$( function ()
+		{
 	        $.ajax({
-	            url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=sailingJsonType=raw",
+	            url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=" + park_name + "&count=20",
 	            beforeSend: function(xhrObj){
-	                // Request headers
 	                xhrObj.setRequestHeader("Content-Type","multipart/form-data");
 	                xhrObj.setRequestHeader("Retry-After","5");
-	                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","{d94b9ad51f0c422787649f57c7d68468}");
+	                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","d94b9ad51f0c422787649f57c7d68468");
 	            },
 	            type: "POST",
 	        })
-	        .done(function(data) {
-	            alert("success");
+	        .done( function ( data )
+	        {
+	        	console.log(data);
+	            alert( "success" );
 	        })
-	        .fail(function() {
-	            alert("error");
+	        .fail( function ()
+	        {
+	            alert( "error" );
 	        });
 	    });
 	};
@@ -296,9 +300,9 @@ var TpfHome = ( function ()
 	var _performPageInit = function ()
 	{
 		_openGoogleMaps();
-		//_getBingImages();
 		_displayParkNav();
 		_displayParkData( 0 ); // 0 for first park in line
+		_getBingImages( 0 );
 	};
 
 	var _updateUrl = function ()
@@ -342,6 +346,7 @@ var TpfHome = ( function ()
 
 		_calculateAndDisplayRout( selection_index, true );
 		_displayParkData( selection_index );
+		_getBingImages( selection_index );
 		map.getStreetView().setVisible( false ); // exit out of street view on new park selection
 	};
 
