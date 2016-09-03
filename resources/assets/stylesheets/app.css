@@ -9171,6 +9171,42 @@ body {
 }
 
 /* line 428, ../sass/app.scss */
+.park-info-cont {
+  padding: 0;
+  margin: 0;
+}
+/* line 432, ../sass/app.scss */
+.park-info-cont li {
+  display: block;
+  white-space: nowrap;
+}
+
+/* line 438, ../sass/app.scss */
+#park-info-name {
+  font-size: 20px;
+}
+
+/* line 442, ../sass/app.scss */
+.park-images-ul {
+  height: 300px;
+  overflow-y: scroll;
+}
+/* line 447, ../sass/app.scss */
+.park-images-ul ul {
+  padding: 0;
+  margin: 0;
+}
+/* line 451, ../sass/app.scss */
+.park-images-ul ul li {
+  display: inline-block;
+  width: 25%;
+}
+/* line 455, ../sass/app.scss */
+.park-images-ul ul li img {
+  width: 100%;
+}
+
+/* line 462, ../sass/app.scss */
 .svg-check {
   display: none;
   position: absolute;
@@ -9182,7 +9218,7 @@ body {
   height: 40px;
 }
 
-/* line 439, ../sass/app.scss */
+/* line 473, ../sass/app.scss */
 footer {
   color: #aec1ae;
   font-size: 10px;
@@ -9190,18 +9226,18 @@ footer {
 }
 
 @media all and (min-width: 768px) {
-  /* line 446, ../sass/app.scss */
+  /* line 480, ../sass/app.scss */
   .park-distance-ul {
     height: auto;
   }
 
-  /* line 450, ../sass/app.scss */
+  /* line 484, ../sass/app.scss */
   .park-distance-ul ul {
     padding-bottom: 0;
   }
 }
 /* TRANSITION SPECIFIC */
-/* line 461, ../sass/app.scss */
+/* line 495, ../sass/app.scss */
 .ani-left {
   -webkit-transform: translate3d(-2000px, 0, 0);
   -moz-transform: translate3d(-2000px, 0, 0);
@@ -9211,7 +9247,7 @@ footer {
   opacity: 0;
 }
 
-/* line 466, ../sass/app.scss */
+/* line 500, ../sass/app.scss */
 .ani-right {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -9221,18 +9257,18 @@ footer {
   opacity: 1;
 }
 
-/* line 471, ../sass/app.scss */
+/* line 505, ../sass/app.scss */
 .ani-fadeOut {
   opacity: 0;
 }
 
-/* line 475, ../sass/app.scss */
+/* line 509, ../sass/app.scss */
 .ani-fadeIn {
   opacity: 1;
 }
 
 /* ANIMATION SPECIFIC */
-/* line 485, ../sass/app.scss */
+/* line 519, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.5s forwards;
   -moz-animation: zoomAni 0.5s forwards;
@@ -9241,7 +9277,7 @@ footer {
   animation: zoomAni 0.5s forwards;
 }
 
-/* line 489, ../sass/app.scss */
+/* line 523, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9250,7 +9286,7 @@ footer {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 493, ../sass/app.scss */
+/* line 527, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -9259,7 +9295,7 @@ footer {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 497, ../sass/app.scss */
+/* line 531, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9268,7 +9304,7 @@ footer {
   animation: zoomAniRevShadowRev 0.5s forwards;
 }
 
-/* line 501, ../sass/app.scss */
+/* line 535, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni 0.5s forwards;
   -moz-animation: slideAni 0.5s forwards;
@@ -9277,7 +9313,7 @@ footer {
   animation: slideAni 0.5s forwards;
 }
 
-/* line 505, ../sass/app.scss */
+/* line 539, ../sass/app.scss */
 .number-zoom {
   -webkit-animation: numberZoomAni 1.5s forwards;
   -moz-animation: numberZoomAni 1.5s forwards;
