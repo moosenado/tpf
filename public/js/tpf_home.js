@@ -270,6 +270,9 @@ var TpfHome = ( function ()
 			case 'PARK':
 				final_word = '%20Park';
 			break;
+			case 'ES':
+				final_word = '%20Park';
+			break;
 			case 'CI':
 				final_word = '%20Collegiate%20Institute';
 			break;
