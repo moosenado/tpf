@@ -232,10 +232,69 @@ var TpfHome = ( function ()
 	    });
 	};
 
+	var _filterParkNameForQuery = function ( park_name )
+	{
+		//remove abbreviation from park name
+		var __removeAbbrev = function ( string )
+		{
+			var last_index = string.lastIndexOf( " " );
+			return string.substring(0, last_index);
+		};
+
+		//get last abbrev in park name
+		var last_word_array     = park_name.split( " " ),
+			last_word           = last_word_array.slice( -1 ).pop(),
+			park_name_no_abbrev = __removeAbbrev( park_name );
+
+		//check what the last abbrev is, remove it, and then provide full length word for api search instead
+		switch ( last_word )
+		{
+			case 'CC':
+				$final_word = '%20Community%20Center';
+			break;
+			case 'CRC':
+				$final_word = '%20Community%20Recreation%20Center';
+			break;
+			case 'RC':
+				$final_word = '%20Recreation%20Center';
+			break;
+			case 'CSS':
+				$final_word = '%20Catholic%20Secondary%20School';
+			break;
+			case 'PS':
+				$final_word = '%20Public%20School';
+			break;
+			case 'CS':
+				$final_word = '%20Community%20School';
+			break;
+			case 'PARK':
+				$final_word = '%20Park';
+			break;
+			case 'CI':
+				$final_word = '%20Collegiate%20Institute';
+			break;
+			case 'SS':
+				$final_word = '%20Secondary%20School';
+			break;
+			case 'JHS':
+				$final_word = '%20Junior%20High%20School';
+			break;
+			case 'JPS':
+				$final_word = '%20Junior%20Public%20School';
+			break;
+			case 'TCH':
+				$final_word = '%20Toronto%20Community%20Housing';
+			break;
+			default:
+				return park_name + '%20Toronto';
+		}
+
+		return park_name_no_abbrev + final_word + '%20Toronto';
+	};
+
 	var _getBingImages = function ( park_selection_index )
 	{
-		var park_name = current_park_selection_data[park_selection_index]['parkname'];
-
+		var park_name = _filterParkNameForQuery( current_park_selection_data[park_selection_index]['parkname'] );
 		$( function ()
 		{
 	        $.ajax({
