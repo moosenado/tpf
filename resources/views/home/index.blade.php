@@ -61,6 +61,10 @@
 	<div class="park-distance-ul">
 		<ul></ul>
 	</div>
+	
+	<div class="park-images-ul">
+		<ul></ul>
+	</div>
 
 	<ul class="park-info-cont">
 		<li id="park-info-name"></li>
@@ -68,10 +72,6 @@
 		<li id="park-info-phonenumber"></li>
 		<li id="park-info-postalcode"></li>
 	</ul>
-	
-	<div class="park-images-ul">
-		<ul></ul>
-	</div>
 	
 </div>
 

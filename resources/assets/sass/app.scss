@@ -127,6 +127,10 @@ body {
 	max-width : 100%;
 }
 
+#park-info-name {
+	font-size: 20px;
+}
+
 
 
 /* GENERAL CLASSES */
@@ -174,16 +178,6 @@ body {
 	i {
 		line-height: 28px;
 	}
-
-	// @media ( min-width: $screen-lg ) {
-	// 	left       : 50%;
-	// 	right      : 0;
-	// 	margin-left: -60px;
-
-	// 	i {
-	// 		margin-left: 1px;
-	// 	}
-	// }
 }
 
 .gmap {
@@ -212,12 +206,6 @@ body {
 	&:active {
 		opacity: .8;
 	}
-
-	// @media ( min-width: $screen-lg ) {
-	// 	left       : 50%;
-	// 	right      : 0;
-	// 	margin-left: -25px;
-	// }
 }
 
 .fire-btn-shadow {
@@ -233,12 +221,6 @@ body {
 	-webkit-box-shadow: 0px 8px 36px -9px rgba(0,0,0,1);
 	-moz-box-shadow   : 0px 8px 36px -9px rgba(0,0,0,1);
 	box-shadow        : 0px 8px 36px -9px rgba(0,0,0,1);
-
-	// @media ( min-width: $screen-lg ) {
-	// 	left       : 50%;
-	// 	right      : 0;
-	// 	margin-left: -25px;
-	// }
 }
 
 .reset-btn-shadow {
@@ -255,12 +237,6 @@ body {
 	-webkit-box-shadow: 0px 8px 36px -9px rgba(0,0,0,1);
 	-moz-box-shadow   : 0px 8px 36px -9px rgba(0,0,0,1);
 	box-shadow        : 0px 8px 36px -9px rgba(0,0,0,1);
-
-	// @media ( min-width: $screen-lg ) {
-	// 	left       : 50%;
-	// 	right      : 0;
-	// 	margin-left: -60px;
-	// }
 }
 
 .center {
@@ -367,48 +343,48 @@ body {
 	overflow: hidden;
 	width: 100%;
 	height: 76px;
-}
 
-.park-distance-ul ul {
-	margin: 0;
-	padding: 0;
-	overflow-x: scroll;
-	white-space: nowrap;
-	padding-bottom: 17px;
-}
+	ul {
+		margin: 0;
+		padding: 0;
+		overflow-x: scroll;
+		white-space: nowrap;
+		padding-bottom: 17px;
 
-.park-distance-ul ul li {
-	list-style: none;
-	position: relative;
-	display: inline-block;
-	height: 75px;
-	width: 75px;
-	border: 6px solid $dark-main;
-	margin: 0;
-	font-size: 0;
-	vertical-align: middle;
-	text-align: center;
-	cursor: pointer;
-	@include transitionStyle(all, 1s, ease-in-out);
-}
+		li {
+			list-style: none;
+			position: relative;
+			display: inline-block;
+			height: 75px;
+			width: 75px;
+			border: 6px solid $dark-main;
+			margin: 0;
+			font-size: 0;
+			vertical-align: middle;
+			text-align: center;
+			cursor: pointer;
+			@include transitionStyle(all, 1s, ease-in-out);
 
-.park-distance-ul ul li:hover {
-	opacity: .7;
-	@include transitionStyle(all, .1s, ease-in-out);
+			&:hover {
+				opacity: .7;
+				@include transitionStyle(all, .1s, ease-in-out);
+			}
+
+			.number {
+				font-size: 20px;
+				display: inline-block;
+				position: relative;
+				top: 50%;
+				left: 0;
+				margin-top: -14px;
+				color: #524231;
+			}
+		}
+	}
 }
 
 .park-selected {
 	opacity: .5;
-}
-
-.park-distance-ul ul li .number {
-	font-size: 20px;
-	display: inline-block;
-	position: relative;
-	top: 50%;
-	left: 0;
-	margin-top: -14px;
-	color: #524231;
 }
 
 .number-overlay {
@@ -435,25 +411,24 @@ body {
 	}
 }
 
-#park-info-name {
-	font-size: 20px;
-}
-
 .park-images-ul {
-
-	height: 300px;
-	overflow-y: scroll;
+	overflow: hidden;
+	width: 100%;
+	height: 125px;
 
 	ul {
-		padding: 0;
 		margin: 0;
+		padding: 0;
+		overflow-x: scroll;
+		white-space: nowrap;
+		padding-bottom: 17px;
 
 		li {
 			display: inline-block;
-			width: 25%;
+			padding-right: 5px;
 
 			img {
-				width: 100%;
+				height: 125px;
 			}
 		}
 	}

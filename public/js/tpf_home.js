@@ -1,3 +1,5 @@
+'use strict';
+
 var TpfHome = ( function ()
 {
 	// Globals
@@ -10,7 +12,7 @@ var TpfHome = ( function ()
 		user_location			 = false,
 		on_home_page             = true, //handle correct page transition
 		directionsDisplay,
-		directionsServce,
+		directionsService,
 		current_park_selection_data,
 		lnglat_array,
 		map;
@@ -20,6 +22,8 @@ var TpfHome = ( function ()
 
 	var populateImages = function ()
 	{
+		var i;
+
 	    for ( i = 0; i < park_li_length; i++ )
 	    {
 	    	var park_id   = park_li[ i ].id,
@@ -35,6 +39,8 @@ var TpfHome = ( function ()
 
 	var attachEventListeners = function ()
 	{
+		var i;
+
 		for ( var i = 0; i < park_li_length; i++ )
 		{
 			park_li[ i ].addEventListener( 'click', function () {
@@ -112,6 +118,8 @@ var TpfHome = ( function ()
 
 	var _getParkSelection = function ()
 	{
+		var i;
+
 		for ( i = 0; i < park_li_length; i++ )
 	    {
 	    	if ( park_li[ i ].getAttribute( 'data-selected' ) == 1 )
@@ -154,6 +162,8 @@ var TpfHome = ( function ()
 
 	var _resetSelection = function ()
 	{
+		var i;
+
 		for ( i = 0; i < park_li_length; i++ )
 	    {
 	    	park_li[ i ].setAttribute( 'data-selected', 0 );
@@ -169,7 +179,8 @@ var TpfHome = ( function ()
 	var _displayFireBtn = function ()
 	{
 		var display_btn_counter = 1,
-			display_button_vis  = false;
+			display_button_vis  = false,
+			i;
 
 		for ( i = 0; i < park_li_length; i++ )
 	    {
