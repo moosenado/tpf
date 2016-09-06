@@ -344,12 +344,20 @@ body {
 	width: 100%;
 	height: 76px;
 
+	@media all and (min-width: 768px) {
+		height: auto;
+	}
+
 	ul {
 		margin: 0;
 		padding: 0;
 		overflow-x: scroll;
 		white-space: nowrap;
 		padding-bottom: 17px;
+
+		@media all and (min-width: 768px) {
+			padding-bottom: 0;
+		}
 
 		li {
 			list-style: none;
@@ -416,12 +424,20 @@ body {
 	width: 100%;
 	height: 125px;
 
+	@media all and (min-width: 768px) {
+		height: auto;
+	}
+
 	ul {
 		margin: 0;
 		padding: 0;
 		overflow-x: scroll;
 		white-space: nowrap;
 		padding-bottom: 17px;
+
+		@media all and (min-width: 768px) {
+			padding-bottom: 0;
+		}
 
 		li {
 			display: inline-block;
@@ -449,16 +465,6 @@ footer {
 	color    : $dark-main;
 	font-size: 10px;
 	margin   : 10px;
-}
-
-@media all and (min-width: 768px) {
-	.park-distance-ul {
-		height: auto;
-	}
-
-	.park-distance-ul ul {
-		padding-bottom: 0;
-	}
 }
 
 

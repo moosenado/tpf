@@ -228,6 +228,8 @@ var TpfHome = ( function ()
 	        dataType: 'JSON',
 	        success : function ( data )
 	        {
+	        	console.log(data);
+
 	        	if ( data.length >= 1 )
 	        	{
 	        		current_park_selection_data = data;
@@ -310,6 +312,8 @@ var TpfHome = ( function ()
 	{
 		var park_name = _filterParkNameForQuery( current_park_selection_data[park_selection_index]['parkname'] );
 
+		$(".park-images-ul ul").empty(); // empty previous event handlers/element data
+
 		$( function ()
 		{
 	        $.ajax({
@@ -335,8 +339,6 @@ var TpfHome = ( function ()
 
 	var _displayParkImages = function ( data )
 	{
-		$(".park-images-ul ul").empty(); // empty previous event handlers/element data
-
 		data.value.map( function ( image, i )
 		{
 			$(".park-images-ul ul").append(

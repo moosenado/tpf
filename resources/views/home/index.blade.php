@@ -61,7 +61,7 @@
 	<div class="park-distance-ul">
 		<ul></ul>
 	</div>
-	
+
 	<div class="park-images-ul">
 		<ul></ul>
 	</div>
@@ -72,7 +72,7 @@
 		<li id="park-info-phonenumber"></li>
 		<li id="park-info-postalcode"></li>
 	</ul>
-	
+
 </div>
 
 @include('layouts.footer')
