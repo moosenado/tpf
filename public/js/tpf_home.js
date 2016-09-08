@@ -342,7 +342,7 @@ var TpfHome = ( function ()
 		data.value.map( function ( image, i )
 		{
 			$(".park-images-ul ul").append(
-				"<li class='image-item'><img src='" + image.contentUrl + "'/></li>"
+				"<a href='" + image.contentUrl + "' target='_blank'><li class='image-item'><img src='" + image.contentUrl + "'/></li></a>"
 			);
 		});
 	};
