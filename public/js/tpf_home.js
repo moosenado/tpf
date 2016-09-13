@@ -432,7 +432,7 @@ var TpfHome = ( function ()
 		$( ".park-distance-ul>ul>li>.number-zoom" ).removeClass( "number-zoom" );
 		this.classList.add( "park-selected" );
 		this.classList.add( "park-selected-official" );
-		$( ".park-selected>.number-overlay" ).addClass( "number-zoom" );
+		$( ".park-selected-official>.number-overlay" ).addClass( "number-zoom" );
 
 		_calculateAndDisplayRout( selection_index, true );
 		_displayParkData( selection_index );
