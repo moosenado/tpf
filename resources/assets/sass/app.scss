@@ -385,7 +385,7 @@ body {
 				top: 50%;
 				left: 0;
 				margin-top: -14px;
-				color: #524231;
+				color: $btn-text;
 			}
 		}
 	}
@@ -393,6 +393,10 @@ body {
 
 .park-selected {
 	opacity: .5;
+}
+
+.park-selected-official {
+	border: 6px solid $btn-text !important;
 }
 
 .number-overlay {

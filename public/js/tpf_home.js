@@ -138,15 +138,6 @@ var TpfHome = ( function ()
 		var yourLat,
 			yourLng;
 
-		if ( navigator.geolocation )
-		{
-			navigator.geolocation.getCurrentPosition( __getPosition );
-		}
-		else
-		{
-			alert( "Your browser cannot get your location." );
-		}
-
 		function __getPosition( position )
 		{
 			lnglat_array = [];
@@ -157,6 +148,15 @@ var TpfHome = ( function ()
 			lnglat_array.push( lat, lng );
 
 			callback( facility_selection_array, all_parks );
+		}
+
+		if ( navigator.geolocation )
+		{
+			navigator.geolocation.getCurrentPosition( __getPosition );
+		}
+		else
+		{
+			alert( "Your browser cannot get your location." );
 		}
 	};
 
@@ -222,7 +222,7 @@ var TpfHome = ( function ()
 			};
 
 	    $.ajax({
-	        url     :'http://localhost/t--p--f/public/getparks',
+	        url     : document.location.origin + '/t--p--f/public/getparks',
 	        type    : 'GET',
 	        data    : ajax_params,
 	        dataType: 'JSON',
@@ -310,31 +310,31 @@ var TpfHome = ( function ()
 
 	var _getBingImages = function ( park_selection_index )
 	{
-		var park_name = _filterParkNameForQuery( current_park_selection_data[park_selection_index]['parkname'] );
+		// var park_name = _filterParkNameForQuery( current_park_selection_data[park_selection_index]['parkname'] );
 
-		$(".park-images-ul ul").empty(); // empty previous event handlers/element data
+		// $(".park-images-ul ul").empty(); // empty previous event handlers/element data
 
-		$( function ()
-		{
-	        $.ajax({
-	            url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=" + park_name + "&count=20",
-	            beforeSend: function(xhrObj){
-	                xhrObj.setRequestHeader("Content-Type","multipart/form-data");
-	                xhrObj.setRequestHeader("Retry-After","5");
-	                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","d94b9ad51f0c422787649f57c7d68468");
-	            },
-	            type: "POST",
-	        })
-	        .done( function ( data )
-	        {
-	        	_displayParkImages( data );
-	        	console.log( data );
-	        })
-	        .fail( function ()
-	        {
-	            alert( "error" );
-	        });
-	    });
+		// $( function ()
+		// {
+	 //        $.ajax({
+	 //            url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=" + park_name + "&count=20",
+	 //            beforeSend: function(xhrObj){
+	 //                xhrObj.setRequestHeader("Content-Type","multipart/form-data");
+	 //                xhrObj.setRequestHeader("Retry-After","5");
+	 //                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","d94b9ad51f0c422787649f57c7d68468");
+	 //            },
+	 //            type: "POST",
+	 //        })
+	 //        .done( function ( data )
+	 //        {
+	 //        	_displayParkImages( data );
+	 //        	console.log( data );
+	 //        })
+	 //        .fail( function ()
+	 //        {
+	 //            alert( "error" );
+	 //        });
+	 //    });
 	};
 
 	var _displayParkImages = function ( data )
@@ -421,15 +421,17 @@ var TpfHome = ( function ()
 		}
 
 		distance_class[0].classList.add( "park-selected" );
+		distance_class[0].classList.add( "park-selected-official" );
 	};
 
 	var _reRenderParkSelection = function ()
 	{
 		var selection_index = parseInt( this.getAttribute( "data-selection-number" ) );
 
-		$( ".park-distance-ul>ul>li.park-selected" ).removeClass( "park-selected" );
+		$( ".park-distance-ul>ul>li.park-selected-official" ).removeClass( "park-selected-official" );
 		$( ".park-distance-ul>ul>li>.number-zoom" ).removeClass( "number-zoom" );
 		this.classList.add( "park-selected" );
+		this.classList.add( "park-selected-official" );
 		$( ".park-selected>.number-overlay" ).addClass( "number-zoom" );
 
 		_calculateAndDisplayRout( selection_index, true );
