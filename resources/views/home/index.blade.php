@@ -26,20 +26,29 @@
 				<h2 class="text-center sub-title"> CUSTOM PARK SEARCH </h2>
 				<h3 class="text-center description"> Choose a combination of facilities you are looking for at a park near you. Then hit GO when you're ready. </h3>
 
-				<ul id="park-list">
+				<div class="park-list-container">
 
-					@foreach( $facilities as $park )
+					<ul id="park-list">
 
-						<li id="{{ $park->park_id }}" class="li-bg" data-parkval="{{ $park->park_val }}" data-parkvaloffish="{{ $park->facility }}" data-selected="0">
-							<div class="li-overlay-white"></div>
-							<div class="li-overlay"></div>
-							<p> {{ $park->facility }} </p>
-							<object class="svg-check" type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/7/71/Ok_sign_font_awesome.svg"></object>
-						</li>
+						@foreach( $facilities as $park )
 
-					@endforeach
+							<li id="{{ $park->park_id }}" class="li-bg" data-parkval="{{ $park->park_val }}" data-parkvaloffish="{{ $park->facility }}" data-selected="0">
+								<div class="li-overlay-white"></div>
+								<div class="li-overlay"></div>
+								<p> {{ $park->facility }} </p>
+								<object class="svg-check" type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/7/71/Ok_sign_font_awesome.svg"></object>
+							</li>
 
-				</ul>
+						@endforeach
+
+					</ul>
+
+					<div class="chosen-park-list">
+						<ul>
+						</ul>
+					</div>
+
+				</div>
 
 			</nav>
 

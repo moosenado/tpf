@@ -108,12 +108,32 @@ var TpfHome = ( function ()
 		if ( selected_attr == 0 )
 		{
 			_selectChanges( clicked_id, '.5', 1, 'block' );
+			_addToParkList( park_choice, clicked_id );
 	    }
 	    else
 	    {
 	    	_selectChanges( clicked_id, '.9', 0, 'none' );
+	    	_removeFromParkList( park_choice, clicked_id );
 	    }
+	};
 
+	var _addToParkList = function ( park_choice, clicked_id )
+	{
+		var selected_attr = park_choice.getAttribute( 'data-parkvaloffish' );
+
+		$(".chosen-park-list ul").append(
+			"<li id='chosenlist-" + clicked_id + "'>" + selected_attr + "</li>"
+		);
+	};
+
+	var _removeFromParkList = function ( park_choice, clicked_id )
+	{
+		$("#chosenlist-" + clicked_id).remove();
+	};
+
+	var _clearEntireParkList = function ()
+	{
+		$(".chosen-park-list ul").empty();
 	};
 
 	var _getParkSelection = function ()
@@ -169,7 +189,7 @@ var TpfHome = ( function ()
 	    	park_li[ i ].setAttribute( 'data-selected', 0 );
 
 	    	_resetStyles( i );
-
+	    	_clearEntireParkList();
 	    	_resetButtons();
 	    }
 
