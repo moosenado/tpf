@@ -43,17 +43,17 @@
 
 					</ul>
 
-					<div class="chosen-park-list">
-						<ul>
-						</ul>
-					</div>
-
 				</div>
 
 			</nav>
 
 		</div>
 
+	</div>
+
+	<div class="chosen-park-list">
+		<ul>
+		</ul>
 	</div>
 
 	<div id="park-reset-btn" class="reset-btn"> <i class="fa fa-refresh"></i> </div>

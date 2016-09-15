@@ -9255,12 +9255,10 @@ body {
 
 /* line 473, ../sass/app.scss */
 .chosen-park-list {
-  width: 100px;
-  height: 150px;
   position: absolute;
   top: 50px;
   left: 0;
-  background-color: blue;
+  background-color: white;
   opacity: .8;
 }
 @media (min-width: 768px) {
@@ -9273,8 +9271,18 @@ body {
     bottom: 80px;
   }
 }
+/* line 490, ../sass/app.scss */
+.chosen-park-list ul {
+  padding: 0;
+  margin: 0;
+}
+/* line 494, ../sass/app.scss */
+.chosen-park-list ul li {
+  text-align: right;
+  list-style: none;
+}
 
-/* line 491, ../sass/app.scss */
+/* line 501, ../sass/app.scss */
 footer {
   color: #aec1ae;
   font-size: 10px;
@@ -9282,7 +9290,7 @@ footer {
 }
 
 /* TRANSITION SPECIFIC */
-/* line 503, ../sass/app.scss */
+/* line 513, ../sass/app.scss */
 .ani-left {
   -webkit-transform: translate3d(-2000px, 0, 0);
   -moz-transform: translate3d(-2000px, 0, 0);
@@ -9292,7 +9300,7 @@ footer {
   opacity: 0;
 }
 
-/* line 508, ../sass/app.scss */
+/* line 518, ../sass/app.scss */
 .ani-right {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -9302,18 +9310,18 @@ footer {
   opacity: 1;
 }
 
-/* line 513, ../sass/app.scss */
+/* line 523, ../sass/app.scss */
 .ani-fadeOut {
   opacity: 0;
 }
 
-/* line 517, ../sass/app.scss */
+/* line 527, ../sass/app.scss */
 .ani-fadeIn {
   opacity: 1;
 }
 
 /* ANIMATION SPECIFIC */
-/* line 527, ../sass/app.scss */
+/* line 537, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.5s forwards;
   -moz-animation: zoomAni 0.5s forwards;
@@ -9322,7 +9330,7 @@ footer {
   animation: zoomAni 0.5s forwards;
 }
 
-/* line 531, ../sass/app.scss */
+/* line 541, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9331,7 +9339,7 @@ footer {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 535, ../sass/app.scss */
+/* line 545, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -9340,7 +9348,7 @@ footer {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 539, ../sass/app.scss */
+/* line 549, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9349,7 +9357,7 @@ footer {
   animation: zoomAniRevShadowRev 0.5s forwards;
 }
 
-/* line 543, ../sass/app.scss */
+/* line 553, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni 0.5s forwards;
   -moz-animation: slideAni 0.5s forwards;
@@ -9358,17 +9366,69 @@ footer {
   animation: slideAni 0.5s forwards;
 }
 
-/* line 547, ../sass/app.scss */
+/* line 557, ../sass/app.scss */
 .number-zoom {
   -webkit-animation: numberZoomAni 1.5s forwards;
   -moz-animation: numberZoomAni 1.5s forwards;
   -ms-animation: numberZoomAni 1.5s forwards;
   -o-animation: numberZoomAni 1.5s forwards;
   animation: numberZoomAni 1.5s forwards;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
   animation-timing-function: linear;
 }
 
+/* line 565, ../sass/app.scss */
+.fade-in-and-up {
+  -webkit-animation: fadeInAndUp 1s forwards;
+  -moz-animation: fadeInAndUp 1s forwards;
+  -ms-animation: fadeInAndUp 1s forwards;
+  -o-animation: fadeInAndUp 1s forwards;
+  animation: fadeInAndUp 1s forwards;
+}
+
 /* KEY FRAMES */
+@-webkit-keyframes fadeInAndUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0, 20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+  }
+}
+@keyframes fadeInAndUp {
+  0% {
+    opacity: 0;
+    transform: translate(0, 20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+@-moz-keyframes fadeInAndUp {
+  0% {
+    opacity: 0;
+    -moz-transform: translate(0, 20px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translate(0, 0);
+  }
+}
+@-o-keyframes fadeInAndUp {
+  0% {
+    opacity: 0;
+    -o-transform: translate(0, 20px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translate(0, 0);
+  }
+}
 @-webkit-keyframes zoomAni {
   0% {
     -webkit-transform: scale(0, 0) rotate(0deg);

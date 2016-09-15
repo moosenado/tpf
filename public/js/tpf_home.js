@@ -121,8 +121,8 @@ var TpfHome = ( function ()
 	{
 		var selected_attr = park_choice.getAttribute( 'data-parkvaloffish' );
 
-		$(".chosen-park-list ul").append(
-			"<li id='chosenlist-" + clicked_id + "'>" + selected_attr + "</li>"
+		$(".chosen-park-list ul").prepend(
+			"<li id='chosenlist-" + clicked_id + "' class='fade-in-and-up'>" + selected_attr + "</li>"
 		);
 	};
 
