@@ -546,10 +546,16 @@ var TpfHome = ( function ()
 			'display': display
     	} ).toggleClass( 'zoom-check' );
 
-    	$( '#' + id ).addClass('li-click');
-    	$( '#' + id + ' > p' ).addClass('li-click-text');
-
-    	$( '#' + id + ' > p' ).toggleClass( 'slide-center' );
+    	if (display === 'none')
+    	{
+    		$( '#' + id ).removeClass('li-click');
+	    	$( '#' + id + ' > p' ).removeClass('li-click-text');
+    	}
+    	else
+    	{
+    		$( '#' + id ).addClass('li-click');
+	    	$( '#' + id + ' > p' ).addClass('li-click-text');
+	    }
 	};
 
 	var _setButtons = function ()
@@ -581,10 +587,8 @@ var TpfHome = ( function ()
 			'display': 'none'
     	} ).removeClass( 'zoom-check' );
 
-    	$( '#' + id ).removeClass('li-click'); // only reset on main reset button click, not if user unclicks the selected facility
-    	$( '#' + id + ' > p' ).removeClass('li-click-text'); // only reset on main reset button click, not if user unclicks the selected facility
-
-    	$( '#' + id + ' > p' ).removeClass( 'slide-center' );
+    	$( '#' + id ).removeClass('li-click');
+    	$( '#' + id + ' > p' ).removeClass('li-click-text');
 	};
 
 	var _resetButtons = function ()
