@@ -33,6 +33,7 @@
 						@foreach( $facilities as $park )
 
 							<li id="{{ $park->park_id }}" class="li-bg" data-parkval="{{ $park->park_val }}" data-parkvaloffish="{{ $park->facility }}" data-selected="0">
+								<div class="li-gradient-overlay"></div>
 								<div class="li-overlay-white"></div>
 								<div class="li-overlay"></div>
 								<p> {{ $park->facility }} </p>

@@ -546,6 +546,9 @@ var TpfHome = ( function ()
 			'display': display
     	} ).toggleClass( 'zoom-check' );
 
+    	$( '#' + id ).addClass('li-click');
+    	$( '#' + id + '> p' ).addClass('li-click-text');
+
     	$( '#' + id + ' > p' ).toggleClass( 'slide-center' );
 	};
 
