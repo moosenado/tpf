@@ -9063,11 +9063,11 @@ body {
 
 /* line 324, ../sass/app.scss */
 .li-bg {
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -ms-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -ms-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
   opacity: .9;
 }
 /* line 327, ../sass/app.scss */
@@ -9509,7 +9509,7 @@ footer {
     opacity: 1;
   }
   50% {
-    opacity: .5;
+    opacity: .3;
   }
   100% {
     opacity: 1;

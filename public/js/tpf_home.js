@@ -115,6 +115,12 @@ var TpfHome = ( function ()
 	    	_selectChanges( clicked_id, '.9', 0, 'none' );
 	    	_removeFromParkList( park_choice, clicked_id );
 	    }
+
+	    // remove these elements from dom if ul is empty
+	    if (!($( ".chosen-park-list ul" ).has( "li" ).length))
+	    {
+	    	$( '.chosen-park-list' ).css({'display':'none'});
+	    } 
 	};
 
 	var _addToParkList = function ( park_choice, clicked_id )
@@ -136,7 +142,7 @@ var TpfHome = ( function ()
 	var _clearEntireParkList = function ()
 	{
 		$( '.chosen-park-list' ).css({'display':'none'});
-		
+
 		$(".chosen-park-list ul").empty();
 	};
 

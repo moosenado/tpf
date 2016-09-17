@@ -322,7 +322,7 @@ body {
 }
 
 .li-bg {
-	@include transitionStyle( all, .2s, ease-in-out );
+	@include transitionStyle( all, .6s, ease-in-out );
 	opacity: .9;
 	&:hover {
 		cursor : pointer;
@@ -683,7 +683,7 @@ footer {
 		opacity: 1;
     }
     50% {
-    	opacity: .5;
+    	opacity: .3;
     }
     100% {
     	opacity: 1;
