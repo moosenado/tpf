@@ -37,7 +37,7 @@
 								<div class="li-overlay-white"></div>
 								<div class="li-overlay"></div>
 								<p> {{ $park->facility }} </p>
-								<object class="svg-check" type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/7/71/Ok_sign_font_awesome.svg"></object>
+								<object class="svg-check" type="image/svg+xml" data="{{ URL::to('/') }}/images/check.svg"></object>
 							</li>
 
 						@endforeach

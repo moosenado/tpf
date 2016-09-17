@@ -9252,9 +9252,12 @@ body {
   margin-top: -20px;
   width: 40px;
   height: 40px;
+  background-color: #524231;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
 }
 
-/* line 478, ../sass/app.scss */
+/* line 481, ../sass/app.scss */
 .li-gradient-overlay {
   position: absolute;
   top: 0;
@@ -9263,7 +9266,7 @@ body {
   bottom: 0;
 }
 
-/* line 486, ../sass/app.scss */
+/* line 489, ../sass/app.scss */
 .chosen-park-list {
   position: fixed;
   top: auto;
@@ -9273,20 +9276,20 @@ body {
   background-color: white;
   opacity: .8;
 }
-/* line 495, ../sass/app.scss */
+/* line 498, ../sass/app.scss */
 .chosen-park-list ul {
   padding: 0;
   margin: 0;
   padding: 10px 0 10px 10px;
 }
-/* line 500, ../sass/app.scss */
+/* line 503, ../sass/app.scss */
 .chosen-park-list ul li {
   text-align: right;
   list-style: none;
   color: #524231;
 }
 
-/* line 508, ../sass/app.scss */
+/* line 511, ../sass/app.scss */
 footer {
   color: #71e271;
   font-size: 10px;
@@ -9294,7 +9297,7 @@ footer {
 }
 
 /* TRANSITION SPECIFIC */
-/* line 520, ../sass/app.scss */
+/* line 523, ../sass/app.scss */
 .ani-left {
   -webkit-transform: translate3d(-2000px, 0, 0);
   -moz-transform: translate3d(-2000px, 0, 0);
@@ -9304,7 +9307,7 @@ footer {
   opacity: 0;
 }
 
-/* line 525, ../sass/app.scss */
+/* line 528, ../sass/app.scss */
 .ani-right {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -9314,18 +9317,18 @@ footer {
   opacity: 1;
 }
 
-/* line 530, ../sass/app.scss */
+/* line 533, ../sass/app.scss */
 .ani-fadeOut {
   opacity: 0;
 }
 
-/* line 534, ../sass/app.scss */
+/* line 537, ../sass/app.scss */
 .ani-fadeIn {
   opacity: 1;
 }
 
 /* ANIMATION SPECIFIC */
-/* line 544, ../sass/app.scss */
+/* line 547, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.5s forwards;
   -moz-animation: zoomAni 0.5s forwards;
@@ -9334,7 +9337,7 @@ footer {
   animation: zoomAni 0.5s forwards;
 }
 
-/* line 548, ../sass/app.scss */
+/* line 551, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9343,7 +9346,7 @@ footer {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 552, ../sass/app.scss */
+/* line 555, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -9352,7 +9355,7 @@ footer {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 556, ../sass/app.scss */
+/* line 559, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9361,7 +9364,7 @@ footer {
   animation: zoomAniRevShadowRev 0.5s forwards;
 }
 
-/* line 560, ../sass/app.scss */
+/* line 563, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni 0.5s forwards;
   -moz-animation: slideAni 0.5s forwards;
@@ -9370,7 +9373,7 @@ footer {
   animation: slideAni 0.5s forwards;
 }
 
-/* line 564, ../sass/app.scss */
+/* line 567, ../sass/app.scss */
 .number-zoom {
   -webkit-animation: numberZoomAni 1s forwards;
   -moz-animation: numberZoomAni 1s forwards;
@@ -9383,7 +9386,7 @@ footer {
   animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
-/* line 572, ../sass/app.scss */
+/* line 575, ../sass/app.scss */
 .fade-in-and-up {
   -webkit-animation: fadeInAndUp 1s forwards;
   -moz-animation: fadeInAndUp 1s forwards;
@@ -9392,7 +9395,7 @@ footer {
   animation: fadeInAndUp 1s forwards;
 }
 
-/* line 576, ../sass/app.scss */
+/* line 579, ../sass/app.scss */
 .li-click {
   -webkit-animation: liButtonClick 0.5s forwards;
   -moz-animation: liButtonClick 0.5s forwards;
@@ -9405,7 +9408,7 @@ footer {
   transform: perspective(200px) translateZ(0);
 }
 
-/* line 584, ../sass/app.scss */
+/* line 587, ../sass/app.scss */
 .li-click-text {
   -webkit-animation: liButtonClickText 1s forwards;
   -moz-animation: liButtonClickText 1s forwards;
