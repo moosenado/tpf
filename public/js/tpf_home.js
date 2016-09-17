@@ -121,6 +121,8 @@ var TpfHome = ( function ()
 	{
 		var selected_attr = park_choice.getAttribute( 'data-parkvaloffish' );
 
+		$( '.chosen-park-list' ).css({'display':'block'});
+
 		$(".chosen-park-list ul").prepend(
 			"<li id='chosenlist-" + clicked_id + "' class='fade-in-and-up'>" + selected_attr + "</li>"
 		);
@@ -593,6 +595,8 @@ var TpfHome = ( function ()
 
 	var _resetButtons = function ()
 	{
+		$( '.chosen-park-list' ).css({'display':'none'});
+
 		$( '.fire-btn-shadow' ).addClass( 'zoom-check-shadow-reverse' );
     	$( '.reset-btn-shadow' ).addClass( 'zoom-check-shadow-reverse' );
 		$( '.fire-btn' ).addClass( 'zoom-check-reverse' );

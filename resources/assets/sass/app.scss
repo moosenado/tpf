@@ -138,13 +138,25 @@ body {
 
 
 .title {
-	letter-spacing: 10px;
+	letter-spacing: 5px;
+	font-size: 30px;
 	@include transitionStyle(all, .1s, ease-in-out);
+
+	@media (min-width: $screen-sm)
+	{
+		font-size: 36px;
+	}
 }
 
 .sub-title {
-	letter-spacing: 3px;
+	letter-spacing: 1px;
+	font-size: 23px;
 	@include transitionStyle(all, .1s, ease-in-out);
+
+	@media (min-width: $screen-sm)
+	{
+		font-size: 30px;
+	}
 }
 
 .description {
@@ -489,16 +501,34 @@ body {
 .chosen-park-list {
 	position: fixed;
 	top: auto;
+	display: none;
 	left: auto;
-	right: 2%;
+	right: 0;
 	bottom: 80px;
-    background-color: white;
-    opacity: .8;
+	background: rgba(255,255,255,0);
+	background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.83) 48%, rgba(255,255,255,1) 58%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,0)), color-stop(48%, rgba(255,255,255,0.83)), color-stop(58%, rgba(255,255,255,1)));
+	background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.83) 48%, rgba(255,255,255,1) 58%);
+	background: -o-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.83) 48%, rgba(255,255,255,1) 58%);
+	background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.83) 48%, rgba(255,255,255,1) 58%);
+	background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.83) 48%, rgba(255,255,255,1) 58%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
+	opacity: .9;
+
+	@media (min-width: $screen-sm)
+	{
+		right: 2%;
+	}
 
     ul {
     	padding: 0;
     	margin: 0;
-	    padding: 10px 0 10px 10px;
+	    padding: 10px 10px 10px 40px;
+
+    	@media (min-width: $screen-sm)
+		{
+			padding: 10px 0 10px 40px;
+		}
 
     	li {
     		text-align: right;
