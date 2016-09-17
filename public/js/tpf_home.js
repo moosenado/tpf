@@ -547,7 +547,7 @@ var TpfHome = ( function ()
     	} ).toggleClass( 'zoom-check' );
 
     	$( '#' + id ).addClass('li-click');
-    	$( '#' + id + '> p' ).addClass('li-click-text');
+    	$( '#' + id + ' > p' ).addClass('li-click-text');
 
     	$( '#' + id + ' > p' ).toggleClass( 'slide-center' );
 	};
@@ -580,6 +580,9 @@ var TpfHome = ( function ()
     	$( '#' + id + ' > .svg-check' ).css( {
 			'display': 'none'
     	} ).removeClass( 'zoom-check' );
+
+    	$( '#' + id ).removeClass('li-click'); // only reset on main reset button click, not if user unclicks the selected facility
+    	$( '#' + id + ' > p' ).removeClass('li-click-text'); // only reset on main reset button click, not if user unclicks the selected facility
 
     	$( '#' + id + ' > p' ).removeClass( 'slide-center' );
 	};

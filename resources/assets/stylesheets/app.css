@@ -8989,6 +8989,7 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 @media (min-width: 768px) {
   /* line 255, ../sass/app.scss */
@@ -8998,15 +8999,15 @@ body {
     text-align: center;
   }
 }
-/* line 267, ../sass/app.scss */
+/* line 268, ../sass/app.scss */
 .park-nav ul li {
   position: relative;
   height: 150px;
   width: auto;
-  margin: 5px 0 5px 0;
+  padding: 5px 0 5px 0;
 }
 @media (min-width: 768px) {
-  /* line 267, ../sass/app.scss */
+  /* line 268, ../sass/app.scss */
   .park-nav ul li {
     width: 318px;
     /*account for padding*/
@@ -9015,7 +9016,7 @@ body {
     display: inline-block;
   }
 }
-/* line 281, ../sass/app.scss */
+/* line 282, ../sass/app.scss */
 .park-nav ul li p {
   position: absolute;
   bottom: 0;
@@ -9033,21 +9034,21 @@ body {
   transition: all 0.2s ease-out;
 }
 @media (min-width: 768px) {
-  /* line 297, ../sass/app.scss */
+  /* line 298, ../sass/app.scss */
   .park-nav ul li p {
     padding: 5px 40px 5px 10%;
   }
-  /* line 301, ../sass/app.scss */
+  /* line 302, ../sass/app.scss */
   .park-nav ul li:nth-child(1n) {
     text-align: right;
   }
-  /* line 304, ../sass/app.scss */
+  /* line 305, ../sass/app.scss */
   .park-nav ul li:nth-child(2n) {
     text-align: left;
   }
 }
 
-/* line 312, ../sass/app.scss */
+/* line 313, ../sass/app.scss */
 .li-bg {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -9056,20 +9057,20 @@ body {
   transition: all 0.2s ease-in-out;
   opacity: .9;
 }
-/* line 315, ../sass/app.scss */
+/* line 316, ../sass/app.scss */
 .li-bg:hover {
   cursor: pointer;
 }
-/* line 318, ../sass/app.scss */
+/* line 319, ../sass/app.scss */
 .li-bg:hover .li-overlay {
   background-color: #fff;
 }
-/* line 322, ../sass/app.scss */
+/* line 323, ../sass/app.scss */
 .li-bg:active {
   opacity: 1;
 }
 
-/* line 327, ../sass/app.scss */
+/* line 328, ../sass/app.scss */
 .li-overlay {
   position: absolute;
   top: 72.5%;
@@ -9085,35 +9086,35 @@ body {
   transition: all 0.5s ease-in-out;
 }
 
-/* line 338, ../sass/app.scss */
+/* line 339, ../sass/app.scss */
 .li-overlay-white {
   position: absolute;
-  top: 69%;
+  top: 72%;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: #fff;
 }
 
-/* line 347, ../sass/app.scss */
+/* line 348, ../sass/app.scss */
 .park-list-container {
   position: relative;
   width: 100%;
 }
 
-/* line 352, ../sass/app.scss */
+/* line 353, ../sass/app.scss */
 .park-distance-ul {
   overflow: hidden;
   width: 100%;
   height: 76px;
 }
 @media all and (min-width: 768px) {
-  /* line 352, ../sass/app.scss */
+  /* line 353, ../sass/app.scss */
   .park-distance-ul {
     height: auto;
   }
 }
-/* line 361, ../sass/app.scss */
+/* line 362, ../sass/app.scss */
 .park-distance-ul ul {
   margin: 0;
   padding: 0;
@@ -9122,12 +9123,12 @@ body {
   padding-bottom: 17px;
 }
 @media all and (min-width: 768px) {
-  /* line 361, ../sass/app.scss */
+  /* line 362, ../sass/app.scss */
   .park-distance-ul ul {
     padding-bottom: 0;
   }
 }
-/* line 372, ../sass/app.scss */
+/* line 373, ../sass/app.scss */
 .park-distance-ul ul li {
   list-style: none;
   position: relative;
@@ -9146,7 +9147,7 @@ body {
   -o-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
 }
-/* line 386, ../sass/app.scss */
+/* line 387, ../sass/app.scss */
 .park-distance-ul ul li:hover {
   opacity: .7;
   -webkit-transition: all 0.1s ease-in-out;
@@ -9155,7 +9156,7 @@ body {
   -o-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
-/* line 391, ../sass/app.scss */
+/* line 392, ../sass/app.scss */
 .park-distance-ul ul li .number {
   font-size: 20px;
   display: inline-block;
@@ -9166,17 +9167,17 @@ body {
   color: #524231;
 }
 
-/* line 404, ../sass/app.scss */
+/* line 405, ../sass/app.scss */
 .park-selected {
   opacity: .5;
 }
 
-/* line 408, ../sass/app.scss */
+/* line 409, ../sass/app.scss */
 .park-selected-official {
   border: 6px solid #524231 !important;
 }
 
-/* line 412, ../sass/app.scss */
+/* line 413, ../sass/app.scss */
 .number-overlay {
   font-size: 62px;
   display: inline-block;
@@ -9195,30 +9196,30 @@ body {
   transform: scale(0.5, 0.5);
 }
 
-/* line 426, ../sass/app.scss */
+/* line 427, ../sass/app.scss */
 .park-info-cont {
   padding: 0;
   margin: 0;
 }
-/* line 430, ../sass/app.scss */
+/* line 431, ../sass/app.scss */
 .park-info-cont li {
   display: block;
   white-space: nowrap;
 }
 
-/* line 436, ../sass/app.scss */
+/* line 437, ../sass/app.scss */
 .park-images-ul {
   overflow: hidden;
   width: 100%;
   height: 125px;
 }
 @media all and (min-width: 768px) {
-  /* line 436, ../sass/app.scss */
+  /* line 437, ../sass/app.scss */
   .park-images-ul {
     height: auto;
   }
 }
-/* line 445, ../sass/app.scss */
+/* line 446, ../sass/app.scss */
 .park-images-ul ul {
   margin: 0;
   padding: 0;
@@ -9227,22 +9228,22 @@ body {
   padding-bottom: 17px;
 }
 @media all and (min-width: 768px) {
-  /* line 445, ../sass/app.scss */
+  /* line 446, ../sass/app.scss */
   .park-images-ul ul {
     padding-bottom: 0;
   }
 }
-/* line 456, ../sass/app.scss */
+/* line 457, ../sass/app.scss */
 .park-images-ul ul li {
   display: inline-block;
   padding-right: 5px;
 }
-/* line 460, ../sass/app.scss */
+/* line 461, ../sass/app.scss */
 .park-images-ul ul li img {
   height: 125px;
 }
 
-/* line 467, ../sass/app.scss */
+/* line 468, ../sass/app.scss */
 .svg-check {
   display: none;
   position: absolute;
@@ -9254,7 +9255,7 @@ body {
   height: 40px;
 }
 
-/* line 478, ../sass/app.scss */
+/* line 479, ../sass/app.scss */
 .li-gradient-overlay {
   position: absolute;
   top: 0;
@@ -9263,7 +9264,7 @@ body {
   bottom: 0;
 }
 
-/* line 486, ../sass/app.scss */
+/* line 487, ../sass/app.scss */
 .chosen-park-list {
   position: fixed;
   top: auto;
@@ -9273,13 +9274,13 @@ body {
   background-color: white;
   opacity: .8;
 }
-/* line 495, ../sass/app.scss */
+/* line 496, ../sass/app.scss */
 .chosen-park-list ul {
   padding: 0;
   margin: 0;
   padding: 10px 0 10px 10px;
 }
-/* line 500, ../sass/app.scss */
+/* line 501, ../sass/app.scss */
 .chosen-park-list ul li {
   text-align: right;
   list-style: none;
@@ -9287,7 +9288,7 @@ body {
   font-size: 13px;
 }
 
-/* line 509, ../sass/app.scss */
+/* line 510, ../sass/app.scss */
 footer {
   color: #aec1ae;
   font-size: 10px;
@@ -9295,7 +9296,7 @@ footer {
 }
 
 /* TRANSITION SPECIFIC */
-/* line 521, ../sass/app.scss */
+/* line 522, ../sass/app.scss */
 .ani-left {
   -webkit-transform: translate3d(-2000px, 0, 0);
   -moz-transform: translate3d(-2000px, 0, 0);
@@ -9305,7 +9306,7 @@ footer {
   opacity: 0;
 }
 
-/* line 526, ../sass/app.scss */
+/* line 527, ../sass/app.scss */
 .ani-right {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -9315,18 +9316,18 @@ footer {
   opacity: 1;
 }
 
-/* line 531, ../sass/app.scss */
+/* line 532, ../sass/app.scss */
 .ani-fadeOut {
   opacity: 0;
 }
 
-/* line 535, ../sass/app.scss */
+/* line 536, ../sass/app.scss */
 .ani-fadeIn {
   opacity: 1;
 }
 
 /* ANIMATION SPECIFIC */
-/* line 545, ../sass/app.scss */
+/* line 546, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.5s forwards;
   -moz-animation: zoomAni 0.5s forwards;
@@ -9335,7 +9336,7 @@ footer {
   animation: zoomAni 0.5s forwards;
 }
 
-/* line 549, ../sass/app.scss */
+/* line 550, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9344,7 +9345,7 @@ footer {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 553, ../sass/app.scss */
+/* line 554, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -9353,7 +9354,7 @@ footer {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 557, ../sass/app.scss */
+/* line 558, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9362,7 +9363,7 @@ footer {
   animation: zoomAniRevShadowRev 0.5s forwards;
 }
 
-/* line 561, ../sass/app.scss */
+/* line 562, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni 0.5s forwards;
   -moz-animation: slideAni 0.5s forwards;
@@ -9371,7 +9372,7 @@ footer {
   animation: slideAni 0.5s forwards;
 }
 
-/* line 565, ../sass/app.scss */
+/* line 566, ../sass/app.scss */
 .number-zoom {
   -webkit-animation: numberZoomAni 1.5s forwards;
   -moz-animation: numberZoomAni 1.5s forwards;
@@ -9384,7 +9385,7 @@ footer {
   animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
-/* line 573, ../sass/app.scss */
+/* line 574, ../sass/app.scss */
 .fade-in-and-up {
   -webkit-animation: fadeInAndUp 1s forwards;
   -moz-animation: fadeInAndUp 1s forwards;
@@ -9393,48 +9394,54 @@ footer {
   animation: fadeInAndUp 1s forwards;
 }
 
-/* line 577, ../sass/app.scss */
+/* line 578, ../sass/app.scss */
 .li-click {
   -webkit-animation: liButtonClick 0.5s forwards;
   -moz-animation: liButtonClick 0.5s forwards;
   -ms-animation: liButtonClick 0.5s forwards;
   -o-animation: liButtonClick 0.5s forwards;
   animation: liButtonClick 0.5s forwards;
+  -webkit-transform: perspective(200px) translateZ(0);
+  -moz-transform: perspective(200px) translateZ(0);
+  -o-transform: perspective(200px) translateZ(0);
   transform: perspective(200px) translateZ(0);
 }
 
-/* line 582, ../sass/app.scss */
+/* line 586, ../sass/app.scss */
 .li-click-text {
   -webkit-animation: liButtonClickText 1s forwards;
   -moz-animation: liButtonClickText 1s forwards;
   -ms-animation: liButtonClickText 1s forwards;
   -o-animation: liButtonClickText 1s forwards;
   animation: liButtonClickText 1s forwards;
-  -webkit-animation-timing-function: linear;
-  -moz-animation-timing-function: linear;
-  -o-animation-timing-function: linear;
-  animation-timing-function: linear;
+  -webkit-animation-timing-function: ease-out;
+  -moz-animation-timing-function: ease-out;
+  -o-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+  -webkit-transform: perspective(200px) translateZ(0);
+  -moz-transform: perspective(200px) translateZ(0);
+  -o-transform: perspective(200px) translateZ(0);
   transform: perspective(200px) translateZ(0);
 }
 
 /* KEY FRAMES */
 @keyframes liButtonClick {
   0% {
-    transform: scale(1, 1);
+    transform: scale3d(1, 1, 1);
   }
   50% {
-    transform: scale(1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1);
   }
   100% {
-    transform: scale(1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
 @keyframes liButtonClickText {
   0% {
-    opacity: 0;
+    opacity: 1;
   }
-  55% {
-    opacity: 0;
+  50% {
+    opacity: .5;
   }
   100% {
     opacity: 1;

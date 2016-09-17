@@ -256,6 +256,7 @@ body {
 		list-style: none;
 		margin    : 0;
 		padding   : 0;
+		overflow  : hidden;
 
 		@media ( min-width: $screen-sm )
 		{
@@ -268,7 +269,7 @@ body {
 			position: relative;
 			height  : 150px;
 			width   : auto;
-			margin  : 5px 0 5px 0;
+			padding : 5px 0 5px 0;
 
 			@media ( min-width: $screen-sm )
 			{
@@ -337,7 +338,7 @@ body {
 
 .li-overlay-white {
 	position        : absolute;
-	top             : 69%;
+	top             : 72%;
 	left            : 0;
 	right           : 0;
 	bottom          : 0;
@@ -576,15 +577,21 @@ footer {
 
 .li-click {
 	@include animationFunc( liButtonClick, .5s, forwards);
+	-webkit-transform: perspective(200px) translateZ(0);
+	-moz-transform: perspective(200px) translateZ(0);
+	-o-transform: perspective(200px) translateZ(0);
 	transform: perspective(200px) translateZ(0);
 }
 
 .li-click-text {
 	@include animationFunc( liButtonClickText, 1s, forwards);
-	-webkit-animation-timing-function: linear;
-	-moz-animation-timing-function: linear;
-	-o-animation-timing-function: linear;
-	animation-timing-function: linear;
+	-webkit-animation-timing-function: ease-out;
+	-moz-animation-timing-function: ease-out;
+	-o-animation-timing-function: ease-out;
+	animation-timing-function: ease-out;
+	-webkit-transform: perspective(200px) translateZ(0);
+	-moz-transform: perspective(200px) translateZ(0);
+	-o-transform: perspective(200px) translateZ(0);
 	transform: perspective(200px) translateZ(0);
 }
 
@@ -593,23 +600,23 @@ footer {
 /* KEY FRAMES */
 
 @keyframes liButtonClick {
-   0% {
-		transform: scale(1,1);
+    0% {
+		transform: scale3d(1,1,1);
     }
     50% {
-    	transform: scale(1.05,1.05);
+    	transform: scale3d(1.05,1.05,1);
     }
     100% {
-    	transform: scale(1,1);
+    	transform: scale3d(1,1,1);
     }
 }
 
 @keyframes liButtonClickText {
-   	0% {
-		opacity: 0;
+    0% {
+		opacity: 1;
     }
-    55% {
-		opacity: 0;
+    50% {
+    	opacity: .5;
     }
     100% {
     	opacity: 1;
