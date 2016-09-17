@@ -621,7 +621,7 @@ var TpfHome = ( function ()
 
 			$( '.reset-btn' ).css( { 'display': 'none' } );
 			$( '.reset-btn' ).removeClass( 'zoom-check-reverse' );
-		}, 100 );
+		}, 500 );
 	};
 
 	return {
