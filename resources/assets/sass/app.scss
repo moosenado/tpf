@@ -6,10 +6,10 @@
 
 
 
-$dark-main : #aec1ae;
+$dark-main : #71e271;
 $white-main: #f7f7f7;
 $btn-text  : #524231;
-$light-main: #e3d8c9;
+$light-main: #00ca3e;
 $bg-color  : #ffffff;
 
 
@@ -179,8 +179,7 @@ body {
 		margin: 0;
 	    padding: 0;
 	    position: relative;
-	    top: 50%;
-	    transform: translateY(-68%);
+    	top: 2px;
 	}
 }
 
@@ -502,7 +501,6 @@ body {
     		text-align: right;
     		list-style: none;
     		color: $btn-text;
-    		font-size: 13px;
     	}
     }
 }
@@ -564,7 +562,7 @@ footer {
 }
 
 .number-zoom {
-	@include animationFunc( numberZoomAni, 1.5s, forwards );
+	@include animationFunc( numberZoomAni, 1s, forwards );
 	-webkit-animation-timing-function: cubic-bezier(.17,.67,.83,.67);
 	-moz-animation-timing-function: cubic-bezier(.17,.67,.83,.67);
 	-o-animation-timing-function: cubic-bezier(.17,.67,.83,.67);
@@ -611,7 +609,79 @@ footer {
     }
 }
 
+@-webkit-keyframes liButtonClick {
+    0% {
+		-webkit-transform: scale3d(1,1,1);
+    }
+    50% {
+    	-webkit-transform: scale3d(1.05,1.05,1);
+    }
+    100% {
+    	-webkit-transform: scale3d(1,1,1);
+    }
+}
+
+@-moz-keyframes liButtonClick {
+    0% {
+		-moz-transform: scale3d(1,1,1);
+    }
+    50% {
+    	-moz-transform: scale3d(1.05,1.05,1);
+    }
+    100% {
+    	-moz-transform: scale3d(1,1,1);
+    }
+}
+
+@-o-keyframes liButtonClick {
+    0% {
+		-o-transform: scale3d(1,1,1);
+    }
+    50% {
+    	-o-transform: scale3d(1.05,1.05,1);
+    }
+    100% {
+    	-o-transform: scale3d(1,1,1);
+    }
+}
+
 @keyframes liButtonClickText {
+    0% {
+		opacity: 1;
+    }
+    50% {
+    	opacity: .5;
+    }
+    100% {
+    	opacity: 1;
+    }
+}
+
+@-webkit-keyframes liButtonClickText {
+    0% {
+		opacity: 1;
+    }
+    50% {
+    	opacity: .5;
+    }
+    100% {
+    	opacity: 1;
+    }
+}
+
+@-moz-keyframes liButtonClickText {
+    0% {
+		opacity: 1;
+    }
+    50% {
+    	opacity: .5;
+    }
+    100% {
+    	opacity: 1;
+    }
+}
+
+@-o-keyframes liButtonClickText {
     0% {
 		opacity: 1;
     }
