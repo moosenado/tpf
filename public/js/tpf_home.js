@@ -135,6 +135,8 @@ var TpfHome = ( function ()
 
 	var _clearEntireParkList = function ()
 	{
+		$( '.chosen-park-list' ).css({'display':'none'});
+		
 		$(".chosen-park-list ul").empty();
 	};
 
@@ -595,8 +597,6 @@ var TpfHome = ( function ()
 
 	var _resetButtons = function ()
 	{
-		$( '.chosen-park-list' ).css({'display':'none'});
-
 		$( '.fire-btn-shadow' ).addClass( 'zoom-check-shadow-reverse' );
     	$( '.reset-btn-shadow' ).addClass( 'zoom-check-shadow-reverse' );
 		$( '.fire-btn' ).addClass( 'zoom-check-reverse' );
