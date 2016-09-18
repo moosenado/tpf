@@ -538,6 +538,35 @@ body {
     }
 }
 
+.loading-screen {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	z-index: -1;
+	@include transitionStyle(all, 1.2s, ease-in-out);
+
+	.overlay {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: white;
+		opacity: .8;
+	}
+
+	object {
+		width: 60px;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    @include transformGeneral(translateX(-50%) translateY(-50%));
+	}
+}
+
 footer {
 	color    : $dark-main;
 	font-size: 10px;
@@ -566,6 +595,16 @@ footer {
 
 .ani-fadeIn {
 	opacity: 1;
+}
+
+.ani-fadeOutZindex {
+	opacity: 0;
+	z-index: -1;
+}
+
+.ani-fadeInZindex {
+	opacity: 1;
+	z-index: 1;
 }
 
 

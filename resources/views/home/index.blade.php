@@ -62,6 +62,11 @@
 	<div id="park-find-btn" class="fire-btn background-wave-ani"> GO </div>
 	<div class="fire-btn-shadow"></div>
 
+	<div class="loading-screen">
+		<div class="overlay"></div>
+		<object type="image/svg+xml" data="{{ URL::to('/') }}/images/leaf.svg"></object>
+	</div>
+
 </div>
 
 <div id="find-parks-page">

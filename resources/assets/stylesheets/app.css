@@ -9324,6 +9324,44 @@ body {
 }
 
 /* line 541, ../sass/app.scss */
+.loading-screen {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -1;
+  -webkit-transition: all 1.2s ease-in-out;
+  -moz-transition: all 1.2s ease-in-out;
+  -ms-transition: all 1.2s ease-in-out;
+  -o-transition: all 1.2s ease-in-out;
+  transition: all 1.2s ease-in-out;
+}
+/* line 551, ../sass/app.scss */
+.loading-screen .overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  opacity: .8;
+}
+/* line 561, ../sass/app.scss */
+.loading-screen object {
+  width: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* line 570, ../sass/app.scss */
 footer {
   color: #71e271;
   font-size: 10px;
@@ -9331,7 +9369,7 @@ footer {
 }
 
 /* TRANSITION SPECIFIC */
-/* line 553, ../sass/app.scss */
+/* line 582, ../sass/app.scss */
 .ani-left {
   -webkit-transform: translate3d(-2000px, 0, 0);
   -moz-transform: translate3d(-2000px, 0, 0);
@@ -9341,7 +9379,7 @@ footer {
   opacity: 0;
 }
 
-/* line 558, ../sass/app.scss */
+/* line 587, ../sass/app.scss */
 .ani-right {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -9351,18 +9389,30 @@ footer {
   opacity: 1;
 }
 
-/* line 563, ../sass/app.scss */
+/* line 592, ../sass/app.scss */
 .ani-fadeOut {
   opacity: 0;
 }
 
-/* line 567, ../sass/app.scss */
+/* line 596, ../sass/app.scss */
 .ani-fadeIn {
   opacity: 1;
 }
 
+/* line 600, ../sass/app.scss */
+.ani-fadeOutZindex {
+  opacity: 0;
+  z-index: -1;
+}
+
+/* line 605, ../sass/app.scss */
+.ani-fadeInZindex {
+  opacity: 1;
+  z-index: 1;
+}
+
 /* ANIMATION SPECIFIC */
-/* line 577, ../sass/app.scss */
+/* line 616, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.5s forwards;
   -moz-animation: zoomAni 0.5s forwards;
@@ -9371,7 +9421,7 @@ footer {
   animation: zoomAni 0.5s forwards;
 }
 
-/* line 581, ../sass/app.scss */
+/* line 620, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9380,7 +9430,7 @@ footer {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 585, ../sass/app.scss */
+/* line 624, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -9389,7 +9439,7 @@ footer {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 589, ../sass/app.scss */
+/* line 628, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9398,7 +9448,7 @@ footer {
   animation: zoomAniRevShadowRev 0.5s forwards;
 }
 
-/* line 593, ../sass/app.scss */
+/* line 632, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni 0.5s forwards;
   -moz-animation: slideAni 0.5s forwards;
@@ -9407,7 +9457,7 @@ footer {
   animation: slideAni 0.5s forwards;
 }
 
-/* line 597, ../sass/app.scss */
+/* line 636, ../sass/app.scss */
 .number-zoom {
   -webkit-animation: numberZoomAni 1s forwards;
   -moz-animation: numberZoomAni 1s forwards;
@@ -9420,7 +9470,7 @@ footer {
   animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
-/* line 605, ../sass/app.scss */
+/* line 644, ../sass/app.scss */
 .fade-in-and-up {
   -webkit-animation: fadeInAndUp 1s forwards;
   -moz-animation: fadeInAndUp 1s forwards;
@@ -9429,7 +9479,7 @@ footer {
   animation: fadeInAndUp 1s forwards;
 }
 
-/* line 609, ../sass/app.scss */
+/* line 648, ../sass/app.scss */
 .li-click {
   -webkit-animation: liButtonClick 0.5s forwards;
   -moz-animation: liButtonClick 0.5s forwards;
@@ -9442,7 +9492,7 @@ footer {
   transform: perspective(200px) translateZ(0);
 }
 
-/* line 617, ../sass/app.scss */
+/* line 656, ../sass/app.scss */
 .li-click-text {
   -webkit-animation: liButtonClickText 1s forwards;
   -moz-animation: liButtonClickText 1s forwards;

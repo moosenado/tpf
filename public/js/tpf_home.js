@@ -11,6 +11,7 @@ var TpfHome = ( function ()
 		CSRF_TOKEN               = $('meta[name="csrf-token"]').attr('content'),
 		user_location			 = false,
 		on_home_page             = true, //handle correct page transition
+		$loadingscreen           = $('.loading-screen'),
 		directionsDisplay,
 		directionsService,
 		current_park_selection_data,
@@ -70,6 +71,7 @@ var TpfHome = ( function ()
 
 		find_all.addEventListener( 'click', function () {
 
+			_displayLoadingScreen();
 			_getUserLocation( _getParksFromDB, facility_selection_array, true );
 
 		}, false );
@@ -158,9 +160,20 @@ var TpfHome = ( function ()
 	    	}
 	    }
 
+	    _displayLoadingScreen();
 	    _getUserLocation( _getParksFromDB, facility_selection_array );
 
 	    facility_selection_array = []; // reset selection array
+	};
+
+	var _displayLoadingScreen = function ()
+	{
+		$loadingscreen.removeClass('ani-fadeOutZindex').addClass('ani-fadeInZindex');
+	};
+
+	var _removeLoadingScreen = function ()
+	{
+		$loadingscreen.removeClass('ani-fadeInZindex').addClass('ani-fadeOutZindex');
 	};
 
 	var _getUserLocation = function ( callback, facility_selection_array, all_parks )
@@ -182,7 +195,9 @@ var TpfHome = ( function ()
 
 		if ( navigator.geolocation )
 		{
-			navigator.geolocation.getCurrentPosition( __getPosition );
+			navigator.geolocation.getCurrentPosition( __getPosition, function () {
+				_removeLoadingScreen();
+			});
 		}
 		else
 		{
@@ -259,6 +274,7 @@ var TpfHome = ( function ()
 	        success : function ( data )
 	        {
 	        	console.log(data);
+	        	_removeLoadingScreen();
 
 	        	if ( data.length >= 1 )
 	        	{
@@ -271,7 +287,7 @@ var TpfHome = ( function ()
 	        		alert( "Your chosen facilities are not available at any parks." )
 	        	}
 	        },
-	        error: function ( xhr ) { console.log( xhr ); }
+	        error: function ( xhr ) { _removeLoadingScreen(); console.log( xhr ); }
 	    });
 	};
 
