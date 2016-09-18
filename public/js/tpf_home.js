@@ -122,7 +122,7 @@ var TpfHome = ( function ()
 	    if (!($( ".chosen-park-list ul" ).has( "li" ).length))
 	    {
 	    	$( '.chosen-park-list' ).css({'display':'none'});
-	    } 
+	    }
 	};
 
 	var _addToParkList = function ( park_choice, clicked_id )

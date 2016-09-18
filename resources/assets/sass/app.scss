@@ -539,17 +539,17 @@ body {
 }
 
 .loading-screen {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
 	opacity: 0;
 	z-index: -1;
-	@include transitionStyle(all, 1.2s, ease-in-out);
+	@include transitionStyle(all, .2s, ease-in-out);
 
 	.overlay {
-		position: absolute;
+		position: fixed;
 		top: 0;
 		right: 0;
 		bottom: 0;
@@ -560,7 +560,7 @@ body {
 
 	object {
 		width: 60px;
-	    position: absolute;
+	    position: fixed;
 	    top: 50%;
 	    left: 50%;
 	    @include transformGeneral(translateX(-50%) translateY(-50%));
