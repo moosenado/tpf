@@ -626,17 +626,11 @@ var TpfHome = ( function ()
 
 		setTimeout( function ()
 		{
-			$( '.fire-btn-shadow' ).css( { 'display': 'none' } );
-			$( '.fire-btn-shadow' ).removeClass( 'zoom-check-shadow-reverse' );
+			$( '.fire-btn-shadow' ).css( { 'display': 'none' } ).removeClass( 'zoom-check-shadow-reverse' );
+			$( '.reset-btn-shadow' ).css( { 'display': 'none' } ).removeClass( 'zoom-check-shadow-reverse' );
+			$( '.fire-btn' ).css( { 'display': 'none' } ).removeClass( 'zoom-check-reverse' );
+			$( '.reset-btn' ).css( { 'display': 'none' } ).removeClass( 'zoom-check-reverse' );
 
-			$( '.reset-btn-shadow' ).css( { 'display': 'none' } );
-			$( '.reset-btn-shadow' ).removeClass( 'zoom-check-shadow-reverse' );
-
-			$( '.fire-btn' ).css( { 'display': 'none' } );
-			$( '.fire-btn' ).removeClass( 'zoom-check-reverse' );
-
-			$( '.reset-btn' ).css( { 'display': 'none' } );
-			$( '.reset-btn' ).removeClass( 'zoom-check-reverse' );
 		}, 500 );
 	};
 

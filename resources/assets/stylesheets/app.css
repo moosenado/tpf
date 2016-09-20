@@ -9349,7 +9349,7 @@ body {
   opacity: .8;
 }
 /* line 561, ../sass/app.scss */
-.loading-screen object {
+.loading-screen svg {
   width: 60px;
   position: fixed;
   top: 50%;
@@ -9403,25 +9403,35 @@ footer {
 .ani-fadeOutZindex {
   opacity: 0;
   z-index: -1;
+  -webkit-animation: zoomAniNoRotateRev 0.3s forwards;
+  -moz-animation: zoomAniNoRotateRev 0.3s forwards;
+  -ms-animation: zoomAniNoRotateRev 0.3s forwards;
+  -o-animation: zoomAniNoRotateRev 0.3s forwards;
+  animation: zoomAniNoRotateRev 0.3s forwards;
 }
 
-/* line 605, ../sass/app.scss */
+/* line 606, ../sass/app.scss */
 .ani-fadeInZindex {
   opacity: 1;
   z-index: 1;
+  -webkit-animation: zoomAniNoRotate 0.3s forwards;
+  -moz-animation: zoomAniNoRotate 0.3s forwards;
+  -ms-animation: zoomAniNoRotate 0.3s forwards;
+  -o-animation: zoomAniNoRotate 0.3s forwards;
+  animation: zoomAniNoRotate 0.3s forwards;
 }
 
 /* ANIMATION SPECIFIC */
-/* line 616, ../sass/app.scss */
+/* line 618, ../sass/app.scss */
 .zoom-check {
-  -webkit-animation: zoomAni 0.5s forwards;
-  -moz-animation: zoomAni 0.5s forwards;
-  -ms-animation: zoomAni 0.5s forwards;
-  -o-animation: zoomAni 0.5s forwards;
-  animation: zoomAni 0.5s forwards;
+  -webkit-animation: zoomAni 0.8s forwards;
+  -moz-animation: zoomAni 0.8s forwards;
+  -ms-animation: zoomAni 0.8s forwards;
+  -o-animation: zoomAni 0.8s forwards;
+  animation: zoomAni 0.8s forwards;
 }
 
-/* line 620, ../sass/app.scss */
+/* line 622, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9430,7 +9440,7 @@ footer {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 624, ../sass/app.scss */
+/* line 626, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -9439,7 +9449,7 @@ footer {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 628, ../sass/app.scss */
+/* line 630, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9448,7 +9458,7 @@ footer {
   animation: zoomAniRevShadowRev 0.5s forwards;
 }
 
-/* line 632, ../sass/app.scss */
+/* line 634, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni 0.5s forwards;
   -moz-animation: slideAni 0.5s forwards;
@@ -9457,7 +9467,7 @@ footer {
   animation: slideAni 0.5s forwards;
 }
 
-/* line 636, ../sass/app.scss */
+/* line 638, ../sass/app.scss */
 .number-zoom {
   -webkit-animation: numberZoomAni 1s forwards;
   -moz-animation: numberZoomAni 1s forwards;
@@ -9470,7 +9480,7 @@ footer {
   animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
-/* line 644, ../sass/app.scss */
+/* line 646, ../sass/app.scss */
 .fade-in-and-up {
   -webkit-animation: fadeInAndUp 1s forwards;
   -moz-animation: fadeInAndUp 1s forwards;
@@ -9479,7 +9489,7 @@ footer {
   animation: fadeInAndUp 1s forwards;
 }
 
-/* line 648, ../sass/app.scss */
+/* line 650, ../sass/app.scss */
 .li-click {
   -webkit-animation: liButtonClick 0.5s forwards;
   -moz-animation: liButtonClick 0.5s forwards;
@@ -9492,7 +9502,7 @@ footer {
   transform: perspective(200px) translateZ(0);
 }
 
-/* line 656, ../sass/app.scss */
+/* line 658, ../sass/app.scss */
 .li-click-text {
   -webkit-animation: liButtonClickText 1s forwards;
   -moz-animation: liButtonClickText 1s forwards;
@@ -9507,6 +9517,26 @@ footer {
   -moz-transform: perspective(200px) translateZ(0);
   -o-transform: perspective(200px) translateZ(0);
   transform: perspective(200px) translateZ(0);
+}
+
+/* line 670, ../sass/app.scss */
+.top-leaf {
+  fill: #71E271;
+  -webkit-animation: colorSwapToBrightGreen 0.5s infinite;
+  -moz-animation: colorSwapToBrightGreen 0.5s infinite;
+  -ms-animation: colorSwapToBrightGreen 0.5s infinite;
+  -o-animation: colorSwapToBrightGreen 0.5s infinite;
+  animation: colorSwapToBrightGreen 0.5s infinite;
+}
+
+/* line 675, ../sass/app.scss */
+.bottom-leaf {
+  fill: #00CA3E;
+  -webkit-animation: colorSwapToDarkGreen 0.5s infinite;
+  -moz-animation: colorSwapToDarkGreen 0.5s infinite;
+  -ms-animation: colorSwapToDarkGreen 0.5s infinite;
+  -o-animation: colorSwapToDarkGreen 0.5s infinite;
+  animation: colorSwapToDarkGreen 0.5s infinite;
 }
 
 /* KEY FRAMES */
@@ -9641,16 +9671,20 @@ footer {
 @-webkit-keyframes zoomAni {
   0% {
     -webkit-transform: scale(0, 0) rotate(0deg);
-    transform: scale(0, 0) rotate(0deg);
+  }
+  50% {
+    -webkit-transform: scale(1.1, 1.1) rotate(360deg);
   }
   100% {
     -webkit-transform: scale(1, 1) rotate(360deg);
-    transform: scale(1, 1) rotate(360deg);
   }
 }
 @keyframes zoomAni {
   0% {
     transform: scale(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1, 1.1) rotate(360deg);
   }
   100% {
     transform: scale(1, 1) rotate(360deg);
@@ -9659,21 +9693,23 @@ footer {
 @-moz-keyframes zoomAni {
   0% {
     -moz-transform: scale(0, 0) rotate(0deg);
-    transform: scale(0, 0) rotate(0deg);
+  }
+  50% {
+    -moz-transform: scale(1.1, 1.1) rotate(360deg);
   }
   100% {
     -moz-transform: scale(1, 1) rotate(360deg);
-    transform: scale(1, 1) rotate(360deg);
   }
 }
 @-o-keyframes zoomAni {
   0% {
     -o-transform: scale(0, 0) rotate(0deg);
-    transform: scale(0, 0) rotate(0deg);
+  }
+  50% {
+    -o-transform: scale(1.1, 1.1) rotate(360deg);
   }
   100% {
     -o-transform: scale(1, 1) rotate(360deg);
-    transform: scale(1, 1) rotate(360deg);
   }
 }
 @-webkit-keyframes zoomAniRev {
@@ -9898,5 +9934,181 @@ footer {
   100% {
     opacity: 0;
     -o-transform: scale(0.5, 0.5);
+  }
+}
+@keyframes colorSwapToBrightGreen {
+  0% {
+    fill: #71E271;
+  }
+  50% {
+    fill: #00CA3E;
+  }
+  100% {
+    fill: #71E271;
+  }
+}
+@-webkit-keyframes colorSwapToBrightGreen {
+  0% {
+    fill: #71E271;
+  }
+  50% {
+    fill: #00CA3E;
+  }
+  100% {
+    fill: #71E271;
+  }
+}
+@-moz-keyframes colorSwapToBrightGreen {
+  0% {
+    fill: #71E271;
+  }
+  50% {
+    fill: #00CA3E;
+  }
+  100% {
+    fill: #71E271;
+  }
+}
+@-o-keyframes colorSwapToBrightGreen {
+  0% {
+    fill: #71E271;
+  }
+  50% {
+    fill: #00CA3E;
+  }
+  100% {
+    fill: #71E271;
+  }
+}
+@keyframes colorSwapToDarkGreen {
+  0% {
+    fill: #00CA3E;
+  }
+  50% {
+    fill: #71E271;
+  }
+  100% {
+    fill: #00CA3E;
+  }
+}
+@-webkit-keyframes colorSwapToDarkGreen {
+  0% {
+    fill: #00CA3E;
+  }
+  50% {
+    fill: #71E271;
+  }
+  100% {
+    fill: #00CA3E;
+  }
+}
+@-moz-keyframes colorSwapToDarkGreen {
+  0% {
+    fill: #00CA3E;
+  }
+  50% {
+    fill: #71E271;
+  }
+  100% {
+    fill: #00CA3E;
+  }
+}
+@-o-keyframes colorSwapToDarkGreen {
+  0% {
+    fill: #00CA3E;
+  }
+  50% {
+    fill: #71E271;
+  }
+  100% {
+    fill: #00CA3E;
+  }
+}
+@keyframes zoomAniNoRotate {
+  0% {
+    transform: scale(0, 0);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+@-webkit-keyframes zoomAniNoRotate {
+  0% {
+    -webkit-transform: scale(0, 0);
+  }
+  50% {
+    -webkit-transform: scale(1.1, 1.1);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+  }
+}
+@-moz-keyframes zoomAniNoRotate {
+  0% {
+    -moz-transform: scale(0, 0);
+  }
+  50% {
+    -moz-transform: scale(1.1, 1.1);
+  }
+  100% {
+    -moz-transform: scale(1, 1);
+  }
+}
+@-o-keyframes zoomAniNoRotate {
+  0% {
+    -o-transform: scale(0, 0);
+  }
+  50% {
+    -o-transform: scale(1.1, 1.1);
+  }
+  100% {
+    -o-transform: scale(1, 1);
+  }
+}
+@keyframes zoomAniNoRotateRev {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(0, 0);
+  }
+}
+@-webkit-keyframes zoomAniNoRotateRev {
+  0% {
+    -webkit-transform: scale(1, 1);
+  }
+  50% {
+    -webkit-transform: scale(1.1, 1.1);
+  }
+  100% {
+    -webkit-transform: scale(0, 0);
+  }
+}
+@-moz-keyframes zoomAniNoRotateRev {
+  0% {
+    -moz-transform: scale(1, 1);
+  }
+  50% {
+    -moz-transform: scale(1.1, 1.1);
+  }
+  100% {
+    -moz-transform: scale(0, 0);
+  }
+}
+@-o-keyframes zoomAniNoRotateRev {
+  0% {
+    -o-transform: scale(1, 1);
+  }
+  50% {
+    -o-transform: scale(1.1, 1.1);
+  }
+  100% {
+    -o-transform: scale(0, 0);
   }
 }

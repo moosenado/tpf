@@ -558,7 +558,7 @@ body {
 		opacity: .8;
 	}
 
-	object {
+	svg {
 		width: 60px;
 	    position: fixed;
 	    top: 50%;
@@ -600,11 +600,13 @@ footer {
 .ani-fadeOutZindex {
 	opacity: 0;
 	z-index: -1;
+	@include animationFunc( zoomAniNoRotateRev, .3s, forwards );
 }
 
 .ani-fadeInZindex {
 	opacity: 1;
 	z-index: 1;
+	@include animationFunc( zoomAniNoRotate, .3s, forwards );
 }
 
 
@@ -614,7 +616,7 @@ footer {
 
 
 .zoom-check {
-	@include animationFunc( zoomAni, .5s, forwards );
+	@include animationFunc( zoomAni, .8s, forwards );
 }
 
 .zoom-check-reverse {
@@ -663,6 +665,16 @@ footer {
 	-moz-transform: perspective(200px) translateZ(0);
 	-o-transform: perspective(200px) translateZ(0);
 	transform: perspective(200px) translateZ(0);
+}
+
+.top-leaf {
+	fill: #71E271;
+	@include animationFunc( colorSwapToBrightGreen, .5s, infinite );
+}
+
+.bottom-leaf {
+	fill: #00CA3E;
+	@include animationFunc( colorSwapToDarkGreen, .5s, infinite );
 }
 
 
@@ -812,17 +824,21 @@ footer {
 @-webkit-keyframes zoomAni {
     0% {
 		-webkit-transform: scale( 0, 0 ) rotate( 0deg );
-		transform        : scale( 0, 0 ) rotate( 0deg );
+    }
+    50% {
+		-webkit-transform: scale( 1.1, 1.1 ) rotate( 360deg );
     }
     100% {
 		-webkit-transform: scale( 1, 1 ) rotate( 360deg );
-		transform        : scale( 1, 1 ) rotate( 360deg );
     }
 }
 
 @keyframes zoomAni {
-   0% {
+    0% {
 		transform: scale( 0, 0 ) rotate( 0deg );
+    }
+    50% {
+		transform: scale( 1.1, 1.1 ) rotate( 360deg );
     }
     100% {
 		transform: scale( 1, 1 ) rotate( 360deg );
@@ -832,22 +848,24 @@ footer {
 @-moz-keyframes zoomAni {
     0% {
 		-moz-transform: scale( 0, 0 ) rotate( 0deg );
-		transform     : scale( 0, 0 ) rotate( 0deg );
+    }
+    50% {
+		-moz-transform: scale( 1.1, 1.1 ) rotate( 360deg );
     }
     100% {
 		-moz-transform: scale( 1, 1 ) rotate( 360deg );
-		transform     : scale( 1, 1 ) rotate( 360deg );
     }
 }
 
 @-o-keyframes zoomAni {
     0% {
 		-o-transform: scale( 0, 0 ) rotate( 0deg );
-		transform   : scale( 0, 0 ) rotate( 0deg );
+    }
+    50% {
+		-o-transform: scale( 1.1, 1.1 ) rotate( 360deg );
     }
     100% {
 		-o-transform: scale( 1, 1 ) rotate( 360deg );
-		transform   : scale( 1, 1 ) rotate( 360deg );
     }
 }
 
@@ -1092,5 +1110,197 @@ footer {
     100% {
     	opacity: 0;
 		-o-transform: scale( .5, .5 );
+    }
+}
+
+@keyframes colorSwapToBrightGreen {
+    0% {
+		fill: #71E271;
+    }
+    50% {
+		fill: #00CA3E;
+    }
+    100% {
+		fill: #71E271;
+    }
+}
+
+@-webkit-keyframes colorSwapToBrightGreen {
+    0% {
+		fill: #71E271;
+    }
+    50% {
+		fill: #00CA3E;
+    }
+    100% {
+		fill: #71E271;
+    }
+}
+
+@-moz-keyframes colorSwapToBrightGreen {
+    0% {
+		fill: #71E271;
+    }
+    50% {
+		fill: #00CA3E;
+    }
+    100% {
+		fill: #71E271;
+    }
+}
+
+@-o-keyframes colorSwapToBrightGreen {
+    0% {
+		fill: #71E271;
+    }
+    50% {
+		fill: #00CA3E;
+    }
+    100% {
+		fill: #71E271;
+    }
+}
+
+@keyframes colorSwapToDarkGreen {
+    0% {
+		fill: #00CA3E;
+    }
+    50% {
+		fill: #71E271;
+    }
+    100% {
+		fill: #00CA3E;
+    }
+}
+
+@-webkit-keyframes colorSwapToDarkGreen {
+    0% {
+		fill: #00CA3E;
+    }
+    50% {
+		fill: #71E271;
+    }
+    100% {
+		fill: #00CA3E;
+    }
+}
+
+@-moz-keyframes colorSwapToDarkGreen {
+    0% {
+		fill: #00CA3E;
+    }
+    50% {
+		fill: #71E271;
+    }
+    100% {
+		fill: #00CA3E;
+    }
+}
+
+@-o-keyframes colorSwapToDarkGreen {
+    0% {
+		fill: #00CA3E;
+    }
+    50% {
+		fill: #71E271;
+    }
+    100% {
+		fill: #00CA3E;
+    }
+}
+
+@keyframes zoomAniNoRotate {
+    0% {
+		transform: scale( 0, 0 );
+    }
+    50% {
+		transform: scale( 1.1, 1.1 );
+    }
+    100% {
+		transform: scale( 1, 1 );
+    }
+}
+
+@-webkit-keyframes zoomAniNoRotate {
+    0% {
+		-webkit-transform: scale( 0, 0 );
+    }
+    50% {
+		-webkit-transform: scale( 1.1, 1.1 );
+    }
+    100% {
+		-webkit-transform: scale( 1, 1 );
+    }
+}
+
+@-moz-keyframes zoomAniNoRotate {
+    0% {
+		-moz-transform: scale( 0, 0 );
+    }
+    50% {
+		-moz-transform: scale( 1.1, 1.1 );
+    }
+    100% {
+		-moz-transform: scale( 1, 1 );
+    }
+}
+
+@-o-keyframes zoomAniNoRotate {
+    0% {
+		-o-transform: scale( 0, 0 );
+    }
+    50% {
+		-o-transform: scale( 1.1, 1.1 );
+    }
+    100% {
+		-o-transform: scale( 1, 1 );
+    }
+}
+
+@keyframes zoomAniNoRotateRev {
+    0% {
+		transform: scale( 1, 1 );
+    }
+    50% {
+		transform: scale( 1.1, 1.1 );
+    }
+    100% {
+		transform: scale( 0, 0 );
+    }
+}
+
+@-webkit-keyframes zoomAniNoRotateRev {
+    0% {
+		-webkit-transform: scale( 1, 1 );
+    }
+    50% {
+		-webkit-transform: scale( 1.1, 1.1 );
+    }
+    100% {
+		-webkit-transform: scale( 0, 0 );
+    }
+}
+
+@-moz-keyframes zoomAniNoRotateRev {
+    0% {
+		-moz-transform: scale( 1, 1 );
+    }
+    50% {
+		-moz-transform: scale( 1.1, 1.1 );
+    }
+    100% {
+		-moz-transform: scale( 0, 0 );
+    }
+}
+
+@-o-keyframes zoomAniNoRotateRev {
+    0% {
+		-o-transform: scale( 1, 1 );
+    }
+    50% {
+		-o-transform: scale( 1.1, 1.1 );
+    }
+    100% {
+		-o-transform: scale( 0, 0 );
     }
 }
