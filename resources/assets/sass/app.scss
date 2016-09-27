@@ -135,22 +135,48 @@ body {
 
 /* GENERAL CLASSES */
 
+header {
+	margin: 40px;
+}
 
+.logo-img {
+	width: 50px;
+	float: left;
+}
+
+.header-cont {
+	width: 640px;
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+.sub-header-cont {
+	@extend .header-cont;
+	padding: 10px 10px;
+}
 
 .title {
-	letter-spacing: 5px;
+	letter-spacing: 2px;
+	font-weight: 700;
 	font-size: 30px;
+	float: left;
+	line-height: 50px;
+	margin: 0;
+	padding: 10px 0 0 0;
 	@include transitionStyle(all, .1s, ease-in-out);
 
 	@media (min-width: $screen-sm)
 	{
 		font-size: 36px;
+		padding: 0 0 0 30px;
+		line-height: 60px;
 	}
 }
 
 .sub-title {
 	letter-spacing: 1px;
 	font-size: 23px;
+	font-weight: 700;
 	@include transitionStyle(all, .1s, ease-in-out);
 
 	@media (min-width: $screen-sm)
@@ -161,7 +187,6 @@ body {
 
 .description {
 	font-size: 16px;
-	padding  : 0 10px;
 	@include transitionStyle(all, .1s, ease-in-out);
 }
 

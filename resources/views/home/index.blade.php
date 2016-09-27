@@ -7,7 +7,12 @@
 		<div class="row">
 
 			<header>
-				<h1 class="text-center title"> TORONTO PARK LOCATOR </h1>
+				<div class="header-cont">
+					<img class="logo-img" src="{{ URL::to('/') }}/images/leaf.png" />
+					<h1 class="title"> TORONTO PARK LOCATOR </h1>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
 			</header>
 
 		</div>
@@ -23,8 +28,10 @@
 					</li>
 				</ul>
 
-				<h2 class="text-center sub-title"> CUSTOM PARK SEARCH </h2>
-				<h3 class="text-center description"> Choose a combination of facilities you are looking for at a park near you. Then hit GO when you're ready. </h3>
+				<div class="sub-header-cont">
+					<h2 class="sub-title"> SEARCH BY FACILITY </h2>
+					<h3 class="description"> Choose a combination of facilities you are looking for at a park. Then hit GO when you're ready. </h3>
+				</div>
 
 				<div class="park-list-container">
 
@@ -63,10 +70,12 @@
 	<div class="fire-btn-shadow"></div>
 
 	<div class="loading-screen">
+
 		<div class="overlay"></div>
-			<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-				 width="281.875px" height="286.25px" viewBox="0 0 281.875 286.25" enable-background="new 0 0 281.875 286.25"
-				 xml:space="preserve">
+
+		<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			 width="281.875px" height="286.25px" viewBox="0 0 281.875 286.25" enable-background="new 0 0 281.875 286.25"
+			 xml:space="preserve">
 			<g>
 				<path class="top-leaf" d="M160,81.154c49.744-60.37,117.512-77.933,117.512-77.933S190.994,6.409,141.25,66.779
 					c-28.671,34.796-14.388,74.776-14.388,74.776S131.329,115.95,160,81.154z"/>
@@ -80,7 +89,7 @@
 				<path class="top-leaf" d="M120.97,182.916c0,0-17.257-19.197-44.158-13.918c-46.673,9.158-73.387,54.518-73.387,54.518
 					s28.984-31.173,75.656-40.332C105.983,177.904,120.97,182.916,120.97,182.916z"/>
 			</g>
-			</svg>
+		</svg>
 
 	</div>
 
