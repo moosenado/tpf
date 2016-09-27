@@ -15,5 +15,8 @@
 Route::get('/', 'HomeController@index');
 Route::get('/findpark', 'HomeController@index'); //redirect to homepage
 
+Route::get('facilities', 'FacilityController@getFacilities');
+Route::get('facilities/{id}', 'FacilityController@getFacility');
+
 /* AJAX */
 Route::get('getparks', 'AjaxController@getParks');

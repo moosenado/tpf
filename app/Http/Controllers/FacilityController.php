@@ -6,27 +6,43 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Facility;
+use App\Http\Requests\GetFacilitiesRequest;
 
 class FacilityController extends Controller
 {
-    public function getFacilities(Request $request)
+    public function getFacilities(GetFacilitiesRequest $request)
     {
-    	$url = '/parks?facilityies=pool,firepit';
+        $data = $request->all();
 
-    	$parks = $reqiest->get('facilities');
-    	$parks_data = explode(',' $parks);
-
+        //TODO: need to create customer request validator
     	$query = new Facility();
+        $parks_data = explode(',', $data['facilities']);
 
-    	foreach($parks_data as $park)
-    	{
-    		$query += $query->where(trim($park), true);
+    	foreach($parks_data as $park) {
+    		$query = $query->where($park, true);
     	}
 
     	$facilities = $query->get();
 
-    	$facilities = Facility::sortFacilitiesByDistance($facilities, $your_location);
+        $your_location = array();
+        $your_location[] = trim($data['lat']);
+        $your_location[] = trim($data['lng']);
+
+        if (count($your_location)) {
+            $facilities = Facility::sortFacilitiesByDistance($facilities, $your_location);
+        }
 
     	return $facilities;
+    }
+
+    public function getFacility($id)
+    {
+        $facility = Facility::find($id);
+
+        if (!$facility) {
+            throw new \Exception ('Facility Not Found');
+        }
+
+        return $facility;
     }
 }
