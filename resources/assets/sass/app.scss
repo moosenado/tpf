@@ -587,6 +587,7 @@ header {
 		position: fixed;
 	    top: 50%;
 	    left: 50%;
+	    text-align: center;
 	    @include transformGeneral(translateX(-50%) translateY(-50%));
 
 	    svg {
@@ -596,10 +597,7 @@ header {
 
 		.text {
 			height: 20px;
-			width: 80px;
-			text-align: center;
 			position: relative;
-			overflow: hidden;
 			margin: 10px auto;
 
 			p {
@@ -610,7 +608,7 @@ header {
 	    		top: 50%;
 	    		color: $btn-text;
 	    		opacity: 0;
-	    		@include transformGeneral(translateY(-50%) translate3d(0, 30px, 0));
+	    		@include transformGeneral(scale3d(0, 0, 1) perspective(200px) translateZ(0));
 			}
 		}
 
@@ -742,112 +740,80 @@ footer {
 @keyframes loadingText {
     0% {
     	opacity: 0;
-		transform: translateY(-50%) translate3d(0, 30px, 0);
+		transform: scale3d(0, 0, 1);
     }
     25% {
-    	opacity: .9;
-    	transform: translateY(-50%) translate3d(0, 0, 0);
-    }
-    50% {
-    	opacity: .9;
-    	transform: translateY(-50%) translate3d(0, 0, 0);
+    	opacity: 1;
+    	transform: scale3d(1, 1, 1);
     }
     75% {
-    	opacity: .5;
-    	transform: translateY(-50%) translate3d(0, 0, 0);
+    	opacity: 1;
+    	transform: scale3d(1, 1, 1);
     }
 
-    99% {
-    	opacity: 0;
-		transform: translateY(-50%) translate3d(0, -30px, 0);
-    }
     100% {
     	opacity: 0;
-		transform: translateY(-50%) translate3d(0, 30px, 0);
+		transform: scale3d(1.2, 1.2, 1);
     }
 }
 
 @-webkit-keyframes loadingText {
     0% {
     	opacity: 0;
-		-webkit-transform: translateY(-50%) translate3d(0, 30px, 0);
+		-webkit-transform: scale3d(0, 0, 1);
     }
     25% {
-    	opacity: .9;
-    	-webkit-transform: translateY(-50%) translate3d(0, 0, 0);
-    }
-    50% {
-    	opacity: .9;
-    	-webkit-transform: translateY(-50%) translate3d(0, 0, 0);
+    	opacity: 1;
+    	-webkit-transform: scale3d(1, 1, 1);
     }
     75% {
-    	opacity: .5;
-    	-webkit-transform: translateY(-50%) translate3d(0, 0, 0);
+    	opacity: 1;
+    	-webkit-transform: scale3d(1, 1, 1);
     }
 
-    99% {
-    	opacity: 0;
-		-webkit-transform: translateY(-50%) translate3d(0, -30px, 0);
-    }
     100% {
     	opacity: 0;
-		-webkit-transform: translateY(-50%) translate3d(0, 30px, 0);
+		-webkit-transform: scale3d(1.2, 1.2, 1);
     }
 }
 
 @-moz-keyframes loadingText {
     0% {
     	opacity: 0;
-		-moz-transform: translateY(-50%) translate3d(0, 30px, 0);
+		-moz-transform: scale3d(0, 0, 1);
     }
     25% {
-    	opacity: .9;
-    	-moz-transform: translateY(-50%) translate3d(0, 0, 0);
-    }
-    50% {
-    	opacity: .9;
-    	-moz-transform: translateY(-50%) translate3d(0, 0, 0);
+    	opacity: 1;
+    	-moz-transform: scale3d(1, 1, 1);
     }
     75% {
-    	opacity: .5;
-    	-moz-transform: translateY(-50%) translate3d(0, 0, 0);
+    	opacity: 1;
+    	-moz-transform: scale3d(1, 1, 1);
     }
 
-    99% {
-    	opacity: 0;
-		-moz-transform: translateY(-50%) translate3d(0, -30px, 0);
-    }
     100% {
     	opacity: 0;
-		-moz-transform: translateY(-50%) translate3d(0, 30px, 0);
+		-moz-transform: scale3d(1.2, 1.2, 1);
     }
 }
 
 @-o-keyframes loadingText {
     0% {
     	opacity: 0;
-		-o-transform: translateY(-50%) translate3d(0, 30px, 0);
+		-o-transform: scale3d(0, 0, 1);
     }
     25% {
-    	opacity: .9;
-    	-o-transform: translateY(-50%) translate3d(0, 0, 0);
-    }
-    50% {
-    	opacity: .9;
-    	-o-transform: translateY(-50%) translate3d(0, 0, 0);
+    	opacity: 1;
+    	-o-transform: scale3d(1, 1, 1);
     }
     75% {
-    	opacity: .5;
-    	-o-transform: translateY(-50%) translate3d(0, 0, 0);
+    	opacity: 1;
+    	-o-transform: scale3d(1, 1, 1);
     }
 
-    99% {
-    	opacity: 0;
-		-o-transform: translateY(-50%) translate3d(0, -30px, 0);
-    }
     100% {
     	opacity: 0;
-		-o-transform: translateY(-50%) translate3d(0, 30px, 0);
+		-o-transform: scale3d(1.2, 1.2, 1);
     }
 }
 
