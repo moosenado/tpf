@@ -115,13 +115,7 @@ var TpfHome = ( function ()
 	    else
 	    {
 	    	_selectChanges( clicked_id, '.9', 0, 'none' );
-	    	_removeFromParkList( park_choice, clicked_id );
-	    }
-
-	    // remove these elements from dom if ul is empty
-	    if (!($( ".chosen-park-list ul" ).has( "li" ).length))
-	    {
-	    	$( '.chosen-park-list' ).css({'display':'none'});
+	    	_removeFromParkList( clicked_id );
 	    }
 	};
 
@@ -131,21 +125,33 @@ var TpfHome = ( function ()
 
 		$( '.chosen-park-list' ).css({'display':'block'});
 
-		$(".chosen-park-list ul").prepend(
+		$( ".chosen-park-list ul" ).prepend(
 			"<li id='chosenlist-" + clicked_id + "' class='fade-in-and-up'>" + selected_attr + "</li>"
 		);
+
+		document.getElementById( "chosenlist-" + clicked_id ).addEventListener( "click", function ()
+		{
+			_setSelectionStyles( park_choice );
+			_displayFireBtn();
+		}, false);
 	};
 
-	var _removeFromParkList = function ( park_choice, clicked_id )
+	var _removeFromParkList = function ( clicked_id )
 	{
-		$("#chosenlist-" + clicked_id).remove();
+		$( "#chosenlist-" + clicked_id ).remove();
+
+	    // remove these elements from dom if ul is empty
+	    if (!($( ".chosen-park-list ul" ).has( "li" ).length))
+	    {
+	    	$( '.chosen-park-list' ).css({'display':'none'});
+	    }
 	};
 
 	var _clearEntireParkList = function ()
 	{
 		$( '.chosen-park-list' ).css({'display':'none'});
 
-		$(".chosen-park-list ul").empty();
+		$( ".chosen-park-list ul" ).empty();
 	};
 
 	var _getParkSelection = function ()
@@ -588,19 +594,19 @@ var TpfHome = ( function ()
 	{
 		$( '.fire-btn-shadow' ).css( {
 			'display': 'block'
-		} ).addClass( 'zoom-check-shadow' );
+		} ).removeClass( 'zoom-check-shadow-reverse' ).addClass( 'zoom-check-shadow' );
 
 		$( '.reset-btn-shadow' ).css( {
 			'display': 'block'
-		} ).addClass( 'zoom-check-shadow' );
+		} ).removeClass( 'zoom-check-shadow-reverse' ).addClass( 'zoom-check-shadow' );
 
 		$( '.fire-btn' ).css( {
 			'display': 'block'
-		} ).addClass( 'zoom-check' );
+		} ).removeClass( 'zoom-check-reverse' ).addClass( 'zoom-check' );
 
 		$( '.reset-btn' ).css( {
 			'display': 'block'
-		} ).addClass( 'zoom-check' );
+		} ).removeClass( 'zoom-check-reverse' ).addClass( 'zoom-check' );
 	};
 
 	var _resetStyles = function ( id )
@@ -619,19 +625,10 @@ var TpfHome = ( function ()
 
 	var _resetButtons = function ()
 	{
-		$( '.fire-btn-shadow' ).addClass( 'zoom-check-shadow-reverse' );
-    	$( '.reset-btn-shadow' ).addClass( 'zoom-check-shadow-reverse' );
-		$( '.fire-btn' ).addClass( 'zoom-check-reverse' );
-		$( '.reset-btn' ).addClass( 'zoom-check-reverse' );
-
-		setTimeout( function ()
-		{
-			$( '.fire-btn-shadow' ).css( { 'display': 'none' } ).removeClass( 'zoom-check-shadow-reverse' );
-			$( '.reset-btn-shadow' ).css( { 'display': 'none' } ).removeClass( 'zoom-check-shadow-reverse' );
-			$( '.fire-btn' ).css( { 'display': 'none' } ).removeClass( 'zoom-check-reverse' );
-			$( '.reset-btn' ).css( { 'display': 'none' } ).removeClass( 'zoom-check-reverse' );
-
-		}, 500 );
+		$( '.fire-btn-shadow' ).addClass( 'zoom-check-shadow-reverse' ).removeClass( 'zoom-check-shadow' );;
+    	$( '.reset-btn-shadow' ).addClass( 'zoom-check-shadow-reverse' ).removeClass( 'zoom-check-shadow' );;
+		$( '.fire-btn' ).addClass( 'zoom-check-reverse' ).removeClass( 'zoom-check' );;
+		$( '.reset-btn' ).addClass( 'zoom-check-reverse' ).removeClass( 'zoom-check' );;
 	};
 
 	return {
