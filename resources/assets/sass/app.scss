@@ -474,9 +474,10 @@ header {
 	overflow: hidden;
 	width: 100%;
 	height: 125px;
+	position: relative;
 
 	@media all and (min-width: $screen-sm) {
-		height: auto;
+		height: auto; // to open horizontal scroll bar visibility
 	}
 
 	ul {
@@ -485,6 +486,7 @@ header {
 		overflow-x: scroll;
 		white-space: nowrap;
 		padding-bottom: 17px;
+		height: 148px; // to remove any possibility of a vertical scroll from appearing
 
 		@media all and (min-width: $screen-sm) {
 			padding-bottom: 0;
@@ -559,6 +561,8 @@ header {
     		text-align: right;
     		list-style: none;
     		color: $btn-text;
+    		cursor: pointer;
+    		padding: 4px 0;
     	}
     }
 }
@@ -611,6 +615,37 @@ header {
 			}
 		}
 
+	}
+}
+
+.loading-screen-small {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	z-index: -1;
+	@include transitionStyle(all, .2s, ease-in-out);
+
+	.overlay {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: white;
+		opacity: .8;
+	}
+
+	svg {
+		width: 35px;
+		height: auto;
+		position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    text-align: center;
+	    @include transformGeneral(translateX(-50%) translateY(-50%));
 	}
 }
 
