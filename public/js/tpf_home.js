@@ -363,35 +363,35 @@ var TpfHome = ( function ()
 
 	var _getBingImages = function ( park_selection_index )
 	{
-		_displayLoadingScreen( $loadingscreen_small );
+		// _displayLoadingScreen( $loadingscreen_small );
 
-		var park_name = _filterParkNameForQuery( current_park_selection_data[park_selection_index]['parkname'] );
+		// var park_name = _filterParkNameForQuery( current_park_selection_data[park_selection_index]['parkname'] );
 
-		$(".park-images-ul ul").empty(); // empty previous event handlers/element data
+		// $(".park-images-ul ul").empty(); // empty previous event handlers/element data
 
-		$( function ()
-		{
-	        $.ajax({
-	            url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=" + park_name + "&count=20&size=medium",
-	            beforeSend: function(xhrObj){
-	                xhrObj.setRequestHeader("Content-Type","multipart/form-data");
-	                xhrObj.setRequestHeader("Retry-After","5");
-	                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","d94b9ad51f0c422787649f57c7d68468");
-	            },
-	            type: "POST",
-	        })
-	        .done( function ( data )
-	        {
-	        	_removeLoadingScreen( $loadingscreen_small );
-	        	_displayParkImages( data );
-	        	console.log( data );
-	        })
-	        .fail( function ()
-	        {
-	        	_removeLoadingScreen( $loadingscreen_small );
-	            alert( "error" );
-	        });
-	    });
+		// $( function ()
+		// {
+	 //        $.ajax({
+	 //            url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=" + park_name + "&count=20&size=medium",
+	 //            beforeSend: function(xhrObj){
+	 //                xhrObj.setRequestHeader("Content-Type","multipart/form-data");
+	 //                xhrObj.setRequestHeader("Retry-After","5");
+	 //                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","d94b9ad51f0c422787649f57c7d68468");
+	 //            },
+	 //            type: "POST",
+	 //        })
+	 //        .done( function ( data )
+	 //        {
+	 //        	_removeLoadingScreen( $loadingscreen_small );
+	 //        	_displayParkImages( data );
+	 //        	console.log( data );
+	 //        })
+	 //        .fail( function ()
+	 //        {
+	 //        	_removeLoadingScreen( $loadingscreen_small );
+	 //            alert( "error" );
+	 //        });
+	 //    });
 	};
 
 	var _displayParkImages = function ( data )
@@ -499,10 +499,22 @@ var TpfHome = ( function ()
 
 	var _displayParkData = function ( park_selection_index )
 	{
+		var data_check       = ['address', 'phonenumber', 'postalcode'],
+			data_check_count = data_check.length,
+			i;
+
+		for ( i = 0; i < data_check_count; i++ )
+		{
+			if ( current_park_selection_data[park_selection_index][data_check[i]] === '' )
+			{
+				current_park_selection_data[park_selection_index][data_check[i]] = 'N/A';
+			}
+		}
+
 		$( "#park-info-name" ).empty().html( current_park_selection_data[park_selection_index]['parkname'] );
-		$( "#park-info-address" ).empty().html( current_park_selection_data[park_selection_index]['address'] );
-		$( "#park-info-phonenumber" ).empty().html( current_park_selection_data[park_selection_index]['phonenumber'] );
-		$( "#park-info-postalcode" ).empty().html( current_park_selection_data[park_selection_index]['postalcode'] );
+		$( "#park-info-address" ).empty().html( '<i class="fa fa-map-marker fa-styling" aria-hidden="true"></i> ' + current_park_selection_data[park_selection_index]['address'] );
+		$( "#park-info-phonenumber" ).empty().html( '<i class="fa fa-phone fa-styling" aria-hidden="true"></i> ' + current_park_selection_data[park_selection_index]['phonenumber'] );
+		$( "#park-info-postalcode" ).empty().html( '<i class="fa fa-envelope fa-styling" aria-hidden="true"></i> ' + current_park_selection_data[park_selection_index]['postalcode'] );
 	};
 
 	var _openGoogleMaps = function ()

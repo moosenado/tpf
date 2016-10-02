@@ -9460,6 +9460,13 @@ header {
 }
 
 /* line 655, ../sass/app.scss */
+.fa-styling {
+  color: #71e271;
+  width: 16px;
+  text-align: center;
+}
+
+/* line 661, ../sass/app.scss */
 footer {
   color: #71e271;
   font-size: 10px;
@@ -9467,7 +9474,7 @@ footer {
 }
 
 /* TRANSITION SPECIFIC */
-/* line 667, ../sass/app.scss */
+/* line 673, ../sass/app.scss */
 .ani-left {
   -webkit-transform: translate3d(-2000px, 0, 0);
   -moz-transform: translate3d(-2000px, 0, 0);
@@ -9477,7 +9484,7 @@ footer {
   opacity: 0;
 }
 
-/* line 672, ../sass/app.scss */
+/* line 678, ../sass/app.scss */
 .ani-right {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -9487,17 +9494,17 @@ footer {
   opacity: 1;
 }
 
-/* line 677, ../sass/app.scss */
+/* line 683, ../sass/app.scss */
 .ani-fadeOut {
   opacity: 0;
 }
 
-/* line 681, ../sass/app.scss */
+/* line 687, ../sass/app.scss */
 .ani-fadeIn {
   opacity: 1;
 }
 
-/* line 685, ../sass/app.scss */
+/* line 691, ../sass/app.scss */
 .ani-fadeOutZindex {
   opacity: 0;
   z-index: -1;
@@ -9508,7 +9515,7 @@ footer {
   animation: zoomAniNoRotateRev 0.3s forwards;
 }
 
-/* line 691, ../sass/app.scss */
+/* line 697, ../sass/app.scss */
 .ani-fadeInZindex {
   opacity: 1;
   z-index: 1;
@@ -9520,7 +9527,7 @@ footer {
 }
 
 /* ANIMATION SPECIFIC */
-/* line 703, ../sass/app.scss */
+/* line 709, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.8s forwards;
   -moz-animation: zoomAni 0.8s forwards;
@@ -9529,7 +9536,7 @@ footer {
   animation: zoomAni 0.8s forwards;
 }
 
-/* line 707, ../sass/app.scss */
+/* line 713, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9538,7 +9545,7 @@ footer {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 711, ../sass/app.scss */
+/* line 717, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -9547,7 +9554,7 @@ footer {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 715, ../sass/app.scss */
+/* line 721, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9556,7 +9563,7 @@ footer {
   animation: zoomAniRevShadowRev 0.5s forwards;
 }
 
-/* line 719, ../sass/app.scss */
+/* line 725, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni 0.5s forwards;
   -moz-animation: slideAni 0.5s forwards;
@@ -9565,7 +9572,7 @@ footer {
   animation: slideAni 0.5s forwards;
 }
 
-/* line 723, ../sass/app.scss */
+/* line 729, ../sass/app.scss */
 .number-zoom {
   -webkit-animation: numberZoomAni 1s forwards;
   -moz-animation: numberZoomAni 1s forwards;
@@ -9578,7 +9585,7 @@ footer {
   animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
-/* line 731, ../sass/app.scss */
+/* line 737, ../sass/app.scss */
 .fade-in-and-up {
   -webkit-animation: fadeInAndUp 1s forwards;
   -moz-animation: fadeInAndUp 1s forwards;
@@ -9587,7 +9594,7 @@ footer {
   animation: fadeInAndUp 1s forwards;
 }
 
-/* line 735, ../sass/app.scss */
+/* line 741, ../sass/app.scss */
 .li-click {
   -webkit-animation: liButtonClick 0.5s forwards;
   -moz-animation: liButtonClick 0.5s forwards;
@@ -9600,7 +9607,7 @@ footer {
   transform: perspective(200px) translateZ(0);
 }
 
-/* line 743, ../sass/app.scss */
+/* line 749, ../sass/app.scss */
 .li-click-text {
   -webkit-animation: liButtonClickText 1s forwards;
   -moz-animation: liButtonClickText 1s forwards;
@@ -9617,7 +9624,7 @@ footer {
   transform: perspective(200px) translateZ(0);
 }
 
-/* line 755, ../sass/app.scss */
+/* line 761, ../sass/app.scss */
 .top-leaf {
   fill: #71E271;
   -webkit-animation: colorSwapToBrightGreen 0.5s infinite;
@@ -9627,7 +9634,7 @@ footer {
   animation: colorSwapToBrightGreen 0.5s infinite;
 }
 
-/* line 760, ../sass/app.scss */
+/* line 766, ../sass/app.scss */
 .bottom-leaf {
   fill: #00CA3E;
   -webkit-animation: colorSwapToDarkGreen 0.5s infinite;
@@ -9637,7 +9644,7 @@ footer {
   animation: colorSwapToDarkGreen 0.5s infinite;
 }
 
-/* line 765, ../sass/app.scss */
+/* line 771, ../sass/app.scss */
 .loading-text {
   -webkit-animation: loadingText 0.9s infinite;
   -moz-animation: loadingText 0.9s infinite;
