@@ -127,7 +127,7 @@ var TpfHome = ( function ()
 		$( '.chosen-park-list' ).css({'display':'block'});
 
 		$( ".chosen-park-list ul" ).prepend(
-			"<li id='chosenlist-" + clicked_id + "' class='fade-in-and-up'>" + selected_attr + "</li>"
+			"<li id='chosenlist-" + clicked_id + "' class='fade-in-and-up'><i class='fa fa-times' aria-hidden='true'></i> " + selected_attr + "</li>"
 		);
 
 		document.getElementById( "chosenlist-" + clicked_id ).addEventListener( "click", function ()
