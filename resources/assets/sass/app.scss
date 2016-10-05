@@ -141,15 +141,16 @@ header {
 	margin: 40px;
 }
 
-.logo-img {
-	width: 50px;
-	float: left;
-}
-
 .header-cont {
 	width: 640px;
 	max-width: 100%;
 	margin: 0 auto;
+
+	svg {
+		width: 50px;
+		height: auto;
+		float: left;
+	}
 }
 
 .sub-header-cont {
@@ -194,7 +195,7 @@ header {
 
 .reset-btn {
 	position        : fixed;
-	bottom          : 2%;
+	bottom          : 15px;
 	right           : 2%;
 	margin-right    : 52px;
 	display         : none;
@@ -229,7 +230,7 @@ header {
 
 .fire-btn {
 	position        : fixed;
-	bottom          : 2%;
+	bottom          : 15px;
 	right           : 2%;
 	display         : none;
 	width           : 50px;
@@ -252,7 +253,7 @@ header {
 
 .fire-btn-shadow {
 	position          : fixed;
-	bottom            : 2%;
+	bottom            : 15px;
 	right             : 2%;
 	display           : none;
 	width             : 50px;
@@ -267,7 +268,7 @@ header {
 
 .reset-btn-shadow {
 	position          : fixed;
-	bottom            : 2%;
+	bottom            : 15px;
 	right             : 2%;
 	margin-right      : 52px;
 	display           : none;
@@ -466,10 +467,13 @@ header {
 	padding: 15px 25px;
 	margin: 0;
 	color: $btn-text;
+	height: 400px;
+	width: 100%;
+	overflow-y: scroll;
 
 	li {
 		display: block;
-		white-space: nowrap;
+		//white-space: nowrap;
 	}
 }
 
@@ -766,6 +770,16 @@ footer {
 .bottom-leaf {
 	fill: #00CA3E;
 	@include animationFunc( colorSwapToDarkGreen, .5s, infinite );
+}
+
+.top-leaf-slow {
+	fill: #71E271;
+	@include animationFunc( colorSwapToBrightGreenSlow, 2.7s, infinite );
+}
+
+.bottom-leaf-slow {
+	fill: #00CA3E;
+	@include animationFunc( colorSwapToDarkGreenSlow, 2.7s, infinite );
 }
 
 .loading-text {
@@ -1265,6 +1279,174 @@ footer {
     }
     100% {
 		fill: #71E271;
+    }
+}
+
+@keyframes colorSwapToBrightGreenSlow {
+    0% {
+		fill: #71E271;
+    }
+    10% {
+		fill: #00CA3E;
+    }
+    20% {
+		fill: #71E271;
+    }
+    30% {
+		fill: #00CA3E;
+    }
+    40% {
+		fill: #71E271;
+    }
+    100% {
+		fill: #71E271;
+    }
+}
+
+@-webkit-keyframes colorSwapToBrightGreenSlow {
+    0% {
+		fill: #71E271;
+    }
+    10% {
+		fill: #00CA3E;
+    }
+    20% {
+		fill: #71E271;
+    }
+    30% {
+		fill: #00CA3E;
+    }
+    40% {
+		fill: #71E271;
+    }
+    100% {
+		fill: #71E271;
+    }
+}
+
+@-moz-keyframes colorSwapToBrightGreenSlow {
+    0% {
+		fill: #71E271;
+    }
+    10% {
+		fill: #00CA3E;
+    }
+    20% {
+		fill: #71E271;
+    }
+    30% {
+		fill: #00CA3E;
+    }
+    40% {
+		fill: #71E271;
+    }
+    100% {
+		fill: #71E271;
+    }
+}
+
+@-o-keyframes colorSwapToBrightGreenSlow {
+    0% {
+		fill: #71E271;
+    }
+    10% {
+		fill: #00CA3E;
+    }
+    20% {
+		fill: #71E271;
+    }
+    30% {
+		fill: #00CA3E;
+    }
+    40% {
+		fill: #71E271;
+    }
+    100% {
+		fill: #71E271;
+    }
+}
+
+@keyframes colorSwapToDarkGreenSlow {
+    0% {
+		fill: #00CA3E;
+    }
+    10% {
+		fill: #71E271;
+    }
+    20% {
+		fill: #00CA3E;
+    }
+    30% {
+		fill: #71E271;
+    }
+    40% {
+		fill: #00CA3E;
+    }
+    100% {
+		fill: #00CA3E;
+    }
+}
+
+@-webkit-keyframes colorSwapToDarkGreenSlow {
+    0% {
+		fill: #00CA3E;
+    }
+    10% {
+		fill: #71E271;
+    }
+    20% {
+		fill: #00CA3E;
+    }
+    30% {
+		fill: #71E271;
+    }
+    40% {
+		fill: #00CA3E;
+    }
+    100% {
+		fill: #00CA3E;
+    }
+}
+
+@-moz-keyframes colorSwapToDarkGreenSlow {
+    0% {
+		fill: #00CA3E;
+    }
+    10% {
+		fill: #71E271;
+    }
+    20% {
+		fill: #00CA3E;
+    }
+    30% {
+		fill: #71E271;
+    }
+    40% {
+		fill: #00CA3E;
+    }
+    100% {
+		fill: #00CA3E;
+    }
+}
+
+@-o-keyframes colorSwapToDarkGreenSlow {
+    0% {
+		fill: #00CA3E;
+    }
+    10% {
+		fill: #71E271;
+    }
+    20% {
+		fill: #00CA3E;
+    }
+    30% {
+		fill: #71E271;
+    }
+    40% {
+		fill: #00CA3E;
+    }
+    100% {
+		fill: #00CA3E;
     }
 }
 
