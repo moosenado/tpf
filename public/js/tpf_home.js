@@ -448,7 +448,6 @@ var TpfHome = ( function ()
 		_displayParkNav();
 		_displayParkData( 0 ); // 0 for first park in line
 		_getBingImages( 0 );
-		_resizeParkDetailHeight( $('.park-info-cont') );
 	};
 
 	var _updateUrl = function ()
@@ -480,14 +479,6 @@ var TpfHome = ( function ()
 
 		distance_class[0].classList.add( "park-selected" );
 		distance_class[0].classList.add( "park-selected-official" );
-	};
-
-	var _resizeParkDetailHeight = function ( element )
-	{
-		var element_height = window.innerHeight - element.offset().top;
-
-		//set the height explicitly so that overflow scroll fires
-		element.css( { 'height' : element_height } );
 	};
 
 	var _reRenderParkSelection = function ()
