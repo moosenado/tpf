@@ -363,35 +363,35 @@ var TpfHome = ( function ()
 
 	var _getBingImages = function ( park_selection_index )
 	{
-		// _displayLoadingScreen( $loadingscreen_small );
+		_displayLoadingScreen( $loadingscreen_small );
 
-		// var park_name = _filterParkNameForQuery( current_park_selection_data[park_selection_index]['parkname'] );
+		var park_name = _filterParkNameForQuery( current_park_selection_data[park_selection_index]['parkname'] );
 
-		// $(".park-images-ul ul").empty(); // empty previous event handlers/element data
+		$(".park-images-ul ul").empty(); // empty previous event handlers/element data
 
-		// $( function ()
-		// {
-	 //        $.ajax({
-	 //            url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=" + park_name + "&count=20&size=medium",
-	 //            beforeSend: function(xhrObj){
-	 //                xhrObj.setRequestHeader("Content-Type","multipart/form-data");
-	 //                xhrObj.setRequestHeader("Retry-After","5");
-	 //                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","d94b9ad51f0c422787649f57c7d68468");
-	 //            },
-	 //            type: "POST",
-	 //        })
-	 //        .done( function ( data )
-	 //        {
-	 //        	_removeLoadingScreen( $loadingscreen_small );
-	 //        	_displayParkImages( data );
-	 //        	console.log( data );
-	 //        })
-	 //        .fail( function ()
-	 //        {
-	 //        	_removeLoadingScreen( $loadingscreen_small );
-	 //            alert( "error" );
-	 //        });
-	 //    });
+		$( function ()
+		{
+	        $.ajax({
+	            url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=" + park_name + "&count=20&size=medium",
+	            beforeSend: function(xhrObj){
+	                xhrObj.setRequestHeader("Content-Type","multipart/form-data");
+	                xhrObj.setRequestHeader("Retry-After","5");
+	                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","d94b9ad51f0c422787649f57c7d68468");
+	            },
+	            type: "POST",
+	        })
+	        .done( function ( data )
+	        {
+	        	_removeLoadingScreen( $loadingscreen_small );
+	        	_displayParkImages( data );
+	        	console.log( data );
+	        })
+	        .fail( function ()
+	        {
+	        	_removeLoadingScreen( $loadingscreen_small );
+	            alert( "error" );
+	        });
+	    });
 	};
 
 	var _displayParkImages = function ( data )
@@ -448,6 +448,7 @@ var TpfHome = ( function ()
 		_displayParkNav();
 		_displayParkData( 0 ); // 0 for first park in line
 		_getBingImages( 0 );
+		_resizeParkDetailHeight( $('.park-info-cont') );
 	};
 
 	var _updateUrl = function ()
@@ -479,6 +480,14 @@ var TpfHome = ( function ()
 
 		distance_class[0].classList.add( "park-selected" );
 		distance_class[0].classList.add( "park-selected-official" );
+	};
+
+	var _resizeParkDetailHeight = function ( element )
+	{
+		var element_height = window.innerHeight - element.offset().top;
+
+		//set the height explicitly so that overflow scroll fires
+		element.css( { 'height' : element_height } );
 	};
 
 	var _reRenderParkSelection = function ()

@@ -464,16 +464,20 @@ header {
 }
 
 .park-info-cont {
-	padding: 15px 25px;
-	margin: 0;
-	color: $btn-text;
-	height: 400px;
-	width: 100%;
 	overflow-y: scroll;
+	height: 70px;
+	width: 100%;
+	position: relative;
 
-	li {
-		display: block;
-		//white-space: nowrap;
+	ul {
+		padding: 15px 25px;
+		margin: 0;
+		color: $btn-text;
+
+		li {
+			display: block;
+			//white-space: nowrap;
+		}
 	}
 }
 

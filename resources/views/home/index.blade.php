@@ -156,12 +156,14 @@
 
 	</div>
 
-	<ul class="park-info-cont">
-		<li id="park-info-name"></li>
-		<li id="park-info-address"></li>
-		<li id="park-info-phonenumber"></li>
-		<li id="park-info-postalcode"></li>
-	</ul>
+	<div class="park-info-cont">
+		<ul>
+			<li id="park-info-name"></li>
+			<li id="park-info-address"></li>
+			<li id="park-info-phonenumber"></li>
+			<li id="park-info-postalcode"></li>
+		</ul>
+	</div>
 
 </div>
 
