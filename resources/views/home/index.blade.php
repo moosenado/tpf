@@ -157,12 +157,15 @@
 	</div>
 
 	<div class="park-info-cont">
+		<div id="park-info-name"></div>
 		<ul>
-			<li id="park-info-name"></li>
 			<li id="park-info-address"></li>
 			<li id="park-info-phonenumber"></li>
 			<li id="park-info-postalcode"></li>
 		</ul>
+		<div id="park-info-directions">
+			<i class="fa fa-compass fa-styling" aria-hidden="true"></i> Get Directions
+		</div>
 	</div>
 
 </div>

@@ -465,7 +465,7 @@ var TpfHome = ( function ()
 		current_park_selection_data.map( function ( park, i )
 		{
 			$(".park-distance-ul ul").append(
-				"<li class='distance-item' data-selection-number='" + i + "' data-lat='" + park['lat'] + "' data-lng='" + park['lng'] + "' data-parkname='" + park['parkname'] + "' data-address='" + park['address'] + "' data-phonenumber='" + park['phonenumber'] + "' data-postalcode='" + park['postalcode'] + "'><div class='number-overlay'>" + (i + 1) + "</div><div class='number'>" + (i + 1) + "</div></li>"
+				"<li class='distance-item' data-selection-number='" + i + "' data-lat='" + park['lat'] + "' data-lng='" + park['lng'] + "' data-parkname='" + park['parkname'] + "' data-address='" + park['address'] + "' data-phonenumber='" + park['phonenumber'] + "' data-postalcode='" + park['postalcode'] + "'><div class='number-overlay'>" + (i + 1) + "</div><div class='number'><strong>" + (i + 1) + "</strong> " + park['parkname'] + "</div></li>"
 			);
 		});
 
