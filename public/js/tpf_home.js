@@ -452,7 +452,7 @@ var TpfHome = ( function ()
   	{
   		if ( history.pushState )
   		{
-			history.pushState( { current_park_selection_data }, null );
+			history.pushState( { data: current_park_selection_data }, null );
 		}
 	};
 
