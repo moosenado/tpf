@@ -373,6 +373,9 @@ header {
 .li-bg {
 	@include transitionStyle( all, .6s, ease-in-out );
 	opacity: .9;
+	background-size: 100%;
+	background-position: left center;
+	background-repeat: no-repeat;
 	&:hover {
 		cursor : pointer;
 
@@ -640,7 +643,6 @@ header {
 	    svg {
 			width: 60px;
 			height: 60px;
-			height: auto;
 		}
 
 		.text {
@@ -684,7 +686,7 @@ header {
 
 	svg {
 		width: 35px;
-		height: auto;
+		height: 35px;
 		position: absolute;
 	    top: 50%;
 	    left: 50%;
