@@ -397,7 +397,7 @@ var TpfHome = ( function ()
 		data.value.map( function ( image, i )
 		{
 			$(".park-images-ul ul").append(
-				"<a href='" + image.contentUrl + "' target='_blank'><li class='image-item'><img src='" + image.contentUrl + "'/></li></a>"
+				"<a href='" + image.contentUrl.replace(/^http:\/\//i, 'https://') + "' target='_blank'><li class='image-item'><img src='" + image.contentUrl.replace(/^http:\/\//i, 'https://') + "'/></li></a>"
 			);
 		});
 	};
@@ -463,7 +463,7 @@ var TpfHome = ( function ()
 		current_park_selection_data.map( function ( park, i )
 		{
 			$(".park-distance-ul ul").append(
-				"<li class='distance-item' data-selection-number='" + i + "' data-lat='" + park['lat'] + "' data-lng='" + park['lng'] + "' data-parkname='" + park['parkname'] + "' data-address='" + park['address'] + "' data-phonenumber='" + park['phonenumber'] + "' data-postalcode='" + park['postalcode'] + "'><div class='number-overlay'>" + (i + 1) + "</div><div class='number'><strong>" + (i + 1) + "</strong> " + park['parkname'] + "</div></li>"
+				"<li class='distance-item' data-selection-number='" + i + "' data-lat='" + park['lat'] + "' data-lng='" + park['lng'] + "' data-parkname='" + park['parkname'] + "' data-address='" + park['address'] + "' data-phonenumber='" + park['phonenumber'] + "' data-postalcode='" + park['postalcode'] + "'><div class='number-overlay'>" + (i + 1) + "</div><div class='number'><strong>" + (i + 1) + "</strong> <i class='fa fa-angle-right fa-styling' aria-hidden='true'></i> <span style='opacity: .8;'>" + park['parkname'] + "</span></div></li>"
 			);
 		});
 
@@ -499,9 +499,9 @@ var TpfHome = ( function ()
 	{
 		var data_check       = ['address', 'phonenumber', 'postalcode'],
 			data_check_count = data_check.length,
-			i;
+			directions_url   = "https://www.google.com/maps/dir/" + lnglat_array[0] + "," + lnglat_array[1] + "/" + current_park_selection_data[park_selection_index]['lat'] + "," + current_park_selection_data[park_selection_index]['lng'];
 
-		for ( i = 0; i < data_check_count; i++ )
+		for ( var i = 0; i < data_check_count; i++ )
 		{
 			if ( current_park_selection_data[park_selection_index][data_check[i]] === '' )
 			{
@@ -512,7 +512,8 @@ var TpfHome = ( function ()
 		$( "#park-info-name" ).empty().html( current_park_selection_data[park_selection_index]['parkname'] );
 		$( "#park-info-address" ).empty().html( '<i class="fa fa-map-marker fa-styling" aria-hidden="true"></i> ' + current_park_selection_data[park_selection_index]['address'] );
 		$( "#park-info-phonenumber" ).empty().html( '<i class="fa fa-phone fa-styling" aria-hidden="true"></i> ' + current_park_selection_data[park_selection_index]['phonenumber'] );
-		$( "#park-info-postalcode" ).empty().html( '<i class="fa fa-envelope fa-styling" aria-hidden="true"></i> ' + current_park_selection_data[park_selection_index]['postalcode'] );
+		$( "#park-info-postalcode" ).empty().html( '<i class="fa fa-home fa-styling" aria-hidden="true"></i> ' + current_park_selection_data[park_selection_index]['postalcode'] );
+		$( "#park-info-directions a").attr( 'href', directions_url );
 	};
 
 	var _openGoogleMaps = function ()

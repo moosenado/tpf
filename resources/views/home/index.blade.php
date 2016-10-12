@@ -162,7 +162,7 @@
 			<li id="park-info-postalcode"></li>
 		</ul>
 		<div id="park-info-directions">
-			<i class="fa fa-compass fa-styling" aria-hidden="true"></i> Get Directions
+			<i class="fa fa-compass fa-styling" aria-hidden="true"></i> <a href="" target="_blank">Get Directions</a>
 		</div>
 	</div>
 
