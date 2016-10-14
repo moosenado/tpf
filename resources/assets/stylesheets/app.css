@@ -9539,9 +9539,11 @@ header {
 /* line 715, ../sass/app.scss */
 .image-bullet-point {
   width: 16px;
+  margin-left: 10px;
+  margin-top: -3px;
 }
 
-/* line 719, ../sass/app.scss */
+/* line 721, ../sass/app.scss */
 footer {
   color: #71e271;
   font-size: 10px;
@@ -9549,7 +9551,7 @@ footer {
 }
 
 /* TRANSITION SPECIFIC */
-/* line 731, ../sass/app.scss */
+/* line 733, ../sass/app.scss */
 .ani-left {
   -webkit-transform: translate3d(-2000px, 0, 0);
   -moz-transform: translate3d(-2000px, 0, 0);
@@ -9559,7 +9561,7 @@ footer {
   opacity: 0;
 }
 
-/* line 736, ../sass/app.scss */
+/* line 738, ../sass/app.scss */
 .ani-right {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -9569,17 +9571,17 @@ footer {
   opacity: 1;
 }
 
-/* line 741, ../sass/app.scss */
+/* line 743, ../sass/app.scss */
 .ani-fadeOut {
   opacity: 0;
 }
 
-/* line 745, ../sass/app.scss */
+/* line 747, ../sass/app.scss */
 .ani-fadeIn {
   opacity: 1;
 }
 
-/* line 749, ../sass/app.scss */
+/* line 751, ../sass/app.scss */
 .ani-fadeOutZindex {
   opacity: 0;
   z-index: -1;
@@ -9590,7 +9592,7 @@ footer {
   animation: zoomAniNoRotateRev 0.3s forwards;
 }
 
-/* line 755, ../sass/app.scss */
+/* line 757, ../sass/app.scss */
 .ani-fadeInZindex {
   opacity: 1;
   z-index: 1;
@@ -9602,7 +9604,7 @@ footer {
 }
 
 /* ANIMATION SPECIFIC */
-/* line 767, ../sass/app.scss */
+/* line 769, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.7s forwards;
   -moz-animation: zoomAni 0.7s forwards;
@@ -9611,7 +9613,7 @@ footer {
   animation: zoomAni 0.7s forwards;
 }
 
-/* line 771, ../sass/app.scss */
+/* line 773, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9620,7 +9622,7 @@ footer {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 775, ../sass/app.scss */
+/* line 777, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -9629,7 +9631,7 @@ footer {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 779, ../sass/app.scss */
+/* line 781, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9638,7 +9640,7 @@ footer {
   animation: zoomAniRevShadowRev 0.5s forwards;
 }
 
-/* line 783, ../sass/app.scss */
+/* line 785, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni 0.5s forwards;
   -moz-animation: slideAni 0.5s forwards;
@@ -9647,7 +9649,7 @@ footer {
   animation: slideAni 0.5s forwards;
 }
 
-/* line 787, ../sass/app.scss */
+/* line 789, ../sass/app.scss */
 .number-zoom {
   -webkit-animation: numberZoomAni 1s forwards;
   -moz-animation: numberZoomAni 1s forwards;
@@ -9660,7 +9662,7 @@ footer {
   animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
-/* line 795, ../sass/app.scss */
+/* line 797, ../sass/app.scss */
 .fade-in-and-up {
   -webkit-animation: fadeInAndUp 0.5s forwards;
   -moz-animation: fadeInAndUp 0.5s forwards;
@@ -9673,7 +9675,7 @@ footer {
   animation-timing-function: cubic-bezier(0.17, 0.67, 0.08, 1.27);
 }
 
-/* line 803, ../sass/app.scss */
+/* line 805, ../sass/app.scss */
 .li-click {
   -webkit-animation: liButtonClick 0.5s forwards;
   -moz-animation: liButtonClick 0.5s forwards;
@@ -9689,7 +9691,7 @@ footer {
   perspective: 200px;
 }
 
-/* line 814, ../sass/app.scss */
+/* line 816, ../sass/app.scss */
 .li-click-text {
   -webkit-animation: liButtonClickText 4.6s forwards;
   -moz-animation: liButtonClickText 4.6s forwards;
@@ -9714,7 +9716,7 @@ footer {
   perspective: 200px;
 }
 
-/* line 830, ../sass/app.scss */
+/* line 832, ../sass/app.scss */
 .top-leaf {
   fill: #71E271;
   -webkit-animation: colorSwapToBrightGreen 0.5s infinite;
@@ -9724,7 +9726,7 @@ footer {
   animation: colorSwapToBrightGreen 0.5s infinite;
 }
 
-/* line 835, ../sass/app.scss */
+/* line 837, ../sass/app.scss */
 .bottom-leaf {
   fill: #00CA3E;
   -webkit-animation: colorSwapToDarkGreen 0.5s infinite;
@@ -9734,7 +9736,7 @@ footer {
   animation: colorSwapToDarkGreen 0.5s infinite;
 }
 
-/* line 840, ../sass/app.scss */
+/* line 842, ../sass/app.scss */
 .top-leaf-slow {
   fill: #71E271;
   -webkit-animation: colorSwapToBrightGreenSlow 2.7s infinite;
@@ -9744,7 +9746,7 @@ footer {
   animation: colorSwapToBrightGreenSlow 2.7s infinite;
 }
 
-/* line 845, ../sass/app.scss */
+/* line 847, ../sass/app.scss */
 .bottom-leaf-slow {
   fill: #00CA3E;
   -webkit-animation: colorSwapToDarkGreenSlow 2.7s infinite;
@@ -9754,7 +9756,7 @@ footer {
   animation: colorSwapToDarkGreenSlow 2.7s infinite;
 }
 
-/* line 850, ../sass/app.scss */
+/* line 852, ../sass/app.scss */
 .loading-text {
   -webkit-animation: loadingText 0.9s infinite;
   -moz-animation: loadingText 0.9s infinite;
