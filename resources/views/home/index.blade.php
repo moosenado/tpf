@@ -161,8 +161,13 @@
 			<li id="park-info-phonenumber"></li>
 			<li id="park-info-postalcode"></li>
 		</ul>
-		<div id="park-info-directions">
-			<i class="fa fa-compass fa-styling" aria-hidden="true"></i> <a href="" target="_blank">Get Directions</a>
+		<div id="park-info-etc">
+			<div>
+				<i class="fa fa-compass fa-styling" aria-hidden="true"></i> <a id="directions" href="" target="_blank">Get Directions</a>
+			</div>
+			<div>
+				<img class="image-bullet-point" src="{{ URL::to('/') }}/images/uber_logo.png"/> <a id="uber" href="" target="_blank">Get An Uber</a>
+			</div>
 		</div>
 	</div>
 
