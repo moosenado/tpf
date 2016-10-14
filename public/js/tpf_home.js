@@ -272,7 +272,7 @@ var TpfHome = ( function ()
 			};
 
 	    $.ajax({
-	        url     : document.location.origin + '/t--p--f/public/getparks',
+	        url     : document.location.origin + '/~bowjia5/moosenado.com/tpf/public/getparks',
 	        type    : 'GET',
 	        data    : ajax_params,
 	        dataType: 'JSON',
@@ -500,7 +500,7 @@ var TpfHome = ( function ()
 		var data_check       = ['address', 'phonenumber', 'postalcode'],
 			data_check_count = data_check.length,
 			directions_url   = "https://www.google.com/maps/dir/" + lnglat_array[0] + "," + lnglat_array[1] + "/" + current_park_selection_data[park_selection_index]['lat'] + "," + current_park_selection_data[park_selection_index]['lng'],
-			uber_url         = "https://www.google.com/maps/dir/" + lnglat_array[0] + "," + lnglat_array[1] + "/" + current_park_selection_data[park_selection_index]['lat'] + "," + current_park_selection_data[park_selection_index]['lng'],
+			uber_url         = "https://m.uber.com/ul?action=setPickup&pickup=my_location&dropoff[latitude]=" + current_park_selection_data[park_selection_index]['lat'] + "&dropoff[longitude]=" + current_park_selection_data[park_selection_index]['lng'] + "&dropoff[formatted_address]=" + current_park_selection_data[park_selection_index]['address'],
 			tel = '', tel_close = '', count = 0,
 			data_object_instance = current_park_selection_data;
 
