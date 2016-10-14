@@ -8983,7 +8983,7 @@ header {
 }
 /* line 244, ../sass/app.scss */
 .reset-btn:active {
-  opacity: .8;
+  opacity: .3;
 }
 /* line 248, ../sass/app.scss */
 .reset-btn i {
@@ -9657,14 +9657,18 @@ footer {
 
 /* line 791, ../sass/app.scss */
 .fade-in-and-up {
-  -webkit-animation: fadeInAndUp 1s forwards;
-  -moz-animation: fadeInAndUp 1s forwards;
-  -ms-animation: fadeInAndUp 1s forwards;
-  -o-animation: fadeInAndUp 1s forwards;
-  animation: fadeInAndUp 1s forwards;
+  -webkit-animation: fadeInAndUp 0.5s forwards;
+  -moz-animation: fadeInAndUp 0.5s forwards;
+  -ms-animation: fadeInAndUp 0.5s forwards;
+  -o-animation: fadeInAndUp 0.5s forwards;
+  animation: fadeInAndUp 0.5s forwards;
+  -webkit-animation-timing-function: cubic-bezier(0.17, 0.67, 0.08, 1.27);
+  -moz-animation-timing-function: cubic-bezier(0.17, 0.67, 0.08, 1.27);
+  -o-animation-timing-function: cubic-bezier(0.17, 0.67, 0.08, 1.27);
+  animation-timing-function: cubic-bezier(0.17, 0.67, 0.08, 1.27);
 }
 
-/* line 795, ../sass/app.scss */
+/* line 799, ../sass/app.scss */
 .li-click {
   -webkit-animation: liButtonClick 0.5s forwards;
   -moz-animation: liButtonClick 0.5s forwards;
@@ -9680,7 +9684,7 @@ footer {
   perspective: 200px;
 }
 
-/* line 806, ../sass/app.scss */
+/* line 810, ../sass/app.scss */
 .li-click-text {
   -webkit-animation: liButtonClickText 4.6s forwards;
   -moz-animation: liButtonClickText 4.6s forwards;
@@ -9705,7 +9709,7 @@ footer {
   perspective: 200px;
 }
 
-/* line 822, ../sass/app.scss */
+/* line 826, ../sass/app.scss */
 .top-leaf {
   fill: #71E271;
   -webkit-animation: colorSwapToBrightGreen 0.5s infinite;
@@ -9715,7 +9719,7 @@ footer {
   animation: colorSwapToBrightGreen 0.5s infinite;
 }
 
-/* line 827, ../sass/app.scss */
+/* line 831, ../sass/app.scss */
 .bottom-leaf {
   fill: #00CA3E;
   -webkit-animation: colorSwapToDarkGreen 0.5s infinite;
@@ -9725,7 +9729,7 @@ footer {
   animation: colorSwapToDarkGreen 0.5s infinite;
 }
 
-/* line 832, ../sass/app.scss */
+/* line 836, ../sass/app.scss */
 .top-leaf-slow {
   fill: #71E271;
   -webkit-animation: colorSwapToBrightGreenSlow 2.7s infinite;
@@ -9735,7 +9739,7 @@ footer {
   animation: colorSwapToBrightGreenSlow 2.7s infinite;
 }
 
-/* line 837, ../sass/app.scss */
+/* line 841, ../sass/app.scss */
 .bottom-leaf-slow {
   fill: #00CA3E;
   -webkit-animation: colorSwapToDarkGreenSlow 2.7s infinite;
@@ -9745,7 +9749,7 @@ footer {
   animation: colorSwapToDarkGreenSlow 2.7s infinite;
 }
 
-/* line 842, ../sass/app.scss */
+/* line 846, ../sass/app.scss */
 .loading-text {
   -webkit-animation: loadingText 0.9s infinite;
   -moz-animation: loadingText 0.9s infinite;
@@ -9833,9 +9837,13 @@ footer {
     -webkit-transform: scale3d(1, 1, 1);
     opacity: 1;
   }
-  50% {
+  5% {
     -webkit-transform: scale3d(1.08, 1.08, 1);
-    opacity: .3;
+    opacity: .2;
+  }
+  10% {
+    -webkit-transform: scale3d(1, 1, 1);
+    opacity: .2;
   }
   100% {
     opacity: 1;
@@ -9847,9 +9855,13 @@ footer {
     -moz-transform: scale3d(1, 1, 1);
     opacity: 1;
   }
-  50% {
+  5% {
     -moz-transform: scale3d(1.08, 1.08, 1);
-    opacity: .3;
+    opacity: .2;
+  }
+  10% {
+    -moz-transform: scale3d(1, 1, 1);
+    opacity: .2;
   }
   100% {
     opacity: 1;
@@ -9861,9 +9873,13 @@ footer {
     -o-transform: scale3d(1, 1, 1);
     opacity: 1;
   }
-  50% {
+  5% {
     -o-transform: scale3d(1.08, 1.08, 1);
-    opacity: .3;
+    opacity: .2;
+  }
+  10% {
+    -o-transform: scale3d(1, 1, 1);
+    opacity: .2;
   }
   100% {
     opacity: 1;

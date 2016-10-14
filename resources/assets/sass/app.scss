@@ -242,7 +242,7 @@ header {
 
 
 	&:active {
-		opacity: .8;
+		opacity: .3;
 	}
 
 	i {
@@ -789,7 +789,11 @@ footer {
 }
 
 .fade-in-and-up {
-	@include animationFunc( fadeInAndUp, 1s, forwards );
+	@include animationFunc( fadeInAndUp, .5s, forwards );
+	-webkit-animation-timing-function: cubic-bezier(.17,.67,.08,1.27);
+	-moz-animation-timing-function: cubic-bezier(.17,.67,.08,1.27);
+	-o-animation-timing-function: cubic-bezier(.17,.67,.08,1.27);
+	animation-timing-function: cubic-bezier(.17,.67,.08,1.27);
 }
 
 .li-click {
@@ -931,9 +935,13 @@ footer {
     	-webkit-transform: scale3d(1,1,1);
 		opacity: 1;
     }
-    50% {
+    5% {
     	-webkit-transform: scale3d(1.08,1.08,1);
-    	opacity: .3;
+    	opacity: .2;
+    }
+    10% {
+    	-webkit-transform: scale3d(1,1,1);
+		opacity: .2;
     }
     100% {
     	opacity: 1;
@@ -946,9 +954,13 @@ footer {
     	-moz-transform: scale3d(1,1,1);
 		opacity: 1;
     }
-    50% {
+    5% {
     	-moz-transform: scale3d(1.08,1.08,1);
-    	opacity: .3;
+    	opacity: .2;
+    }
+    10% {
+    	-moz-transform: scale3d(1,1,1);
+		opacity: .2;
     }
     100% {
     	opacity: 1;
@@ -961,9 +973,13 @@ footer {
     	-o-transform: scale3d(1,1,1);
 		opacity: 1;
     }
-    50% {
+    5% {
     	-o-transform: scale3d(1.08,1.08,1);
-    	opacity: .3;
+    	opacity: .2;
+    }
+    10% {
+    	-o-transform: scale3d(1,1,1);
+		opacity: .2;
     }
     100% {
     	opacity: 1;
