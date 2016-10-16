@@ -10,4 +10,15 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 abstract class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function callAction($method, $parameters)
+    {
+    	try {
+    		return Parent::callAction($method, $parameters);
+    	} catch (\Exception $e) {
+    		return array(
+    			'error' => $e->getMessage()
+    		);
+    	}
+    }
 }

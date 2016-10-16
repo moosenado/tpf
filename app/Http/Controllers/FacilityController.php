@@ -29,6 +29,10 @@ class FacilityController extends Controller
 
         
         $facilities = Facility::sortFacilitiesByDistance($facilities, $your_location);
+
+        if (!$facilities) {
+            throw new \Exception('No facilities match criteria');
+        }
         
 
     	return $facilities;
