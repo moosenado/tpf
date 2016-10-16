@@ -14,7 +14,6 @@ class FacilityController extends Controller
     {
         $data = $request->all();
 
-        //TODO: need to create customer request validator
     	$query = new Facility();
         $parks_data = explode(',', $data['facilities']);
 
@@ -28,9 +27,9 @@ class FacilityController extends Controller
         $your_location[] = trim($data['lat']);
         $your_location[] = trim($data['lng']);
 
-        if (count($your_location)) {
-            $facilities = Facility::sortFacilitiesByDistance($facilities, $your_location);
-        }
+        
+        $facilities = Facility::sortFacilitiesByDistance($facilities, $your_location);
+        
 
     	return $facilities;
     }
