@@ -15,12 +15,14 @@ class FacilityController extends Controller
         $data = $request->all();
 
     	$query = new Facility();
-        $parks_data = explode(',', $data['facilities']);
+        if (isset($data['facilities'])) {
+            $parks_data = explode(',', $data['facilities']);
 
-    	foreach($parks_data as $park) {
-    		$query = $query->where($park, true);
-    	}
-
+            foreach($parks_data as $park) {
+                $query = $query->where($park, true);
+            }
+        }
+        
     	$facilities = $query->get();
 
         $your_location = array();
