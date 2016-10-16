@@ -19,7 +19,7 @@ class FacilityController extends Controller
             $parks_data = explode(',', $data['facilities']);
 
             foreach($parks_data as $park) {
-                $query = $query->where($park, true);
+                $query = $query->where(trim($park), true);
             }
         }
         
