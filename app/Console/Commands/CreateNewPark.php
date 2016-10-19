@@ -66,7 +66,7 @@ class CreateNewPark extends Command
     private function setFacilityType($new_facility, $value)
     {
         switch ($value) {
-            case 'Wading Pool':
+            case 'Pool':
             case 'Outdoor Pool':
             case 'Indoor Pool':
                 $new_facility->pool = true;
@@ -159,7 +159,56 @@ class CreateNewPark extends Command
             case 'Computer/Training Room':
                 $new_facility->computer_training_room = true;
                 break;
+
+            case 'Amphitheatre':
+                $new_facility->amphitheatre = true;
+                break;
+
+            case 'Auditorium':
+                $new_facility->auditorium = true;
+                break;
+
+            case 'Coat Check Room':
+                $new_facility->coat_check_room = true;
+                break;
+
+            case 'Craft Room':
+                $new_facility->craft_room = true;
+                break;
+
+            case 'Curling Rink':
+                $new_facility->curling_rink = true;
+                break;
+
+            case 'Farm Display':
+                $new_facility->farm = true;
+                break;
+
+            case 'Gallery':
+                $new_facility->gallery = true;
+                break;
+
+            case 'Indoor Dry Pad':
+                $new_facility->indoor_dry_pad = true;
+                break;
+
+            case 'Indoor Rink':
+                $new_facility->indoor_rink = true;
+                break;
+
+            case 'Proshop':
+                $new_facility->proshop = true;
+                break;
+
+            case 'Stadium':
+                $new_facility->stadium = true;
+                break;
+
+            case 'Wading Pool':
+                $new_facility->wading_pool = true;
+                break;
         }
+        
         return $new_facility;
     }
 

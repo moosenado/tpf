@@ -272,7 +272,7 @@ var TpfHome = ( function ()
 			};
 
 	    $.ajax({
-	        url     : document.location.origin + '/~bowjia5/moosenado.com/tpf/public/getparks',
+	        url     : document.location.origin + '/t--p--f/public/facilities?lat=23&lng=453&facilities=pool,fire_pit,etc',
 	        type    : 'GET',
 	        data    : ajax_params,
 	        dataType: 'JSON',

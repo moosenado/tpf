@@ -53,11 +53,11 @@
 
 					<ul id="park-list">
 
-						@foreach( $facilities as $park )
+						@foreach( $facilities as $facility )
 
-							<li id="{{ $park->park_id }}" class="li-bg" data-parkval="{{ $park->park_val }}" data-parkvaloffish="{{ $park->facility }}" data-selected="0">
+							<li id="{{ $facility['id'] }}" class="li-bg" data-parkval="{{ $facility['file_name'] }}" data-parkvaloffish="{{ $facility['nice_name'] }}" data-selected="0">
 								<div class="li-overlay-white"></div>
-								<p> {{ $park->facility }} </p>
+								<p> {{ $facility['nice_name'] }} </p>
 								<object class="svg-check" type="image/svg+xml" data="{{ URL::to('/') }}/images/check.svg"></object>
 							</li>
 
