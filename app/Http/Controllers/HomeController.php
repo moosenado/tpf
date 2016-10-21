@@ -20,7 +20,8 @@ class HomeController extends Controller
     	{
     		$facilities[$key]['id'] = $key;
     		$facilities[$key]['file_name'] = str_replace('_', '', $facility);
-    		$facilities[$key]['nice_name'] = str_replace('_', ' ', $facility);
+    		$facilities[$key]['query_name'] = $facility;
+    		$facilities[$key]['nice_name'] = ucwords(str_replace('_', ' ', $facility));
     	}
 
 		usort($facilities, function($a, $b){

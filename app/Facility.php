@@ -34,13 +34,14 @@ class Facility extends Model
 		}
 
 		$comparison = array();
+        $facilities = $facilities->ToArray();
 
 		foreach ( $facilities as $key => $row )
 		{
-			$comparison[ $key ] = $row->distance;
+			$comparison[ $key ] = $row['distance'];
 		}
 
-		array_multisort($comparison, SORT_ASC, $facilities->toArray());
+		array_multisort($comparison, SORT_ASC, $facilities);
 
 		return $facilities;
     }

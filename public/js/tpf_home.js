@@ -120,7 +120,7 @@ var TpfHome = ( function ()
 
 	var _addToParkList = function ( park_choice, clicked_id )
 	{
-		var selected_attr = park_choice.getAttribute( 'data-parkvaloffish' );
+		var selected_attr = park_choice.getAttribute( 'data-nicename' );
 
 		$( '.chosen-park-list' ).css({'display':'block'});
 
@@ -265,14 +265,13 @@ var TpfHome = ( function ()
 	{
 		var all_parks   = ( typeof all_parks == 'undefined' ) ? false : all_parks,
 			ajax_params = {
-				_token        : CSRF_TOKEN,
-	            facility_array: _facility_selection_array,
-	            lnglat_array  : lnglat_array,
-				all_parks     : all_parks
+				lat: lnglat_array[0],
+				lng: lnglat_array[1],
+	            facilities: _facility_selection_array.join(",")
 			};
 
 	    $.ajax({
-	        url     : document.location.origin + '/t--p--f/public/facilities?lat=23&lng=453&facilities=pool,fire_pit,etc',
+	        url     : document.location.origin + '/t--p--f/public/facilities',
 	        type    : 'GET',
 	        data    : ajax_params,
 	        dataType: 'JSON',
@@ -363,7 +362,7 @@ var TpfHome = ( function ()
 	{
 		_displayLoadingScreen( $loadingscreen_small );
 
-		var park_name = _filterParkNameForQuery( current_park_selection_data[park_selection_index]['parkname'] );
+		var park_name = _filterParkNameForQuery( current_park_selection_data[park_selection_index]['name'] );
 
 		$(".park-images-ul ul").empty(); // empty previous event handlers/element data
 
@@ -463,7 +462,7 @@ var TpfHome = ( function ()
 		current_park_selection_data.map( function ( park, i )
 		{
 			$(".park-distance-ul ul").append(
-				"<li class='distance-item' data-selection-number='" + i + "' data-lat='" + park['lat'] + "' data-lng='" + park['lng'] + "' data-parkname='" + park['parkname'] + "' data-address='" + park['address'] + "' data-phonenumber='" + park['phonenumber'] + "' data-postalcode='" + park['postalcode'] + "'><div class='number-overlay'>" + (i + 1) + "</div><div class='number'><strong>" + (i + 1) + "</strong> <i class='fa fa-angle-right fa-styling' aria-hidden='true'></i> <span style='opacity: .8;'>" + park['parkname'] + "</span></div></li>"
+				"<li class='distance-item' data-selection-number='" + i + "' data-lat='" + park['latitude'] + "' data-lng='" + park['longitude'] + "' data-parkname='" + park['name'] + "' data-address='" + park['address'] + "' data-phonenumber='" + park['phone'] + "' data-postalcode='" + park['postal_code'] + "'><div class='number-overlay'>" + (i + 1) + "</div><div class='number'><strong>" + (i + 1) + "</strong> <i class='fa fa-angle-right fa-styling' aria-hidden='true'></i> <span style='opacity: .8;'>" + park['name'] + "</span></div></li>"
 			);
 		});
 
@@ -497,16 +496,16 @@ var TpfHome = ( function ()
 
 	var _displayParkData = function ( park_selection_index )
 	{
-		var data_check       = ['address', 'phonenumber', 'postalcode'],
+		var data_check       = ['address', 'phone', 'postal_code'],
 			data_check_count = data_check.length,
-			directions_url   = "https://www.google.com/maps/dir/" + lnglat_array[0] + "," + lnglat_array[1] + "/" + current_park_selection_data[park_selection_index]['lat'] + "," + current_park_selection_data[park_selection_index]['lng'],
-			uber_url         = "uber://?action=setPickup&pickup=my_location&dropoff[latitude]=" + current_park_selection_data[park_selection_index]['lat'] + "&dropoff[longitude]=" + current_park_selection_data[park_selection_index]['lng'] + "&dropoff[formatted_address]=" + current_park_selection_data[park_selection_index]['address'],
+			directions_url   = "https://www.google.com/maps/dir/" + lnglat_array[0] + "," + lnglat_array[1] + "/" + current_park_selection_data[park_selection_index]['latitude'] + "," + current_park_selection_data[park_selection_index]['longitude'],
+			uber_url         = "uber://?action=setPickup&pickup=my_location&dropoff[latitude]=" + current_park_selection_data[park_selection_index]['latitude'] + "&dropoff[longitude]=" + current_park_selection_data[park_selection_index]['longitude'] + "&dropoff[formatted_address]=" + current_park_selection_data[park_selection_index]['address'],
 			tel = '', tel_close = '', count = 0,
 			data_object_instance = current_park_selection_data;
 
-		if ( current_park_selection_data[park_selection_index]['phonenumber'] !== '' )
+		if ( current_park_selection_data[park_selection_index]['phone'] !== '' )
 		{
-			tel       = '<a href="tel:' + current_park_selection_data[park_selection_index]['phonenumber'] + '">',
+			tel       = '<a href="tel:' + current_park_selection_data[park_selection_index]['phone'] + '">',
 			tel_close = '</a>';
 		}
 
@@ -521,10 +520,10 @@ var TpfHome = ( function ()
 
 			if ( count === (data_check_count) )
 			{
-				$( "#park-info-name" ).empty().html( current_park_selection_data[park_selection_index]['parkname'] );
+				$( "#park-info-name" ).empty().html( current_park_selection_data[park_selection_index]['name'] );
 				$( "#park-info-address" ).empty().html( '<i class="fa fa-map-marker fa-styling" aria-hidden="true"></i> ' + current_park_selection_data[park_selection_index]['address'] );
-				$( "#park-info-phonenumber" ).empty().html( '<i class="fa fa-phone fa-styling" aria-hidden="true"></i> ' + tel + current_park_selection_data[park_selection_index]['phonenumber'] + tel_close );
-				$( "#park-info-postalcode" ).empty().html( '<i class="fa fa-home fa-styling" aria-hidden="true"></i> ' + current_park_selection_data[park_selection_index]['postalcode'] );
+				$( "#park-info-phonenumber" ).empty().html( '<i class="fa fa-phone fa-styling" aria-hidden="true"></i> ' + tel + current_park_selection_data[park_selection_index]['phone'] + tel_close );
+				$( "#park-info-postalcode" ).empty().html( '<i class="fa fa-home fa-styling" aria-hidden="true"></i> ' + current_park_selection_data[park_selection_index]['postal_code'] );
 				$( "#park-info-etc #directions").attr( 'href', directions_url );
 				$( "#park-info-etc #uber").attr( 'href', uber_url );
 			}
@@ -551,7 +550,7 @@ var TpfHome = ( function ()
 	    for (i = 0; i < current_park_selection_data.length; i++)
 	    {
 	     	marker = new google.maps.Marker({
-	        	position: new google.maps.LatLng( current_park_selection_data[i]["lat"], current_park_selection_data[i]["lng"] ),
+	        	position: new google.maps.LatLng( current_park_selection_data[i]["latitude"], current_park_selection_data[i]["longitude"] ),
 	        	map     : map
 	      	});
 
@@ -559,7 +558,7 @@ var TpfHome = ( function ()
 	      	{
 	       		return function()
 	       		{
-	        		infowindow.setContent( current_park_selection_data[i]["parkname"] );
+	        		infowindow.setContent( current_park_selection_data[i]["name"] );
 	        		infowindow.open( map, marker );
 	        	}
 	      	})( marker, i ) );
@@ -572,7 +571,7 @@ var TpfHome = ( function ()
 	{
 		var reset_viewport = ( typeof reset_viewport === 'undefined' ) ?  false : true,
     		start          = new google.maps.LatLng( lnglat_array[0], lnglat_array[1] ),
-        	end            = new google.maps.LatLng( current_park_selection_data[park_selection_index]["lat"], current_park_selection_data[park_selection_index]["lng"] );
+        	end            = new google.maps.LatLng( current_park_selection_data[park_selection_index]["latitude"], current_park_selection_data[park_selection_index]["longitude"] );
 
         if ( reset_viewport )
 		{
