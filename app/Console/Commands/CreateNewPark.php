@@ -89,7 +89,7 @@ class CreateNewPark extends Command
                 break;
 
             case 'Kitchen':
-                $new_facility->kitchen - true;
+                $new_facility->kitchen = true;
                 break;
 
             case 'Outdoor Dry Pad':
@@ -120,7 +120,7 @@ class CreateNewPark extends Command
                 $new_facility->fitness_room = true;
                 break;
 
-            case 'Dogg Off-Leash Area':
+            case 'Dogs Off-Leash Area':
                 $new_facility->dog_park = true;
                 break;
 
@@ -196,7 +196,7 @@ class CreateNewPark extends Command
                 $new_facility->indoor_rink = true;
                 break;
 
-            case 'Proshop':
+            case 'ProShop':
                 $new_facility->proshop = true;
                 break;
 
