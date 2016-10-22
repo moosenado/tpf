@@ -496,38 +496,28 @@ var TpfHome = ( function ()
 
 	var _displayParkData = function ( park_selection_index )
 	{
-		var data_check       = ['address', 'phone', 'postal_code'],
-			data_check_count = data_check.length,
-			directions_url   = "https://www.google.com/maps/dir/" + lnglat_array[0] + "," + lnglat_array[1] + "/" + current_park_selection_data[park_selection_index]['latitude'] + "," + current_park_selection_data[park_selection_index]['longitude'],
-			uber_url         = "uber://?action=setPickup&pickup=my_location&dropoff[latitude]=" + current_park_selection_data[park_selection_index]['latitude'] + "&dropoff[longitude]=" + current_park_selection_data[park_selection_index]['longitude'] + "&dropoff[formatted_address]=" + current_park_selection_data[park_selection_index]['address'],
-			tel = '', tel_close = '', count = 0,
-			data_object_instance = current_park_selection_data;
+		var phone_number   = current_park_selection_data[park_selection_index]['phone'],
+			directions_url = "https://www.google.com/maps/dir/" + lnglat_array[0] + "," + lnglat_array[1] + "/" + current_park_selection_data[park_selection_index]['latitude'] + "," + current_park_selection_data[park_selection_index]['longitude'],
+			uber_url       = "uber://?action=setPickup&pickup=my_location&dropoff[latitude]=" + current_park_selection_data[park_selection_index]['latitude'] + "&dropoff[longitude]=" + current_park_selection_data[park_selection_index]['longitude'] + "&dropoff[formatted_address]=" + current_park_selection_data[park_selection_index]['address'],
+			tel            = '',
+			tel_close      = '';
 
-		if ( current_park_selection_data[park_selection_index]['phone'] !== '' )
+		if ( phone_number !== '' )
 		{
 			tel       = '<a href="tel:' + current_park_selection_data[park_selection_index]['phone'] + '">',
 			tel_close = '</a>';
 		}
-
-		for ( var i = 0; i < data_check_count; i++ )
+		else
 		{
-			if ( current_park_selection_data[park_selection_index][data_check[i]] === '' )
-			{
-				current_park_selection_data[park_selection_index][data_check[i]] = 'N/A';
-			}
-
-			count++
-
-			if ( count === (data_check_count) )
-			{
-				$( "#park-info-name" ).empty().html( current_park_selection_data[park_selection_index]['name'] );
-				$( "#park-info-address" ).empty().html( '<i class="fa fa-map-marker fa-styling" aria-hidden="true"></i> ' + current_park_selection_data[park_selection_index]['address'] );
-				$( "#park-info-phonenumber" ).empty().html( '<i class="fa fa-phone fa-styling" aria-hidden="true"></i> ' + tel + current_park_selection_data[park_selection_index]['phone'] + tel_close );
-				$( "#park-info-postalcode" ).empty().html( '<i class="fa fa-home fa-styling" aria-hidden="true"></i> ' + current_park_selection_data[park_selection_index]['postal_code'] );
-				$( "#park-info-etc #directions").attr( 'href', directions_url );
-				$( "#park-info-etc #uber").attr( 'href', uber_url );
-			}
+			phone_number = 'N/A';
 		}
+
+		$( "#park-info-name" ).empty().html( current_park_selection_data[park_selection_index]['name'] );
+		$( "#park-info-address" ).empty().html( '<i class="fa fa-map-marker fa-styling" aria-hidden="true"></i> ' + current_park_selection_data[park_selection_index]['address'] );
+		$( "#park-info-phonenumber" ).empty().html( '<i class="fa fa-phone fa-styling" aria-hidden="true"></i> ' + tel + phone_number + tel_close );
+		$( "#park-info-postalcode" ).empty().html( '<i class="fa fa-home fa-styling" aria-hidden="true"></i> ' + current_park_selection_data[park_selection_index]['postal_code'] );
+		$( "#park-info-etc #directions").attr( 'href', directions_url );
+		$( "#park-info-etc #uber").attr( 'href', uber_url );
 	};
 
 	var _openGoogleMaps = function ()
