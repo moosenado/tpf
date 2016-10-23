@@ -105,13 +105,12 @@ body {
 
 
 #find-all {
-	background         :  url(../../../public/images/allparks.jpg) no-repeat left center;
+	background         :  url(../../../public/images/allparks.jpg) no-repeat;
 	background-size    : 100%;
-	background-position: center;
+	background-position: 100% 40%;
 
 	@media ( min-width: $screen-sm ) {
-		width                : 640px;
-		background-position-y: -200px; /* to show trees in image */
+		width: 640px;
 	}
 }
 
