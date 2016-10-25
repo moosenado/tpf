@@ -91,7 +91,7 @@ class FacilityController extends Controller
 
             $park_image_content = curl_exec($ch);
 
-            self::cacheData($park_cache_name, $park_image_content, 'string', 10);
+            self::cacheData($park_cache_name, $park_image_content, 'string', 20160); // cache for two weeks
 
             return $park_image_content;
         }
