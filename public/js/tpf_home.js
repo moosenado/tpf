@@ -352,10 +352,10 @@ var TpfHome = ( function ()
 				final_word = '%20Toronto%20Community%20Housing';
 			break;
 			default:
-				return park_name + '%20Toronto';
+				return encodeURIComponent(park_name.trim()) + '%20Toronto';
 		}
 
-		return park_name_no_abbrev + final_word + '%20Toronto';
+		return encodeURIComponent(park_name_no_abbrev.trim()) + final_word + '%20Toronto';
 	};
 
 	var _getBingImages = function ( park_selection_index )
@@ -366,28 +366,22 @@ var TpfHome = ( function ()
 
 		$(".park-images-ul ul").empty(); // empty previous event handlers/element data
 
-		$( function ()
-		{
-	        $.ajax({
-	            url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=" + park_name + "&count=20&size=medium",
-	            beforeSend: function(xhrObj){
-	                xhrObj.setRequestHeader("Content-Type","multipart/form-data");
-	                xhrObj.setRequestHeader("Retry-After","5");
-	                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","d94b9ad51f0c422787649f57c7d68468");
-	            },
-	            type: "POST",
-	        })
-	        .done( function ( data )
+	    $.ajax({
+	        url     : document.location.origin + '/t--p--f/public/bingimages',
+	        type    : 'GET',
+	        data    : { park: park_name },
+	        dataType: 'JSON',
+	        success : function ( data )
 	        {
+	        	console.log(data);
 	        	_removeLoadingScreen( $loadingscreen_small );
 	        	_displayParkImages( data );
 	        	console.log( data );
-	        })
-	        .fail( function ()
-	        {
+	        },
+	        error: function ( e ) {
 	        	_removeLoadingScreen( $loadingscreen_small );
-	            alert( "error" );
-	        });
+	            console.log( e );
+	        }
 	    });
 	};
 

@@ -7,7 +7,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Facility;
 use App\Http\Requests\GetFacilitiesRequest;
+use App\Http\Requests\GetBingImagesRequest;
 use Illuminate\Support\Facades\Cache;
+use URL;
 
 class FacilityController extends Controller
 {
@@ -32,22 +34,18 @@ class FacilityController extends Controller
                 }
 
                 $facilities = $query->get();
+
+                self::cacheData($data['facilities'], $facilities, 'json', 10);
             }
             else
             {
                 $facilities = $query->all();
-            }
 
-            if ($facilities->isEmpty()) {
-                throw new \Exception('No facilities match criteria');
-            }
-            else
-            {
-                Cache::store('database')->put($data['facilities'], $facilities, 10);
+                self::cacheData($data['facilities'], $facilities, 'json', 10);
             }
         }
 
-        $your_location = array();
+        $your_location   = array();
         $your_location[] = trim($data['lat']);
         $your_location[] = trim($data['lng']);
 
@@ -65,5 +63,57 @@ class FacilityController extends Controller
         }
 
         return $facility;
+    }
+
+    public function getParkImages(GetBingImagesRequest $request)
+    {
+        $data            = $request->all();
+        $park_name       = utf8_encode($data['park']);
+        $park_cache_name = str_replace("%20","_",$park_name);
+
+        if (Cache::store('database')->has($park_cache_name))
+        {
+            return Cache::store('database')->get($park_cache_name);
+        }
+        else
+        {
+            $sURL = "https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=".$park_name."&count=20&size=medium";
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $sURL); 
+            curl_setopt($ch, CURLOPT_TIMEOUT, '5'); 
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                'Content-Type: multipart/form-data',
+                'Ocp-Apim-Subscription-Key: d94b9ad51f0c422787649f57c7d68468'
+            ));
+
+            $park_image_content = curl_exec($ch);
+
+            self::cacheData($park_cache_name, $park_image_content, 'string', 10);
+
+            return $park_image_content;
+        }
+    }
+
+    public static function cacheData($key, $data, $type = 'json', $time)
+    {
+        switch ($type)
+        {
+            case 'json':
+                $data_check = $data->isEmpty();
+            break;
+            case 'string':
+                $data_check = empty($data);
+            break;
+        }
+        if ($data_check) {
+            throw new \Exception('Nothing matches search criteria');
+        }
+        else
+        {
+            Cache::store('database')->put($key, $data, $time);
+        }
     }
 }

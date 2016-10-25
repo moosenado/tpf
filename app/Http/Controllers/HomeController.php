@@ -10,8 +10,8 @@ use DB;
 
 class HomeController extends Controller
 {
-    public function index() {
-
+    public function index()
+    {
     	$table_columns   = DB::getSchemaBuilder()->getColumnListing('facilities');
     	$facilities_init = array_slice($table_columns,10);
     	$facilities      = array();

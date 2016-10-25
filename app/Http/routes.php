@@ -19,3 +19,6 @@ Route::get('/findpark', 'HomeController@index'); //redirect to homepage
 Route::get('facilities', 'FacilityController@getFacilities');
 Route::get('facilities/{id}', 'FacilityController@getFacility');
 
+/*Park Images*/
+Route::get('bingimages', 'FacilityController@getParkImages');
+
