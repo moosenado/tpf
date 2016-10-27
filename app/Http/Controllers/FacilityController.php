@@ -90,10 +90,17 @@ class FacilityController extends Controller
             ));
 
             $park_image_content = curl_exec($ch);
+            $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-            self::cacheData($park_cache_name, $park_image_content, 'string', 20160); // cache for two weeks
-
-            return $park_image_content;
+            if( $http_status != 200 )
+            {
+                return $http_status;
+            }
+            else
+            {
+                self::cacheData($park_cache_name, $park_image_content, 'string', 20160); // cache for two weeks
+                return $park_image_content;
+            }
         }
     }
 
