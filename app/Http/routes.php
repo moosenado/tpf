@@ -13,7 +13,7 @@
 
 /* INDEX */
 Route::get('/', 'HomeController@index');
-Route::get('/findpark', 'HomeController@index'); //redirect to homepage
+Route::get('/nearme', 'HomeController@index'); //redirect to homepage
 
 /*Facilities resource calls*/
 Route::get('facilities', 'FacilityController@getFacilities');

@@ -25,7 +25,7 @@
 								s28.984-31.173,75.656-40.332C105.983,177.904,120.97,182.916,120.97,182.916z"/>
 						</g>
 					</svg>
-					<h1 class="title"> TORONTO PARK LOCATOR </h1>
+					<h1 class="title"> TORONTO PARKS NEAR ME </h1>
 					<div class="clearfix"></div>
 				</div>
 				<div class="clearfix"></div>
@@ -107,7 +107,7 @@
 				</g>
 			</svg>
 			<div class="text">
-				<p class="loading-text">LOCATING</p>
+				<p class="loading-text"> LOCATING </p>
 			</div>
 
 		</div>
@@ -162,8 +162,8 @@
 			<li id="park-info-postalcode"></li>
 		</ul>
 		<div id="park-info-etc">
-			<i class="fa fa-compass fa-styling" aria-hidden="true"></i> <a id="directions" href="" target="_blank">Get Directions</a>
-			<img class="image-bullet-point" src="{{ URL::to('/') }}/images/uber_logo.png"/> <a id="uber" href="" target="_blank">Get An Uber</a>
+			<i class="fa fa-compass fa-styling" aria-hidden="true"></i> <a id="directions" href="" target="_blank"> Get Directions </a>
+			<img class="image-bullet-point" src="{{ URL::to('/') }}/images/uber_logo.png"/> <a id="uber" href="" target="_blank"> Get An Uber </a>
 		</div>
 	</div>
 

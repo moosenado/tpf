@@ -229,7 +229,7 @@ header {
 .reset-btn {
 	position        : fixed;
 	bottom          : 15px;
-	right           : 64px;
+	right           : 66px;
 	display         : none;
 	width           : 33px;
 	height          : 33px;
@@ -265,7 +265,7 @@ header {
 .fire-btn {
 	position        : fixed;
 	bottom          : 15px;
-	right           : 10px;
+	right           : 12px;
 	display         : none;
 	width           : 50px;
 	height          : 50px;
@@ -289,7 +289,7 @@ header {
 .fire-btn-shadow {
 	position          : fixed;
 	bottom            : 15px;
-	right             : 10px;
+	right             : 12px;
 	display           : none;
 	width             : 50px;
 	height            : 50px;
@@ -304,7 +304,7 @@ header {
 .reset-btn-shadow {
 	position          : fixed;
 	bottom            : 15px;
-	right             : 64px;
+	right             : 66px;
 	display           : none;
 	width             : 33px;
 	height            : 33px;
@@ -602,20 +602,10 @@ header {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
 	opacity: .9;
 
-	@media (min-width: $screen-sm)
-	{
-		right: 12px;
-	}
-
     ul {
     	padding: 0;
     	margin: 0;
-	    padding: 10px 10px 10px 40px;
-
-    	@media (min-width: $screen-sm)
-		{
-			padding: 10px 0 10px 40px;
-		}
+	    padding: 10px 14px 10px 40px;
 
     	li {
     		text-align: right;

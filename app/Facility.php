@@ -13,7 +13,7 @@ class Facility extends Model
      */
     protected $table = 'facilities';
 
-    public static function sortFacilitiesByDistance($facilities, $your_location)
+    public static function sortFacilitiesByDistance( $facilities, $your_location )
     {
     	$count = count( $facilities );
 
@@ -41,7 +41,7 @@ class Facility extends Model
 			$comparison[ $key ] = $row['distance'];
 		}
 
-		array_multisort($comparison, SORT_ASC, $facilities);
+		array_multisort( $comparison, SORT_ASC, $facilities );
 
 		return $facilities;
     }

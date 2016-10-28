@@ -373,7 +373,6 @@ var TpfHome = ( function ()
 	        dataType: 'JSON',
 	        success : function ( data )
 	        {
-	        	console.log(data);
 	        	_removeLoadingScreen( $loadingscreen_small );
 	        	_displayParkImages( data );
 	        	console.log( data );
@@ -445,7 +444,7 @@ var TpfHome = ( function ()
   	{
   		if ( history.pushState )
   		{
-			history.pushState( { data: current_park_selection_data }, null );
+			history.pushState( { data: current_park_selection_data }, null, 'nearme' );
 		}
 	};
 
