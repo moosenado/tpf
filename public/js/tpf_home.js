@@ -71,7 +71,7 @@ var TpfHome = ( function ()
 		find_all.addEventListener( 'click', function () {
 
 			_displayLoadingScreen( $loadingscreen );
-			_getUserLocation( _getParksFromDB, facility_selection_array, true );
+			_getUserLocation( _getParksFromDB, facility_selection_array );
 
 		}, false );
 	};
@@ -98,8 +98,21 @@ var TpfHome = ( function ()
 		});
 	};
 
+	var checkHistoryState = function ()
+	{
+		var current_state = history.state;
 
-	// After load - handle user events
+		if ( current_state !== null )
+		{
+			current_park_selection_data = current_state.data;
+			lnglat_array                = current_state.location;
+
+			_performPageTransition();
+		}
+	};
+
+
+	// After Init load - handle user events
 
 	var _setSelectionStyles = function ( park_choice )
 	{
@@ -181,7 +194,7 @@ var TpfHome = ( function ()
 		loading_screen.removeClass('ani-fadeInZindex').addClass('ani-fadeOutZindex');
 	};
 
-	var _getUserLocation = function ( callback, facility_selection_array, all_parks )
+	var _getUserLocation = function ( callback, facility_selection_array )
 	{
 		var yourLat,
 			yourLng;
@@ -195,7 +208,7 @@ var TpfHome = ( function ()
 
 			lnglat_array.push( lat, lng );
 
-			callback( facility_selection_array, all_parks );
+			callback( facility_selection_array );
 		}
 
 		if ( navigator.geolocation )
@@ -261,14 +274,13 @@ var TpfHome = ( function ()
 
 	// AJAX
 
-	var _getParksFromDB = function ( _facility_selection_array, all_parks )
+	var _getParksFromDB = function ( _facility_selection_array )
 	{
-		var all_parks   = ( typeof all_parks == 'undefined' ) ? false : all_parks,
-			ajax_params = {
-				lat: lnglat_array[0],
-				lng: lnglat_array[1],
-	            facilities: _facility_selection_array.join(",")
-			};
+		var ajax_params = {
+			lat       : lnglat_array[0],
+			lng       : lnglat_array[1],
+            facilities: _facility_selection_array.join(",")
+		};
 
 	    $.ajax({
 	        url     : document.location.origin + '/t--p--f/public/facilities',
@@ -444,7 +456,10 @@ var TpfHome = ( function ()
   	{
   		if ( history.pushState )
   		{
-			history.pushState( { data: current_park_selection_data }, null, 'nearme' );
+			history.pushState( {
+				data    : current_park_selection_data,
+				location: lnglat_array
+			}, null, 'nearme' );
 		}
 	};
 
@@ -516,11 +531,13 @@ var TpfHome = ( function ()
 	var _openGoogleMaps = function ()
 	{
 		var marker, i;
+
 	    map = new google.maps.Map( document.getElementById( "google-map" ), {
 	      zoom     : 12,
 	      center   : new google.maps.LatLng( lnglat_array[0], lnglat_array[1] ),
 	      mapTypeId: google.maps.MapTypeId.ROADMAP
 	    });
+
 		var infowindow    = new google.maps.InfoWindow();
 		directionsDisplay = new google.maps.DirectionsRenderer({
       		preserveViewport: true
@@ -649,13 +666,17 @@ var TpfHome = ( function ()
 		attachFindAll       : attachFindAll,
 		attachEventListeners: attachEventListeners,
 		attachGoClick       : attachGoClick,
-		attachResetClick    : attachResetClick
+		attachResetClick    : attachResetClick,
+		checkHistoryState   : checkHistoryState
 	}
 
 })();
+
+// ON LOAD
 
 TpfHome.populateImages();
 TpfHome.attachEventListeners();
 TpfHome.attachFindAll();
 TpfHome.attachGoClick();
 TpfHome.attachResetClick();
+TpfHome.checkHistoryState();

@@ -16,7 +16,7 @@ class HomeController extends Controller
     	$facilities_init = array_slice( $table_columns, 10 );
     	$facilities      = array();
 
-    	foreach($facilities_init as $key => $facility)
+    	foreach( $facilities_init as $key => $facility )
     	{
     		$facilities[$key]['id']         = $key;
     		$facilities[$key]['file_name']  = str_replace( '_', '', $facility );
