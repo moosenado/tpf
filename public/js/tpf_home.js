@@ -13,6 +13,7 @@ var TpfHome = ( function ()
 		on_home_page             = true, //handle correct page transition
 		$loadingscreen           = $('.loading-screen'),
 		$loadingscreen_small     = $('.loading-screen-small'),
+		selection_index          = 0,
 		directionsDisplay,
 		directionsService,
 		current_park_selection_data,
@@ -57,7 +58,7 @@ var TpfHome = ( function ()
   			{
 				window.addEventListener( "popstate", function ( e )
 				{
-					_performPageTransition();
+					checkHistoryState();
 
 				}, false );
 			}, 0 ); // to stop older webkit browsers from adding pushstate event on page load
@@ -106,7 +107,14 @@ var TpfHome = ( function ()
 		{
 			current_park_selection_data = current_state.data;
 			lnglat_array                = current_state.location;
+			selection_index             = current_state.checkpoint;
 
+			on_home_page = true;
+			_performPageTransition();
+		}
+		else
+		{
+			on_home_page = false;
 			_performPageTransition();
 		}
 	};
@@ -199,6 +207,12 @@ var TpfHome = ( function ()
 		var yourLat,
 			yourLng;
 
+		var geo_options = {
+			enableHighAccuracy: false,
+		    timeout: 7500,
+		    maximumAge: 0
+		};
+
 		function __getPosition( position )
 		{
 			lnglat_array = [];
@@ -215,7 +229,7 @@ var TpfHome = ( function ()
 		{
 			navigator.geolocation.getCurrentPosition( __getPosition, function () {
 				_removeLoadingScreen( $loadingscreen );
-			});
+			}, geo_options );
 		}
 		else
 		{
@@ -410,7 +424,6 @@ var TpfHome = ( function ()
 	{
 		if ( on_home_page )
 		{
-			// do transistion here and launch new page with callback
 			$(".li-bg").removeClass("ani-right").addClass("ani-left"); // remove all park images
 			$(".title").removeClass("ani-fadeIn").addClass("ani-fadeOut"); //fade out page title
 			$(".sub-title").removeClass("ani-fadeIn").addClass("ani-fadeOut"); //fade out sub title
@@ -448,18 +461,21 @@ var TpfHome = ( function ()
 	{
 		_openGoogleMaps();
 		_displayParkNav();
-		_displayParkData( 0 ); // 0 for first park in line
-		_getBingImages( 0 );
+		_displayParkData( selection_index ); // 0 initially
+		_getBingImages( selection_index ); // 0 initially
 	};
 
-	var _updateUrl = function ()
+	var _updateUrl = function ( checkpoint )
   	{
+  		var checkpoint_selected = (typeof checkpoint === 'undefined') ? 0 : checkpoint;
+
   		if ( history.pushState )
   		{
 			history.pushState( {
-				data    : current_park_selection_data,
-				location: lnglat_array
-			}, null, 'nearme' );
+				data      : current_park_selection_data,
+				location  : lnglat_array,
+				checkpoint: checkpoint_selected
+			}, null, 'nearme?q=' + checkpoint_selected );
 		}
 	};
 
@@ -482,13 +498,13 @@ var TpfHome = ( function ()
 		    distance_class[i].addEventListener( 'click', _reRenderParkSelection, false );
 		}
 
-		distance_class[0].classList.add( "park-selected" );
-		distance_class[0].classList.add( "park-selected-official" );
+		distance_class[selection_index].classList.add( "park-selected" ); // 0 initially
+		distance_class[selection_index].classList.add( "park-selected-official" ); // 0 initially
 	};
 
 	var _reRenderParkSelection = function ()
 	{
-		var selection_index = parseInt( this.getAttribute( "data-selection-number" ) );
+		selection_index = parseInt( this.getAttribute( "data-selection-number" ) );
 
 		$( ".park-distance-ul>ul>li.park-selected-official" ).removeClass( "park-selected-official" );
 		$( ".park-distance-ul>ul>li>.number-zoom" ).removeClass( "number-zoom" );
@@ -500,6 +516,8 @@ var TpfHome = ( function ()
 		_displayParkData( selection_index );
 		_getBingImages( selection_index );
 		map.getStreetView().setVisible( false ); // exit out of street view on new park selection
+
+		_updateUrl( selection_index );
 	};
 
 	var _displayParkData = function ( park_selection_index )
@@ -564,7 +582,7 @@ var TpfHome = ( function ()
 	      	})( marker, i ) );
 	    }
 
-	    _calculateAndDisplayRout( 0 );
+	    _calculateAndDisplayRout( selection_index ); // 0 initially
 	};
 
 	var _calculateAndDisplayRout = function ( park_selection_index, reset_viewport )

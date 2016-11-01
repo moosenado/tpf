@@ -98,7 +98,7 @@ class FacilityController extends Controller
             }
             else
             {
-                self::cacheData( $park_cache_name, $park_image_content, 'string', 20160 ); // cache for two weeks
+                self::cacheData( $park_cache_name, $park_image_content, 'string', 43800 ); // cache for one month
                 return $park_image_content;
             }
         }
