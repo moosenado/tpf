@@ -114,6 +114,11 @@
 
 	</div>
 
+	<div id="location-fail" class="loading-screen-fail">
+		<div class="overlay"></div>
+		<p class="loading-text-fail"><strong> Still Waiting? </strong><br/> Please refresh the page and try again. </p>
+	</div>
+
 </div>
 
 <div id="find-parks-page">

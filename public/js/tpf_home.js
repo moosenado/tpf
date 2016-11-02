@@ -119,6 +119,13 @@ var TpfHome = ( function ()
 		}
 	};
 
+	var loadCheckmarkInit = function ()
+	{
+		var checkmark = 'https://www.parkstoronto.ca/images/check.svg';
+
+		(new Image()).src = checkmark;
+	};
+
 
 	// After Init load - handle user events
 
@@ -205,35 +212,48 @@ var TpfHome = ( function ()
 	var _getUserLocation = function ( callback, facility_selection_array )
 	{
 		var yourLat,
-			yourLng;
+			yourLng,
+			timeout = 7500;
 
 		var geo_options = {
 			enableHighAccuracy: false,
-		    timeout: 7500,
+		    timeout: timeout,
 		    maximumAge: 0
 		};
 
-		function __getPosition( position )
-		{
-			lnglat_array = [];
-
-			var lat = ( position.coords.latitude ),
-				lng = ( position.coords.longitude );
-
-			lnglat_array.push( lat, lng );
-
-			callback( facility_selection_array );
-		}
-
 		if ( navigator.geolocation )
 		{
-			navigator.geolocation.getCurrentPosition( __getPosition, function () {
+			var location_timeout = setTimeout( function ()
+			{
+				$('#location-fail').show();
+
+			}, timeout );
+
+			navigator.geolocation.getCurrentPosition( function ( position )
+			{
+				$('#location-fail').hide();
+				clearTimeout( location_timeout );
+
+				lnglat_array = [];
+
+				var lat = ( position.coords.latitude ),
+					lng = ( position.coords.longitude );
+
+				lnglat_array.push( lat, lng );
+
+				callback( facility_selection_array );
+
+			}, function ()
+			{
+				$('#location-fail').hide();
+				clearTimeout( location_timeout );
 				_removeLoadingScreen( $loadingscreen );
+
 			}, geo_options );
 		}
 		else
 		{
-			alert( "Your browser cannot get your location." );
+			alert( "Unfortunately, your browser cannot get your location. Please try again." );
 		}
 	};
 
@@ -297,7 +317,7 @@ var TpfHome = ( function ()
 		};
 
 	    $.ajax({
-	        url     : document.location.origin + '/t--p--f/public/facilities',
+	        url     : document.location.origin + '/facilities',
 	        type    : 'GET',
 	        data    : ajax_params,
 	        dataType: 'JSON',
@@ -393,7 +413,7 @@ var TpfHome = ( function ()
 		$(".park-images-ul ul").empty(); // empty previous event handlers/element data
 
 	    $.ajax({
-	        url     : document.location.origin + '/t--p--f/public/bingimages',
+	        url     : document.location.origin + '/bingimages',
 	        type    : 'GET',
 	        data    : { park: park_name },
 	        dataType: 'JSON',
@@ -685,7 +705,8 @@ var TpfHome = ( function ()
 		attachEventListeners: attachEventListeners,
 		attachGoClick       : attachGoClick,
 		attachResetClick    : attachResetClick,
-		checkHistoryState   : checkHistoryState
+		checkHistoryState   : checkHistoryState,
+		loadCheckmarkInit   : loadCheckmarkInit
 	}
 
 })();
@@ -698,3 +719,4 @@ TpfHome.attachFindAll();
 TpfHome.attachGoClick();
 TpfHome.attachResetClick();
 TpfHome.checkHistoryState();
+TpfHome.loadCheckmarkInit();
