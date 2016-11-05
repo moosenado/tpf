@@ -2,6 +2,131 @@
 
 
 
+
+
+/* JSCROLL PANE */
+
+
+
+
+
+.jspContainer
+{
+	overflow: hidden;
+	position: relative;
+}
+
+.jspPane
+{
+	position: absolute;
+}
+
+.jspVerticalBar
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 16px;
+	height: 100%;
+	background: red;
+	display: none;
+}
+
+.jspHorizontalBar
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 12px;
+	background: red;
+	display: none;
+
+	@media (min-width: $screen-sm) {
+		display: block;
+	}
+}
+
+.jspCap
+{
+	display: none;
+}
+
+.jspHorizontalBar .jspCap
+{
+	float: left;
+}
+
+.jspTrack
+{
+	background: #e9ffe9;
+	position: relative;
+}
+
+.jspDrag
+{
+	background: #dfdcd7;
+	position: relative;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag
+{
+	float: left;
+	height: 100%;
+}
+
+.jspArrow
+{
+	background: #50506d;
+	text-indent: -20000px;
+	display: block;
+	cursor: pointer;
+	padding: 0;
+	margin: 0;
+}
+
+.jspArrow.jspDisabled
+{
+	cursor: default;
+	background: #80808d;
+}
+
+.jspVerticalBar .jspArrow
+{
+	height: 16px;
+}
+
+.jspHorizontalBar .jspArrow
+{
+	width: 16px;
+	float: left;
+	height: 100%;
+}
+
+.jspVerticalBar .jspArrow:focus
+{
+	outline: none;
+}
+
+.jspCorner
+{
+	background: #eeeef4;
+	float: left;
+	height: 100%;
+}
+
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner
+{
+	margin: 0 -3px 0 0;
+}
+
+
+
 /* VARIABLES */
 
 
@@ -443,12 +568,13 @@ header {
 	ul {
 		margin: 0;
 		padding: 0;
-		overflow-x: scroll;
+		//overflow-x: scroll;
 		white-space: nowrap;
 		padding-bottom: 17px;
 
 		@media all and (min-width: $screen-sm) {
 			padding-bottom: 0;
+			height: 88px;
 		}
 
 		li {
@@ -501,12 +627,13 @@ header {
 	ul {
 		margin: 0;
 		padding: 0;
-		overflow-x: scroll;
+		//overflow-x: scroll;
 		white-space: nowrap;
 		padding-bottom: 17px;
 
 		@media all and (min-width: $screen-sm) {
 			padding-bottom: 0;
+			height: 40px;
 		}
 
 		li {
@@ -604,10 +731,10 @@ header {
 	ul {
 		margin: 0;
 		padding: 0;
-		overflow-x: scroll;
+		//overflow-x: scroll;
 		white-space: nowrap;
 		padding-bottom: 17px;
-		height: 148px; // to remove any possibility of a vertical scroll from appearing
+		height: 138px;
 
 		@media all and (min-width: $screen-sm) {
 			padding-bottom: 0;

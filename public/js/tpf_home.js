@@ -19,6 +19,9 @@ var TpfHome = ( function ()
 		location_cache_time      = 60000,
 		location_cached          = false,
 		lnglat_array             = [],
+		init_load                = true,
+		init_list_cont           = ' ul',
+		after_list_cont          = ' .jspPane',
 		location_timer,
 		directionsDisplay,
 		directionsService,
@@ -424,8 +427,9 @@ var TpfHome = ( function ()
 		_displayLoadingScreen( $loadingscreen_small );
 
 		var park_name = _filterParkNameForQuery( current_park_selection_data[park_selection_index]['name'] );
+		var cont = (init_load) ? init_list_cont : after_list_cont;
 
-		$(".park-images-ul ul").empty(); // empty previous event handlers/element data
+		$(".park-images-ul" + cont).empty(); // empty previous event handlers/element data
 
 	    $.ajax({
 	        url     : document.location.origin + '/t--p--f/public/bingimages',
@@ -434,9 +438,20 @@ var TpfHome = ( function ()
 	        dataType: 'JSON',
 	        success : function ( data )
 	        {
-	        	_removeLoadingScreen( $loadingscreen_small );
-	        	_displayParkImages( data );
-	        	console.log( data );
+	        	var data_length = data.value.length;
+	        	var count = 0;
+
+	        	for ( var i = 0; i < data_length; i++ )
+	    		{
+	    			_preLoadImages(data.value[i].contentUrl);
+
+	    			if (count === (data_length-1)) {
+	    				_removeLoadingScreen( $loadingscreen_small );
+	        			_displayParkImages( data );
+	        			console.log( data );
+	    			}
+	    			count++;
+	    		}
 	        },
 	        error: function ( e ) {
 	        	_removeLoadingScreen( $loadingscreen_small );
@@ -447,12 +462,29 @@ var TpfHome = ( function ()
 
 	var _displayParkImages = function ( data )
 	{
+		var data_length = data.value.length;
+		var cont = (init_load) ? init_list_cont : after_list_cont;
+
 		data.value.map( function ( image, i )
 		{
-			$(".park-images-ul ul").append(
+			$(".park-images-ul" + cont).append(
 				"<a href='" + image.contentUrl.replace(/^http:\/\//i, 'https://') + "' target='_blank'><li class='image-item'><img src='" + image.contentUrl.replace(/^http:\/\//i, 'https://') + "'/></li></a>"
 			);
+
+			if (i === (data_length-1)) {
+				// initiate jscroll
+				setTimeout(function(){
+					$('.park-images-ul ul').jScrollPane();
+					init_load = false; // application is no longer part of an inital load anymore
+				}, 1000); // wait 1 second just to make fully sure images are in place so jscroll can get the right calculations
+			}
+
 		});
+	};
+
+	var _preLoadImages = function (image_url)
+	{
+		(new Image()).src = image_url;
 	};
 
 	var _performPageTransition = function ()
@@ -516,14 +548,19 @@ var TpfHome = ( function ()
 
 	var _displayParkNav = function ()
 	{
-		$(".park-distance-ul ul").empty(); // empty previous event handlers/element data
+		var cont = (init_load) ? init_list_cont : after_list_cont;
+
+		$(".park-distance-ul" + cont).empty(); // empty previous event handlers/element data
 
 		current_park_selection_data.map( function ( park, i )
 		{
-			$(".park-distance-ul ul").append(
+			$(".park-distance-ul" + cont).append(
 				"<li class='distance-item' data-selection-number='" + i + "' data-lat='" + park['latitude'] + "' data-lng='" + park['longitude'] + "' data-parkname='" + park['name'] + "' data-address='" + park['address'] + "' data-phonenumber='" + park['phone'] + "' data-postalcode='" + park['postal_code'] + "'><div class='number-overlay'>" + (i + 1) + "</div><div class='number'><strong>" + (i + 1) + "</strong> <i class='fa fa-angle-right fa-styling' aria-hidden='true'></i> <span style='opacity: .8;'>" + park['name'] + "</span></div></li>"
 			);
 		});
+
+		// initiate jscroll
+		$('.park-distance-ul ul').jScrollPane();
 
 		var distance_class  = document.getElementsByClassName( "distance-item" );
 		var distance_length = distance_class.length;
@@ -541,8 +578,9 @@ var TpfHome = ( function ()
 	{
 		selection_index = parseInt( this.getAttribute( "data-selection-number" ) );
 
-		$( ".park-distance-ul>ul>li.park-selected-official" ).removeClass( "park-selected-official" );
-		$( ".park-distance-ul>ul>li>.number-zoom" ).removeClass( "number-zoom" );
+		$( ".park-selected-official" ).removeClass( "park-selected-official" );
+		$( ".number-zoom" ).removeClass( "number-zoom" );
+
 		this.classList.add( "park-selected" );
 		this.classList.add( "park-selected-official" );
 		$( ".park-selected-official>.number-overlay" ).addClass( "number-zoom" );
@@ -562,7 +600,8 @@ var TpfHome = ( function ()
 			uber_url       = "uber://?action=setPickup&pickup=my_location&dropoff[latitude]=" + current_park_selection_data[park_selection_index]['latitude'] + "&dropoff[longitude]=" + current_park_selection_data[park_selection_index]['longitude'] + "&dropoff[formatted_address]=" + current_park_selection_data[park_selection_index]['address'],
 			tel            = '',
 			tel_close      = '',
-			facil_count    = 0;
+			facil_count    = 0,
+			cont = (init_load) ? init_list_cont : after_list_cont;
 
 		if ( phone_number !== '' ) {
 			tel       = '<a href="tel:' + current_park_selection_data[park_selection_index]['phone'] + '">',
@@ -571,9 +610,9 @@ var TpfHome = ( function ()
 			phone_number = 'N/A';
 		}
 
-		$(".park-facilities-ul ul").empty(); // empty previous event handlers/element data
+		$(".park-facilities-ul" + cont).empty(); // empty previous event handlers/element data
 
-		$(".park-facilities-ul ul").append(
+		$(".park-facilities-ul" + cont).append(
 			"<li><div class='item'><strong>All Facilities</strong></div></li>"+
 			"<li><div class='item'><i class='fa fa-angle-right' aria-hidden='true'></i> </div></li>"
 		);
@@ -584,13 +623,16 @@ var TpfHome = ( function ()
 			{
 				var list_pointer = (facil_count !== 0) ? "<li><div class='item'><i class='fa fa-circle-o fa-styling-small' aria-hidden='true'></i></div></li>" : "";
 
-				$(".park-facilities-ul ul").append(
+				$(".park-facilities-ul" + cont).append(
 					list_pointer+"<li><div class='item'>" + _cleanFacilityName(prop) + "</div></li>"
 				);
 
 				facil_count++;
 			}
 		}
+
+		// initiate jscroll
+		$('.park-facilities-ul ul').jScrollPane();
 
 		$( "#park-info-name" ).empty().html( current_park_selection_data[park_selection_index]['name'] );
 		$( "#park-info-address" ).empty().html( '<i class="fa fa-map-marker fa-styling" aria-hidden="true"></i> ' + current_park_selection_data[park_selection_index]['address'] );
