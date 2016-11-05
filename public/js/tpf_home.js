@@ -16,9 +16,10 @@ var TpfHome = ( function ()
 		selection_index          = 0,
 		unique_user              = Math.random() + '',
 		unique_user_id           = parseInt(unique_user.replace('.', '')),
-		query_count              = 0,
-		rerun_location_count     = 3,
+		location_cache_time      = 60000,
+		location_cached          = false,
 		lnglat_array             = [],
+		location_timer,
 		directionsDisplay,
 		directionsService,
 		current_park_selection_data,
@@ -217,20 +218,19 @@ var TpfHome = ( function ()
 	{
 		var yourLat,
 			yourLng,
-			timeout = 7500;
+			timeout = 8000;
 
 		var geo_options = {
 			enableHighAccuracy: false,
-		    timeout: timeout,
+		    timeout: 7500,
 		    maximumAge: 0
 		};
 
 		if ( navigator.geolocation )
 		{
-			if (lnglat_array.length > 0 && query_count <= rerun_location_count)
+			if (location_cached === true)
 			{
 				callback( facility_selection_array );
-				query_count++;
 			} else {
 				var location_timeout = setTimeout( function ()
 				{
@@ -250,6 +250,11 @@ var TpfHome = ( function ()
 
 					lnglat_array.push( lat, lng );
 
+					location_cached = true;
+					location_timer = setTimeout(function() {
+						location_cached = false;
+					}, location_cache_time);
+
 					callback( facility_selection_array );
 
 				}, function ()
@@ -259,13 +264,11 @@ var TpfHome = ( function ()
 					_removeLoadingScreen( $loadingscreen );
 
 				}, geo_options );
-
-				query_count = 0;
 			}
 		}
 		else
 		{
-			alert( "Unfortunately, your browser cannot get your location. Please try again." );
+			alert( "Unfortunately, your browser cannot get your location :(" );
 		}
 	};
 
@@ -580,11 +583,11 @@ var TpfHome = ( function ()
 			if ((current_park_selection_data[park_selection_index][prop] === 1 ) && prop !== 'id')
 			{
 				var list_pointer = (facil_count !== 0) ? "<li><div class='item'><i class='fa fa-circle-o fa-styling-small' aria-hidden='true'></i></div></li>" : "";
-				
+
 				$(".park-facilities-ul ul").append(
 					list_pointer+"<li><div class='item'>" + _cleanFacilityName(prop) + "</div></li>"
 				);
-				
+
 				facil_count++;
 			}
 		}
