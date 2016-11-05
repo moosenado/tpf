@@ -14,10 +14,14 @@ var TpfHome = ( function ()
 		$loadingscreen           = $('.loading-screen'),
 		$loadingscreen_small     = $('.loading-screen-small'),
 		selection_index          = 0,
+		unique_user              = Math.random() + '',
+		unique_user_id           = parseInt(unique_user.replace('.', '')),
+		query_count              = 0,
+		rerun_location_count     = 3,
+		lnglat_array             = [],
 		directionsDisplay,
 		directionsService,
 		current_park_selection_data,
-		lnglat_array,
 		map;
 
 
@@ -223,33 +227,41 @@ var TpfHome = ( function ()
 
 		if ( navigator.geolocation )
 		{
-			var location_timeout = setTimeout( function ()
+			if (lnglat_array.length > 0 && query_count <= rerun_location_count)
 			{
-				$('#location-fail').show();
-
-			}, timeout );
-
-			navigator.geolocation.getCurrentPosition( function ( position )
-			{
-				$('#location-fail').hide();
-				clearTimeout( location_timeout );
-
-				lnglat_array = [];
-
-				var lat = ( position.coords.latitude ),
-					lng = ( position.coords.longitude );
-
-				lnglat_array.push( lat, lng );
-
 				callback( facility_selection_array );
+				query_count++;
+			} else {
+				var location_timeout = setTimeout( function ()
+				{
+					$('#location-fail').show();
 
-			}, function ()
-			{
-				$('#location-fail').hide();
-				clearTimeout( location_timeout );
-				_removeLoadingScreen( $loadingscreen );
+				}, timeout );
 
-			}, geo_options );
+				navigator.geolocation.getCurrentPosition( function ( position )
+				{
+					$('#location-fail').hide();
+					clearTimeout( location_timeout );
+
+					lnglat_array = [];
+
+					var lat = ( position.coords.latitude ),
+						lng = ( position.coords.longitude );
+
+					lnglat_array.push( lat, lng );
+
+					callback( facility_selection_array );
+
+				}, function ()
+				{
+					$('#location-fail').hide();
+					clearTimeout( location_timeout );
+					_removeLoadingScreen( $loadingscreen );
+
+				}, geo_options );
+
+				query_count = 0;
+			}
 		}
 		else
 		{
@@ -317,7 +329,7 @@ var TpfHome = ( function ()
 		};
 
 	    $.ajax({
-	        url     : document.location.origin + '/facilities',
+	        url     : document.location.origin + '/t--p--f/public/facilities',
 	        type    : 'GET',
 	        data    : ajax_params,
 	        dataType: 'JSON',
@@ -413,7 +425,7 @@ var TpfHome = ( function ()
 		$(".park-images-ul ul").empty(); // empty previous event handlers/element data
 
 	    $.ajax({
-	        url     : document.location.origin + '/bingimages',
+	        url     : document.location.origin + '/t--p--f/public/bingimages',
 	        type    : 'GET',
 	        data    : { park: park_name },
 	        dataType: 'JSON',
@@ -546,16 +558,35 @@ var TpfHome = ( function ()
 			directions_url = "https://www.google.com/maps/dir/" + lnglat_array[0] + "," + lnglat_array[1] + "/" + current_park_selection_data[park_selection_index]['latitude'] + "," + current_park_selection_data[park_selection_index]['longitude'],
 			uber_url       = "uber://?action=setPickup&pickup=my_location&dropoff[latitude]=" + current_park_selection_data[park_selection_index]['latitude'] + "&dropoff[longitude]=" + current_park_selection_data[park_selection_index]['longitude'] + "&dropoff[formatted_address]=" + current_park_selection_data[park_selection_index]['address'],
 			tel            = '',
-			tel_close      = '';
+			tel_close      = '',
+			facil_count    = 0;
 
-		if ( phone_number !== '' )
-		{
+		if ( phone_number !== '' ) {
 			tel       = '<a href="tel:' + current_park_selection_data[park_selection_index]['phone'] + '">',
 			tel_close = '</a>';
-		}
-		else
-		{
+		} else {
 			phone_number = 'N/A';
+		}
+
+		$(".park-facilities-ul ul").empty(); // empty previous event handlers/element data
+
+		$(".park-facilities-ul ul").append(
+			"<li><div class='item'><strong>All Facilities</strong></div></li>"+
+			"<li><div class='item'><i class='fa fa-angle-right' aria-hidden='true'></i> </div></li>"
+		);
+
+		for (var prop in current_park_selection_data[park_selection_index])
+		{
+			if ((current_park_selection_data[park_selection_index][prop] === 1 ) && prop !== 'id')
+			{
+				var list_pointer = (facil_count !== 0) ? "<li><div class='item'><i class='fa fa-circle-o fa-styling-small' aria-hidden='true'></i></div></li>" : "";
+				
+				$(".park-facilities-ul ul").append(
+					list_pointer+"<li><div class='item'>" + _cleanFacilityName(prop) + "</div></li>"
+				);
+				
+				facil_count++;
+			}
 		}
 
 		$( "#park-info-name" ).empty().html( current_park_selection_data[park_selection_index]['name'] );
@@ -604,6 +635,14 @@ var TpfHome = ( function ()
 
 	    _calculateAndDisplayRout( selection_index ); // 0 initially
 	};
+
+	var _cleanFacilityName = function ( name )
+	{
+		var fresh_name = name.split('_').join(' ');
+		var complete_name = fresh_name.replace(/\b\w/g, function(l){ return l.toUpperCase() });
+
+		return complete_name;
+	}
 
 	var _calculateAndDisplayRout = function ( park_selection_index, reset_viewport )
 	{

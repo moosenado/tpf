@@ -50,7 +50,7 @@ class FacilityController extends Controller
         $your_location[] = trim( $data['lng'] );
 
         $facilities = Facility::sortFacilitiesByDistance( $facilities, $your_location );
-        
+
     	return $facilities;
     }
 
@@ -80,8 +80,8 @@ class FacilityController extends Controller
             $sURL = "https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=".$park_name."&count=20&size=medium";
 
             $ch = curl_init();
-            curl_setopt( $ch, CURLOPT_URL, $sURL ); 
-            curl_setopt( $ch, CURLOPT_TIMEOUT, '5' ); 
+            curl_setopt( $ch, CURLOPT_URL, $sURL );
+            curl_setopt( $ch, CURLOPT_TIMEOUT, '5' );
             curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
             //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt( $ch, CURLOPT_HTTPHEADER, array(

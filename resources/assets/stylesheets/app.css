@@ -8842,7 +8842,7 @@ body {
 
 /* line 129, ../sass/app.scss */
 #park-info-name {
-  font-size: 22px;
+  font-size: 18px;
   margin: 10px 0 5px 0;
   padding: 5px 15px;
   color: #00ca3e;
@@ -9268,23 +9268,91 @@ header {
 }
 
 /* line 488, ../sass/app.scss */
+.park-facilities-ul {
+  overflow: hidden;
+  width: 100%;
+  height: 26px;
+}
+@media all and (min-width: 768px) {
+  /* line 488, ../sass/app.scss */
+  .park-facilities-ul {
+    height: auto;
+  }
+}
+/* line 497, ../sass/app.scss */
+.park-facilities-ul ul {
+  margin: 0;
+  padding: 0;
+  overflow-x: scroll;
+  white-space: nowrap;
+  padding-bottom: 17px;
+}
+@media all and (min-width: 768px) {
+  /* line 497, ../sass/app.scss */
+  .park-facilities-ul ul {
+    padding-bottom: 0;
+  }
+}
+/* line 508, ../sass/app.scss */
+.park-facilities-ul ul li {
+  list-style: none;
+  position: relative;
+  display: inline-block;
+  height: 16px;
+  width: auto;
+  padding: 0 5px;
+  margin: 0 1px;
+  font-size: 0;
+  vertical-align: middle;
+  text-align: center;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+@media all and (min-width: 768px) {
+  /* line 508, ../sass/app.scss */
+  .park-facilities-ul ul li {
+    height: 30px;
+  }
+}
+/* line 525, ../sass/app.scss */
+.park-facilities-ul ul li .item {
+  font-size: 16px;
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  left: 0;
+  margin-top: -10px;
+  color: #502d07;
+}
+@media all and (min-width: 768px) {
+  /* line 525, ../sass/app.scss */
+  .park-facilities-ul ul li .item {
+    font-size: 18px;
+    margin-top: -14px;
+  }
+}
+
+/* line 543, ../sass/app.scss */
 .park-selected {
   opacity: .5;
 }
 
-/* line 492, ../sass/app.scss */
+/* line 547, ../sass/app.scss */
 .park-selected-official {
   border: 4px solid #502d07 !important;
   opacity: 1;
 }
 @media all and (min-width: 768px) {
-  /* line 492, ../sass/app.scss */
+  /* line 547, ../sass/app.scss */
   .park-selected-official {
     border: 6px solid #502d07 !important;
   }
 }
 
-/* line 501, ../sass/app.scss */
+/* line 556, ../sass/app.scss */
 .number-overlay {
   font-size: 62px;
   display: inline-block;
@@ -9303,23 +9371,29 @@ header {
   transform: scale(0.5, 0.5);
 }
 
-/* line 515, ../sass/app.scss */
+/* line 570, ../sass/app.scss */
 .park-info-cont {
   width: 100%;
   position: relative;
 }
-/* line 519, ../sass/app.scss */
+/* line 574, ../sass/app.scss */
 .park-info-cont ul {
   padding: 0 15px;
   margin: 0;
   color: #502d07;
 }
-/* line 524, ../sass/app.scss */
+/* line 579, ../sass/app.scss */
 .park-info-cont ul li {
-  display: block;
+  display: inline-block;
+}
+@media (min-width: 321px) {
+  /* line 579, ../sass/app.scss */
+  .park-info-cont ul li {
+    display: block;
+  }
 }
 
-/* line 531, ../sass/app.scss */
+/* line 590, ../sass/app.scss */
 .park-images-ul {
   overflow: hidden;
   width: 100%;
@@ -9327,12 +9401,12 @@ header {
   position: relative;
 }
 @media all and (min-width: 768px) {
-  /* line 531, ../sass/app.scss */
+  /* line 590, ../sass/app.scss */
   .park-images-ul {
     height: auto;
   }
 }
-/* line 541, ../sass/app.scss */
+/* line 600, ../sass/app.scss */
 .park-images-ul ul {
   margin: 0;
   padding: 0;
@@ -9342,28 +9416,28 @@ header {
   height: 148px;
 }
 @media all and (min-width: 768px) {
-  /* line 541, ../sass/app.scss */
+  /* line 600, ../sass/app.scss */
   .park-images-ul ul {
     padding-bottom: 0;
   }
 }
-/* line 553, ../sass/app.scss */
+/* line 612, ../sass/app.scss */
 .park-images-ul ul li {
   display: inline-block;
   padding-right: 5px;
 }
-/* line 557, ../sass/app.scss */
+/* line 616, ../sass/app.scss */
 .park-images-ul ul li img {
   height: 95px;
 }
 @media all and (min-width: 768px) {
-  /* line 557, ../sass/app.scss */
+  /* line 616, ../sass/app.scss */
   .park-images-ul ul li img {
     height: 125px;
   }
 }
 
-/* line 567, ../sass/app.scss */
+/* line 626, ../sass/app.scss */
 .svg-check {
   display: none;
   position: absolute;
@@ -9378,7 +9452,7 @@ header {
   -webkit-border-radius: 50%;
 }
 
-/* line 581, ../sass/app.scss */
+/* line 640, ../sass/app.scss */
 .li-gradient-overlay {
   position: absolute;
   top: 0;
@@ -9387,7 +9461,7 @@ header {
   bottom: 0;
 }
 
-/* line 589, ../sass/app.scss */
+/* line 648, ../sass/app.scss */
 .chosen-park-list {
   position: fixed;
   top: auto;
@@ -9405,13 +9479,13 @@ header {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
   opacity: .9;
 }
-/* line 606, ../sass/app.scss */
+/* line 665, ../sass/app.scss */
 .chosen-park-list ul {
   padding: 0;
   margin: 0;
   padding: 10px 14px 10px 40px;
 }
-/* line 611, ../sass/app.scss */
+/* line 670, ../sass/app.scss */
 .chosen-park-list ul li {
   text-align: right;
   list-style: none;
@@ -9420,7 +9494,7 @@ header {
   padding: 4px 0;
 }
 
-/* line 621, ../sass/app.scss */
+/* line 680, ../sass/app.scss */
 .loading-screen {
   position: fixed;
   top: 0;
@@ -9435,7 +9509,7 @@ header {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-/* line 631, ../sass/app.scss */
+/* line 690, ../sass/app.scss */
 .loading-screen .overlay {
   position: fixed;
   top: 0;
@@ -9445,7 +9519,7 @@ header {
   background-color: white;
   opacity: .8;
 }
-/* line 641, ../sass/app.scss */
+/* line 700, ../sass/app.scss */
 .loading-screen .contents {
   position: fixed;
   top: 50%;
@@ -9457,18 +9531,18 @@ header {
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
 }
-/* line 648, ../sass/app.scss */
+/* line 707, ../sass/app.scss */
 .loading-screen .contents svg {
   width: 60px;
   height: 60px;
 }
-/* line 653, ../sass/app.scss */
+/* line 712, ../sass/app.scss */
 .loading-screen .contents .text {
   height: 20px;
   position: relative;
   margin: 10px auto;
 }
-/* line 658, ../sass/app.scss */
+/* line 717, ../sass/app.scss */
 .loading-screen .contents .text p {
   font-size: 14px;
   padding: 0;
@@ -9479,7 +9553,7 @@ header {
   opacity: 0;
 }
 
-/* line 672, ../sass/app.scss */
+/* line 731, ../sass/app.scss */
 .loading-screen-small {
   position: absolute;
   top: 0;
@@ -9494,7 +9568,7 @@ header {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-/* line 682, ../sass/app.scss */
+/* line 741, ../sass/app.scss */
 .loading-screen-small .overlay {
   position: absolute;
   top: 0;
@@ -9504,7 +9578,7 @@ header {
   background-color: white;
   opacity: .8;
 }
-/* line 692, ../sass/app.scss */
+/* line 751, ../sass/app.scss */
 .loading-screen-small svg {
   width: 35px;
   height: 35px;
@@ -9519,13 +9593,13 @@ header {
   transform: translateX(-50%) translateY(-50%);
 }
 
-/* line 703, ../sass/app.scss */
+/* line 762, ../sass/app.scss */
 .loading-screen-fail {
   text-align: center;
   font-size: 18px;
   display: none;
 }
-/* line 708, ../sass/app.scss */
+/* line 767, ../sass/app.scss */
 .loading-screen-fail .overlay {
   position: fixed;
   top: 0;
@@ -9541,7 +9615,7 @@ header {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-/* line 720, ../sass/app.scss */
+/* line 779, ../sass/app.scss */
 .loading-screen-fail .loading-text-fail {
   position: fixed;
   top: 50%;
@@ -9554,21 +9628,29 @@ header {
   transform: translateX(-50%) translateY(-50%);
 }
 
-/* line 729, ../sass/app.scss */
+/* line 788, ../sass/app.scss */
 .fa-styling {
   color: #71e271;
   width: 16px;
   text-align: center;
 }
 
-/* line 735, ../sass/app.scss */
+/* line 794, ../sass/app.scss */
+.fa-styling-small {
+  color: #71e271;
+  font-size: 10px !important;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* line 801, ../sass/app.scss */
 .image-bullet-point {
-  width: 16px;
+  width: 14px;
   margin-left: 10px;
   margin-top: -3px;
 }
 
-/* line 741, ../sass/app.scss */
+/* line 807, ../sass/app.scss */
 footer {
   color: #71e271;
   font-size: 10px;
@@ -9576,7 +9658,7 @@ footer {
 }
 
 /* TRANSITION SPECIFIC */
-/* line 753, ../sass/app.scss */
+/* line 819, ../sass/app.scss */
 .ani-left {
   -webkit-transform: translate3d(-2000px, 0, 0);
   -moz-transform: translate3d(-2000px, 0, 0);
@@ -9586,7 +9668,7 @@ footer {
   opacity: 0;
 }
 
-/* line 758, ../sass/app.scss */
+/* line 824, ../sass/app.scss */
 .ani-right {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -9596,17 +9678,17 @@ footer {
   opacity: 1;
 }
 
-/* line 763, ../sass/app.scss */
+/* line 829, ../sass/app.scss */
 .ani-fadeOut {
   opacity: 0;
 }
 
-/* line 767, ../sass/app.scss */
+/* line 833, ../sass/app.scss */
 .ani-fadeIn {
   opacity: 1;
 }
 
-/* line 771, ../sass/app.scss */
+/* line 837, ../sass/app.scss */
 .ani-fadeOutZindex {
   opacity: 0;
   z-index: -1;
@@ -9617,7 +9699,7 @@ footer {
   animation: zoomAniNoRotateRev 0.3s forwards;
 }
 
-/* line 777, ../sass/app.scss */
+/* line 843, ../sass/app.scss */
 .ani-fadeInZindex {
   opacity: 1;
   z-index: 1;
@@ -9629,7 +9711,7 @@ footer {
 }
 
 /* ANIMATION SPECIFIC */
-/* line 789, ../sass/app.scss */
+/* line 855, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.7s forwards;
   -moz-animation: zoomAni 0.7s forwards;
@@ -9638,7 +9720,7 @@ footer {
   animation: zoomAni 0.7s forwards;
 }
 
-/* line 793, ../sass/app.scss */
+/* line 859, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9647,7 +9729,7 @@ footer {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 797, ../sass/app.scss */
+/* line 863, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -9656,7 +9738,7 @@ footer {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 801, ../sass/app.scss */
+/* line 867, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9665,7 +9747,7 @@ footer {
   animation: zoomAniRevShadowRev 0.5s forwards;
 }
 
-/* line 805, ../sass/app.scss */
+/* line 871, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni 0.5s forwards;
   -moz-animation: slideAni 0.5s forwards;
@@ -9674,7 +9756,7 @@ footer {
   animation: slideAni 0.5s forwards;
 }
 
-/* line 809, ../sass/app.scss */
+/* line 875, ../sass/app.scss */
 .number-zoom {
   -webkit-animation: numberZoomAni 1s forwards;
   -moz-animation: numberZoomAni 1s forwards;
@@ -9687,7 +9769,7 @@ footer {
   animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
-/* line 817, ../sass/app.scss */
+/* line 883, ../sass/app.scss */
 .fade-in-and-up {
   -webkit-animation: fadeInAndUp 0.5s forwards;
   -moz-animation: fadeInAndUp 0.5s forwards;
@@ -9700,7 +9782,7 @@ footer {
   animation-timing-function: cubic-bezier(0.17, 0.67, 0.08, 1.27);
 }
 
-/* line 825, ../sass/app.scss */
+/* line 891, ../sass/app.scss */
 .li-click {
   -webkit-animation: liButtonClick 0.5s forwards;
   -moz-animation: liButtonClick 0.5s forwards;
@@ -9716,7 +9798,7 @@ footer {
   perspective: 200px;
 }
 
-/* line 836, ../sass/app.scss */
+/* line 902, ../sass/app.scss */
 .li-click-text {
   -webkit-animation: liButtonClickText 4.6s forwards;
   -moz-animation: liButtonClickText 4.6s forwards;
@@ -9741,7 +9823,7 @@ footer {
   perspective: 200px;
 }
 
-/* line 852, ../sass/app.scss */
+/* line 918, ../sass/app.scss */
 .top-leaf {
   fill: #71E271;
   -webkit-animation: colorSwapToBrightGreen 0.5s infinite;
@@ -9751,7 +9833,7 @@ footer {
   animation: colorSwapToBrightGreen 0.5s infinite;
 }
 
-/* line 857, ../sass/app.scss */
+/* line 923, ../sass/app.scss */
 .bottom-leaf {
   fill: #00CA3E;
   -webkit-animation: colorSwapToDarkGreen 0.5s infinite;
@@ -9761,7 +9843,7 @@ footer {
   animation: colorSwapToDarkGreen 0.5s infinite;
 }
 
-/* line 862, ../sass/app.scss */
+/* line 928, ../sass/app.scss */
 .top-leaf-slow {
   fill: #71E271;
   -webkit-animation: colorSwapToBrightGreenSlow 2.7s infinite;
@@ -9771,7 +9853,7 @@ footer {
   animation: colorSwapToBrightGreenSlow 2.7s infinite;
 }
 
-/* line 867, ../sass/app.scss */
+/* line 933, ../sass/app.scss */
 .bottom-leaf-slow {
   fill: #00CA3E;
   -webkit-animation: colorSwapToDarkGreenSlow 2.7s infinite;
@@ -9781,7 +9863,7 @@ footer {
   animation: colorSwapToDarkGreenSlow 2.7s infinite;
 }
 
-/* line 872, ../sass/app.scss */
+/* line 938, ../sass/app.scss */
 .loading-text {
   -webkit-animation: loadingText 0.9s infinite;
   -moz-animation: loadingText 0.9s infinite;
