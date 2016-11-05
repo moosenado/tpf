@@ -43,6 +43,8 @@ class Facility extends Model
 
 		array_multisort( $comparison, SORT_ASC, $facilities );
 
-		return $facilities;
+        $top_thirty = array_slice($facilities, 0, 30);
+
+		return $top_thirty;
     }
 }

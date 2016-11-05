@@ -136,8 +136,12 @@ body {
 	// everything above an iphone 4/5
 	@media (min-width: 321px) {
 		font-size: 26px;
-		margin: 20px 0 20px 0;
+		margin: 10px 0 10px 0;
 		line-height: 25px;
+	}
+
+	@media (min-width: $screen-sm) {
+		margin: 20px 0 20px 0;
 	}
 }
 
