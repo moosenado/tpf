@@ -537,14 +537,13 @@ var TpfHome = ( function ()
 		distance_class[selection_index].classList.add( "park-selected-official" ); // 0 initially
 	};
 
-	var _reRenderParkSelection = function ()
+	var _reRenderParkSelection = function (map_selection)
 	{
-		selection_index = parseInt( this.getAttribute( "data-selection-number" ) );
+		selection_index = (isNaN(map_selection)) ? parseInt( this.getAttribute( "data-selection-number" ) ) : map_selection;
 
 		$( ".park-distance-ul>ul>li.park-selected-official" ).removeClass( "park-selected-official" );
 		$( ".park-distance-ul>ul>li>.number-zoom" ).removeClass( "number-zoom" );
-		this.classList.add( "park-selected" );
-		this.classList.add( "park-selected-official" );
+		$('li[data-selection-number="'+selection_index+'"]').addClass('park-selected park-selected-official');
 		$( ".park-selected-official>.number-overlay" ).addClass( "number-zoom" );
 
 		_calculateAndDisplayRout( selection_index, true );
@@ -623,13 +622,15 @@ var TpfHome = ( function ()
 	    {
 	     	marker = new google.maps.Marker({
 	        	position: new google.maps.LatLng( current_park_selection_data[i]["latitude"], current_park_selection_data[i]["longitude"] ),
-	        	map     : map
+	        	map     : map,
+	        	icon : 'https://www.parkstoronto.ca/images/leaf_square_icon.png'
 	      	});
 
 	      	google.maps.event.addListener( marker, "click", ( function( marker, i )
 	      	{
 	       		return function()
 	       		{
+	       			_reRenderParkSelection( i );
 	        		infowindow.setContent( current_park_selection_data[i]["name"] );
 	        		infowindow.open( map, marker );
 	        	}
