@@ -90,6 +90,14 @@ class FacilityController extends Controller
             ) );
 
             $park_image_content = curl_exec( $ch );
+            $park_image_content = json_decode( $park_image_content );
+            $count = 0;
+
+            foreach($park_image_content->value as $result) {
+                $park_image_content->value[$count]->contentUrl = preg_replace("/^http:/i", "https:", $result->contentUrl);
+                $count++;
+            }
+
             $http_status = curl_getinfo( $ch, CURLINFO_HTTP_CODE );
 
             if( $http_status != 200 )
@@ -98,6 +106,7 @@ class FacilityController extends Controller
             }
             else
             {
+                $park_image_content = json_encode( $park_image_content );
                 self::cacheData( $park_cache_name, $park_image_content, 'string', 43800 ); // cache for one month
                 return $park_image_content;
             }
