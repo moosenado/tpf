@@ -1,6 +1,6 @@
 @include ('layouts.header')
 
-<div id="home-page">
+<main id="home-page">
 
 	<div class="col-md-12">
 
@@ -119,9 +119,9 @@
 		<p class="loading-text-fail"><strong> Still Waiting? </strong><br/> Please refresh the page and try again. </p>
 	</div>
 
-</div>
+</main>
 
-<div id="find-parks-page">
+<section id="find-parks-page">
 
 	<div id="google-map" class="gmap"></div>
 
@@ -164,7 +164,7 @@
 	</div>
 
 	<div class="park-info-cont">
-		<div id="park-info-name"></div>
+		<h1 id="park-info-name"></h1>
 		<ul>
 			<li id="park-info-address"></li>
 			<li id="park-info-phonenumber"></li>
@@ -176,6 +176,6 @@
 		</div>
 	</div>
 
-</div>
+</section>
 
 @include('layouts.footer')
