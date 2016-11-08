@@ -167,7 +167,7 @@ var TpfHome = (function()
 	    	}
 	    }
 
-	    _displayLoadingScreen($loadingscree);
+	    _displayLoadingScreen($loadingscreen);
 	    _getUserLocation(_getParksFromDB, facility_selection_array);
 
 	    facility_selection_array = []; // reset selection array
