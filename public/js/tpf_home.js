@@ -19,6 +19,9 @@ var TpfHome = (function()
 		location_cache_time      = 60000,
 		location_cached          = false,
 		lnglat_array             = [],
+		map_icon_path            = 'https://www.parkstoronto.ca/images/leaf_square_icon.png',
+		checkmark_path           = 'https://www.parkstoronto.ca/images/check.svg',
+		park_memory              = [],
 		location_timer,
 		directionsDisplay,
 		directionsService,
@@ -95,6 +98,7 @@ var TpfHome = (function()
 			current_park_selection_data = current_state.data;
 			lnglat_array                = current_state.location;
 			selection_index             = current_state.checkpoint;
+			park_memory                 = current_state.park_memory;
 
 			on_home_page = true;
 			_performPageTransition();
@@ -106,7 +110,7 @@ var TpfHome = (function()
 
 	var loadCheckmarkInit = function()
 	{
-		var checkmark = 'https://www.parkstoronto.ca/images/check.svg';
+		var checkmark = checkmark_path;
 		(new Image()).src = checkmark;
 	};
 
@@ -197,7 +201,7 @@ var TpfHome = (function()
 
 		if (navigator.geolocation) {
 			if (location_cached === true) {
-				callback( facility_selection_array );
+				callback(facility_selection_array);
 			} else {
 				var location_timeout = setTimeout(function() {
 					$('#location-fail').show();
@@ -278,7 +282,7 @@ var TpfHome = (function()
 		};
 
 	    $.ajax({
-	        url     : document.location.origin+'/t--p--f/public/facilities',
+	        url     : document.location.origin+'/facilities',
 	        type    : 'GET',
 	        data    : ajax_params,
 	        dataType: 'JSON',
@@ -370,7 +374,7 @@ var TpfHome = (function()
 		$('.park-images-ul ul').empty(); // empty previous event handlers/element data
 
 	    $.ajax({
-	        url     : document.location.origin+'/t--p--f/public/bingimages',
+	        url     : document.location.origin+'/bingimages',
 	        type    : 'GET',
 	        data    : {park: park_name},
 	        dataType: 'JSON',
@@ -433,17 +437,21 @@ var TpfHome = (function()
 		_displayParkNav();
 		_displayParkData(selection_index); // 0 initially
 		_getBingImages(selection_index); // 0 initially
+		_reRenderSelectedParks(); // will only take action during backward/forward movement
 	};
 
 	var _updateUrl = function(checkpoint)
   	{
   		var checkpoint_selected = (typeof checkpoint === 'undefined') ? 0 : checkpoint;
 
+  		park_memory.push(selection_index); // update user park selection array
+
   		if (history.pushState) {
 			history.pushState({
-				data      : current_park_selection_data,
-				location  : lnglat_array,
-				checkpoint: checkpoint_selected
+				data       : current_park_selection_data,
+				location   : lnglat_array,
+				checkpoint : checkpoint_selected,
+				park_memory: park_memory
 			}, null, 'nearme?q=' + checkpoint_selected);
 		}
 	};
@@ -468,6 +476,15 @@ var TpfHome = (function()
 		distance_class[selection_index].classList.add('park-selected'); // 0 initially
 		distance_class[selection_index].classList.add('park-selected-official'); // 0 initially
 	};
+
+	var _reRenderSelectedParks = function()
+	{
+		if (park_memory.length > 0) {
+			for (var i = 0; i < park_memory.length; i++) {
+				$('li[data-selection-number="'+park_memory[i]+'"]').addClass('park-selected');
+			}
+		}
+	}
 
 	var _reRenderParkSelection = function(map_selection)
 	{
@@ -553,7 +570,7 @@ var TpfHome = (function()
 	     	marker = new google.maps.Marker({
 	        	position: new google.maps.LatLng(current_park_selection_data[i]['latitude'], current_park_selection_data[i]['longitude']),
 	        	map     : map,
-	        	icon : 'https://www.parkstoronto.ca/images/leaf_square_icon.png'
+	        	icon    : map_icon_path
 	      	});
 
 	      	google.maps.event.addListener(marker, 'click', (function(marker, i) {
