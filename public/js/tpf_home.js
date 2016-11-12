@@ -438,12 +438,14 @@ var TpfHome = (function()
 		_displayParkData(selection_index); // 0 initially
 		_getBingImages(selection_index); // 0 initially
 		_reRenderSelectedParks(); // will only take action during backward/forward movement
-		_resetScrollPositions();
+		_resetScrollPositions(true);
 	};
 
-	var _resetScrollPositions = function()
+	var _resetScrollPositions = function(change_park_nav)
 	{
-		$('.park-distance-ul ul').scrollTo($('li[data-selection-number="'+selection_index+'"]'));
+		if(change_park_nav) {
+			$('.park-distance-ul ul').scrollTo($('li[data-selection-number="'+selection_index+'"]'));
+		}
 		$('.park-facilities-ul ul').scrollTo(0);
 		$('.park-images-ul ul').scrollTo(0);
 	}
@@ -503,11 +505,11 @@ var TpfHome = (function()
 		$('li[data-selection-number="'+selection_index+'"]').addClass('park-selected park-selected-official');
 		$('.park-selected-official>.number-overlay').addClass('number-zoom');
 
+		_resetScrollPositions(false);
 		_calculateAndDisplayRout(selection_index, true);
 		_displayParkData(selection_index);
 		_getBingImages(selection_index);
 		map.getStreetView().setVisible(false); // exit out of street view on new park selection
-
 		_updateUrl(selection_index);
 	};
 
