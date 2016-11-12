@@ -282,7 +282,7 @@ var TpfHome = (function()
 		};
 
 	    $.ajax({
-	        url     : document.location.origin+'/facilities',
+	        url     : document.location.origin+'/t--p--f/public/facilities',
 	        type    : 'GET',
 	        data    : ajax_params,
 	        dataType: 'JSON',
@@ -374,7 +374,7 @@ var TpfHome = (function()
 		$('.park-images-ul ul').empty(); // empty previous event handlers/element data
 
 	    $.ajax({
-	        url     : document.location.origin+'/bingimages',
+	        url     : document.location.origin+'/t--p--f/public/bingimages',
 	        type    : 'GET',
 	        data    : {park: park_name},
 	        dataType: 'JSON',
@@ -438,7 +438,15 @@ var TpfHome = (function()
 		_displayParkData(selection_index); // 0 initially
 		_getBingImages(selection_index); // 0 initially
 		_reRenderSelectedParks(); // will only take action during backward/forward movement
+		_resetScrollPositions();
 	};
+
+	var _resetScrollPositions = function()
+	{
+		$('.park-distance-ul ul').scrollTo($('li[data-selection-number="'+selection_index+'"]'));
+		$('.park-facilities-ul ul').scrollTo(0);
+		$('.park-images-ul ul').scrollTo(0);
+	}
 
 	var _updateUrl = function(checkpoint)
   	{
