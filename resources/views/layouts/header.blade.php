@@ -4,7 +4,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#71e271">
-	<meta name="description" content="Easily find a Toronto park closest to you. Filter your search and view park details.">
+	<meta name="description" content="Quickly find a Toronto park closest to you. Filter your search and view park details.">
 	<meta name="keywords" content="Toronto,Parks,Near Me,Facilities">
 	<meta name="author" content="Moosenado Productions">
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css" >
