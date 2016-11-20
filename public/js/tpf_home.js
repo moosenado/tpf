@@ -225,14 +225,29 @@ var TpfHome = (function()
 
 					callback(facility_selection_array);
 
-				}, function() {
+				}, function(error) {
 					$('#location-fail').hide();
 					clearTimeout(location_timeout);
 					_removeLoadingScreen($loadingscreen);
+
+					switch(error.code) {
+					    case error.PERMISSION_DENIED:
+					      alert('Unfortunately, you have chosen to deny the request for Geolocation services.');
+					      break;
+					    case error.POSITION_UNAVAILABLE:
+					      alert('Your location information is unavailable at this moment. Please try again later.');
+					      break;
+					    case error.TIMEOUT:
+					      alert('The request to get your location timed out. Please try again.');
+					      break;
+					    case error.UNKNOWN_ERROR:
+					      alert('An unknown error occurred. Please try again.');
+					      break;
+					  }
 				}, geo_options);
 			}
 		} else {
-			alert('Unfortunately, your browser cannot get your location :(');
+			alert('Unfortunately, your browser cannot get your location. Please update or switch browsers and try again.');
 		}
 	};
 
