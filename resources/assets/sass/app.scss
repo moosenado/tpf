@@ -249,6 +249,11 @@ header {
 	font-weight     : bold;
 	@include transitionStyle(all, .1s, ease-in-out);
 
+	@media (min-width: $screen-sm)
+	{
+		right: 50.2%;
+	}
+
 
 	&:active {
 		opacity: .3;
@@ -286,6 +291,11 @@ header {
 	font-weight     : bold;
 	@include transitionStyle(all, .1s, ease-in-out);
 
+	@media (min-width: $screen-sm)
+	{
+		left: 50.2%;
+	}
+
 	&:active {
 		opacity: .3;
 	}
@@ -304,6 +314,11 @@ header {
 	-webkit-box-shadow: 0px 8px 36px -9px rgba(0,0,0,1);
 	-moz-box-shadow   : 0px 8px 36px -9px rgba(0,0,0,1);
 	box-shadow        : 0px 8px 36px -9px rgba(0,0,0,1);
+
+	@media (min-width: $screen-sm)
+	{
+		left: 50.2%;
+	}
 }
 
 .reset-btn-shadow {
@@ -319,6 +334,11 @@ header {
 	-webkit-box-shadow: 0px 8px 36px -9px rgba(0,0,0,1);
 	-moz-box-shadow   : 0px 8px 36px -9px rgba(0,0,0,1);
 	box-shadow        : 0px 8px 36px -9px rgba(0,0,0,1);
+
+	@media (min-width: $screen-sm)
+	{
+		right: 50.2%;
+	}
 }
 
 .center {
@@ -665,6 +685,16 @@ header {
 	background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.83) 48%, rgba(255,255,255,1) 58%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
 	opacity: .9;
+
+	@media (min-width: $screen-lg)
+	{
+		right: 8%;
+	}
+
+	@media (min-width: 1800px)
+	{
+		right: 20%;
+	}
 
     ul {
     	padding: 0;
