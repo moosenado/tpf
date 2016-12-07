@@ -89,6 +89,22 @@ class FacilityController extends Controller
 
             $response = json_decode(file_get_contents($url));
             $photo_array = $response->photos->photo;
+
+            // try get recent instead
+            if(empty($photo_array)) {
+                $url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search';
+                $url.= '&api_key=d9a424d6ab4edd6d73b1b05baf3c40dd';
+                $url.= '&sort=relevance';
+                $url.= '&text='.$park_name;
+                $url.= '&per_page=20';
+                $url.= '&format=json';
+                $url.= '&nojsoncallback=1';
+                $response = json_decode(file_get_contents($url));
+                $photo_array = $response->photos->photo;
+
+                if(empty($photo_array)) return null;
+            }
+
             $photo_urls = array();
 
             foreach($photo_array as $single_photo) {

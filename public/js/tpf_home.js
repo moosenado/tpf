@@ -323,6 +323,7 @@ var TpfHome = (function()
 	var _filterParkNameForQuery = function(park_name)
 	{
 		var final_word;
+		var park_name = park_name.replace(/["'()/.]/g," ");
 
 		var __removeAbbrev = function (string) {
 			var last_index = string.lastIndexOf(' ');
@@ -407,11 +408,15 @@ var TpfHome = (function()
 
 	var _displayParkImages = function(data)
 	{
-		data.map(function(image, i) {
-			$('.park-images-ul ul').append(
-				"<a href='"+image.replace(/^http:\/\//i, 'https://')+"' target='_blank'><li class='image-item'><img src='"+image.replace(/^http:\/\//i, 'https://')+"'/></li></a>"
-			);
-		});
+		if(data === null) {
+			$('.park-images-ul ul').html("Unfortunately, there are no images available.");
+		} else {
+			data.map(function(image, i) {
+				$('.park-images-ul ul').append(
+					"<a href='"+image.replace(/^http:\/\//i, 'https://')+"' target='_blank'><li class='image-item'><img src='"+image.replace(/^http:\/\//i, 'https://')+"'/></li></a>"
+				);
+			});
+		}
 	};
 
 	var _performPageTransition = function()
