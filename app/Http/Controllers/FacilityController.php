@@ -92,6 +92,7 @@ class FacilityController extends Controller
 
             // try get recent instead
             if(empty($photo_array)) {
+                $park_name = str_replace('Toronto', '', $park_name);
                 $url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search';
                 $url.= '&api_key=d9a424d6ab4edd6d73b1b05baf3c40dd';
                 $url.= '&sort=relevance';

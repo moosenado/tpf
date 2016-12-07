@@ -8915,6 +8915,18 @@ header {
 }
 
 /* line 198, ../sass/app.scss */
+.no-images {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  -ms-transform: translate3d(-50%, -50%, 0);
+  -o-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+}
+
+/* line 205, ../sass/app.scss */
 .title {
   letter-spacing: 2px;
   font-weight: 700;
@@ -8931,7 +8943,7 @@ header {
   transition: all 0.1s ease-in-out;
 }
 @media (min-width: 768px) {
-  /* line 198, ../sass/app.scss */
+  /* line 205, ../sass/app.scss */
   .title {
     font-size: 36px;
     padding: 0 0 0 30px;
@@ -8939,7 +8951,7 @@ header {
   }
 }
 
-/* line 217, ../sass/app.scss */
+/* line 224, ../sass/app.scss */
 .sub-title {
   letter-spacing: 1px;
   font-size: 23px;
@@ -8951,13 +8963,13 @@ header {
   transition: all 0.1s ease-in-out;
 }
 @media (min-width: 768px) {
-  /* line 217, ../sass/app.scss */
+  /* line 224, ../sass/app.scss */
   .sub-title {
     font-size: 30px;
   }
 }
 
-/* line 229, ../sass/app.scss */
+/* line 236, ../sass/app.scss */
 .description {
   font-size: 16px;
   -webkit-transition: all 0.1s ease-in-out;
@@ -8967,7 +8979,7 @@ header {
   transition: all 0.1s ease-in-out;
 }
 
-/* line 234, ../sass/app.scss */
+/* line 241, ../sass/app.scss */
 .reset-btn {
   position: fixed;
   bottom: 15px;
@@ -8991,16 +9003,16 @@ header {
   transition: all 0.1s ease-in-out;
 }
 @media (min-width: 768px) {
-  /* line 234, ../sass/app.scss */
+  /* line 241, ../sass/app.scss */
   .reset-btn {
     right: 50.2%;
   }
 }
-/* line 258, ../sass/app.scss */
+/* line 265, ../sass/app.scss */
 .reset-btn:active {
   opacity: .3;
 }
-/* line 262, ../sass/app.scss */
+/* line 269, ../sass/app.scss */
 .reset-btn i {
   margin: 0;
   padding: 0;
@@ -9008,13 +9020,13 @@ header {
   top: 2px;
 }
 
-/* line 270, ../sass/app.scss */
+/* line 277, ../sass/app.scss */
 .gmap {
   width: 100%;
   height: 30%;
 }
 
-/* line 275, ../sass/app.scss */
+/* line 282, ../sass/app.scss */
 .fire-btn {
   position: fixed;
   bottom: 15px;
@@ -9039,17 +9051,17 @@ header {
   transition: all 0.1s ease-in-out;
 }
 @media (min-width: 768px) {
-  /* line 275, ../sass/app.scss */
+  /* line 282, ../sass/app.scss */
   .fire-btn {
     left: 50.2%;
   }
 }
-/* line 299, ../sass/app.scss */
+/* line 306, ../sass/app.scss */
 .fire-btn:active {
   opacity: .3;
 }
 
-/* line 304, ../sass/app.scss */
+/* line 311, ../sass/app.scss */
 .fire-btn-shadow {
   position: fixed;
   bottom: 15px;
@@ -9065,13 +9077,13 @@ header {
   box-shadow: 0px 8px 36px -9px black;
 }
 @media (min-width: 768px) {
-  /* line 304, ../sass/app.scss */
+  /* line 311, ../sass/app.scss */
   .fire-btn-shadow {
     left: 50.2%;
   }
 }
 
-/* line 324, ../sass/app.scss */
+/* line 331, ../sass/app.scss */
 .reset-btn-shadow {
   position: fixed;
   bottom: 15px;
@@ -9087,23 +9099,23 @@ header {
   box-shadow: 0px 8px 36px -9px black;
 }
 @media (min-width: 768px) {
-  /* line 324, ../sass/app.scss */
+  /* line 331, ../sass/app.scss */
   .reset-btn-shadow {
     right: 50.2%;
   }
 }
 
-/* line 344, ../sass/app.scss */
+/* line 351, ../sass/app.scss */
 .center {
   margin: 0 auto;
 }
 
-/* line 348, ../sass/app.scss */
+/* line 355, ../sass/app.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 353, ../sass/app.scss */
+/* line 360, ../sass/app.scss */
 .park-nav ul {
   list-style: none;
   margin: 0;
@@ -9111,14 +9123,14 @@ header {
   overflow: hidden;
 }
 @media (min-width: 768px) {
-  /* line 353, ../sass/app.scss */
+  /* line 360, ../sass/app.scss */
   .park-nav ul {
     width: 640px;
     margin: 0 auto;
     text-align: center;
   }
 }
-/* line 366, ../sass/app.scss */
+/* line 373, ../sass/app.scss */
 .park-nav ul li {
   position: relative;
   height: 150px;
@@ -9126,7 +9138,7 @@ header {
   padding: 5px 0 5px 0;
 }
 @media (min-width: 768px) {
-  /* line 366, ../sass/app.scss */
+  /* line 373, ../sass/app.scss */
   .park-nav ul li {
     width: 318px;
     /*account for padding*/
@@ -9135,7 +9147,7 @@ header {
     display: inline-block;
   }
 }
-/* line 380, ../sass/app.scss */
+/* line 387, ../sass/app.scss */
 .park-nav ul li p {
   position: absolute;
   bottom: 0;
@@ -9153,21 +9165,21 @@ header {
   transition: all 0.2s ease-out;
 }
 @media (min-width: 768px) {
-  /* line 396, ../sass/app.scss */
+  /* line 403, ../sass/app.scss */
   .park-nav ul li p {
     padding: 5px 40px 5px 10%;
   }
-  /* line 400, ../sass/app.scss */
+  /* line 407, ../sass/app.scss */
   .park-nav ul li:nth-child(1n) {
     text-align: right;
   }
-  /* line 403, ../sass/app.scss */
+  /* line 410, ../sass/app.scss */
   .park-nav ul li:nth-child(2n) {
     text-align: left;
   }
 }
 
-/* line 411, ../sass/app.scss */
+/* line 418, ../sass/app.scss */
 .li-bg {
   -webkit-transition: all 0.6s ease-in-out;
   -moz-transition: all 0.6s ease-in-out;
@@ -9179,20 +9191,20 @@ header {
   background-position: left center;
   background-repeat: no-repeat;
 }
-/* line 417, ../sass/app.scss */
+/* line 424, ../sass/app.scss */
 .li-bg:hover {
   cursor: pointer;
 }
-/* line 420, ../sass/app.scss */
+/* line 427, ../sass/app.scss */
 .li-bg:hover .li-overlay {
   background-color: #fff;
 }
-/* line 424, ../sass/app.scss */
+/* line 431, ../sass/app.scss */
 .li-bg:active {
   opacity: 1;
 }
 
-/* line 429, ../sass/app.scss */
+/* line 436, ../sass/app.scss */
 .li-overlay {
   position: absolute;
   top: 72.5%;
@@ -9208,7 +9220,7 @@ header {
   transition: all 0.5s ease-in-out;
 }
 
-/* line 440, ../sass/app.scss */
+/* line 447, ../sass/app.scss */
 .li-overlay-white {
   position: absolute;
   top: 72%;
@@ -9218,25 +9230,25 @@ header {
   background-color: #fff;
 }
 
-/* line 449, ../sass/app.scss */
+/* line 456, ../sass/app.scss */
 .park-list-container {
   position: relative;
   width: 100%;
 }
 
-/* line 454, ../sass/app.scss */
+/* line 461, ../sass/app.scss */
 .park-distance-ul {
   overflow: hidden;
   width: 100%;
   height: 56px;
 }
 @media all and (min-width: 768px) {
-  /* line 454, ../sass/app.scss */
+  /* line 461, ../sass/app.scss */
   .park-distance-ul {
     height: auto;
   }
 }
-/* line 463, ../sass/app.scss */
+/* line 470, ../sass/app.scss */
 .park-distance-ul ul {
   margin: 0;
   padding: 0;
@@ -9245,12 +9257,12 @@ header {
   padding-bottom: 17px;
 }
 @media all and (min-width: 768px) {
-  /* line 463, ../sass/app.scss */
+  /* line 470, ../sass/app.scss */
   .park-distance-ul ul {
     padding-bottom: 0;
   }
 }
-/* line 474, ../sass/app.scss */
+/* line 481, ../sass/app.scss */
 .park-distance-ul ul li {
   list-style: none;
   position: relative;
@@ -9271,13 +9283,13 @@ header {
   transition: all 1s ease-in-out;
 }
 @media all and (min-width: 768px) {
-  /* line 474, ../sass/app.scss */
+  /* line 481, ../sass/app.scss */
   .park-distance-ul ul li {
     height: 75px;
     border: 6px solid #71e271;
   }
 }
-/* line 494, ../sass/app.scss */
+/* line 501, ../sass/app.scss */
 .park-distance-ul ul li:hover {
   opacity: .7;
   -webkit-transition: all 0.1s ease-in-out;
@@ -9286,7 +9298,7 @@ header {
   -o-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
-/* line 499, ../sass/app.scss */
+/* line 506, ../sass/app.scss */
 .park-distance-ul ul li .number {
   font-size: 20px;
   display: inline-block;
@@ -9297,19 +9309,19 @@ header {
   color: #502d07;
 }
 
-/* line 512, ../sass/app.scss */
+/* line 519, ../sass/app.scss */
 .park-facilities-ul {
   overflow: hidden;
   width: 100%;
   height: 26px;
 }
 @media all and (min-width: 768px) {
-  /* line 512, ../sass/app.scss */
+  /* line 519, ../sass/app.scss */
   .park-facilities-ul {
     height: auto;
   }
 }
-/* line 521, ../sass/app.scss */
+/* line 528, ../sass/app.scss */
 .park-facilities-ul ul {
   margin: 0;
   padding: 0;
@@ -9318,12 +9330,12 @@ header {
   padding-bottom: 17px;
 }
 @media all and (min-width: 768px) {
-  /* line 521, ../sass/app.scss */
+  /* line 528, ../sass/app.scss */
   .park-facilities-ul ul {
     padding-bottom: 0;
   }
 }
-/* line 532, ../sass/app.scss */
+/* line 539, ../sass/app.scss */
 .park-facilities-ul ul li {
   list-style: none;
   position: relative;
@@ -9342,12 +9354,12 @@ header {
   transition: all 1s ease-in-out;
 }
 @media all and (min-width: 768px) {
-  /* line 532, ../sass/app.scss */
+  /* line 539, ../sass/app.scss */
   .park-facilities-ul ul li {
     height: 30px;
   }
 }
-/* line 549, ../sass/app.scss */
+/* line 556, ../sass/app.scss */
 .park-facilities-ul ul li .item {
   font-size: 16px;
   display: inline-block;
@@ -9358,31 +9370,31 @@ header {
   color: #502d07;
 }
 @media all and (min-width: 768px) {
-  /* line 549, ../sass/app.scss */
+  /* line 556, ../sass/app.scss */
   .park-facilities-ul ul li .item {
     font-size: 18px;
     margin-top: -14px;
   }
 }
 
-/* line 567, ../sass/app.scss */
+/* line 574, ../sass/app.scss */
 .park-selected {
   opacity: .5;
 }
 
-/* line 571, ../sass/app.scss */
+/* line 578, ../sass/app.scss */
 .park-selected-official {
   border: 4px solid #502d07 !important;
   opacity: 1;
 }
 @media all and (min-width: 768px) {
-  /* line 571, ../sass/app.scss */
+  /* line 578, ../sass/app.scss */
   .park-selected-official {
     border: 6px solid #502d07 !important;
   }
 }
 
-/* line 580, ../sass/app.scss */
+/* line 587, ../sass/app.scss */
 .number-overlay {
   font-size: 62px;
   display: inline-block;
@@ -9401,29 +9413,29 @@ header {
   transform: scale(0.5, 0.5);
 }
 
-/* line 594, ../sass/app.scss */
+/* line 601, ../sass/app.scss */
 .park-info-cont {
   width: 100%;
   position: relative;
 }
-/* line 598, ../sass/app.scss */
+/* line 605, ../sass/app.scss */
 .park-info-cont ul {
   padding: 0 15px;
   margin: 0;
   color: #502d07;
 }
-/* line 603, ../sass/app.scss */
+/* line 610, ../sass/app.scss */
 .park-info-cont ul li {
   display: inline-block;
 }
 @media (min-width: 321px) {
-  /* line 603, ../sass/app.scss */
+  /* line 610, ../sass/app.scss */
   .park-info-cont ul li {
     display: block;
   }
 }
 
-/* line 614, ../sass/app.scss */
+/* line 621, ../sass/app.scss */
 .park-images-ul {
   overflow: hidden;
   width: 100%;
@@ -9431,12 +9443,12 @@ header {
   position: relative;
 }
 @media all and (min-width: 768px) {
-  /* line 614, ../sass/app.scss */
+  /* line 621, ../sass/app.scss */
   .park-images-ul {
     height: auto;
   }
 }
-/* line 624, ../sass/app.scss */
+/* line 631, ../sass/app.scss */
 .park-images-ul ul {
   margin: 0;
   padding: 0;
@@ -9446,28 +9458,28 @@ header {
   height: 148px;
 }
 @media all and (min-width: 768px) {
-  /* line 624, ../sass/app.scss */
+  /* line 631, ../sass/app.scss */
   .park-images-ul ul {
     padding-bottom: 0;
   }
 }
-/* line 636, ../sass/app.scss */
+/* line 643, ../sass/app.scss */
 .park-images-ul ul li {
   display: inline-block;
   padding-right: 5px;
 }
-/* line 640, ../sass/app.scss */
+/* line 647, ../sass/app.scss */
 .park-images-ul ul li img {
   height: 95px;
 }
 @media all and (min-width: 768px) {
-  /* line 640, ../sass/app.scss */
+  /* line 647, ../sass/app.scss */
   .park-images-ul ul li img {
     height: 125px;
   }
 }
 
-/* line 650, ../sass/app.scss */
+/* line 657, ../sass/app.scss */
 .svg-check {
   display: none;
   position: absolute;
@@ -9482,7 +9494,7 @@ header {
   -webkit-border-radius: 50%;
 }
 
-/* line 664, ../sass/app.scss */
+/* line 671, ../sass/app.scss */
 .li-gradient-overlay {
   position: absolute;
   top: 0;
@@ -9491,7 +9503,7 @@ header {
   bottom: 0;
 }
 
-/* line 672, ../sass/app.scss */
+/* line 679, ../sass/app.scss */
 .chosen-park-list {
   position: fixed;
   top: auto;
@@ -9510,24 +9522,24 @@ header {
   opacity: .9;
 }
 @media (min-width: 1200px) {
-  /* line 672, ../sass/app.scss */
+  /* line 679, ../sass/app.scss */
   .chosen-park-list {
     right: 8%;
   }
 }
 @media (min-width: 1800px) {
-  /* line 672, ../sass/app.scss */
+  /* line 679, ../sass/app.scss */
   .chosen-park-list {
     right: 20%;
   }
 }
-/* line 699, ../sass/app.scss */
+/* line 706, ../sass/app.scss */
 .chosen-park-list ul {
   padding: 0;
   margin: 0;
   padding: 10px 14px 10px 40px;
 }
-/* line 704, ../sass/app.scss */
+/* line 711, ../sass/app.scss */
 .chosen-park-list ul li {
   text-align: right;
   list-style: none;
@@ -9536,7 +9548,7 @@ header {
   padding: 4px 0;
 }
 
-/* line 714, ../sass/app.scss */
+/* line 721, ../sass/app.scss */
 .loading-screen {
   position: fixed;
   top: 0;
@@ -9551,7 +9563,7 @@ header {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-/* line 724, ../sass/app.scss */
+/* line 731, ../sass/app.scss */
 .loading-screen .overlay {
   position: fixed;
   top: 0;
@@ -9561,7 +9573,7 @@ header {
   background-color: white;
   opacity: .8;
 }
-/* line 734, ../sass/app.scss */
+/* line 741, ../sass/app.scss */
 .loading-screen .contents {
   position: fixed;
   top: 50%;
@@ -9573,18 +9585,18 @@ header {
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
 }
-/* line 741, ../sass/app.scss */
+/* line 748, ../sass/app.scss */
 .loading-screen .contents svg {
   width: 60px;
   height: 60px;
 }
-/* line 746, ../sass/app.scss */
+/* line 753, ../sass/app.scss */
 .loading-screen .contents .text {
   height: 20px;
   position: relative;
   margin: 10px auto;
 }
-/* line 751, ../sass/app.scss */
+/* line 758, ../sass/app.scss */
 .loading-screen .contents .text p {
   font-size: 14px;
   padding: 0;
@@ -9595,7 +9607,7 @@ header {
   opacity: 0;
 }
 
-/* line 765, ../sass/app.scss */
+/* line 772, ../sass/app.scss */
 .loading-screen-small {
   position: absolute;
   top: 0;
@@ -9610,7 +9622,7 @@ header {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-/* line 775, ../sass/app.scss */
+/* line 782, ../sass/app.scss */
 .loading-screen-small .overlay {
   position: absolute;
   top: 0;
@@ -9620,7 +9632,7 @@ header {
   background-color: white;
   opacity: .8;
 }
-/* line 785, ../sass/app.scss */
+/* line 792, ../sass/app.scss */
 .loading-screen-small svg {
   width: 35px;
   height: 35px;
@@ -9635,13 +9647,13 @@ header {
   transform: translateX(-50%) translateY(-50%);
 }
 
-/* line 796, ../sass/app.scss */
+/* line 803, ../sass/app.scss */
 .loading-screen-fail {
   text-align: center;
   font-size: 18px;
   display: none;
 }
-/* line 801, ../sass/app.scss */
+/* line 808, ../sass/app.scss */
 .loading-screen-fail .overlay {
   position: fixed;
   top: 0;
@@ -9657,7 +9669,7 @@ header {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-/* line 813, ../sass/app.scss */
+/* line 820, ../sass/app.scss */
 .loading-screen-fail .loading-text-fail {
   position: fixed;
   top: 50%;
@@ -9670,14 +9682,14 @@ header {
   transform: translateX(-50%) translateY(-50%);
 }
 
-/* line 822, ../sass/app.scss */
+/* line 829, ../sass/app.scss */
 .fa-styling {
   color: #71e271;
   width: 16px;
   text-align: center;
 }
 
-/* line 828, ../sass/app.scss */
+/* line 835, ../sass/app.scss */
 .fa-styling-small {
   color: #71e271;
   font-size: 10px !important;
@@ -9685,14 +9697,14 @@ header {
   vertical-align: middle;
 }
 
-/* line 835, ../sass/app.scss */
+/* line 842, ../sass/app.scss */
 .image-bullet-point {
   width: 14px;
   margin-left: 10px;
   margin-top: -3px;
 }
 
-/* line 841, ../sass/app.scss */
+/* line 848, ../sass/app.scss */
 footer {
   color: #71e271;
   font-size: 10px;
@@ -9700,7 +9712,7 @@ footer {
 }
 
 /* TRANSITION SPECIFIC */
-/* line 853, ../sass/app.scss */
+/* line 860, ../sass/app.scss */
 .ani-left {
   -webkit-transform: translate3d(-2000px, 0, 0);
   -moz-transform: translate3d(-2000px, 0, 0);
@@ -9710,7 +9722,7 @@ footer {
   opacity: 0;
 }
 
-/* line 858, ../sass/app.scss */
+/* line 865, ../sass/app.scss */
 .ani-right {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -9720,17 +9732,17 @@ footer {
   opacity: 1;
 }
 
-/* line 863, ../sass/app.scss */
+/* line 870, ../sass/app.scss */
 .ani-fadeOut {
   opacity: 0;
 }
 
-/* line 867, ../sass/app.scss */
+/* line 874, ../sass/app.scss */
 .ani-fadeIn {
   opacity: 1;
 }
 
-/* line 871, ../sass/app.scss */
+/* line 878, ../sass/app.scss */
 .ani-fadeOutZindex {
   opacity: 0;
   z-index: -1;
@@ -9741,7 +9753,7 @@ footer {
   animation: zoomAniNoRotateRev 0.3s forwards;
 }
 
-/* line 877, ../sass/app.scss */
+/* line 884, ../sass/app.scss */
 .ani-fadeInZindex {
   opacity: 1;
   z-index: 1;
@@ -9753,7 +9765,7 @@ footer {
 }
 
 /* ANIMATION SPECIFIC */
-/* line 889, ../sass/app.scss */
+/* line 896, ../sass/app.scss */
 .zoom-check {
   -webkit-animation: zoomAni 0.7s forwards;
   -moz-animation: zoomAni 0.7s forwards;
@@ -9762,7 +9774,7 @@ footer {
   animation: zoomAni 0.7s forwards;
 }
 
-/* line 893, ../sass/app.scss */
+/* line 900, ../sass/app.scss */
 .zoom-check-reverse {
   -webkit-animation: zoomAniRev 0.5s forwards;
   -moz-animation: zoomAniRev 0.5s forwards;
@@ -9771,7 +9783,7 @@ footer {
   animation: zoomAniRev 0.5s forwards;
 }
 
-/* line 897, ../sass/app.scss */
+/* line 904, ../sass/app.scss */
 .zoom-check-shadow {
   -webkit-animation: zoomAniRevShadow 0.5s forwards;
   -moz-animation: zoomAniRevShadow 0.5s forwards;
@@ -9780,7 +9792,7 @@ footer {
   animation: zoomAniRevShadow 0.5s forwards;
 }
 
-/* line 901, ../sass/app.scss */
+/* line 908, ../sass/app.scss */
 .zoom-check-shadow-reverse {
   -webkit-animation: zoomAniRevShadowRev 0.5s forwards;
   -moz-animation: zoomAniRevShadowRev 0.5s forwards;
@@ -9789,7 +9801,7 @@ footer {
   animation: zoomAniRevShadowRev 0.5s forwards;
 }
 
-/* line 905, ../sass/app.scss */
+/* line 912, ../sass/app.scss */
 .slide-center {
   -webkit-animation: slideAni 0.5s forwards;
   -moz-animation: slideAni 0.5s forwards;
@@ -9798,7 +9810,7 @@ footer {
   animation: slideAni 0.5s forwards;
 }
 
-/* line 909, ../sass/app.scss */
+/* line 916, ../sass/app.scss */
 .number-zoom {
   -webkit-animation: numberZoomAni 1s forwards;
   -moz-animation: numberZoomAni 1s forwards;
@@ -9811,7 +9823,7 @@ footer {
   animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
-/* line 917, ../sass/app.scss */
+/* line 924, ../sass/app.scss */
 .fade-in-and-up {
   -webkit-animation: fadeInAndUp 0.5s forwards;
   -moz-animation: fadeInAndUp 0.5s forwards;
@@ -9824,7 +9836,7 @@ footer {
   animation-timing-function: cubic-bezier(0.17, 0.67, 0.08, 1.27);
 }
 
-/* line 925, ../sass/app.scss */
+/* line 932, ../sass/app.scss */
 .li-click {
   -webkit-animation: liButtonClick 0.5s forwards;
   -moz-animation: liButtonClick 0.5s forwards;
@@ -9840,7 +9852,7 @@ footer {
   perspective: 200px;
 }
 
-/* line 936, ../sass/app.scss */
+/* line 943, ../sass/app.scss */
 .li-click-text {
   -webkit-animation: liButtonClickText 4.6s forwards;
   -moz-animation: liButtonClickText 4.6s forwards;
@@ -9865,7 +9877,7 @@ footer {
   perspective: 200px;
 }
 
-/* line 952, ../sass/app.scss */
+/* line 959, ../sass/app.scss */
 .top-leaf {
   fill: #71E271;
   -webkit-animation: colorSwapToBrightGreen 0.5s infinite;
@@ -9875,7 +9887,7 @@ footer {
   animation: colorSwapToBrightGreen 0.5s infinite;
 }
 
-/* line 957, ../sass/app.scss */
+/* line 964, ../sass/app.scss */
 .bottom-leaf {
   fill: #00CA3E;
   -webkit-animation: colorSwapToDarkGreen 0.5s infinite;
@@ -9885,7 +9897,7 @@ footer {
   animation: colorSwapToDarkGreen 0.5s infinite;
 }
 
-/* line 962, ../sass/app.scss */
+/* line 969, ../sass/app.scss */
 .top-leaf-slow {
   fill: #71E271;
   -webkit-animation: colorSwapToBrightGreenSlow 2.7s infinite;
@@ -9895,7 +9907,7 @@ footer {
   animation: colorSwapToBrightGreenSlow 2.7s infinite;
 }
 
-/* line 967, ../sass/app.scss */
+/* line 974, ../sass/app.scss */
 .bottom-leaf-slow {
   fill: #00CA3E;
   -webkit-animation: colorSwapToDarkGreenSlow 2.7s infinite;
@@ -9905,7 +9917,7 @@ footer {
   animation: colorSwapToDarkGreenSlow 2.7s infinite;
 }
 
-/* line 972, ../sass/app.scss */
+/* line 979, ../sass/app.scss */
 .loading-text {
   -webkit-animation: loadingText 0.9s infinite;
   -moz-animation: loadingText 0.9s infinite;

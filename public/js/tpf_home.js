@@ -401,6 +401,7 @@ var TpfHome = (function()
 	        },
 	        error: function (e) {
 	        	_removeLoadingScreen($loadingscreen_small);
+	        	_displayParkImages(null);
 	            console.log(e);
 	        }
 	    });
@@ -409,7 +410,7 @@ var TpfHome = (function()
 	var _displayParkImages = function(data)
 	{
 		if(data === null) {
-			$('.park-images-ul ul').html("Unfortunately, there are no images available.");
+			$('.park-images-ul ul').append("<div class='no-images'>Unfortunately, there are no images available.</div>");
 		} else {
 			data.map(function(image, i) {
 				$('.park-images-ul ul').append(
