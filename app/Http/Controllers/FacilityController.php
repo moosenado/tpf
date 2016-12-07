@@ -71,45 +71,75 @@ class FacilityController extends Controller
         $park_name       = utf8_encode( $data['park'] );
         $park_cache_name = str_replace( "%20","_",$park_name );
 
-        if ( Cache::store( 'database' )->has( $park_cache_name) )
+        if ( Cache::store( 'database' )->has( $park_cache_name ) )
         {
             return Cache::store( 'database' )->get( $park_cache_name );
         }
         else
         {
-            $sURL = "https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=".$park_name."&count=20&size=medium";
+            $url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search';
+            $url.= '&api_key=d9a424d6ab4edd6d73b1b05baf3c40dd';
+            $url.= '&sort=relevance';
+            $url.= '&text='.$park_name;
+            $url.= '&per_page=20';
+            $url.= '&format=json';
+            $url.= '&nojsoncallback=1';
 
-            $ch = curl_init();
-            curl_setopt( $ch, CURLOPT_URL, $sURL );
-            curl_setopt( $ch, CURLOPT_TIMEOUT, '5' );
-            curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
-            //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt( $ch, CURLOPT_HTTPHEADER, array(
-                'Content-Type: multipart/form-data',
-                'Ocp-Apim-Subscription-Key: d94b9ad51f0c422787649f57c7d68468'
-            ) );
+            //set photo array from flikr
 
-            $park_image_content = curl_exec( $ch );
-            $park_image_content = json_decode( $park_image_content );
-            $count = 0;
+            $response = json_decode(file_get_contents($url));
+            $photo_array = $response->photos->photo;
+            $photo_urls = array();
 
-            foreach($park_image_content->value as $result) {
-                $park_image_content->value[$count]->contentUrl = preg_replace("/^http:/i", "https:", $result->contentUrl);
-                $count++;
+            foreach($photo_array as $single_photo) {
+                $farm_id = $single_photo->farm;
+                $server_id = $single_photo->server;
+                $photo_id = $single_photo->id;
+                $secret_id = $single_photo->secret;
+
+                $title = $single_photo->title;
+
+                $photo_url = 'https://farm'.$farm_id.'.staticflickr.com/'.$server_id.'/'.$photo_id.'_'.$secret_id.'.'.'jpg';
+
+                array_push($photo_urls, $photo_url);
             }
 
-            $http_status = curl_getinfo( $ch, CURLINFO_HTTP_CODE );
+            self::cacheData( $park_cache_name, $photo_urls, 'string', 43800 ); // cache for one month
+            return $photo_urls;
 
-            if( $http_status != 200 )
-            {
-                return $http_status;
-            }
-            else
-            {
-                $park_image_content = json_encode( $park_image_content );
-                self::cacheData( $park_cache_name, $park_image_content, 'string', 43800 ); // cache for one month
-                return $park_image_content;
-            }
+            // $sURL = "https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=".$park_name."&count=20&size=medium";
+
+            // $ch = curl_init();
+            // curl_setopt( $ch, CURLOPT_URL, $sURL );
+            // curl_setopt( $ch, CURLOPT_TIMEOUT, '5' );
+            // curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+            // //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            // curl_setopt( $ch, CURLOPT_HTTPHEADER, array(
+            //     'Content-Type: multipart/form-data',
+            //     'Ocp-Apim-Subscription-Key: d94b9ad51f0c422787649f57c7d68468'
+            // ) );
+
+            // $park_image_content = curl_exec( $ch );
+            // $park_image_content = json_decode( $park_image_content );
+            // $count = 0;
+
+            // foreach($park_image_content->value as $result) {
+            //     $park_image_content->value[$count]->contentUrl = preg_replace("/^http:/i", "https:", $result->contentUrl);
+            //     $count++;
+            // }
+
+            // $http_status = curl_getinfo( $ch, CURLINFO_HTTP_CODE );
+
+            // if( $http_status != 200 )
+            // {
+            //     return $http_status;
+            // }
+            // else
+            // {
+                // $park_image_content = json_encode( $park_image_content );
+                // self::cacheData( $park_cache_name, $park_image_content, 'string', 43800 ); // cache for one month
+                // return $park_image_content;
+            // }
         }
     }
 

@@ -407,9 +407,9 @@ var TpfHome = (function()
 
 	var _displayParkImages = function(data)
 	{
-		data.value.map(function(image, i) {
+		data.map(function(image, i) {
 			$('.park-images-ul ul').append(
-				"<a href='"+image.contentUrl.replace(/^http:\/\//i, 'https://')+"' target='_blank'><li class='image-item'><img src='"+image.contentUrl.replace(/^http:\/\//i, 'https://')+"'/></li></a>"
+				"<a href='"+image.replace(/^http:\/\//i, 'https://')+"' target='_blank'><li class='image-item'><img src='"+image.replace(/^http:\/\//i, 'https://')+"'/></li></a>"
 			);
 		});
 	};
