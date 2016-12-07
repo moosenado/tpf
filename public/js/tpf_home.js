@@ -323,7 +323,7 @@ var TpfHome = (function()
 	var _filterParkNameForQuery = function(park_name)
 	{
 		var final_word;
-		var park_name = park_name.replace(/["'()/.]/g," ");
+		var park_name = park_name.replace(/["'()/.-]/g," ");
 
 		var __removeAbbrev = function (string) {
 			var last_index = string.lastIndexOf(' ');
