@@ -297,7 +297,7 @@ var TpfHome = (function()
 		};
 
 	    $.ajax({
-	        url     : document.location.origin+'/t--p--f/public/facilities',
+	        url     : document.location.origin+'/facilities',
 	        type    : 'GET',
 	        data    : ajax_params,
 	        dataType: 'JSON',
@@ -390,7 +390,7 @@ var TpfHome = (function()
 		$('.park-images-ul ul').empty(); // empty previous event handlers/element data
 
 	    $.ajax({
-	        url     : document.location.origin+'/t--p--f/public/bingimages',
+	        url     : document.location.origin+'/bingimages',
 	        type    : 'GET',
 	        data    : {park: park_name},
 	        dataType: 'JSON',
