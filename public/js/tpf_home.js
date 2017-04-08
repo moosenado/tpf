@@ -543,7 +543,7 @@ var TpfHome = (function()
 			tel_close      = '',
 			facil_count    = 0;
 
-		if (phone_number !== '') {
+		if (phone_number !== '' && phone_number !== null) {
 			tel       = '<a href="tel:' + current_park_selection_data[park_selection_index]['phone'] + '">',
 			tel_close = '</a>';
 		} else {
